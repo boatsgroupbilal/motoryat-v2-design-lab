@@ -338,3 +338,138 @@ footer{min-height:360px;background:var(--navy-deep);color:#d9e2e8;padding:56px 0
   .sellerPanel.wide{grid-column:auto}
   .addGrid{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* V2 directory, charter, marketplace and editorial pages */
+.compactSection{padding-bottom:64px}
+.charterContent p{max-width:600px;color:#e5edf1;margin:-14px 0 24px}
+.charterSearch{width:min(1100px,100%);grid-template-columns:1.25fr 1fr .9fr 1fr 150px}
+.charterSearch button{border:0;border-right:1px solid var(--line);background:#fff;text-align:left;padding:10px 16px}
+.charterSearch .finderSubmit{text-align:center}
+.listingSectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}
+.listingSectionHead span,.marketTools span,.directoryHero span,.indexHero span,.newsTop span{display:block;font-size:11px;letter-spacing:2px;font-weight:700;color:#9b7c46}
+.listingSectionHead h2,.marketTools h2{margin:3px 0 0}
+.listingSectionHead select,.marketTools select,.directoryTools select{height:40px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:0 12px}
+.charterList{display:flex;flex-direction:column;gap:18px}
+.charterRow{min-height:260px;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:340px minmax(0,1fr) 220px}
+.charterRowMedia{position:relative;min-height:255px;background:#e8edef}
+.charterRowMedia img{width:100%;height:100%;object-fit:cover}
+.charterRowMedia span{position:absolute;left:12px;top:12px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1px;padding:5px 8px;border-radius:4px}
+.charterRowInfo{padding:28px}
+.charterRowInfo>small,.charterRowPrice>small{font-size:10px;letter-spacing:1.2px;color:#81909a}
+.charterRowInfo h3{margin:5px 0 8px}
+.charterRowInfo p{color:var(--muted);margin-bottom:22px}
+.charterFacts{display:flex;flex-wrap:wrap;gap:8px}
+.charterFacts span{font-size:12px;padding:5px 9px;background:var(--soft);border-radius:4px}
+.charterRowPrice{border-left:1px solid var(--line);padding:28px 22px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.charterRowPrice strong{font-size:17px;margin:3px 0 18px}
+
+.commerceHero{background:var(--navy);color:#fff;padding:58px 0}
+.commerceHeroInner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+.commerceHero span{display:block;font-size:11px;letter-spacing:2px;color:#d4ba82;font-weight:700}
+.commerceHero h1{margin:5px 0 6px}
+.commerceHero p{margin:0;color:#dbe5ea}
+.commerceHero .commerceSearch{width:100%;margin:0}
+.marketplaceLayout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;padding:32px 0 72px}
+.marketSidebar{border:1px solid var(--line);border-radius:8px;align-self:start;overflow:hidden}
+.marketSideTitle{padding:16px;font-size:11px;letter-spacing:1.5px;font-weight:800;background:var(--soft)}
+.marketSidebar a{min-height:44px;padding:10px 14px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.marketSidebar a.active{background:var(--navy);color:#fff}
+.marketTools{min-height:72px;display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}
+.marketTools p{margin:2px 0 0;color:var(--muted)}
+.brandStrip{display:flex;gap:8px;overflow:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0 14px;margin-bottom:20px}
+.brandStrip button{height:36px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:0 14px;white-space:nowrap}
+.productGrid.marketplace{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+.directoryHero{background:linear-gradient(115deg,var(--navy-deep),var(--navy));color:#fff;padding:68px 0}
+.directoryHeroInner{max-width:900px}
+.directoryHero h1{margin:5px 0 6px}
+.directoryHero p{color:#dbe4e9}
+.directoryTools{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.directoryTools .simpleTabs{padding:0}
+.directorySection{padding-top:56px}
+
+.indexHero{background:var(--soft);padding:64px 0;border-bottom:1px solid var(--line)}
+.indexHero h1{margin:5px 0 6px}
+.indexHero p{color:var(--muted);max-width:720px}
+.indexSearch{height:64px;display:flex;width:min(760px,100%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px;margin-top:22px}
+.indexSearch input{flex:1;border:0;outline:0;padding:0 14px}
+.brandIndex{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.brandIndex a{min-height:128px;padding:18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end}
+.brandIndex small{color:#9aa5ac}
+.brandIndex b{font-size:20px;margin:4px 0}
+.brandIndex span{font-size:12px;color:var(--muted)}
+.marinasIndexHero{background:var(--sand)}
+.marinaGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.marinaCard{min-height:250px;border:1px solid var(--line);border-radius:8px;padding:22px;display:flex;flex-direction:column;background:#fff}
+.marinaNo{font-size:28px;color:#c7d0d5;margin-bottom:auto}
+.marinaCard small{font-size:10px;letter-spacing:1px;color:#8a969e}
+.marinaCard h3{margin:4px 0 8px}
+.marinaCard p{font-size:13px;color:var(--muted)}
+.marinaCard>span{font-size:12px;font-weight:700;color:#765e38}
+
+.newsTop{background:var(--navy-deep);color:#fff;padding:62px 0}
+.newsTop span{color:#d4ba82}
+.newsTop h1{margin:5px 0 6px}
+.newsTop p{margin:0;color:#dbe4e9}
+.newsLeadGrid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+.newsLead{position:relative;min-height:468px;overflow:hidden;border-radius:8px;color:#fff}
+.newsLead>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.newsLead:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.newsLead>div{position:absolute;left:28px;right:28px;bottom:24px;z-index:2}
+.newsLead small,.newsStack small,.newsCards small{font-size:10px;letter-spacing:1.2px;color:#d4ba82}
+.newsLead h2{margin:4px 0 8px}
+.newsLead p{margin:0}
+.newsStack{display:grid;grid-template-rows:repeat(3,1fr);gap:16px}
+.newsStack a{display:grid;grid-template-columns:150px 1fr;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.newsStack img{width:150px;height:100px;object-fit:cover;border-radius:6px}
+.newsStack h3{font-size:16px;line-height:22px;margin:3px 0}
+.newsCards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.newsCards a{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding-bottom:16px}
+.newsCards img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:14px}
+.newsCards small,.newsCards h3,.newsCards p{margin-left:16px;margin-right:16px}
+.newsCards h3{font-size:18px;line-height:24px;margin-top:4px;margin-bottom:7px}
+.newsCards p{font-size:13px;color:var(--muted);margin-bottom:0}
+
+.footerBrand small{color:#91a1ac;max-width:330px}
+.footerBottom{border-top:1px solid #1b394b;margin-top:46px;padding-top:18px;display:flex;justify-content:space-between;font-size:12px;color:#83949f}
+
+@media(max-width:1024px){
+  .charterRow{grid-template-columns:300px 1fr}
+  .charterRowPrice{grid-column:2;border-left:0;border-top:1px solid var(--line);padding:16px 24px;flex-direction:row;align-items:center;justify-content:space-between}
+  .charterRowPrice strong{margin:0}
+  .commerceHeroInner{grid-template-columns:1fr;gap:24px}
+  .marketplaceLayout{grid-template-columns:220px 1fr}
+  .productGrid.marketplace{grid-template-columns:repeat(2,1fr)}
+  .brandIndex,.marinaGrid,.newsCards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .charterSearch{grid-template-columns:1fr 1fr}
+  .charterSearch .finderSubmit{min-height:56px}
+  .charterRow{grid-template-columns:1fr}
+  .charterRowMedia{min-height:0;aspect-ratio:4/3}
+  .charterRowPrice{grid-column:auto;border-top:1px solid var(--line);padding:16px 20px}
+  .marketplaceLayout{grid-template-columns:1fr}
+  .marketSidebar{display:none}
+  .directoryTools{height:auto;min-height:72px;gap:14px;align-items:flex-start;flex-direction:column;padding-top:14px;padding-bottom:14px}
+  .brandIndex,.marinaGrid{grid-template-columns:repeat(2,1fr)}
+  .newsLeadGrid{grid-template-columns:1fr}
+  .newsLead{min-height:420px}
+  .newsStack{grid-template-rows:auto}
+}
+@media(max-width:480px){
+  .charterSearch{grid-template-columns:1fr}
+  .charterContent p{font-size:14px}
+  .charterRowInfo{padding:20px}
+  .charterRowPrice{align-items:flex-start;gap:12px;flex-direction:column}
+  .commerceHero{padding:44px 0}
+  .commerceSearch{height:60px}
+  .marketTools{align-items:flex-start;flex-direction:column;gap:12px}
+  .productGrid.marketplace,.brandIndex,.marinaGrid,.newsCards{grid-template-columns:1fr}
+  .brandIndex a{min-height:104px}
+  .newsLead{min-height:360px}
+  .newsLead>div{left:18px;right:18px;bottom:18px}
+  .newsStack a{grid-template-columns:120px 1fr}
+  .newsStack img{width:120px;height:90px}
+  .footerBottom{gap:10px;flex-direction:column}
+}
