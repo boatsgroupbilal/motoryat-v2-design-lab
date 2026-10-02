@@ -1,14 +1,32 @@
 import Link from 'next/link';
 
-export default function YachtListingRow({item,type='sale',seller='',year='2026',refit='—',index=0}){
+export default function YachtListingRow({
+  item,
+  type='sale',
+  seller='',
+  year='2026',
+  refit='—',
+  index=0,
+  brandLogo=''
+}){
   const charter=type==='charter';
   const tone=charter
     ? ['charterA','charterB','charterC','charterD'][index%4]
     : ['saleA','saleB','saleC','saleD'][index%4];
 
+  const brand=seller||'Motoryat.com';
+  const initials=brand.split(' ').filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+  const photoCount=[28,24,32,37][index%4];
+  const videoCount=[3,5,4,0][index%4];
+
   return <article className={'sqYachtCard '+(charter?'isCharter':'isSale')+' '+tone}>
     <Link href={item.href} className="sqYachtMedia" aria-label={item.title}>
       <img src={item.image} alt={item.title}/>
+      <span className="sqYachtFav" aria-hidden="true">♡</span>
+      <span className="sqYachtMediaStats" aria-hidden="true">
+        <i>▣ {photoCount}</i>
+        <i>▷ {videoCount}</i>
+      </span>
     </Link>
 
     <div className="sqYachtInfo">
@@ -21,19 +39,24 @@ export default function YachtListingRow({item,type='sale',seller='',year='2026',
       </div>
 
       <div className="sqYachtPrice">
-        <small>{charter?'HAFTALIK FİYAT':'FİYAT'}</small>
+        <small>{charter?'HAFTALIK FİYAT':'FİYATI'}</small>
         <strong>{item.price}</strong>
-      </div>
-
-      <div className="sqYachtBrandLine">
-        <small>FİRMA / MARKA</small>
-        <strong>{seller||'Motoryat.com'}</strong>
       </div>
     </div>
 
     <Link href={item.href} className="sqYachtStatus" aria-label={(charter?'Kiralama listesi: ':'Satış ilanı: ')+item.title}>
       <span>{charter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</span>
-      <b>⌄</b>
+      <b>→</b>
     </Link>
+
+    <div className="sqYachtBrand">
+      <div className="sqYachtBrandMark">
+        {brandLogo ? <img src={brandLogo} alt=""/> : <span>{initials||'MY'}</span>}
+      </div>
+      <div className="sqYachtBrandText">
+        <strong>{brand}</strong>
+        <small>Yetkili Satıcı <i>✓</i></small>
+      </div>
+    </div>
   </article>
 }
