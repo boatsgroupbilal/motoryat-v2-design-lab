@@ -5,8 +5,10 @@ const sale=[
  ['Motoryat','/satilik?tip=motoryat'],
  ['Yelkenli','/satilik?tip=yelkenli'],
  ['Katamaran','/satilik?tip=katamaran'],
- ['Tekne','/satilik?tip=tekne']
+ ['Tekne','/satilik?tip=tekne'],
+ ['Yeni İnşa','/yeni-insa']
 ];
+
 const charter=[
  ['Superyacht','/kiralik?tip=superyacht'],
  ['Motoryat','/kiralik?tip=motoryat'],
@@ -14,6 +16,7 @@ const charter=[
  ['Katamaran','/kiralik?tip=katamaran'],
  ['Tekne','/kiralik?tip=tekne']
 ];
+
 const equipment=[
  ['Motor & Mekanik','/urunler?kategori=motor-mekanik'],
  ['Elektrik & Elektronik','/urunler?kategori=elektrik-elektronik'],
@@ -21,18 +24,21 @@ const equipment=[
  ['Seyir & Haberleşme','/urunler?kategori=seyir-haberlesme'],
  ['Güvenlik','/urunler?kategori=guvenlik'],
  ['Bakım & Temizlik','/urunler?kategori=bakim-temizlik'],
- ['Su Sporları','/urunler?kategori=su-sporlari'],
- ['Tüm Ürünler','/urunler']
+ ['Su Sporları','/urunler?kategori=su-sporlari']
 ];
 
-function Drop({label,href,items,cart=false}){
- return <li className="dpNavDrop"><details>
-   <summary>{cart&&<span className="dpCart" aria-hidden="true">🛒</span>}{label}<span className="dpChevron">⌄</span></summary>
-   <div className="dpDrop">
-     <Link className="dpDropAll" href={href}>{label} ana sayfa</Link>
-     {items.map(([name,url])=><Link key={name} href={url}>{name}</Link>)}
+function Mega({label,href,items,cart=false}){
+ return <li className="dpMega">
+   <Link className="dpMegaMain" href={href}>
+     {cart&&<span className="dpCart" aria-hidden="true">🛒</span>}
+     {label}<span className="dpChevron">⌄</span>
+   </Link>
+   <div className="dpMegaPanel">
+     <div className="dpMegaRow">
+       {items.map(([name,url])=><Link key={name} href={url}>{name}</Link>)}
+     </div>
    </div>
- </details></li>
+ </li>
 }
 
 export default function SiteHeader(){return <>
@@ -40,12 +46,11 @@ export default function SiteHeader(){return <>
  <header className="dpNav"><div className="dpWrap">
    <Link className="dpLogo" href="/"><img src="/motoryat-logo-real.png" alt="Motoryat.com"/></Link>
    <nav aria-label="Ana menü"><ul>
-     <Drop label="Satılık" href="/satilik" items={sale}/>
-     <Drop label="Kiralık" href="/kiralik" items={charter}/>
-     <li><Link href="/yeni-insa">Yeni inşa</Link></li>
+     <Mega label="Satılık" href="/satilik" items={sale}/>
+     <Mega label="Kiralık" href="/kiralik" items={charter}/>
      <li><Link href="/firmalar">Rehber</Link></li>
      <li><Link href="/marinalar">Marinalar</Link></li>
-     <Drop label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} cart/>
+     <Mega label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} cart/>
      <li><Link href="/haberler">Haberler</Link></li>
    </ul></nav>
    <button className="dpSearch" type="button">Ara…</button>
