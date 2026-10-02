@@ -122,3 +122,16 @@
 
   .storeGrid.directory{padding:22px 0 56px}
 }
+
+
+/* Final homepage hero image positioning */
+.homeMain .homeHero>img{
+  object-position:center center;
+  filter:none;
+}
+.homeMain .heroShade{
+  background:linear-gradient(90deg,rgba(5,17,30,.80) 0%,rgba(5,17,30,.58) 34%,rgba(5,17,30,.18) 58%,rgba(5,17,30,.02) 78%);
+}
+@media(min-width:1001px){
+  .homeMain .homeHero{height:455px}
+}
