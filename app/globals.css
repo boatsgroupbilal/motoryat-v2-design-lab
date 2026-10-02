@@ -482,3 +482,114 @@ h3{font-size:21px;line-height:1.25}
  .syReplicaEventCard{grid-template-columns:62px 75px 108px}
  .syReplicaEventCard img{width:75px;height:80px}
 }
+
+
+/* =========================================================
+   MOTORYAT 1280 DESIGN STANDARD
+   Source of dimensions: user-supplied Claude artifact
+   1280 / 24 / 40 / 72 / 560 / news 405x202 / 1024-768-480
+   ========================================================= */
+.stdContainer{width:min(1280px,calc(100% - 48px));margin:0 auto}
+.stdHeader{position:sticky;top:0;z-index:200;background:#fff}
+.stdTopbar{height:40px;background:#343535;color:#d9dfe2}
+.stdTopbarInner{height:40px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.stdTopbarInner>div{display:flex;align-items:center;gap:12px}
+.stdTopbarInner i{height:14px;width:1px;background:#6b7073}
+.stdTopbarInner .active{color:#2fb4df}
+.stdNav{height:72px;background:#fff;border-bottom:1px solid #d7dbde}
+.stdNavInner{height:72px;display:flex;align-items:center;gap:24px}
+.stdLogo{flex:0 0 205px}
+.stdLogo img{width:205px;height:48px;object-fit:contain;background:#343535;padding:6px 9px}
+.stdDesktopNav{display:flex;align-items:center;gap:0;flex:1;height:72px}
+.stdDesktopNav a{height:72px;padding:0 13px;display:flex;align-items:center;white-space:nowrap;font-size:12px;color:#111820}
+.stdDesktopNav a:hover{color:#2fb4df}
+.stdMobileMenu{display:none;margin-left:auto}
+
+.stdHome{background:#fff}
+.stdHero{height:560px;position:relative;overflow:hidden;color:#fff;padding:0}
+.stdHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stdHeroShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,27,45,.94),rgba(5,27,45,.66) 43%,rgba(5,27,45,.06) 76%)}
+.stdHeroCopy{position:absolute;left:56px;top:50%;transform:translateY(-50%);width:52%;max-width:650px}
+.stdHeroCopy>span,.stdSectionHead span{display:block;font-size:10px;letter-spacing:1.6px;color:#2fb4df;font-weight:700}
+.stdHeroCopy h1{font-size:40px;line-height:1.18;margin:8px 0 14px}
+.stdHeroCopy p{font-size:16px;color:#e2e8eb;max-width:580px;margin-bottom:24px}
+.stdHeroCopy>a{display:inline-flex;height:46px;align-items:center;padding:0 18px;background:#2fb4df;color:#fff;font-size:12px;font-weight:700}
+.stdHeroPlay{position:absolute;right:88px;top:50%;transform:translateY(-50%);width:150px;height:150px;border:3px solid rgba(255,255,255,.9);border-radius:50%;display:grid;place-items:center}
+.stdHeroPlay span{width:0;height:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-left:34px solid rgba(255,255,255,.82);margin-left:8px}
+
+.stdNewsSection,.stdTabsSection,.stdGuideSection{padding:72px 0}
+.stdSectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.stdSectionHead h2{font-size:32px;line-height:40px;margin:4px 0 0}
+.stdSectionHead>a{font-size:12px;font-weight:700}
+.stdNewsGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.stdNewsCard{display:block}
+.stdNewsCard img{width:100%;height:auto;aspect-ratio:405/202;object-fit:cover}
+.stdNewsCard small{display:block;margin-top:12px;font-size:10px;color:#2fb4df;letter-spacing:1px;font-weight:700}
+.stdNewsCard h3{font-size:19px;line-height:25px;margin:5px 0 8px}
+.stdNewsCard span{font-size:11px;color:#66747b}
+
+.stdTabsSection{background:#f4f5f6}
+.stdTabsBar{height:58px;display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #ced4d8;margin-bottom:26px}
+.stdTabsBar button{border:0;background:transparent;font-size:13px;font-weight:700;text-transform:uppercase}
+.stdTabsBar button.active{background:#343535;color:#fff;border-top:3px solid #2fb4df}
+.stdListingGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stdListingCard{background:#fff;border-bottom:3px solid transparent}
+.stdListingCard:hover{border-bottom-color:#2fb4df}
+.stdListingCard>img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.stdListingCard>div{padding:14px}
+.stdListingCard small{font-size:9px;letter-spacing:1px;color:#2fb4df;font-weight:700}
+.stdListingCard h3{font-size:17px;line-height:23px;margin:5px 0}
+.stdListingCard p{font-size:11px;color:#778188;margin-bottom:10px}
+.stdListingCard b{font-size:13px}
+
+.stdGuideGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.stdGuideGrid>a{display:grid;grid-template-columns:42% 1fr;min-height:220px;border:1px solid #d9dde0;background:#fff}
+.stdGuideGrid img{width:100%;height:100%;object-fit:cover}
+.stdGuideGrid> a > div{padding:22px}
+.stdGuideGrid small{font-size:10px;letter-spacing:1px;color:#2fb4df}
+.stdGuideGrid h3{font-size:21px;margin:6px 0}
+.stdGuideGrid p{font-size:13px;color:#6e7a80;margin:0}
+
+@media(max-width:1024px){
+ .stdDesktopNav a{padding:0 8px;font-size:10px}
+ .stdLogo{flex-basis:175px}.stdLogo img{width:175px}
+ .stdListingGrid{grid-template-columns:repeat(4,1fr)}
+ .stdGuideGrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+ .stdContainer{width:min(100% - 32px,1280px)}
+ .stdHeader{top:0}
+ .stdTopbar{height:40px}
+ .stdNav,.stdNavInner{height:72px}
+ .stdDesktopNav{display:none}
+ .stdMobileMenu{display:block;position:relative}
+ .stdMobileMenu summary{width:44px;height:44px;display:grid;place-content:center;gap:5px;list-style:none}
+ .stdMobileMenu summary::-webkit-details-marker{display:none}
+ .stdMobileMenu summary i{display:block;width:22px;height:2px;background:#1a2833}
+ .stdMobileMenu>div{position:fixed;left:0;right:0;top:112px;background:#343535;color:#fff;padding:14px 16px}
+ .stdMobileMenu>div a{height:44px;border-bottom:1px solid #555;display:flex;align-items:center;justify-content:space-between;font-size:12px}
+ .stdHero{height:560px}
+ .stdHeroCopy{left:28px;width:70%}
+ .stdHeroCopy h1{font-size:34px}
+ .stdHeroPlay{right:34px;width:105px;height:105px}
+ .stdNewsGrid{grid-template-columns:repeat(2,1fr)}
+ .stdListingGrid{grid-template-columns:repeat(2,1fr)}
+ .stdGuideGrid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .stdContainer{width:min(100% - 24px,1280px)}
+ .stdTopbarInner>div:first-child span:last-child{display:none}
+ .stdLogo{flex-basis:160px}.stdLogo img{width:160px}
+ .stdHero{height:500px}
+ .stdHeroCopy{left:20px;right:20px;width:auto;top:auto;bottom:34px;transform:none}
+ .stdHeroCopy h1{font-size:29px}
+ .stdHeroCopy p{font-size:14px}
+ .stdHeroPlay{width:76px;height:76px;right:20px;top:34px;transform:none}
+ .stdHeroPlay span{border-top-width:12px;border-bottom-width:12px;border-left-width:21px}
+ .stdNewsGrid,.stdListingGrid{grid-template-columns:1fr}
+ .stdGuideGrid{grid-template-columns:1fr}
+ .stdGuideGrid>a{grid-template-columns:1fr}
+ .stdGuideGrid img{height:210px}
+ .stdTabsBar{height:50px}
+ .stdNewsSection,.stdTabsSection,.stdGuideSection{padding:48px 0}
+}
