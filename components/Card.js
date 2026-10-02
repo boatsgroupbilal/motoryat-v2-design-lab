@@ -1,10 +1,10 @@
 import YachtListingRow from './YachtListingRow';
 
-export function YachtCard({item,badge,seller='',year='2026',refit='—',index=0,brandLogo=''}) {
-  const type=item?.kind==='KİRALIK' ? 'charter' : 'sale';
+export function YachtCard({item,type,seller='',year='2026',refit='—',index=0,brandLogo=''}) {
+  const resolvedType=type || (item?.kind==='KİRALIK' ? 'charter' : 'sale');
   return <YachtListingRow
     item={item}
-    type={type}
+    type={resolvedType}
     seller={seller}
     year={year}
     refit={refit}
