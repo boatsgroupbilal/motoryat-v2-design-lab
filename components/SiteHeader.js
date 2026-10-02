@@ -29,6 +29,19 @@ const equipment=[
  ['Su Sporları','/urunler?kategori=su-sporlari']
 ];
 
+const news=[
+ ['SON HABERLER','/haberler'],
+ ['SÜPERYAT','/haberler/superyat'],
+ ['YENİ İNŞA','/haberler/yeni-insa'],
+ ['TEKNE TESTLERİ & İNCELEMELER','/haberler/tekne-testleri-incelemeler'],
+ ['MARKALAR & FİRMALAR','/haberler/markalar-firmalar'],
+ ['CHARTER','/haberler/charter'],
+ ['EKİPMAN & TEKNOLOJİ','/haberler/ekipman-teknoloji'],
+ ['MARİNALAR','/haberler/marinalar'],
+ ['SEKTÖR','/haberler/sektor'],
+ ['ETKİNLİKLER & FUARLAR','/haberler/etkinlikler-fuarlar']
+];
+
 function Mega({label,href,items,cart=false}){
  return <li className="dpMega">
    <Link className="dpMegaMain" href={href}>
@@ -51,7 +64,7 @@ export default function SiteHeader(){return <>
      <Mega label="Satılık" href="/satilik" items={sale}/>
      <Mega label="Kiralık" href="/kiralik" items={charter}/>
      <Mega label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} cart/>
-     <li><Link href="/haberler">Haberler</Link></li>
+     <Mega label="Haberler" href="/haberler" items={news}/>
    </ul></nav>
    <button className="dpSearch" type="button">Ara…</button>
  </div></header>
