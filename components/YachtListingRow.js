@@ -26,14 +26,14 @@ export default function YachtListingRow({item,type='sale',seller='',year='2026',
       </div>
 
       <div className="sqYachtBrandLine">
-        <span>{seller||'Motoryat.com'}</span>
-        <Link href={item.href}>İlanı incele →</Link>
+        <small>FİRMA / MARKA</small>
+        <strong>{seller||'Motoryat.com'}</strong>
       </div>
     </div>
 
     <Link href={item.href} className="sqYachtStatus" aria-label={(charter?'Kiralama listesi: ':'Satış ilanı: ')+item.title}>
       <span>{charter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</span>
-      <b>›</b>
+      <b>⌄</b>
     </Link>
   </article>
 }
