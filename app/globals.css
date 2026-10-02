@@ -187,3 +187,18 @@
     padding:12px 15px
   }
 }
+
+
+/* Homepage hero keeps viewport proportion while browser zoom changes */
+@media(min-width:1001px){
+  .homeMain .homeHero{
+    height:clamp(340px,44vh,430px);
+    min-height:340px;
+  }
+  .homeMain .homeHero>img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+}
