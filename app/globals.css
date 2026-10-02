@@ -490,3 +490,45 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--logo-cyan)!important;
   color:var(--hero)!important;
 }
+
+
+/* FINAL HEADER COLOR SYSTEM — white utility / black main nav / turquoise submenu */
+.dpUtil{
+  background:#ffffff!important;
+  color:var(--hero)!important;
+  border-bottom:1px solid var(--line)!important;
+}
+.dpNav{
+  background:#000000!important;
+  border-bottom:0!important;
+}
+.dpNav>.dpWrap{
+  background:#000000!important;
+}
+.dpLogo{
+  background:#000000!important;
+}
+.dpLogo img{
+  background:#000000!important;
+}
+.dpNav nav li>a,
+.dpMegaMain{
+  color:#ffffff!important;
+}
+.dpNav nav li>a:hover,
+.dpMega:hover>.dpMegaMain,
+.dpMega:focus-within>.dpMegaMain{
+  background:var(--logo-cyan)!important;
+  color:#061522!important;
+}
+.dpChevron{
+  color:inherit!important;
+}
+.dpSearch{
+  background:#111820!important;
+  color:#ffffff!important;
+  border-color:#2a3540!important;
+}
+.dpSearch::placeholder{
+  color:#c9d6e0!important;
+}
