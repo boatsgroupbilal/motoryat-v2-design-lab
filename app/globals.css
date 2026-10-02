@@ -15,3 +15,35 @@
   .cardMedia,.productMedia{height:155px}
   .storeVisual{height:190px}
 }
+
+
+/* Desktop density pass */
+@media(min-width:1001px){
+  .container{width:min(1380px,calc(100% - 64px))}
+  .headerInner{height:62px;gap:24px}
+  .brand img{width:165px;height:38px}
+  .nav{gap:20px;font-size:14px}
+  .gold,.ghost{padding:10px 15px}
+  .homeHero{height:480px}
+  .heroContent{padding-top:64px}
+  .section{padding:48px 0}
+  .sectionHead{margin-bottom:18px}
+  .sectionHead h2{font-size:30px}
+  .sectionHead p{font-size:15px}
+  .cardGrid{gap:16px}
+  .cardMedia{height:195px}
+  .cardBody{padding:14px}
+  .cardBody h3{font-size:16px}
+  .cardBody p{margin-bottom:12px}
+  .storeGrid{grid-template-columns:repeat(4,1fr);gap:16px}
+  .storeVisual{height:155px}
+  .storeInfo{grid-template-columns:1fr auto;gap:10px;padding:14px 15px}
+  .storeLogo{display:none}
+  .storeInfo h3{font-size:16px;margin-bottom:4px}
+  .storeInfo p,.storeInfo small{font-size:12px}
+  .productGrid{gap:16px}
+  .productMedia{height:170px}
+  .productBody{padding:14px}
+  .productBody h3{font-size:15px;min-height:38px}
+  .productBody b{font-size:16px}
+}
