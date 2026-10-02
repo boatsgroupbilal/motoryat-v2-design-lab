@@ -3,12 +3,6 @@ import Footer from '../../components/Footer';
 import YachtListingRow from '../../components/YachtListingRow';
 import {saleListings} from '../../data/content';
 
-const saleImages=[
- ['/sale-euro-700.webp','/sale-euro-850.webp','/sale-euro-760.webp'],
- ['/sale-euro-850.webp','/sale-euro-760.webp','/sale-euro-700.webp'],
- ['/sale-euro-760.webp','/sale-euro-700.webp','/sale-euro-850.webp'],
- ['/sale-yener-35.webp','/sale-euro-850.webp','/sale-euro-700.webp']
-];
 const sellers=['Euro Boat','Euro Boat','Euro Boat','Yener Tekne'];
 const years=['2026','2026','2025','2024'];
 
@@ -34,8 +28,8 @@ export default function Page(){
 
   <section className="luxResults"><div className="syContainer">
    <div className="luxResultsBar"><div><b>Satılık yatlar</b><span>Öne çıkan ve güncel ilanlar</span></div><select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select></div>
-   <div className="luxRows">
-    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="sale" images={saleImages[i%saleImages.length]} seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={i%3===0?'—':String(2022+i%4)} photoCount={18+i} videoCount={i%3===0?2:1}/>)}
+   <div className="sqYachtGrid">
+    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="sale" seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={String(2021+(i%4))} index={i}/>)}
    </div>
    <div className="syPager luxPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
   </div></section>
