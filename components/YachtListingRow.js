@@ -10,16 +10,13 @@ export default function YachtListingRow({
   brandLogo=''
 }){
   const charter=type==='charter';
-  const tone=charter
-    ? ['charterA','charterB','charterC','charterD'][index%4]
-    : ['saleA','saleB','saleC','saleD'][index%4];
 
   const brand=seller||'Motoryat.com';
   const initials=brand.split(' ').filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
   const photoCount=[28,24,32,37][index%4];
   const videoCount=[3,5,4,0][index%4];
 
-  return <article className={'sqYachtCard '+(charter?'isCharter':'isSale')+' '+tone}>
+  return <article className={'sqYachtCard '+(charter?'isCharter':'isSale')}>
     <Link href={item.href} className="sqYachtMedia" aria-label={item.title}>
       <img src={item.image} alt={item.title}/>
       <span className="sqYachtFav" aria-hidden="true">♡</span>
