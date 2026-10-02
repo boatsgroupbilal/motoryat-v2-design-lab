@@ -204,3 +204,49 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .dpLogo img{width:48px!important;height:48px!important}
  .dpFooterBrand img{width:60px;height:60px}
 }
+
+
+/* MOTORYAT real horizontal logo + dropdown navigation */
+.dpNav{overflow:visible}
+.dpNav .dpWrap{overflow:visible}
+.dpLogo{width:220px!important;flex:0 0 220px!important;height:72px!important;display:flex;align-items:center!important;justify-content:flex-start!important}
+.dpLogo img{width:215px!important;height:auto!important;max-height:58px!important;object-fit:contain!important;object-position:left center!important;background:transparent!important;padding:0!important;border-radius:0!important}
+.dpNav nav{overflow:visible;flex:1}
+.dpNav nav ul{overflow:visible!important;align-items:stretch;height:72px;gap:0}
+.dpNav nav li{list-style:none;position:relative;display:flex;align-items:stretch}
+.dpNav nav li>a,.dpNavDrop>details>summary{height:72px;display:flex;align-items:center;padding:0 11px;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer;list-style:none}
+.dpNavDrop>details>summary::-webkit-details-marker{display:none}
+.dpNav nav li>a:hover,.dpNavDrop>details>summary:hover,.dpNavDrop>details[open]>summary{border-bottom-color:var(--brass);color:var(--sea)}
+.dpChevron{font-size:13px;margin-left:5px;color:var(--mute)}
+.dpCart{font-size:15px;margin-right:6px}
+.dpDrop{position:absolute;top:72px;left:0;min-width:220px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--brass);box-shadow:0 14px 30px rgba(11,34,57,.14);padding:7px 0;z-index:500}
+.dpNavDrop:last-of-type .dpDrop{min-width:260px}
+.dpDrop a{display:block!important;height:auto!important;padding:10px 16px!important;border:0!important;font-size:13px!important;font-weight:500!important;color:var(--ink)!important}
+.dpDrop a:hover{background:var(--bg);color:var(--sea)!important}
+.dpDropAll{font-weight:700!important;border-bottom:1px solid var(--line)!important}
+.dpFooterBrand img{width:215px!important;height:auto!important;max-height:64px!important;object-fit:contain!important;border-radius:0!important;background:transparent!important}
+
+@media(max-width:1180px){
+ .dpLogo{width:175px!important;flex-basis:175px!important}
+ .dpLogo img{width:170px!important}
+ .dpNav nav li>a,.dpNavDrop>details>summary{padding:0 7px;font-size:12px}
+ .dpSearch{display:none}
+}
+@media(max-width:900px){
+ .dpNav nav{overflow-x:auto;overflow-y:visible}
+ .dpNav nav ul{min-width:max-content}
+ .dpLogo{width:150px!important;flex-basis:150px!important}
+ .dpLogo img{width:145px!important}
+}
+@media(max-width:768px){
+ .dpLogo{width:138px!important;flex-basis:138px!important}
+ .dpLogo img{width:134px!important;max-height:48px!important}
+ .dpNav nav li>a,.dpNavDrop>details>summary{font-size:12px;padding:0 8px}
+ .dpDrop{position:fixed;left:16px;right:16px;top:112px;min-width:0!important;max-height:60vh;overflow:auto}
+}
+@media(max-width:480px){
+ .dpLogo{width:125px!important;flex-basis:125px!important}
+ .dpLogo img{width:122px!important}
+ .dpFooterBrand{flex-direction:column;align-items:flex-start}
+ .dpFooterBrand img{width:180px!important}
+}
