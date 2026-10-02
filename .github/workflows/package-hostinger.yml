@@ -1,0 +1,28 @@
+name: Build Hostinger ZIP
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create Hostinger source package
+        run: |
+          zip -r MOTORYAT_V2_HOSTINGER.zip .             -x ".git/*"                ".github/*"                "node_modules/*"                ".next/*"                "MOTORYAT_V2_HOSTINGER.zip"
+
+      - name: Upload Hostinger ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: MOTORYAT_V2_HOSTINGER
+          path: MOTORYAT_V2_HOSTINGER.zip
+          if-no-files-found: error
