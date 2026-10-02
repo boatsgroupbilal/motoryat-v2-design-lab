@@ -135,3 +135,55 @@
 @media(min-width:1001px){
   .homeMain .homeHero{height:455px}
 }
+
+
+/* Homepage compact correction */
+@media(min-width:1001px){
+  .topbarInner{height:24px}
+  .headerInner{height:54px}
+  .brand img{width:145px;height:32px}
+  .nav{font-size:13px;gap:17px}
+  .headActions{gap:7px}
+  .headActions .gold,.headActions .ghost{padding:8px 13px}
+
+  .homeMain .homeHero{height:360px}
+  .homeMain .heroContent{padding-top:42px}
+  .homeMain .heroEyebrow{font-size:10px;letter-spacing:1.6px}
+  .homeMain .heroContent h1{
+    font-size:42px;
+    line-height:1.02;
+    max-width:610px;
+    margin:10px 0 12px;
+    letter-spacing:-1px
+  }
+  .homeMain .heroContent p{
+    font-size:14px;
+    max-width:570px;
+    margin:0
+  }
+  .homeMain .heroSearch{
+    width:min(610px,100%);
+    margin-top:18px;
+    padding:5px;
+    border-radius:8px
+  }
+  .homeMain .heroSearch input{
+    padding:9px 12px;
+    font-size:14px
+  }
+  .homeMain .heroSearch>button:first-child{
+    padding:0 14px;
+    font-size:14px
+  }
+  .homeMain .heroSearch .gold{
+    padding:9px 15px;
+    font-size:14px
+  }
+  .homeMain .quickGrid{
+    margin-top:-18px
+  }
+  .homeMain .quickGrid a{
+    min-height:66px;
+    padding:12px 15px
+  }
+}
