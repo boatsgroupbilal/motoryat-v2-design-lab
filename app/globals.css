@@ -47,3 +47,78 @@
   .productBody h3{font-size:15px;min-height:38px}
   .productBody b{font-size:16px}
 }
+
+
+/* V2 compact scale pass */
+@media(min-width:1001px){
+  .container{width:min(1280px,calc(100% - 56px))}
+  .headerInner{height:58px;gap:20px}
+  .brand img{width:155px;height:34px}
+  .nav{gap:18px;font-size:13px}
+  .gold,.navyBtn,.ghost,.ghostWhite{padding:9px 14px;border-radius:7px}
+
+  .homeHero{height:430px}
+  .heroContent{padding-top:52px}
+  .heroContent h1{font-size:clamp(40px,3.5vw,54px);max-width:760px}
+  .heroContent p{font-size:15px}
+  .heroSearch{width:min(650px,100%);margin-top:18px}
+  .heroSearch input{padding:11px}
+  .quickGrid{margin-top:-24px}
+  .quickGrid a{padding:16px}
+  .quickGrid span{font-size:15px}
+
+  .section{padding:40px 0}
+  .sectionHead{margin-bottom:16px}
+  .sectionHead h2{font-size:27px}
+  .sectionHead p{font-size:14px}
+
+  .cardGrid{gap:14px}
+  .cardGrid.two{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cardMedia{height:160px}
+  .cardBody{padding:12px}
+  .cardBody h3{font-size:14px;margin-bottom:6px}
+  .cardBody p{font-size:12px;margin-bottom:10px}
+  .cardBody strong{font-size:14px}
+  .heart{width:30px;height:30px;font-size:17px;top:9px;right:9px}
+  .badge{font-size:10px;padding:5px 7px;top:9px;left:9px}
+
+  .storeGrid{gap:14px}
+  .storeVisual{height:130px}
+  .storeInfo{padding:11px 12px}
+  .storeInfo h3{font-size:14px}
+  .storeInfo p,.storeInfo small{font-size:11px}
+  .arrow{font-size:20px}
+
+  .productGrid{gap:14px}
+  .productMedia{height:145px}
+  .productBody{padding:11px}
+  .productBody small{font-size:10px}
+  .productBody h3{font-size:14px;min-height:34px;margin-top:5px}
+  .productBody b{font-size:14px}
+
+  .pageTop{padding:36px 0}
+  .pageTop h1,.commerceTop h1{font-size:36px;margin:6px 0}
+  .pageTop p{font-size:15px}
+  .commerceTop{padding:46px 0}
+  .commerceSearch,.directorySearch{margin-top:18px}
+  .commerceSearch input,.directorySearch input{padding:11px}
+
+  .catalogLayout{grid-template-columns:230px 1fr;gap:24px;padding:30px 0 56px}
+  .filters{padding:16px;top:92px}
+  .filters h3{font-size:18px}
+  .filters details{padding:12px 0}
+  .filters summary{font-size:13px}
+  .resultBar{margin-bottom:14px}
+  .resultBar select{padding:8px;font-size:13px}
+
+  .categoryChips,.simpleTabs{padding-top:16px}
+  .categoryChips button,.simpleTabs button{padding:8px 12px;font-size:13px}
+
+  .charterHero{height:430px}
+  .charterContent{padding-top:78px}
+  .charterContent h1{font-size:44px;margin:8px 0 26px}
+  .charterSearch{width:min(820px,100%)}
+  .charterSearch>div{padding:13px 16px}
+
+  .storeGrid.directory{padding:22px 0 56px}
+}
