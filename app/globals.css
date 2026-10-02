@@ -611,3 +611,80 @@ footer{min-height:360px;background:var(--navy-deep);color:#d9e2e8;padding:56px 0
   .marinaHero{height:380px}
   .marinaHeroCopy{padding-top:130px}
 }
+
+
+/* final navigation + utility pages */
+.headerCta{display:inline-flex;align-items:center;justify-content:center}
+.mobileMenu{display:none;position:relative}
+.mobileMenu summary{width:42px;height:42px;border:1px solid rgba(255,255,255,.35);border-radius:6px;display:grid;place-content:center;gap:4px;list-style:none;cursor:pointer}
+.mobileMenu summary::-webkit-details-marker{display:none}
+.mobileMenu summary i{display:block;width:19px;height:2px;background:#fff}
+.mobileMenuPanel{position:fixed;top:56px;left:0;right:0;background:var(--navy-deep);color:#fff;padding:18px 16px 26px;z-index:120;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.mobileMenuTop{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #294453;padding-bottom:14px;margin-bottom:4px}
+.mobileMenuTop img{width:142px;height:34px;object-fit:contain}
+.mobileMenuTop span{font-size:10px;letter-spacing:1.4px;color:#8fa1ad}
+.mobileMenuPanel>a{min-height:48px;border-bottom:1px solid #294453;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px}
+.mobileMenuActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mobileMenuActions a{height:44px;border:1px solid #4a6170;border-radius:6px;display:grid;place-items:center;font-weight:700}
+.mobileMenuActions a:last-child{background:var(--gold);border-color:var(--gold);color:var(--navy-deep)}
+.ghostWhite{height:48px;padding:0 18px;border-radius:6px;border:1px solid #fff;background:transparent;color:#fff;font-weight:700}
+.section.compact{padding:56px 0}
+.storeIntro aside{display:grid;grid-template-columns:1fr;align-content:start;gap:2px;border-left:1px solid var(--line);padding-left:28px}
+.storeIntro aside b{margin-top:8px}
+.storeIntro aside small{color:var(--muted)}
+.charterPriceCta{display:inline-flex;align-items:center;justify-content:center}
+
+.utilityHero{background:var(--navy-deep);color:#fff;padding:66px 0}
+.utilityHero span,.formEyebrow{display:block;font-size:11px;letter-spacing:1.8px;color:#d4ba82;font-weight:700}
+.utilityHero h1{margin:5px 0 7px}
+.utilityHero p{margin:0;color:#d9e3e8;max-width:720px}
+.utilityLayout{display:grid;grid-template-columns:1fr 420px;gap:64px;padding:64px 0 80px}
+.utilityCopy h2{margin-bottom:12px}
+.utilityCopy>p{color:var(--muted);max-width:680px}
+.utilitySteps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.utilitySteps div{border:1px solid var(--line);border-radius:8px;padding:18px;min-height:150px}
+.utilitySteps small{display:block;color:#9aa5ac;font-size:10px;letter-spacing:1px}
+.utilitySteps b{display:block;margin:18px 0 5px}
+.utilitySteps p{font-size:12px;color:var(--muted);margin:0}
+.formCard{border:1px solid var(--line);border-radius:8px;padding:24px;background:#fff;align-self:start}
+.formCard h2{font-size:24px;line-height:31px;margin:4px 0 18px}
+.formField{display:grid;gap:6px;margin-bottom:12px}
+.formField label{font-size:11px;font-weight:700}
+.formField input,.formField select,.formField textarea{width:100%;min-height:46px;border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:#fff}
+.formField textarea{min-height:110px;resize:vertical}
+.formSubmit{width:100%;height:48px;border:0;border-radius:6px;background:var(--navy);color:#fff;font-weight:800}
+.choiceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.choiceCard{border:1px solid var(--line);border-radius:8px;padding:22px;min-height:220px;display:flex;flex-direction:column}
+.choiceCard span{font-size:10px;letter-spacing:1.2px;color:#8d9aa2}
+.choiceCard h3{margin:9px 0 8px}
+.choiceCard p{font-size:13px;color:var(--muted)}
+.choiceCard a{margin-top:auto;font-size:13px;font-weight:800;color:#765e38}
+.serviceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.serviceCard{border:1px solid var(--line);border-radius:8px;padding:22px;min-height:210px}
+.serviceCard small{font-size:10px;color:#8b979f;letter-spacing:1px}
+.serviceCard h3{margin:12px 0 8px}
+.serviceCard p{font-size:13px;color:var(--muted);margin:0}
+.loginShell{min-height:calc(100vh - 108px);background:var(--soft);display:grid;place-items:center;padding:48px 16px}
+.loginCard{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px}
+.loginCard img{width:170px;height:42px;object-fit:contain;background:var(--navy);padding:7px;border-radius:6px;margin-bottom:24px}
+.loginCard h1{font-size:30px;line-height:37px;margin-bottom:5px}
+.loginCard>p{color:var(--muted);margin-bottom:24px}
+.loginCard .formSubmit{margin-top:4px}
+.loginLinks{display:flex;justify-content:space-between;margin-top:16px;font-size:12px}
+.loginLinks a{font-weight:700;color:#765e38}
+
+@media(max-width:900px){
+  .utilityLayout{grid-template-columns:1fr}
+  .formCard{max-width:none}
+  .choiceGrid,.serviceGrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .mobileMenu{display:block}
+  .headActions>.headerCta{display:none}
+  .storeIntro aside{border-left:0;border-top:1px solid var(--line);padding:18px 0 0}
+}
+@media(max-width:480px){
+  .utilityHero{padding:46px 0}
+  .utilityLayout{padding:44px 0 56px}
+  .utilitySteps,.choiceGrid,.serviceGrid{grid-template-columns:1fr}
+}
