@@ -532,3 +532,44 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .dpSearch::placeholder{
   color:#c9d6e0!important;
 }
+
+
+/* PREMIUM SUBMENU — soft ice turquoise */
+:root{
+  --menu-ice:#e7f2f4;
+  --menu-ice-line:#c9dde1;
+}
+.dpMegaPanel,
+.dpMegaRow{
+  background:var(--menu-ice)!important;
+}
+.dpMegaPanel{
+  border-top:1px solid var(--menu-ice-line)!important;
+  border-bottom:1px solid var(--menu-ice-line)!important;
+}
+.dpMegaRow>a{
+  color:var(--hero)!important;
+  background:transparent!important;
+  position:relative!important;
+}
+.dpMegaRow>a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:8px;
+  height:2px;
+  background:var(--logo-cyan);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .16s ease;
+}
+.dpMegaRow>a:hover,
+.dpMegaRow>a:focus-visible{
+  background:transparent!important;
+  color:var(--sea)!important;
+}
+.dpMegaRow>a:hover::after,
+.dpMegaRow>a:focus-visible::after{
+  transform:scaleX(1);
+}
