@@ -1023,15 +1023,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   box-shadow:0 18px 36px rgba(11,34,57,.16)
 }
 
-.sqYachtCard.isSale.saleA{--sq-accent:#ffb21d}
-.sqYachtCard.isSale.saleB{--sq-accent:#d59a2f}
-.sqYachtCard.isSale.saleC{--sq-accent:#b8873a}
-.sqYachtCard.isSale.saleD{--sq-accent:#e0a52e}
-
-.sqYachtCard.isCharter.charterA{--sq-accent:#00c9b5}
-.sqYachtCard.isCharter.charterB{--sq-accent:#18b9c8}
-.sqYachtCard.isCharter.charterC{--sq-accent:#0aa08f}
-.sqYachtCard.isCharter.charterD{--sq-accent:#3bbec5}
+.sqYachtCard.isSale{--sq-accent:#ffb21d}
+.sqYachtCard.isCharter{--sq-accent:#00c9b5}
 
 .sqYachtMedia{
   grid-row:1;
