@@ -43,7 +43,7 @@ export default function Page(){
           {[...charterListings,...charterListings].map((x,i)=><a className="charterRow" href={x.href} key={i}>
             <div className="charterRowMedia"><img src={x.image} alt={x.title}/>{i<2&&<span>ÖNE ÇIKAN</span>}</div>
             <div className="charterRowInfo"><small>MÜRETTEBATLI CHARTER</small><h3>{x.title}</h3><p>{x.meta}</p><div className="charterFacts"><span>6 Kabin</span><span>12 Misafir</span><span>5 Mürettebat</span><span>Türkiye</span></div></div>
-            <div className="charterRowPrice"><small>HAFTALIK</small><strong>{x.price}</strong><button className="navyBtn">Fiyat İste</button></div>
+            <div className="charterRowPrice"><small>HAFTALIK</small><strong>{x.price}</strong><span className="navyBtn charterPriceCta">Fiyat İste</span></div>
           </a>)}
         </div>
       </div>
