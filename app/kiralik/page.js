@@ -1,6 +1,6 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
-import YachtListingRow from '../../components/YachtListingRow';
+import {YachtCard} from '../../components/Card';
 import {charterListings} from '../../data/content';
 
 const sellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
@@ -29,7 +29,7 @@ export default function Page(){
   <section className="luxResults"><div className="syContainer">
    <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>Charter seçkisi</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
    <div className="sqYachtGrid">
-    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="charter" seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={String(2021+(i%4))} index={i}/>)}
+    {listings.map((x,i)=><YachtCard key={x.slug+'-'+i} item={x} type="charter" seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={String(2021+(i%4))} index={i}/>)}
    </div>
    <div className="syPager luxPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
   </div></section>
