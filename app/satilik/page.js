@@ -1,68 +1,13 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
-import {YachtCard} from '../../components/Card';
 import {saleListings} from '../../data/content';
 
-const filterNames=['Tekne tipi','Marka & Model','Durum','Fiyat','Boy','Yıl','Yakıt','Konum / ülke'];
-
-function FilterBody(){
-  return <>
-    {filterNames.map(x=><details key={x}><summary>{x}<span>+</span></summary><div className="filterDummy">Seçenekleri göster</div></details>)}
-    <button className="navyBtn">Filtreleri Uygula</button>
-  </>
-}
-
-export default function Page(){
-  return <>
-    <SiteHeader/>
-    <main>
-      <section className="saleTop">
-        <img src="/sale-euro-850.webp" alt="Satılık tekneler"/>
-        <div className="saleTopShade"></div>
-        <div className="container saleTopContent">
-          <span>SATILIK TEKNELER</span>
-          <h1>Doğru tekneyi bulun.</h1>
-          <p>Marka, model, boy, fiyat ve konuma göre filtreleyin.</p>
-          <div className="saleFinder">
-            <button><small>TÜR</small><b>Tüm tekneler</b></button>
-            <button><small>MARKA</small><b>Tüm markalar</b></button>
-            <button><small>BOY</small><b>Tüm boylar</b></button>
-            <button><small>FİYAT</small><b>Tüm fiyatlar</b></button>
-            <button><small>KONUM</small><b>Türkiye</b></button>
-            <button className="finderSubmit">Ara</button>
-          </div>
-        </div>
-      </section>
-
-      <div className="container listingToolbar">
-        <div className="breadcrumbs">Ana sayfa <span>›</span> Satılık <span>›</span> Tüm tekneler</div>
-        <div className="toolbarActions"><b>1.248 ilan</b><select><option>Önerilen sıralama</option><option>En yeni</option><option>Fiyat: düşükten</option></select></div>
-      </div>
-
-      <div className="container mobileFilters">
-        <details>
-          <summary>Filtreleri Aç <span>+</span></summary>
-          <div className="mobileFilterBody"><FilterBody/></div>
-        </details>
-      </div>
-
-      <div className="container catalogLayout">
-        <aside className="filters">
-          <div className="filterTitle"><span>FİLTRELER</span><a href="#">Temizle</a></div>
-          <FilterBody/>
-        </aside>
-        <section className="results">
-          <div className="resultHeader">
-            <div><span>SATILIK</span><h2>Satılık Tekneler</h2></div>
-            <div className="viewSwitch"><button className="active">Izgara</button><button>Liste</button></div>
-          </div>
-          <div className="cardGrid two">
-            {[...saleListings,...saleListings].map((x,i)=><YachtCard key={i} item={x} badge={i<2?'ÖNE ÇIKAN':null}/>)}
-          </div>
-          <nav className="pagination" aria-label="Sayfalama"><button className="active">1</button><button>2</button><button>3</button><button>›</button></nav>
-        </section>
-      </div>
-    </main>
-    <Footer/>
-  </>
-}
+export default function Page(){return <><SiteHeader/><main className="syListingPage">
+  <section className="syPageIntro"><div className="syContainer"><span>FOR SALE</span><h1>Satılık Yatlar</h1><p>Satılık motor yatları, yelkenlileri ve yeni inşa projelerini keşfedin.</p></div></section>
+  <section className="sySearchPanel"><div className="syContainer sySearchFields"><button><small>TÜR</small><b>Tüm yatlar</b></button><button><small>BOY</small><b>0m — 100m+</b></button><button><small>FİYAT</small><b>Tüm fiyatlar</b></button><button><small>YIL</small><b>Tüm yıllar</b></button><button><small>TERSANE</small><b>Tümü</b></button><button><small>KONUM</small><b>Tümü</b></button><a href="/satilik">Ara</a></div></section>
+  <section className="sySection"><div className="syContainer">
+    <div className="syResultsBar"><div><b>Satılık yatlar</b><span>1.248 sonuç</span></div><select><option>En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select></div>
+    <div className="syYachtGrid syListingGrid">{[...saleListings,...saleListings,...saleListings].map((x,i)=><a className="syYachtCard" href={x.href} key={i}><div className="syYachtImage"><img src={x.image} alt={x.title}/>{i<2&&<span>ÖNE ÇIKAN</span>}</div><div className="syYachtMeta"><small>{x.meta}</small><h3>{x.title}</h3><b>{x.price}</b><div className="syCardFacts"><span>Motor Yacht</span><span>Türkiye</span></div></div></a>)}</div>
+    <div className="syPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
+  </div></section>
+</main><Footer/></>}
