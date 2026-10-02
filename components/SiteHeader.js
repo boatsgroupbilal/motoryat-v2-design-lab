@@ -1,35 +1,15 @@
 import Link from 'next/link';
 
 const nav=[
-  ['/satilik','SATILIK'],
-  ['/kiralik','KİRALIK'],
-  ['/yeni-insa','YENİ İNŞA'],
-  ['/firmalar','REHBER'],
-  ['/filo','FİLO'],
-  ['/marinalar','MARİNALAR'],
-  ['/destinasyonlar','DESTİNASYONLAR'],
-  ['/yasam','YAŞAM'],
-  ['/haberler','HABERLER'],
-  ['/top-100','TOP 100']
+ ['/satilik','Satılık'],['/kiralik','Kiralık'],['/yeni-insa','Yeni inşa'],['/firmalar','Rehber'],
+ ['/filo','Filo'],['/marinalar','Marinalar'],['/haberler','Haberler'],['/belgeseller','Belgeseller']
 ];
 
-export default function SiteHeader(){
-  return <header className="stdHeader">
-    <div className="stdTopbar">
-      <div className="stdContainer stdTopbarInner">
-        <div><span>TR</span><span>Türkiye</span></div>
-        <div><span>₺</span><span>€</span><span>$</span><i></i><span className="active">m</span><span>ft</span></div>
-      </div>
-    </div>
-    <div className="stdNav">
-      <div className="stdContainer stdNavInner">
-        <Link href="/" className="stdLogo"><img src="/motoryat-header.svg" alt="Motoryat.com"/></Link>
-        <nav className="stdDesktopNav">{nav.map(([href,label])=><Link href={href} key={href}>{label}</Link>)}</nav>
-        <details className="stdMobileMenu">
-          <summary aria-label="Menü"><i></i><i></i><i></i></summary>
-          <div>{nav.map(([href,label])=><Link href={href} key={href}>{label}<b>›</b></Link>)}</div>
-        </details>
-      </div>
-    </div>
-  </header>
-}
+export default function SiteHeader(){return <>
+ <div className="dpUtil"><div className="dpWrap"><div><span>TR · EN</span><span>€ · $ · ₺</span></div><span>Bültene katıl</span></div></div>
+ <header className="dpNav"><div className="dpWrap">
+   <Link className="dpLogo" href="/"><img src="/motoryat-header.svg" alt="Motoryat.com"/></Link>
+   <nav aria-label="Ana menü"><ul>{nav.map(([href,label])=><li key={href}><Link href={href}>{label}</Link></li>)}</ul></nav>
+   <button className="dpSearch" type="button">Ara…</button>
+ </div></header>
+ </>}
