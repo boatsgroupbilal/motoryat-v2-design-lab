@@ -4,39 +4,55 @@ import Section from '../components/Section';
 import {YachtCard,StoreCard,ProductCard} from '../components/Card';
 import {saleListings,charterListings,stores,products} from '../data/content';
 
+const boatTypes=['Motoryat','Yelkenli','Katamaran','Süper yat','Gulet','Sürat teknesi'];
+
 export default function Home(){
   return <>
     <SiteHeader/>
     <main>
-      <section className="homeTop">
-        <div className="container homeTopInner">
-          <span className="eyebrow">MOTORYAT.COM</span>
+      <section className="homeHero">
+        <img src="/hero-home.webp" alt="Motoryat"/>
+        <div className="heroShade"></div>
+        <div className="container heroContent">
+          <span className="heroEyebrow">MOTORYAT.COM</span>
           <h1>Denizcilikte keşfet.<br/>Bağlan. Ticaret yap.</h1>
-          <p>Tekne, charter, ekipman ve profesyonel denizcilik ağı tek platformda.</p>
-          <div className="homeSearch">
-            <button className="searchType">Satılık</button>
-            <input placeholder="Marka, model veya tekne ara"/>
+          <div className="heroSearch">
+            <button>Satılık</button>
+            <input placeholder="Tür, marka, model veya tekne ara"/>
             <button className="gold">Ara</button>
           </div>
         </div>
       </section>
 
-      <div className="container quickGrid">
-        <a href="/satilik"><b>TEKNE KEŞFET</b><span>Satılık →</span></a>
-        <a href="/kiralik"><b>CHARTER</b><span>Kiralık →</span></a>
-        <a href="/urunler"><b>EKİPMAN & PARÇA</b><span>Tekne Malzemeleri →</span></a>
-        <a href="/magazalar"><b>TİCARİ VİTRİN</b><span>Mağazalar →</span></a>
-      </div>
+      <section className="typeSection">
+        <div className="container">
+          <div className="typeGrid">
+            {boatTypes.map(x=><a href="/satilik" key={x}>{x}</a>)}
+          </div>
+        </div>
+      </section>
 
-      <Section eyebrow="SATILIK" title="Öne çıkan tekneler" desc="Seçilmiş satılık tekne ve yatlar." action={{href:'/satilik',label:'Tüm satılıklar'}}>
+      <Section eyebrow="SATILIK" title="Öne çıkan ilanlar" action={{href:'/satilik',label:'Tüm satılıklar'}}>
         <div className="cardGrid">{saleListings.map((x,i)=><YachtCard key={x.title} item={x} badge={i===0?'Öne Çıkan':null}/>)}</div>
       </Section>
 
-      <Section eyebrow="CHARTER" title="Kiralık yatlar" desc="Destinasyon ve deneyim odaklı charter seçenekleri." action={{href:'/kiralik',label:'Tüm kiralıklar'}}>
-        <div className="cardGrid">{charterListings.map((x,i)=><YachtCard key={x.title} item={x} badge={i===1?'Luxury Charter':null}/>)}</div>
+      <Section eyebrow="CHARTER" title="Kiralık destinasyonlar" action={{href:'/kiralik',label:'Tüm kiralıklar'}}>
+        <div className="destinationGrid">
+          {charterListings.slice(0,3).map(x=><a className="destinationCard" href="/kiralik" key={x.title}><img src={x.image} alt={x.title}/><span>{x.title}</span></a>)}
+        </div>
       </Section>
 
-      <Section eyebrow="MAĞAZALAR" title="Denizcilik profesyonelleri" desc="Marka, tersane, broker, charter ve ekipman mağazaları." action={{href:'/magazalar',label:'Tüm mağazalar'}}>
+      <section className="superyachtFeature">
+        <img src="/charter-luna-hero.webp" alt="Superyacht"/>
+        <div className="superyachtShade"></div>
+        <div className="container superyachtCopy">
+          <span>SÜPER YAT VİTRİNİ</span>
+          <h2>Lady Luna</h2>
+          <p>32 m · Motor Yacht</p>
+        </div>
+      </section>
+
+      <Section eyebrow="MAĞAZALAR" title="Denizcilik profesyonelleri" action={{href:'/magazalar',label:'Tüm mağazalar'}}>
         <div className="storeGrid">{stores.map(x=><StoreCard key={x.name} item={x}/>)}</div>
       </Section>
 
