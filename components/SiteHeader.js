@@ -1,14 +1,22 @@
 import Link from 'next/link';
 
 export default function SiteHeader(){
+  const nav=[
+    ['/satilik','Satılık'],
+    ['/kiralik','Kiralık'],
+    ['/urunler','Tekne & Yat Malzemeleri'],
+    ['/markalar','Markalar'],
+    ['/marinalar','Marinalar'],
+    ['/haberler','Haberler']
+  ];
   return <>
     <div className="topbar">
       <div className="container topbarInner">
         <span>Türkiye'nin denizcilik platformu</span>
         <div className="topbarLinks">
-          <a href="#">TR</a><a href="#">₺</a><a href="#">€</a><a href="#">$</a>
+          <span>TR</span><span>₺</span><span>€</span><span>$</span>
           <Link href="/magazalar">Mağazalar</Link>
-          <a href="#">Giriş</a>
+          <Link href="/giris">Giriş</Link>
         </div>
       </div>
     </div>
@@ -18,16 +26,22 @@ export default function SiteHeader(){
           <img src="/motoryat-logo.svg" alt="Motoryat"/>
         </Link>
         <nav className="nav" aria-label="Ana menü">
-          <Link href="/satilik">Satılık</Link>
-          <Link href="/kiralik">Kiralık</Link>
-          <Link href="/urunler">Tekne & Yat Malzemeleri</Link>
-          <Link href="/markalar">Markalar</Link>
-          <Link href="/marinalar">Marinalar</Link>
-          <Link href="/haberler">Haberler</Link>
+          {nav.map(([href,label])=><Link href={href} key={href}>{label}</Link>)}
         </nav>
         <div className="headActions">
-          <a className="headerLogin" href="#">Giriş</a>
-          <button className="gold">İlan Ver</button>
+          <Link className="headerLogin" href="/giris">Giriş</Link>
+          <Link className="gold headerCta" href="/ilan-ver">İlan Ver</Link>
+          <details className="mobileMenu">
+            <summary aria-label="Menüyü aç"><i></i><i></i><i></i></summary>
+            <div className="mobileMenuPanel">
+              <div className="mobileMenuTop"><img src="/motoryat-logo.svg" alt="Motoryat"/><span>MENÜ</span></div>
+              {nav.map(([href,label])=><Link href={href} key={href}>{label}<span>→</span></Link>)}
+              <Link href="/magazalar">Mağazalar<span>→</span></Link>
+              <Link href="/firmalar">Firmalar<span>→</span></Link>
+              <Link href="/hizmetler">Hizmetler<span>→</span></Link>
+              <div className="mobileMenuActions"><Link href="/giris">Giriş</Link><Link href="/ilan-ver">İlan Ver</Link></div>
+            </div>
+          </details>
         </div>
       </div>
     </header>
