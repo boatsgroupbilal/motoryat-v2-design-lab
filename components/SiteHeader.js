@@ -33,7 +33,7 @@ function Mega({label,href,items,cart=false}){
      {cart&&<span className="dpCart" aria-hidden="true">🛒</span>}
      {label}<span className="dpChevron">⌄</span>
    </Link>
-   <div className="dpMegaPanel">
+   <div className="dpMegaPanel" aria-label={label+' alt kategorileri'}>
      <div className="dpMegaRow">
        {items.map(([name,url])=><Link key={name} href={url}>{name}</Link>)}
      </div>
