@@ -50,8 +50,6 @@ export default function SiteHeader(){return <>
    <nav aria-label="Ana menü"><ul>
      <Mega label="Satılık" href="/satilik" items={sale}/>
      <Mega label="Kiralık" href="/kiralik" items={charter}/>
-     <li><Link href="/firmalar">Rehber</Link></li>
-     <li><Link href="/marinalar">Marinalar</Link></li>
      <Mega label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} cart/>
      <li><Link href="/haberler">Haberler</Link></li>
    </ul></nav>
