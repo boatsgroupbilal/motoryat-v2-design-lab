@@ -1,0 +1,10 @@
+MOTORYAT V2 DESIGN LAB V1
+
+1) Bu projeyi ayrı bir geçici subdomain/uygulamaya kurun. motoryat.com canlı uygulamasının üstüne yazmayın.
+2) Node.js 22 kullanın.
+3) npm install
+4) npm run build
+5) npm start
+
+ENV / Supabase anahtarı gerekmez.
+Önerilen geçici adres: tasarim.motoryat.com
