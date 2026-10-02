@@ -1,12 +1,43 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
+import YachtListingRow from '../../components/YachtListingRow';
 import {charterListings} from '../../data/content';
 
-export default function Page(){return <><SiteHeader/><main className="syListingPage">
-  <section className="syCharterHero"><img src="/charter-luna-hero.webp" alt="Charter"/><div></div><div className="syContainer"><span>FOR CHARTER</span><h1>Unutulmaz bir rota seçin.</h1><p>Akdeniz ve Türkiye'nin öne çıkan charter yatlarını keşfedin.</p></div></section>
-  <section className="sySearchPanel sySearchOverlay"><div className="syContainer sySearchFields"><button><small>DESTİNASYON</small><b>Akdeniz</b></button><button><small>TARİH</small><b>Tarih seçin</b></button><button><small>MİSAFİR</small><b>2+</b></button><button><small>YAT TÜRÜ</small><b>Tümü</b></button><button><small>BOY</small><b>Tümü</b></button><button><small>FİYAT</small><b>Tümü</b></button><a href="/kiralik">Ara</a></div></section>
-  <section className="sySection"><div className="syContainer">
-    <div className="sySectionHead"><div><span>CHARTER SEARCH</span><h2>Kiralık Yatlar</h2></div><a href="/destinasyonlar">Destinasyonları gör →</a></div>
-    <div className="syYachtGrid syListingGrid">{[...charterListings,...charterListings].map((x,i)=><a className="syYachtCard" href={x.href} key={i}><div className="syYachtImage"><img src={x.image} alt={x.title}/>{i===0&&<span>ÖNE ÇIKAN</span>}</div><div className="syYachtMeta"><small>{x.meta}</small><h3>{x.title}</h3><b>{x.price}</b><div className="syCardFacts"><span>12 Misafir</span><span>6 Kabin</span></div></div></a>)}</div>
+const charterImages=[
+ ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'],
+ ['/charter-sunreef.webp','/charter-luna-hero.webp','/charter-luna-1.webp'],
+ ['/charter-luna-1.webp','/charter-luna-9.webp','/charter-luna-hero.webp'],
+ ['/charter-luna-9.webp','/charter-luna-1.webp','/charter-luna-hero.webp']
+];
+const sellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
+const years=['2022','2024','2022','2022'];
+
+export default function Page(){
+ const listings=[...charterListings,...charterListings];
+ return <><SiteHeader/><main className="luxListingPage">
+  <section className="luxPageTop luxCharterTop"><div className="syContainer">
+   <div className="luxCrumb">Motoryat / Kiralık</div>
+   <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>200+</strong><span>charter</span></div></div>
   </div></section>
-</main><Footer/></>}
+
+  <section className="luxFilterWrap"><div className="syContainer">
+   <div className="luxFilters">
+    <button><small>DESTİNASYON</small><b>Akdeniz</b></button>
+    <button><small>TARİH</small><b>Tarih seçin</b></button>
+    <button><small>MİSAFİR</small><b>2+</b></button>
+    <button><small>YAT TÜRÜ</small><b>Tümü</b></button>
+    <button><small>BOY</small><b>Tümü</b></button>
+    <button><small>FİYAT</small><b>Tümü</b></button>
+    <button className="luxSearchBtn">ARA</button>
+   </div>
+  </div></section>
+
+  <section className="luxResults"><div className="syContainer">
+   <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>Charter seçkisi</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
+   <div className="luxRows">
+    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="charter" images={charterImages[i%charterImages.length]} seller={sellers[i%sellers.length]} year={years[i%years.length]} photoCount={24+i} videoCount={i%2===0?2:1}/>)}
+   </div>
+   <div className="syPager luxPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
+  </div></section>
+ </main><Footer/></>
+}
