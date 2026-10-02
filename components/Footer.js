@@ -1,1 +1,1 @@
-export default function Footer(){return <footer className="dpFooter"><div className="dpWrap"><div>© Motoryat.com 2026</div><div>Hakkımızda · İletişim · Gizlilik · Çerezler</div></div></footer>}
+export default function Footer(){return <footer className="dpFooter"><div className="dpWrap dpFooterInner"><div className="dpFooterBrand"><img src="https://www.motoryat.com/upload/logos/logo.svg" alt="Motoryat.com"/><span>© Motoryat.com 2026</span></div><div>Hakkımızda · İletişim · Gizlilik · Çerezler</div></div></footer>}
