@@ -202,3 +202,24 @@
     object-position:center center;
   }
 }
+
+
+/* Zoom-stable desktop hero: width-based, not px/vh */
+@media(min-width:1001px){
+  .homeMain .homeHero{
+    height:21vw;
+    min-height:0;
+    max-height:none;
+  }
+  .homeMain .homeHero>img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+}
+
+/* Keep normal laptop/desktop dimensions sensible */
+@media(min-width:1001px) and (max-width:1600px){
+  .homeMain .homeHero{height:23vw}
+}
