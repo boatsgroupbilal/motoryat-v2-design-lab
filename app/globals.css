@@ -573,3 +573,188 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .dpMegaRow>a:focus-visible::after{
   transform:scaleX(1);
 }
+
+
+/* =========================================================
+   FINAL HOME ALIGNMENT + COLORED YACHT CARDS + MOBILE
+   ========================================================= */
+
+/* one desktop axis everywhere */
+.dpUtil>.dpWrap,
+.dpNav>.dpWrap,
+.dpHero>.dpWrap,
+.dpSection>.dpWrap,
+.dpFooter>.dpWrap{
+  width:min(1280px,calc(100% - 48px))!important;
+  max-width:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* yacht card color system — image stays photographic, information panel gets color */
+.dpList .dpCard,
+.syYachtCard{
+  border:1px solid rgba(11,34,57,.10)!important;
+  box-shadow:0 3px 12px rgba(11,34,57,.06)!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+}
+.dpList .dpCard:hover,
+.syYachtCard:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:0 10px 24px rgba(11,34,57,.12)!important;
+}
+.dpList .dpCard:nth-child(4n+1) .dpT,
+.syYachtCard:nth-child(4n+1) .syYachtMeta{background:#d9eef3!important}
+.dpList .dpCard:nth-child(4n+2) .dpT,
+.syYachtCard:nth-child(4n+2) .syYachtMeta{background:#e8edf5!important}
+.dpList .dpCard:nth-child(4n+3) .dpT,
+.syYachtCard:nth-child(4n+3) .syYachtMeta{background:#f2eadc!important}
+.dpList .dpCard:nth-child(4n) .dpT,
+.syYachtCard:nth-child(4n) .syYachtMeta{background:#dde7f3!important}
+.dpList .dpCard .dpT,
+.syYachtMeta{color:var(--hero)!important}
+.dpList .dpPrice,
+.syYachtMeta>b{color:var(--sea)!important}
+
+/* keep desktop header centered and compact */
+.dpNav>.dpWrap{gap:26px!important}
+.dpNav nav{min-width:0!important}
+.dpSearch{flex:0 0 170px!important;min-width:170px!important}
+
+/* mobile is a real separate layout, not scaled desktop */
+@media(max-width:768px){
+  .dpUtil{height:32px!important}
+  .dpUtil>.dpWrap{
+    height:32px!important;
+    width:calc(100% - 32px)!important
+  }
+
+  .dpNav{
+    height:auto!important;
+    min-height:64px!important;
+    position:sticky!important;
+  }
+  .dpNav>.dpWrap{
+    width:100%!important;
+    min-height:64px!important;
+    padding:0 16px!important;
+    gap:12px!important;
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr)!important;
+    align-items:center!important;
+  }
+  .dpLogo{
+    width:150px!important;
+    flex:none!important;
+    height:48px!important;
+    margin:0!important;
+    padding:5px 7px!important;
+  }
+  .dpLogo img{width:100%!important;height:100%!important}
+  .dpNav nav{
+    width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  .dpNav nav>ul{
+    min-width:max-content!important;
+    height:64px!important;
+  }
+  .dpMegaMain,
+  .dpNav nav li>a{
+    height:64px!important;
+    padding:0 10px!important;
+    font-size:12px!important;
+  }
+  .dpSearch{display:none!important}
+
+  .dpMegaPanel{
+    position:fixed!important;
+    top:96px!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+  }
+  .dpMegaRow{
+    padding:12px 16px!important;
+    gap:22px!important;
+    overflow-x:auto!important;
+  }
+  .dpMegaRow>a{
+    font-size:12px!important;
+    flex:0 0 auto!important;
+  }
+
+  .dpHero{height:420px!important}
+  .dpHero>.dpWrap{
+    width:calc(100% - 32px)!important;
+    padding-bottom:34px!important
+  }
+  .dpHero h1{font-size:38px!important;max-width:12ch!important}
+  .dpDots{right:16px!important;bottom:28px!important}
+
+  .dpSection{padding:40px 0!important}
+  .dpSection>.dpWrap,
+  .dpFooter>.dpWrap{
+    width:calc(100% - 32px)!important
+  }
+  .dpHead{margin-bottom:18px!important}
+  .dpHead h2{font-size:26px!important}
+  .dpNews{grid-template-columns:1fr!important;gap:18px!important}
+  .dpList{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+  .dpList .dpCard .dpT{padding:12px 13px 15px!important}
+  .dpList h3{font-size:17px!important}
+  .dpDir{grid-template-columns:1fr!important;gap:16px!important}
+  .dpTabs{
+    overflow-x:auto!important;
+    white-space:nowrap!important;
+    scrollbar-width:none!important;
+  }
+
+  .syContainer,.container{
+    width:calc(100% - 32px)!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  .sySearchFields{grid-template-columns:1fr 1fr!important}
+  .sySearchFields>a{min-height:52px!important}
+  .syYachtGrid,.storeGrid,.productGrid,.marinaGrid,.serviceGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:14px!important;
+  }
+  .marketplaceLayout{
+    width:calc(100% - 32px)!important;
+    padding:24px 0 48px!important;
+    margin:0 auto!important
+  }
+}
+
+@media(max-width:520px){
+  .dpNav>.dpWrap{
+    grid-template-columns:132px minmax(0,1fr)!important;
+    padding:0 12px!important
+  }
+  .dpLogo{width:132px!important;height:44px!important}
+  .dpMegaMain,.dpNav nav li>a{padding:0 8px!important;font-size:11px!important}
+  .dpMegaPanel{top:96px!important}
+  .dpHero{height:380px!important}
+  .dpHero>.dpWrap,
+  .dpSection>.dpWrap,
+  .dpFooter>.dpWrap,
+  .syContainer,.container{
+    width:calc(100% - 24px)!important
+  }
+  .dpHero h1{font-size:32px!important}
+  .dpList,
+  .syYachtGrid,.storeGrid,.productGrid,.marinaGrid,.serviceGrid{
+    grid-template-columns:1fr!important
+  }
+  .dpNews{gap:14px!important}
+  .dpTabs button{padding:10px 12px!important}
+}
