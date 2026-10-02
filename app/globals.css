@@ -133,7 +133,7 @@
   background:linear-gradient(90deg,rgba(5,17,30,.80) 0%,rgba(5,17,30,.58) 34%,rgba(5,17,30,.18) 58%,rgba(5,17,30,.02) 78%);
 }
 @media(min-width:1001px){
-  .homeMain .homeHero{height:455px}
+  
 }
 
 
@@ -146,7 +146,7 @@
   .headActions{gap:7px}
   .headActions .gold,.headActions .ghost{padding:8px 13px}
 
-  .homeMain .homeHero{height:360px}
+  
   .homeMain .heroContent{padding-top:42px}
   .homeMain .heroEyebrow{font-size:10px;letter-spacing:1.6px}
   .homeMain .heroContent h1{
@@ -191,10 +191,7 @@
 
 /* Homepage hero keeps viewport proportion while browser zoom changes */
 @media(min-width:1001px){
-  .homeMain .homeHero{
-    height:clamp(340px,44vh,430px);
-    min-height:340px;
-  }
+  
   .homeMain .homeHero>img{
     width:100%;
     height:100%;
@@ -206,11 +203,7 @@
 
 /* Zoom-stable desktop hero: width-based, not px/vh */
 @media(min-width:1001px){
-  .homeMain .homeHero{
-    height:21vw;
-    min-height:0;
-    max-height:none;
-  }
+  
   .homeMain .homeHero>img{
     width:100%;
     height:100%;
@@ -221,5 +214,21 @@
 
 /* Keep normal laptop/desktop dimensions sensible */
 @media(min-width:1001px) and (max-width:1600px){
-  .homeMain .homeHero{height:23vw}
+  
+}
+
+
+/* AUTHORITATIVE HOMEPAGE HERO SCALE — keep only this desktop height rule */
+@media(min-width:1001px){
+  .homeMain .homeHero{
+    height:46vh;
+    min-height:0;
+    max-height:none;
+  }
+  .homeMain .homeHero>img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
 }
