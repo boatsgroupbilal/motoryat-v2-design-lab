@@ -1,0 +1,1 @@
+export default function Section({eyebrow,title,desc,children,action}){return <section className="section"><div className="container"><div className="sectionHead"><div><span>{eyebrow}</span><h2>{title}</h2>{desc&&<p>{desc}</p>}</div>{action&&<a className="textLink" href={action.href}>{action.label} →</a>}</div>{children}</div></section>}
