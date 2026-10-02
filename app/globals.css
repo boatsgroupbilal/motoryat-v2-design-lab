@@ -1,9 +1,7 @@
 :root{
- --bg:#f6f8f9;--panel:#fff;--ink:#0b2239;--mute:#5b6b7a;--line:#d9e1e7;--sea:#0f6e7a;--brass:#a8844a;--hero:#0b2239;
+ --bg:#f6f8f9;--panel:#fff;--ink:var(--hero);--mute:#5b6b7a;--line:#d9e1e7;--sea:#0f6e7a;--brass:#a8844a;--hero:var(--hero);
  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
 }
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1620;--panel:#102232;--ink:#e9f0f5;--mute:#94a6b5;--line:#1f3649;--sea:#4cb7c4;--brass:#c9a468;--hero:#05101a}}
-:root[data-theme="dark"]{--bg:#0a1620;--panel:#102232;--ink:#e9f0f5;--mute:#94a6b5;--line:#1f3649;--sea:#4cb7c4;--brass:#c9a468;--hero:#05101a}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;margin:0}
 body{background:var(--bg);color:var(--ink);font:16px/1.5 Archivo,system-ui,sans-serif}
@@ -13,7 +11,7 @@ img{display:block;max-width:100%}
 button,input,select{font:inherit}
 .dpWrap{max-width:1280px;margin:0 auto;padding:0 24px}
 
-.dpUtil{height:40px;background:var(--hero);color:#c9d6e0;font-size:13px}
+.dpUtil{height:40px;background:var(--hero);color:#b9cbd8;font-size:13px}
 .dpUtil .dpWrap{display:flex;justify-content:space-between;align-items:center;height:40px}
 .dpUtil span+span{margin-left:16px}
 
@@ -33,7 +31,7 @@ button,input,select{font:inherit}
 .dpHero .dpWrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:56px;max-width:1280px}
 .dpHero small{font-size:14px;color:#b9cbd8}
 .dpHero h1{font:700 clamp(32px,5vw,60px)/1.05 Newsreader,serif;max-width:16ch;margin:10px 0 22px}
-.dpBtn{display:inline-block;background:var(--brass);color:#101010;font-weight:600;padding:12px 22px;border-radius:6px;width:max-content}
+.dpBtn{display:inline-block;background:var(--brass);color:var(--ink);font-weight:600;padding:12px 22px;border-radius:6px;width:max-content}
 .dpDots{position:absolute;right:24px;bottom:56px;display:flex;gap:8px}
 .dpDots i{width:28px;height:4px;background:rgba(255,255,255,.35)}.dpDots i.on{background:#fff}
 
@@ -44,7 +42,7 @@ button,input,select{font:inherit}
 
 .dpNews{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .dpCard{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.dpImg{aspect-ratio:405/202;background:linear-gradient(135deg,#1d6f86,#0b2239);overflow:hidden}
+.dpImg{aspect-ratio:405/202;background:linear-gradient(135deg,var(--sea),var(--hero));overflow:hidden}
 .dpImg img{width:100%;height:100%;object-fit:cover}
 .dpCard .dpT{padding:16px 18px 20px}
 .dpCard .dpM{font-size:13px;color:var(--mute)}
@@ -127,4 +125,66 @@ button,input,select{font:inherit}
  .dpLogo{width:130px;flex-basis:130px}
  .dpNav nav a{font-size:13px}
  .syYachtGrid,.storeGrid,.productGrid,.marinaGrid,.serviceGrid,.brandIndex{grid-template-columns:1fr}
+}
+
+
+/* =========================================================
+   GLOBAL COLOR LOCK — MOTORYAT V2
+   All page families use the same palette.
+   ========================================================= */
+:root{
+ --bg:#f6f8f9;
+ --panel:#ffffff;
+ --ink:#0b2239;
+ --mute:#5b6b7a;
+ --line:#d9e1e7;
+ --sea:#0f6e7a;
+ --brass:#a8844a;
+ --hero:#0b2239;
+ --on-hero:#ffffff;
+ --hero-muted:#b9cbd8;
+ --soft-sea:#e8f2f3;
+ --soft-brass:#f2ece2;
+}
+
+body{background:var(--bg);color:var(--ink)}
+.dpUtil,.dpFooter,.syFooter{background:var(--hero);color:var(--hero-muted)}
+.dpNav,.storeNav,.dpCard,.syYachtCard,.storeCard,.productCard,.marinaCard,.serviceCard,.formCard,.loginCard{background:var(--panel);color:var(--ink)}
+.dpSearch,.formField input,.formField select,.formField textarea{background:var(--bg);color:var(--ink);border-color:var(--line)}
+
+.dpBtn,.formSubmit,.navyBtn,.offerBtn,.finderSubmit,.gold{
+ background:var(--brass)!important;
+ color:#fff!important;
+ border-color:var(--brass)!important
+}
+.dpHead a,.dpPrice,.dpTabs button[aria-selected="true"],.sectionHead a,.textLink{
+ color:var(--sea)!important
+}
+.dpTabs button[aria-selected="true"],.storeNav .active{
+ border-color:var(--sea)!important
+}
+
+.directoryHero,.commerceHero,.utilityHero,.entityHero,.newsTop,.syPageIntro.syNewsIntro{
+ background:var(--hero)!important;
+ color:var(--on-hero)!important
+}
+.directoryHero p,.commerceHero p,.utilityHero p,.entityHero p,.newsTop p,.syPageIntro.syNewsIntro p{
+ color:var(--hero-muted)!important
+}
+
+.marketSideTitle,.section.alt,.syPale,.dpListingsSection{
+ background:var(--panel)
+}
+.marketSidebar .active,.simpleTabs .active,.syPager .active{
+ background:var(--hero)!important;
+ color:var(--on-hero)!important
+}
+
+.dpHeroShade,.storeHeroShade,.saleTopShade,.heroShade{
+ background:linear-gradient(90deg,rgba(11,34,57,.92),rgba(11,34,57,.62) 45%,rgba(11,34,57,.08))!important
+}
+
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:2px solid var(--sea);
+ outline-offset:2px
 }
