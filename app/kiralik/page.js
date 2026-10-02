@@ -3,12 +3,6 @@ import Footer from '../../components/Footer';
 import YachtListingRow from '../../components/YachtListingRow';
 import {charterListings} from '../../data/content';
 
-const charterImages=[
- ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'],
- ['/charter-sunreef.webp','/charter-luna-hero.webp','/charter-luna-1.webp'],
- ['/charter-luna-1.webp','/charter-luna-9.webp','/charter-luna-hero.webp'],
- ['/charter-luna-9.webp','/charter-luna-1.webp','/charter-luna-hero.webp']
-];
 const sellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
 const years=['2022','2024','2022','2022'];
 
@@ -34,8 +28,8 @@ export default function Page(){
 
   <section className="luxResults"><div className="syContainer">
    <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>Charter seçkisi</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
-   <div className="luxRows">
-    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="charter" images={charterImages[i%charterImages.length]} seller={sellers[i%sellers.length]} year={years[i%years.length]} photoCount={24+i} videoCount={i%2===0?2:1}/>)}
+   <div className="sqYachtGrid">
+    {listings.map((x,i)=><YachtListingRow key={x.slug+'-'+i} item={x} type="charter" seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={String(2021+(i%4))} index={i}/>)}
    </div>
    <div className="syPager luxPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
   </div></section>
