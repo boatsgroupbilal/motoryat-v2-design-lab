@@ -6,10 +6,7 @@ export default function SiteHeader(){
       <div className="container topbarInner">
         <span>Türkiye'nin denizcilik platformu</span>
         <div className="topbarLinks">
-          <a href="#">TR</a>
-          <a href="#">₺</a>
-          <a href="#">€</a>
-          <a href="#">$</a>
+          <a href="#">TR</a><a href="#">₺</a><a href="#">€</a><a href="#">$</a>
           <Link href="/magazalar">Mağazalar</Link>
           <a href="#">Giriş</a>
         </div>
@@ -24,9 +21,9 @@ export default function SiteHeader(){
           <Link href="/satilik">Satılık</Link>
           <Link href="/kiralik">Kiralık</Link>
           <Link href="/urunler">Tekne & Yat Malzemeleri</Link>
-          <a href="#">Markalar</a>
-          <a href="#">Marinalar</a>
-          <a href="#">Haberler</a>
+          <Link href="/markalar">Markalar</Link>
+          <Link href="/marinalar">Marinalar</Link>
+          <Link href="/haberler">Haberler</Link>
         </nav>
         <div className="headActions">
           <a className="headerLogin" href="#">Giriş</a>
