@@ -31,7 +31,7 @@ export default function Page(){
       <div className="container">
         <div className="sectionHead"><div><span>DESTİNASYONLAR</span><h2>Öne çıkan rotalar</h2><p>Önce bölgeyi seçin, ardından uygun yatları karşılaştırın.</p></div></div>
         <div className="destinationGrid">
-          {destinations.map(x=><a className="destinationCard" href="#" key={x.name}><img src={x.image} alt={x.name}/><div><small>{x.sub}</small><span>{x.name}</span></div></a>)}
+          {destinations.map(x=><a className="destinationCard" href={'/marina/'+x.name.toLowerCase().replaceAll(' ','-').replaceAll('ı','i').replaceAll('ş','s').replaceAll('ç','c').replaceAll('ö','o').replaceAll('ü','u').replaceAll('ğ','g')} key={x.name}><img src={x.image} alt={x.name}/><div><small>{x.sub}</small><span>{x.name}</span></div></a>)}
         </div>
       </div>
     </section>
@@ -40,11 +40,11 @@ export default function Page(){
       <div className="container">
         <div className="listingSectionHead"><div><span>CHARTER FİLOSU</span><h2>Kiralık yatlar</h2></div><select><option>Önerilen sıralama</option><option>Boy: büyükten</option><option>Fiyat: düşükten</option></select></div>
         <div className="charterList">
-          {[...charterListings,...charterListings].map((x,i)=><article className="charterRow" key={i}>
+          {[...charterListings,...charterListings].map((x,i)=><a className="charterRow" href={x.href} key={i}>
             <div className="charterRowMedia"><img src={x.image} alt={x.title}/>{i<2&&<span>ÖNE ÇIKAN</span>}</div>
             <div className="charterRowInfo"><small>MÜRETTEBATLI CHARTER</small><h3>{x.title}</h3><p>{x.meta}</p><div className="charterFacts"><span>6 Kabin</span><span>12 Misafir</span><span>5 Mürettebat</span><span>Türkiye</span></div></div>
             <div className="charterRowPrice"><small>HAFTALIK</small><strong>{x.price}</strong><button className="navyBtn">Fiyat İste</button></div>
-          </article>)}
+          </a>)}
         </div>
       </div>
     </section>
