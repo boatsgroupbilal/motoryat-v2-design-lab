@@ -992,47 +992,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 
 /* =========================================================
-   PREMIUM HORIZONTAL YACHT LISTING CARDS — V2 LOCK
-   Desktop: image ~70% / information ~30% / vertical status rail
-   Mobile: stacked card / horizontal status rail
+   COMPACT PREMIUM YACHT LISTING CARDS — V2 FINAL
+   Desktop: 4 columns
+   Mobile: 2 columns
+   Card: near-square / slightly vertical
+   Image 70% / information 30%
    ========================================================= */
 .sqYachtGrid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:22px;
   padding:22px 0 36px
 }
 .sqYachtCard{
-  --sq-accent:var(--brass);
+  --sq-accent:#ffad25;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 52px;
-  grid-template-rows:minmax(0,1fr) 58px;
+  grid-template-columns:minmax(0,1fr) 32px;
+  grid-template-rows:70% 30%;
   min-width:0;
-  min-height:270px;
+  aspect-ratio:1 / 1.08;
   overflow:hidden;
-  background:#fff;
+  background:#062744;
   border:1px solid var(--line);
   border-radius:8px;
-  box-shadow:0 6px 22px rgba(11,34,57,.10);
+  box-shadow:0 6px 18px rgba(11,34,57,.09);
   transition:transform .18s ease,box-shadow .18s ease
 }
 .sqYachtCard:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 28px rgba(11,34,57,.15)
+  box-shadow:0 12px 28px rgba(11,34,57,.14)
 }
-.sqYachtCard.isSale{--sq-accent:#ffad25}
-.sqYachtCard.isCharter{--sq-accent:#05c9b8}
 
-.sqYachtMain{
-  grid-column:1;
-  grid-row:1;
-  display:grid;
-  grid-template-columns:minmax(0,70%) minmax(0,30%);
-  min-width:0;
-  min-height:210px
-}
+/* Sale stays in gold family; adjacent cards use different gold tones */
+.sqYachtCard.isSale.saleA{--sq-accent:#ffad25}
+.sqYachtCard.isSale.saleB{--sq-accent:#c99634}
+.sqYachtCard.isSale.saleC{--sq-accent:#9f7b43}
+.sqYachtCard.isSale.saleD{--sq-accent:#d89a24}
+
+/* Charter stays in turquoise family; adjacent cards use different turquoise tones */
+.sqYachtCard.isCharter.charterA{--sq-accent:#08cdb9}
+.sqYachtCard.isCharter.charterB{--sq-accent:#2fa6c8}
+.sqYachtCard.isCharter.charterC{--sq-accent:#0b918b}
+.sqYachtCard.isCharter.charterD{--sq-accent:#42bbc3}
 
 .sqYachtMedia{
+  grid-column:1;
+  grid-row:1;
   display:block;
   min-width:0;
   min-height:0;
@@ -1048,99 +1053,96 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .sqYachtCard:hover .sqYachtMedia img{transform:scale(1.02)}
 
 .sqYachtInfo{
+  grid-column:1;
+  grid-row:2;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   min-width:0;
-  padding:20px 22px;
+  min-height:0;
+  overflow:hidden;
+  padding:11px 13px 10px;
   background:#062744;
   color:#fff
 }
 .sqYachtTitle{display:block;min-width:0}
 .sqYachtInfo h2{
-  margin:0 0 6px;
+  margin:0 0 4px;
   color:#fff;
-  font:800 28px/1.05 Archivo,sans-serif;
-  white-space:normal;
-  overflow:visible
+  font:800 17px/1.08 Archivo,sans-serif;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
 }
 .sqYachtMeta{
   margin:0;
   color:#c6d1db;
-  font-size:15px;
+  font-size:10px;
   font-weight:700;
-  line-height:1.25;
-  white-space:normal
+  line-height:1.18;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
 }
 .sqYachtFacts{
   display:flex;
-  gap:22px;
-  margin-top:18px
+  gap:12px;
+  margin-top:8px
 }
 .sqYachtFacts>div+div{
-  border-left:1px solid rgba(255,255,255,.55);
-  padding-left:22px
+  border-left:1px solid rgba(255,255,255,.45);
+  padding-left:12px
 }
-.sqYachtFacts small,
-.sqYachtPrice small,
-.sqYachtBrand small{
+.sqYachtFacts small,.sqYachtPrice small{
   display:block;
   color:var(--sq-accent);
-  font-size:12px;
+  font-size:9px;
   font-weight:800;
-  letter-spacing:.04em;
-  line-height:1.2
+  letter-spacing:.03em;
+  line-height:1.1
 }
 .sqYachtFacts strong{
   display:block;
-  margin-top:3px;
+  margin-top:2px;
   color:#fff;
-  font-size:20px;
+  font-size:12px;
   line-height:1.05
 }
-.sqYachtPrice{margin-top:14px}
+.sqYachtPrice{margin-top:7px}
 .sqYachtPrice strong{
   display:block;
-  margin-top:3px;
-  color:#d9e1e7;
-  font-size:16px;
+  margin-top:2px;
+  color:#dfe6ec;
+  font-size:11px;
   font-weight:800;
-  line-height:1.2;
-  white-space:normal
+  line-height:1.1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
 }
-
-.sqYachtBrand{
-  grid-column:1;
-  grid-row:2;
+.sqYachtBrandLine{
+  margin-top:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:8px;
   min-width:0;
-  padding:0 20px;
-  background:#fff;
-  color:var(--ink);
-  border-top:1px solid #e6ebef
+  padding-top:7px
 }
-.sqYachtBrand>div{min-width:0}
-.sqYachtBrand small{
-  color:var(--mute);
-  font-size:9px;
-  letter-spacing:.07em
+.sqYachtBrandLine span{
+  min-width:0;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
 }
-.sqYachtBrand strong{
-  display:block;
-  margin-top:2px;
-  color:var(--ink);
-  font-size:14px;
-  line-height:1.15;
-  white-space:normal
-}
-.sqYachtBrand a{
+.sqYachtBrandLine a{
   flex:0 0 auto;
-  color:var(--sea);
-  font-size:12px;
-  font-weight:800
+  color:#d8e8f2;
+  font-size:9px;
+  font-weight:700;
+  white-space:nowrap
 }
 
 .sqYachtStatus{
@@ -1150,84 +1152,66 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   flex-direction:column;
   align-items:center;
   justify-content:space-between;
-  width:52px;
+  width:32px;
   min-height:100%;
-  padding:12px 0 16px;
+  padding:9px 0 10px;
   background:var(--sq-accent);
   color:#fff!important
-}
-.sqYachtStatus b{
-  color:#fff;
-  font-size:30px;
-  font-weight:300;
-  line-height:1
 }
 .sqYachtStatus span{
   display:block;
   writing-mode:vertical-rl;
   transform:rotate(180deg);
   color:#fff;
-  font-size:13px;
+  font-size:9px;
   font-weight:900;
-  letter-spacing:.06em;
+  letter-spacing:.05em;
+  line-height:1
+}
+.sqYachtStatus b{
+  color:#fff;
+  font-size:21px;
+  font-weight:400;
   line-height:1
 }
 
 @media(max-width:1100px){
- .sqYachtCard{grid-template-columns:minmax(0,1fr) 46px;min-height:250px}
- .sqYachtMain{grid-template-columns:minmax(0,66%) minmax(0,34%)}
- .sqYachtInfo{padding:18px}
- .sqYachtInfo h2{font-size:24px}
- .sqYachtStatus{width:46px}
+ .sqYachtGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 }
+
 @media(max-width:820px){
+ .sqYachtGrid{
+   grid-template-columns:repeat(2,minmax(0,1fr));
+   gap:12px;
+   padding-top:16px
+ }
  .sqYachtCard{
-   grid-template-columns:1fr;
-   grid-template-rows:auto 50px 52px;
-   min-height:0
+   grid-template-columns:minmax(0,1fr) 27px;
+   aspect-ratio:1 / 1.16
  }
- .sqYachtMain{
-   grid-column:1;
-   grid-row:1;
-   grid-template-columns:1fr;
-   grid-template-rows:62vw auto
- }
- .sqYachtInfo{padding:16px 18px 18px}
- .sqYachtInfo h2{font-size:24px}
- .sqYachtMeta{font-size:13px}
- .sqYachtFacts{margin-top:14px}
- .sqYachtFacts strong{font-size:18px}
- .sqYachtBrand{
-   grid-column:1;
-   grid-row:2;
-   padding:0 16px
- }
- .sqYachtStatus{
-   grid-column:1;
-   grid-row:3;
-   width:100%;
-   height:52px;
-   min-height:52px;
-   padding:0 16px;
-   flex-direction:row-reverse
- }
- .sqYachtStatus span{
-   writing-mode:horizontal-tb;
-   transform:none;
-   font-size:13px
- }
- .sqYachtStatus b{font-size:28px}
+ .sqYachtInfo{padding:9px 9px 8px}
+ .sqYachtInfo h2{font-size:14px}
+ .sqYachtMeta{font-size:9px}
+ .sqYachtFacts{gap:8px;margin-top:6px}
+ .sqYachtFacts>div+div{padding-left:8px}
+ .sqYachtFacts small,.sqYachtPrice small{font-size:8px}
+ .sqYachtFacts strong{font-size:10px}
+ .sqYachtPrice{margin-top:5px}
+ .sqYachtPrice strong{font-size:9px}
+ .sqYachtBrandLine{padding-top:5px;gap:5px}
+ .sqYachtBrandLine span{font-size:8px}
+ .sqYachtBrandLine a{font-size:7px}
+ .sqYachtStatus{width:27px;padding:7px 0 8px}
+ .sqYachtStatus span{font-size:8px}
+ .sqYachtStatus b{font-size:18px}
 }
-@media(max-width:520px){
- .sqYachtGrid{gap:16px}
- .sqYachtMain{grid-template-rows:67vw auto}
- .sqYachtInfo{padding:14px 16px 16px}
- .sqYachtInfo h2{font-size:22px}
- .sqYachtFacts{gap:16px}
- .sqYachtFacts>div+div{padding-left:16px}
- .sqYachtFacts strong{font-size:17px}
- .sqYachtPrice strong{font-size:15px}
- .sqYachtBrand strong{font-size:13px}
+
+@media(max-width:420px){
+ .sqYachtGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .sqYachtCard{grid-template-columns:minmax(0,1fr) 25px;aspect-ratio:1 / 1.2}
+ .sqYachtInfo{padding:8px 8px 7px}
+ .sqYachtInfo h2{font-size:13px}
+ .sqYachtStatus{width:25px}
 }
 
 .luxResults{padding:18px 0 60px}
