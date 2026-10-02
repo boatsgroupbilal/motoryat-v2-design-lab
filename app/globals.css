@@ -444,3 +444,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   color:var(--sea)!important;
   transform:none!important;
 }
+
+
+/* FINAL SUBMENU COLOR — light turquoise */
+.dpMegaPanel{
+  background:var(--soft-sea)!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.dpMegaRow{
+  background:var(--soft-sea)!important;
+}
+.dpMegaRow>a{
+  color:var(--ink)!important;
+  background:transparent!important;
+}
+.dpMegaRow>a:hover,
+.dpMegaRow>a:focus-visible{
+  background:#d6ecef!important;
+  color:var(--sea)!important;
+}
