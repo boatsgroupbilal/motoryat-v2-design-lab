@@ -5,21 +5,31 @@ export default function SiteHeader(){
     <div className="topbar">
       <div className="container topbarInner">
         <span>Türkiye'nin denizcilik platformu</span>
-        <span>Dil · Para Birimi · Giriş</span>
+        <div className="topbarLinks">
+          <a href="#">TR</a>
+          <a href="#">₺</a>
+          <a href="#">€</a>
+          <a href="#">$</a>
+          <Link href="/magazalar">Mağazalar</Link>
+          <a href="#">Giriş</a>
+        </div>
       </div>
     </div>
     <header className="header">
       <div className="container headerInner">
-        <Link href="/" className="brand"><img src="/motoryat-logo.svg" alt="Motoryat"/></Link>
-        <nav className="nav">
+        <Link href="/" className="brand" aria-label="Motoryat ana sayfa">
+          <img src="/motoryat-logo.svg" alt="Motoryat"/>
+        </Link>
+        <nav className="nav" aria-label="Ana menü">
           <Link href="/satilik">Satılık</Link>
           <Link href="/kiralik">Kiralık</Link>
-          <a href="#">Haberler</a>
-          <a href="#">Fiyat Rehberi</a>
+          <Link href="/urunler">Tekne & Yat Malzemeleri</Link>
+          <a href="#">Markalar</a>
           <a href="#">Marinalar</a>
+          <a href="#">Haberler</a>
         </nav>
         <div className="headActions">
-          <button className="ghost">Giriş</button>
+          <a className="headerLogin" href="#">Giriş</a>
           <button className="gold">İlan Ver</button>
         </div>
       </div>
