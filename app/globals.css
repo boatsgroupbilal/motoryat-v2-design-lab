@@ -464,3 +464,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:#d6ecef!important;
   color:var(--sea)!important;
 }
+
+
+/* FINAL MEGA MENU TURQUOISE — matched to MOTORYAT.COM wordmark */
+:root{
+  --logo-cyan:#3abce4;
+  --menu-cyan:#9edbe8;
+  --menu-cyan-hover:#73cddd;
+}
+.dpMegaPanel,
+.dpMegaRow{
+  background:var(--menu-cyan)!important;
+}
+.dpMegaRow>a{
+  color:var(--hero)!important;
+  background:transparent!important;
+}
+.dpMegaRow>a:hover,
+.dpMegaRow>a:focus-visible{
+  background:var(--menu-cyan-hover)!important;
+  color:var(--hero)!important;
+}
+.dpMega:hover>.dpMegaMain,
+.dpMega:focus-within>.dpMegaMain{
+  background:var(--logo-cyan)!important;
+  color:var(--hero)!important;
+}
