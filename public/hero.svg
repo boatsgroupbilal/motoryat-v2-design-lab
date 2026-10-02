@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><defs><linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081522"/><stop offset="1" stop-color="#2f5970"/></linearGradient><linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4f8ba9"/><stop offset="1" stop-color="#102d43"/></linearGradient></defs><rect width="1600" height="900" fill="url(#s)"/><circle cx="1280" cy="180" r="95" fill="#d7c698" opacity=".9"/><path d="M0 560C270 510 500 620 760 575s520-130 840-20v345H0Z" fill="url(#w)"/><path d="M330 520h690l-80 95H450Z" fill="#f7f5ef"/><path d="M520 405h390l95 115H470Z" fill="#e9ecec"/><rect x="590" y="420" width="120" height="46" rx="8" fill="#18364c"/><rect x="735" y="420" width="120" height="46" rx="8" fill="#18364c"/><path d="M515 390h415" stroke="#c2a878" stroke-width="8"/><text x="80" y="120" fill="#fff" font-family="Arial" font-size="28" letter-spacing="8">MOTORYAT.COM</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#071522"/><stop offset=".6" stop-color="#122f43"/><stop offset="1" stop-color="#315e76"/></linearGradient>
+ <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2e6c8c"/><stop offset="1" stop-color="#0b263a"/></linearGradient>
+</defs>
+<rect width="1600" height="760" fill="url(#sky)"/>
+<path d="M0 510C245 475 430 555 670 520c270-40 515-105 930-28v268H0Z" fill="url(#sea)"/>
+<path d="M845 415h510l-65 72H900Z" fill="#f5f1e8"/>
+<path d="M1000 328h260l75 87H955Z" fill="#dfe5e6"/>
+<path d="M1028 350h78v34h-78zm96 0h78v34h-78z" fill="#18364c"/>
+<path d="M935 495c120 18 260 18 395-2" fill="none" stroke="#6e9bb0" stroke-width="10" stroke-linecap="round"/>
+<path d="M0 590c300-40 530 42 780 10 300-38 520-75 820-26" fill="none" stroke="#6fa2bb" stroke-opacity=".42" stroke-width="4"/>
+</svg>
