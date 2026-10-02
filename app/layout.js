@@ -1,3 +1,3 @@
 import './globals.css';
-export const metadata={title:'Motoryat.com | Yat Satış, Kiralama, Haber',description:'Denizcilikte keşfet, bağlan, ticaret yap.',icons:{icon:'https://www.motoryat.com/upload/logos/logo.svg',shortcut:'https://www.motoryat.com/upload/logos/logo.svg'}};
+export const metadata={title:'Motoryat.com | Yat Satış, Kiralama, Haber',description:'Denizcilikte keşfet, bağlan, ticaret yap.',icons:{icon:'/motoryat-logo-real.png',shortcut:'/motoryat-logo-real.png'}};
 export default function RootLayout({children}){return <html lang="tr"><head><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Archivo:wght@400;600&display=swap" rel="stylesheet"/></head><body>{children}</body></html>}
