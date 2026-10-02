@@ -5,6 +5,7 @@ const sale=[
  ['Motoryat','/satilik?tip=motoryat'],
  ['Yelkenli','/satilik?tip=yelkenli'],
  ['Katamaran','/satilik?tip=katamaran'],
+ ['Gulet','/satilik?tip=gulet'],
  ['Tekne','/satilik?tip=tekne'],
  ['Yeni İnşa','/yeni-insa']
 ];
@@ -14,6 +15,7 @@ const charter=[
  ['Motoryat','/kiralik?tip=motoryat'],
  ['Yelkenli','/kiralik?tip=yelkenli'],
  ['Katamaran','/kiralik?tip=katamaran'],
+ ['Gulet','/kiralik?tip=gulet'],
  ['Tekne','/kiralik?tip=tekne']
 ];
 
