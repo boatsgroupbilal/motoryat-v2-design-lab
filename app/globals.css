@@ -188,3 +188,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  outline:2px solid var(--sea);
  outline-offset:2px
 }
+
+/* Official MOTORYAT.COM round logo */
+.dpLogo{width:62px!important;flex:0 0 62px!important;height:62px;display:flex;align-items:center;justify-content:center}
+.dpLogo img{width:58px!important;height:58px!important;object-fit:contain!important;background:transparent!important;padding:0!important;border-radius:50%}
+.dpFooterInner{align-items:center}
+.dpFooterBrand{display:flex;align-items:center;gap:14px}
+.dpFooterBrand img{width:72px;height:72px;object-fit:contain;border-radius:50%}
+@media(max-width:768px){
+ .dpLogo{width:56px!important;flex-basis:56px!important}
+ .dpLogo img{width:52px!important;height:52px!important}
+}
+@media(max-width:480px){
+ .dpLogo{width:52px!important;flex-basis:52px!important}
+ .dpLogo img{width:48px!important;height:48px!important}
+ .dpFooterBrand img{width:60px;height:60px}
+}
