@@ -1,3 +1,3 @@
 import './globals.css';
-export const metadata = { title:'Motoryat V2 Design Lab', description:'Motoryat.com yeni arayüz prototipi' };
-export default function RootLayout({children}){return <html lang="tr"><body>{children}</body></html>}
+export const metadata={title:'Motoryat.com | Yat Satış, Kiralama, Haber',description:'Denizcilikte keşfet, bağlan, ticaret yap.'};
+export default function RootLayout({children}){return <html lang="tr"><head><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Archivo:wght@400;600&display=swap" rel="stylesheet"/></head><body>{children}</body></html>}
