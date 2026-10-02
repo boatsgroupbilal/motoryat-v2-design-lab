@@ -2,47 +2,55 @@ import SiteHeader from '../components/SiteHeader';
 import Footer from '../components/Footer';
 import {saleListings,charterListings,stores} from '../data/content';
 
-const news=[
-  {cat:'YENİ MODELLER',title:'Yeni nesil yat tasarımları ve lansmanlar',image:'/sale-euro-850.webp',href:'/haber/yeni-model-ve-lansman-haberleri'},
-  {cat:'TERSANELER',title:'Türkiye yat üretiminden son gelişmeler',image:'/store-mengi.webp',href:'/haber/turkiye-yat-uretiminden-son-gelismeler'},
-  {cat:'CHARTER',title:'Akdeniz charter sezonu ve yeni rotalar',image:'/charter-luna-hero.webp',href:'/haber/charter-sezonu-ve-destinasyon-rehberi'}
+const events=[
+  {day:'28',month:'EKİM',title:'BOSPHORUS BOAT SHOW',image:'/sale-euro-850.webp'},
+  {day:'04',month:'KASIM',title:'GÖCEK CHARTER WEEK',image:'/charter-luna-1.webp'},
+  {day:'13',month:'KASIM',title:'DENİZCİLİK BULUŞMASI',image:'/store-mengi.webp'}
 ];
 
 export default function Home(){return <>
   <SiteHeader/>
-  <main className="syHome">
-    <section className="syHero">
-      <img src="/hero-home.webp" alt="Motoryat"/>
-      <div className="syHeroShade"></div>
-      <div className="syContainer syHeroCopy">
-        <span>ÖNE ÇIKAN</span>
-        <h1>Denizcilikte yeni nesil keşif ve ticaret platformu.</h1>
-        <p>Satılık ve kiralık yatlar, üreticiler, marinalar, destinasyonlar ve sektör haberleri.</p>
-        <div className="syHeroActions"><a href="/satilik">Satılık Yatları Keşfet</a><a href="/kiralik">Charter Yatları Gör</a></div>
-      </div>
-    </section>
+  <main className="syReplicaHome">
+    <section className="syReplicaHero">
+      <img className="syReplicaHeroImage" src="/hero-home.webp" alt="Motoryat"/>
+      <div className="syReplicaHeroOverlay"></div>
 
-    <section className="syFastSearchStrip">
-      <div className="syContainer syFastSearchGrid">
-        <div><small>HIZLI ARAMA</small><b>Yatınızı bulun</b></div>
-        <button><small>TÜR</small><b>Motor Yacht</b></button>
-        <button><small>BOY</small><b>Tüm boylar</b></button>
-        <button><small>FİYAT</small><b>Tüm fiyatlar</b></button>
-        <button><small>KONUM</small><b>Tüm bölgeler</b></button>
-        <a href="/satilik">Ara</a>
-      </div>
-    </section>
-
-    <section className="sySection">
-      <div className="syContainer">
-        <div className="sySectionHead"><div><span>SON HABERLER</span><h2>Denizcilik gündemi</h2></div><a href="/haberler">Tüm haberler →</a></div>
-        <div className="syNewsFeature">
-          <a className="syNewsLead" href={news[0].href}><img src={news[0].image} alt=""/><div><small>{news[0].cat}</small><h3>{news[0].title}</h3><span>Haberi oku →</span></div></a>
-          <div className="syNewsSide">
-            {news.slice(1).map(x=><a href={x.href} key={x.title}><img src={x.image} alt=""/><div><small>{x.cat}</small><h3>{x.title}</h3><span>Devamını oku →</span></div></a>)}
-          </div>
+      <div className="syReplicaHeroLeft">
+        <div className="syReplicaMonogram">my</div>
+        <h1>MOTORYAT 2026: DENİZCİLİKTE YENİ DÖNEM</h1>
+        <div className="syReplicaMeta"><span className="clock">◷</span><span>02 EKİM 2026</span><i>•</i><span>HABERLER</span></div>
+        <div className="syReplicaAuthor">
+          <span className="syReplicaAvatar">MY</span>
+          <div><small>Hazırlayan</small><b>Motoryat Editör</b></div>
         </div>
+        <a className="syReplicaStoryBtn" href="/haberler">HABERİ OKU <b>›</b></a>
+        <div className="syReplicaDots">{[0,1,2,3,4,5,6,7].map(i=><i key={i} className={i===3?'active':''}></i>)}</div>
       </div>
+
+      <a href="/haberler" className="syReplicaPlay" aria-label="Videoyu oynat"><span></span></a>
+
+      <div className="syReplicaQuote">
+        <b>“</b>
+        <p>Denizcilikte keşif, bağlantı ve ticaret tek platformda buluşuyor.</p>
+        <span>Motoryat.com</span>
+      </div>
+
+      <div className="syReplicaSideTabs">
+        <a className="fast" href="/satilik">HIZLI BUL</a>
+        <a className="about" href="/firmalar">HAKKIMIZDA</a>
+      </div>
+    </section>
+
+    <section className="syReplicaEvents">
+      <div className="syReplicaEventsLabel">ETKİNLİKLER</div>
+      <div className="syReplicaEventsTrack">
+        {events.map((e,i)=><a href="/haberler" className="syReplicaEventCard" key={i}>
+          <div className="syReplicaDate"><b>{e.day}</b><small>{e.month}</small></div>
+          <img src={e.image} alt=""/>
+          <strong>{e.title}</strong>
+        </a>)}
+      </div>
+      <div className="syReplicaEventsLabel right">ETKİNLİKLER</div>
     </section>
 
     <section className="sySection syPale">
@@ -64,24 +72,11 @@ export default function Home(){return <>
       </div>
     </section>
 
-    <section className="syDarkFeature">
-      <div className="syContainer syDarkGrid">
-        <div><span>NEW BUILD</span><h2>Yeni inşa, model ve özel projeler.</h2><p>Tersaneleri, yeni model serilerini ve geliştirilmekte olan yat projelerini tek yerde inceleyin.</p><a href="/yeni-insa">Yeni İnşa bölümüne git →</a></div>
-        <div className="syStatGrid"><div><b>100+</b><small>Marka</small></div><div><b>30m+</b><small>Superyacht</small></div><div><b>Global</b><small>Tersane ağı</small></div><div><b>24/7</b><small>Keşif</small></div></div>
-      </div>
-    </section>
-
-    <section className="sySection">
+    <section className="sySection syPale">
       <div className="syContainer">
         <div className="sySectionHead"><div><span>DIRECTORY</span><h2>Denizcilik Rehberi</h2></div><a href="/firmalar">Tüm rehber →</a></div>
-        <div className="syDirectoryGrid">
-          {stores.map(x=><a href={x.href} key={x.slug}><img src={x.image} alt={x.name}/><div><small>{x.category}</small><h3>{x.name}</h3><p>{x.location}</p></div></a>)}
-        </div>
+        <div className="syDirectoryGrid">{stores.map(x=><a href={x.href} key={x.slug}><img src={x.image} alt={x.name}/><div><small>{x.category}</small><h3>{x.name}</h3><p>{x.location}</p></div></a>)}</div>
       </div>
-    </section>
-
-    <section className="syTop100">
-      <div className="syContainer syTop100Inner"><div><span>TOP 100</span><h2>Motoryat Top 100</h2><p>Boy, üretici, yıl ve segment bazında öne çıkan yatları keşfedin.</p></div><a href="/top-100">Listeyi görüntüle →</a></div>
     </section>
   </main>
   <Footer/>
