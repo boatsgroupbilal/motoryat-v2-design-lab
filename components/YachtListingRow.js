@@ -10,31 +10,35 @@ export default function YachtListingRow({item,type='sale',seller='',year='2026',
       </Link>
 
       <div className="sqYachtInfo">
-        <Link href={item.href} className="sqYachtTitle"><h2>{item.title}</h2></Link>
+        <Link href={item.href} className="sqYachtTitle">
+          <h2>{item.title}</h2>
+        </Link>
+
         <p className="sqYachtMeta">{item.meta}</p>
 
-        <div className="sqYachtDetails">
-          <div className="sqYachtFacts">
-            <div><small>YIL</small><strong>{year}</strong></div>
-            <div><small>YENİLEME</small><strong>{refit}</strong></div>
-          </div>
-
-          <div className="sqYachtPrice">
-            <small>{charter?'HAFTALIK FİYAT':'FİYAT'}</small>
-            <strong>{item.price}</strong>
-          </div>
+        <div className="sqYachtFacts">
+          <div><small>YIL</small><strong>{year}</strong></div>
+          <div><small>YENİLEME</small><strong>{refit}</strong></div>
         </div>
 
-        <div className="sqYachtSeller">
-          <small>FİRMA / MARKA</small>
-          <strong>{seller||'Motoryat.com'}</strong>
+        <div className="sqYachtPrice">
+          <small>{charter?'HAFTALIK FİYAT':'FİYAT'}</small>
+          <strong>{item.price}</strong>
         </div>
       </div>
     </div>
 
+    <div className="sqYachtBrand">
+      <div>
+        <small>FİRMA / MARKA</small>
+        <strong>{seller||'Motoryat.com'}</strong>
+      </div>
+      <Link href={item.href}>İlanı incele →</Link>
+    </div>
+
     <Link href={item.href} className="sqYachtStatus" aria-label={(charter?'Kiralama listesi: ':'Satış ilanı: ')+item.title}>
-      <span>{charter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</span>
       <b>›</b>
+      <span>{charter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</span>
     </Link>
   </article>
 }
