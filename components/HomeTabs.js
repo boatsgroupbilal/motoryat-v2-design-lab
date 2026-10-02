@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-import YachtListingRow from './YachtListingRow';
+import {YachtCard} from './Card';
 
 const saleSellers=['Euro Boat','Euro Boat','Euro Boat','Yener Tekne'];
 const charterSellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
@@ -37,7 +37,7 @@ export default function HomeTabs({sale,charter}){
 
      <div className="sqYachtGrid homeYachtGrid">
        {data.slice(0,4).map((x,i)=>
-         <YachtListingRow
+         <YachtCard
            key={x.slug+'-'+i}
            item={x}
            type={type}
