@@ -407,3 +407,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .dpMegaRow>a{min-height:56px!important;padding:0 13px!important;font-size:12px!important}
  .dpMegaRow{min-height:56px!important}
 }
+
+
+/* TEXT-ONLY HOVER SUBMENU — user approved */
+.dpMegaPanel{
+  background:transparent!important;
+  border:0!important;
+  border-top:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+}
+.dpMegaRow{
+  min-height:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:30px!important;
+  padding:14px 18px!important;
+  background:transparent!important;
+  overflow-x:auto!important;
+}
+.dpMegaRow>a{
+  min-height:0!important;
+  height:auto!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--ink)!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1.35!important;
+  transition:color .15s ease!important;
+}
+.dpMegaRow>a:hover,
+.dpMegaRow>a:focus-visible{
+  background:transparent!important;
+  color:var(--sea)!important;
+  transform:none!important;
+}
