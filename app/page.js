@@ -12,7 +12,19 @@ const news=[
 export default function Home(){return <><SiteHeader/><main>
  <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
 
- <section id="haber" className="dpSection"><div className="dpWrap"><div className="dpHead"><h2>Son haberler</h2><a href="/haberler">Tüm haberler</a></div><div className="dpNews">{news.map((x,i)=><a className="dpCard" href={x.href} key={x.title}><div className={'dpImg n'+i}><img src={x.image} alt=""/></div><div className="dpT"><div className="dpM">{x.meta}</div><h3>{x.title}</h3></div></a>)}</div></div></section>
+ <section id="haber" className="dpSection homeNewsSection"><div className="dpWrap">
+  <div className="dpHead"><h2>Son haberler</h2><a href="/haberler">Tüm haberler</a></div>
+  <div className="homeNewsGrid">
+   {news.map((x,i)=><a className="homeNewsCard" href={x.href} key={x.title}>
+    <div className="homeNewsMedia"><img src={x.image} alt={x.title}/><span className="homeNewsIndex">0{i+1}</span></div>
+    <div className="homeNewsBody">
+     <div className="homeNewsMeta">{x.meta}</div>
+     <h3>{x.title}</h3>
+     <div className="homeNewsRead"><span>Haberi oku</span><b>→</b></div>
+    </div>
+   </a>)}
+  </div>
+ </div></section>
 
  <HomeTabs sale={saleListings} charter={charterListings}/>
 
