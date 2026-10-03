@@ -12,11 +12,27 @@ const news=[
 export default function Home(){return <><SiteHeader/><main className="homePage">
  <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpMobileHeroQuote"><b>“</b><p>Denizcilikte keşfet, bağlan ve ticaret yap.</p><span>MOTORYAT.COM</span></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
 
- <section className="dpMobileEvents" aria-label="Yaklaşan etkinlikler">
-  <div className="dpMobileEventRail">
-   <a href="/haberler/etkinlikler-fuarlar"><strong><b>08</b><small>EKİM</small></strong><span>İstanbul Denizcilik Buluşmaları <em>2026</em></span><i>›</i></a>
-   <a href="/haberler/etkinlikler-fuarlar"><strong><b>28</b><small>EKİM</small></strong><span>Uluslararası Tekne Fuarı <em>2026</em></span><i>›</i></a>
-   <a href="/haberler/etkinlikler-fuarlar"><strong><b>13</b><small>KASIM</small></strong><span>Yat & Ekipman Zirvesi <em>2026</em></span><i>›</i></a>
+ <section className="homeWideEvents" aria-label="Yaklaşan etkinlikler">
+  <div className="homeWideEventsShell">
+   <div className="homeWideEdge homeWideEdgeLeft"><span>ÖNCEKİ ETKİNLİKLER</span><b>‹</b></div>
+   <div className="homeWideEventsRail">
+    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
+     <div className="homeWideEventDate"><b>08</b><small>EKİM</small></div>
+     <div className="homeWideEventImage"><img src="/hero-home.webp" alt="Monaco Yat Fuarı 2026"/></div>
+     <div className="homeWideEventBody"><h3>Monaco Yat Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
+    </a>
+    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
+     <div className="homeWideEventDate"><b>28</b><small>EKİM</small></div>
+     <div className="homeWideEventImage"><img src="/store-directory.webp" alt="Fort Lauderdale Uluslararası Tekne Fuarı 2026"/></div>
+     <div className="homeWideEventBody"><h3>Fort Lauderdale Uluslararası Tekne Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
+    </a>
+    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
+     <div className="homeWideEventDate"><b>13</b><small>KASIM</small></div>
+     <div className="homeWideEventImage"><img src="/charter-sunreef.webp" alt="Sydney Tekne Fuarı 2026"/></div>
+     <div className="homeWideEventBody"><h3>Sydney Tekne Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
+    </a>
+   </div>
+   <div className="homeWideEdge homeWideEdgeRight"><span>YAKLAŞAN ETKİNLİKLER</span><b>›</b></div>
   </div>
  </section>
 
