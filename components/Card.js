@@ -21,7 +21,7 @@ export function ProductCard({item}){return <a className="productCard" href={item
 export function EquipmentProductCard({item}) {
   const shortText=item?.description || item?.sku || 'Tekne ve yat ekipmanı';
   const storeName=item?.storeName || item?.seller || item?.brand || 'Motoryat Mağazası';
-  const storeLogo=item?.storeLogo || '/motoryat-logo.svg';
+  const storeLogo=item?.storeLogo || '';
   const storeHref=item?.storeHref || '/magazalar';
 
   return <article className="eqCommerceCard">
@@ -58,9 +58,11 @@ export function EquipmentProductCard({item}) {
     </div>
 
     <a className="eqCommerceStore" href={storeHref}>
-      <span className="eqCommerceStoreLogo"><img src={storeLogo} alt=""/></span>
+      <span className={"eqCommerceStoreLogo"+(!storeLogo?" wordmark":"")}>
+        {storeLogo?<img src={storeLogo} alt=""/>:<b>{item.brand||storeName}</b>}
+      </span>
       <span className="eqCommerceStoreText"><small>MAĞAZA</small><b>{storeName}</b></span>
-      <span className="eqCommerceStoreArrow">→</span>
+      <span className="eqCommerceStoreArrow">›</span>
     </a>
   </article>
 }
