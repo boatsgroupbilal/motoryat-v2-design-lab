@@ -138,11 +138,13 @@ export default async function Page({params}){
             <strong>{item.price}</strong>
             <span>Güncel fiyat ve koşullar için bilgi isteyin.</span>
           </div>
-          <div className="syInquiryForm" id="bilgi-formu">
+          <div className="syInquiryForm syInquiryFormCompact" id="bilgi-formu">
             <h3>Bu ilan hakkında bilgi alın</h3>
-            <input type="text" aria-label="Ad soyad" placeholder="Ad Soyad"/>
+            <div className="syInquiryTwoCol">
+              <input type="text" aria-label="Ad soyad" placeholder="Ad Soyad"/>
+              <input type="tel" aria-label="Telefon" placeholder="Telefon"/>
+            </div>
             <input type="email" aria-label="E-posta" placeholder="E-posta"/>
-            <input type="tel" aria-label="Telefon" placeholder="Telefon"/>
             <textarea aria-label="Mesaj" defaultValue={item.title+' hakkında bilgi almak istiyorum.'}></textarea>
             <button type="button">BİLGİ / TEKLİF İSTE</button>
           </div>
@@ -150,12 +152,20 @@ export default async function Page({params}){
             <a href="#bilgi-formu">☎ Telefon</a>
             <a href="#bilgi-formu">WhatsApp</a>
           </div>
-          <div className="syBroker">
-            <img src="/motoryat-logo.svg" alt="Motoryat"/>
-            <div><small>YETKİLİ SATICI / MAĞAZA</small><b>{info.seller}</b><span>{location}</span></div>
-          </div>
-          <a className="syBrokerLink" href={sellerHref}>Mağazayı Gör <span>→</span></a>
         </div>
+
+        <div className="syStoreProfileCard">
+          <div className="syStoreProfileHead">
+            <div className="syStoreProfileLogo"><img src="/motoryat-logo.svg" alt=""/></div>
+            <div><small>YETKİLİ MAĞAZA</small><h3>{info.seller}</h3><p>{location}</p></div>
+          </div>
+          <div className="syStoreProfileMeta">
+            <span>Mağaza Profili</span>
+            <span>{isCharter?'Charter':'Satış'}</span>
+          </div>
+          <a href={sellerHref}>MAĞAZAYI GÖR <span>→</span></a>
+        </div>
+
         <div className="syAd">300 × 300<small>REKLAM ALANI</small></div>
       </aside>
     </div>
