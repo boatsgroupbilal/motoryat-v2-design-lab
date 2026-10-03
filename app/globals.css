@@ -2391,3 +2391,89 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .eqCommerceActions{grid-template-columns:minmax(0,1fr) 30px;gap:5px}
   .eqCommercePrimary,.eqCommerceCart{min-height:30px}
 }
+
+
+/* Visual category menu for equipment marketplace */
+.equipmentCategoryGroup{
+  padding-bottom:8px
+}
+.equipmentCategoryHead{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 13px;
+  background:#1167d8;
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.04em
+}
+.equipmentCategoryHead>span{
+  font-size:18px;
+  line-height:1
+}
+.equipmentCategoryRow{
+  display:grid!important;
+  grid-template-columns:28px minmax(0,1fr) auto;
+  align-items:center;
+  gap:9px;
+  min-height:38px;
+  padding:6px 12px!important;
+  border-bottom:1px solid #f1eee7;
+  background:#fff;
+  color:#14224a!important
+}
+.equipmentCategoryRow:hover{
+  background:#f7f9fc
+}
+.equipmentCategoryRow.active{
+  background:#eef4fb!important;
+  color:#14224a!important
+}
+.equipmentCategoryIcon{
+  width:24px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  background:#f2f6fa;
+  font-size:15px;
+  line-height:1
+}
+.equipmentCategoryName{
+  font-size:10px;
+  font-weight:800
+}
+.equipmentCategoryRow>b{
+  color:#84909b!important;
+  font-size:9px!important;
+  font-weight:700!important
+}
+@media(max-width:900px){
+  .equipmentSidebar{
+    display:block!important
+  }
+  .equipmentLayout{
+    grid-template-columns:1fr
+  }
+  .equipmentCategoryGroup{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0
+  }
+  .equipmentCategoryHead{
+    grid-column:1/-1
+  }
+  .equipmentBrands{
+    display:none
+  }
+}
+@media(max-width:620px){
+  .equipmentCategoryGroup{
+    grid-template-columns:1fr
+  }
+  .equipmentCategoryRow{
+    min-height:36px
+  }
+}
