@@ -10169,3 +10169,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:13px!important;
   }
 }
+
+/* YACHT CARD BRAND FALLBACK — LOGO OR FULL NAME */
+.sqYachtBrand.hasWordmark{
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:8px!important;
+}
+.sqYachtBrand.hasWordmark .sqYachtBrandMark{
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  overflow:visible!important;
+  justify-content:start!important;
+  place-items:center start!important;
+}
+.sqYachtBrandWordmark{
+  display:block!important;
+  min-width:0!important;
+  max-width:100%!important;
+  color:#0b2239!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  line-height:1.05!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.sqYachtBrand.hasWordmark .sqYachtBrandText{
+  display:flex!important;
+  align-items:center!important;
+}
+.sqYachtBrand.hasWordmark .sqYachtBrandText small{
+  margin-top:0!important;
+  white-space:nowrap!important;
+}
+
+@media(max-width:820px){
+  .sqYachtBrandWordmark{font-size:9px!important}
+  .sqYachtBrand.hasWordmark .sqYachtBrandText small{font-size:7px!important}
+}
+@media(max-width:420px){
+  .sqYachtBrandWordmark{font-size:8px!important}
+  .sqYachtBrand.hasWordmark .sqYachtBrandText small{font-size:6px!important}
+}
