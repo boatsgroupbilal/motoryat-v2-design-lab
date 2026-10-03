@@ -3781,3 +3781,114 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   }
   .marinaSideBlock{grid-column:auto}
 }
+
+
+/* =========================================================
+   HOMEPAGE COMPACT HEIGHT TUNING
+   ========================================================= */
+.homePage .dpHero{
+  height:520px!important
+}
+.homePage .dpHero .dpWrap{
+  padding-bottom:92px!important
+}
+.homePage .dpMobileHeroQuote{
+  min-height:118px!important;
+  width:min(470px,39vw)!important;
+  padding:18px 28px 16px 80px!important
+}
+.homePage .dpMobileHeroQuote b{
+  left:58px!important;
+  top:20px!important;
+  font-size:34px!important
+}
+.homePage .dpMobileHeroQuote p{
+  font-size:15px!important
+}
+.homePage .dpMobileEvents{
+  padding:12px 0 8px!important
+}
+.homePage .dpMobileEventRail a{
+  min-height:60px!important
+}
+.homePage .dpSection{
+  padding:40px 0!important
+}
+.homePage .homeNewsGrid{
+  gap:12px!important
+}
+.homePage .homeNewsCard{
+  min-height:150px!important
+}
+.homePage .homeNewsBody{
+  min-height:150px!important;
+  padding:18px 20px 16px!important
+}
+.homePage .homeNewsBody h3{
+  font-size:clamp(19px,1.7vw,25px)!important
+}
+.homePage .sqYachtGrid{
+  padding-top:14px!important;
+  padding-bottom:22px!important
+}
+
+@media(max-width:1024px){
+  .homePage .dpHero{
+    height:480px!important
+  }
+  .homePage .dpHero .dpWrap{
+    padding-bottom:86px!important
+  }
+  .homePage .dpMobileHeroQuote{
+    min-height:108px!important;
+    width:min(430px,48vw)!important
+  }
+  .homePage .dpSection{
+    padding:34px 0!important
+  }
+}
+
+@media(max-width:768px){
+  .homePage .dpHero{
+    height:500px!important
+  }
+  .homePage .dpHero .dpWrap{
+    padding-top:24px!important;
+    padding-bottom:126px!important
+  }
+  .homePage .dpHero h1{
+    margin-bottom:18px!important
+  }
+  .homePage .dpMobileHeroQuote{
+    left:31%!important;
+    width:auto!important;
+    min-height:112px!important;
+    padding:16px 14px 14px 46px!important
+  }
+  .homePage .dpMobileHeroQuote b{
+    left:34px!important;
+    top:16px!important;
+    font-size:30px!important
+  }
+  .homePage .dpMobileHeroQuote p{
+    font-size:12px!important
+  }
+  .homePage .dpMobileHeroQuote span{
+    font-size:9px!important
+  }
+  .homePage .dpMobileEvents{
+    padding:10px 0 6px!important
+  }
+  .homePage .dpMobileEventRail a{
+    min-height:58px!important
+  }
+  .homePage .dpSection{
+    padding:28px 0!important
+  }
+}
+
+@media(max-width:430px){
+  .homePage .dpHero{
+    height:470px!important
+  }
+}
