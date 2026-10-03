@@ -4642,3 +4642,127 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:34px!important
   }
 }
+
+
+/* =========================================================
+   MOBILE LISTING CARD PROPORTION FIX
+   Satılık / Kiralık: compact two-column cards
+   ========================================================= */
+@media(max-width:768px){
+  .luxListingPage .sqYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    align-items:start!important
+  }
+  .luxListingPage .sqYachtCard{
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:auto!important;
+    align-self:start!important
+  }
+  .luxListingPage .sqYachtMedia{
+    flex:0 0 auto!important;
+    aspect-ratio:1.42/1!important
+  }
+  .luxListingPage .sqYachtInfo{
+    flex:0 0 96px!important;
+    min-height:96px!important;
+    height:96px!important;
+    padding:8px 9px 7px!important;
+    overflow:hidden!important
+  }
+  .luxListingPage .sqYachtInfo h2{
+    display:-webkit-box!important;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden!important;
+    margin-bottom:2px!important;
+    font-size:14px!important;
+    line-height:1.05!important
+  }
+  .luxListingPage .sqYachtMeta{
+    overflow:hidden!important;
+    white-space:nowrap!important;
+    text-overflow:ellipsis!important;
+    font-size:8px!important
+  }
+  .luxListingPage .sqYachtFacts{
+    gap:7px!important;
+    margin-top:6px!important
+  }
+  .luxListingPage .sqYachtFacts>div+div{
+    padding-left:7px!important
+  }
+  .luxListingPage .sqYachtFacts small,
+  .luxListingPage .sqYachtPrice small{
+    font-size:6px!important
+  }
+  .luxListingPage .sqYachtFacts strong{
+    font-size:10px!important
+  }
+  .luxListingPage .sqYachtPrice{
+    padding-top:5px!important
+  }
+  .luxListingPage .sqYachtPrice strong{
+    font-size:9px!important
+  }
+  .luxListingPage .sqYachtStatus{
+    flex:0 0 28px!important;
+    height:28px!important;
+    min-height:28px!important;
+    padding:0 8px!important
+  }
+  .luxListingPage .sqYachtStatus span{
+    font-size:7px!important
+  }
+  .luxListingPage .sqYachtStatus b{
+    font-size:14px!important
+  }
+  .luxListingPage .sqYachtBrand{
+    flex:0 0 38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    grid-template-columns:26px minmax(0,1fr)!important;
+    gap:5px!important;
+    padding:3px 6px!important
+  }
+  .luxListingPage .sqYachtBrandMark{
+    width:24px!important;
+    height:20px!important;
+    font-size:8px!important
+  }
+  .luxListingPage .sqYachtBrandText strong{
+    font-size:7px!important
+  }
+  .luxListingPage .sqYachtBrandText small{
+    font-size:6px!important
+  }
+}
+
+@media(max-width:520px){
+  .luxListingPage .sqYachtGrid{
+    gap:8px!important
+  }
+  .luxListingPage .sqYachtMedia{
+    aspect-ratio:1.5/1!important
+  }
+  .luxListingPage .sqYachtInfo{
+    flex-basis:86px!important;
+    min-height:86px!important;
+    height:86px!important;
+    padding:7px!important
+  }
+  .luxListingPage .sqYachtInfo h2{
+    font-size:12px!important
+  }
+  .luxListingPage .sqYachtStatus{
+    flex-basis:26px!important;
+    height:26px!important;
+    min-height:26px!important
+  }
+  .luxListingPage .sqYachtBrand{
+    flex-basis:36px!important;
+    height:36px!important;
+    min-height:36px!important
+  }
+}
