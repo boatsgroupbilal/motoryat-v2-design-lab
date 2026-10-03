@@ -9856,3 +9856,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:19px
   }
 }
+
+
+/* MARINA FLAG IMAGE FIX */
+.marinaProfilesCountries button img{
+  width:22px;
+  height:15px;
+  object-fit:cover;
+  display:block;
+  border-radius:2px;
+  box-shadow:0 0 0 1px rgba(13,27,42,.08)
+}
+.marinaProfileFlag{
+  min-width:42px!important;
+  display:flex!important;
+  justify-content:flex-end!important
+}
+.marinaProfileFlag img{
+  width:34px;
+  height:23px;
+  object-fit:cover;
+  display:block;
+  border-radius:2px;
+  box-shadow:0 0 0 1px rgba(13,27,42,.12)
+}
