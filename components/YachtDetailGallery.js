@@ -3,7 +3,8 @@
 import {useState} from 'react';
 
 export default function YachtDetailGallery({images,title}){
-  const safe=(images||[]).filter(Boolean);
+  const safe=[...new Set((images||[]).filter(Boolean))];
+  const visible=safe.slice(0,3);
   const [open,setOpen]=useState(false);
   const [active,setActive]=useState(0);
 
@@ -14,19 +15,16 @@ export default function YachtDetailGallery({images,title}){
   return <>
     <section className="sySimpleGallery" aria-label={title+' görsel galerisi'}>
       <button className="sySimpleGalleryMain" type="button" onClick={()=>show(0)} aria-label="Ana fotoğrafı büyüt">
-        <img src={safe[0]} alt={title}/>
-        <span>{safe.length} FOTOĞRAF</span>
+        <img src={visible[0]} alt={title}/>
+        <span>📷 {safe.length} FOTOĞRAF</span>
       </button>
 
-      <div className="sySimpleGalleryThumbs">
-        <button type="button" onClick={()=>show(1)} aria-label="İkinci fotoğrafı büyüt">
-          <img src={safe[1]||safe[0]} alt={title+' görünüm 2'}/>
-        </button>
-        <button type="button" onClick={()=>show(2)} aria-label="Üçüncü fotoğrafı büyüt">
-          <img src={safe[2]||safe[0]} alt={title+' görünüm 3'}/>
-          <span>TÜM FOTOĞRAFLAR</span>
-        </button>
-      </div>
+      {visible.length>1&&<div className={"sySimpleGalleryThumbs "+(visible.length===2?"single":"")}>
+        {visible.slice(1).map((src,i)=><button key={src+i} type="button" onClick={()=>show(i+1)} aria-label={(i+2)+'. fotoğrafı büyüt'}>
+          <img src={src} alt={title+' görünüm '+(i+2)}/>
+          {i===visible.slice(1).length-1&&<span>TÜM FOTOĞRAFLAR · {safe.length}</span>}
+        </button>)}
+      </div>}
     </section>
 
     {open&&<div className="syGalleryLightbox" role="dialog" aria-modal="true" aria-label="İlan fotoğraf galerisi" onClick={()=>setOpen(false)}>
