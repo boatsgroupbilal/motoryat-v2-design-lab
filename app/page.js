@@ -9,20 +9,6 @@ export default function Home(){return <><SiteHeader/><main className="homePage">
 
  <HomeEventsSlider/>
 
- <section id="haber" className="dpSection homeNewsSection"><div className="dpWrap">
-  <div className="dpHead"><h2>Son haberler</h2><a href="/haberler">Tüm haberler</a></div>
-  <div className="homeNewsGrid">
-   {news.map((x,i)=><a className="homeNewsCard" href={x.href} key={x.title}>
-    <div className="homeNewsMedia"><img src={x.image} alt={x.title}/><span className="homeNewsIndex">0{i+1}</span></div>
-    <div className="homeNewsBody">
-     <div className="homeNewsMeta">{x.meta}</div>
-     <h3>{x.title}</h3>
-     <div className="homeNewsRead"><span>Haberi oku</span><b>→</b></div>
-    </div>
-   </a>)}
-  </div>
- </div></section>
-
  <HomeTabs sale={saleListings} charter={charterListings}/>
 
  <section id="rehber" className="dpSection"><div className="dpWrap"><div className="dpHead"><h2>Sektör rehberi</h2></div><div className="dpDir"><a className="dpCard" href="/firmalar"><h3>Tersaneler ve inşa firmaları</h3><p className="dpM">Firma profilleri, tamamlanan projeler ve iletişim bilgileri.</p></a><a className="dpCard" href="/firmalar"><h3>Brokerlar ve acenteler</h3><p className="dpM">Satış ve kiralama danışmanlarını ülkeye göre bulun.</p></a></div></div></section>
