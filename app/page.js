@@ -1,6 +1,7 @@
 import SiteHeader from '../components/SiteHeader';
 import Footer from '../components/Footer';
 import HomeTabs from '../components/HomeTabs';
+import HomeEventsSlider from '../components/HomeEventsSlider';
 import {saleListings,charterListings} from '../data/content';
 
 const news=[
@@ -12,29 +13,7 @@ const news=[
 export default function Home(){return <><SiteHeader/><main className="homePage">
  <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpMobileHeroQuote"><b>“</b><p>Denizcilikte keşfet, bağlan ve ticaret yap.</p><span>MOTORYAT.COM</span></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
 
- <section className="homeWideEvents" aria-label="Yaklaşan etkinlikler">
-  <div className="homeWideEventsShell">
-   <div className="homeWideEdge homeWideEdgeLeft"><span>ÖNCEKİ ETKİNLİKLER</span><b>‹</b></div>
-   <div className="homeWideEventsRail">
-    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
-     <div className="homeWideEventDate"><b>08</b><small>EKİM</small></div>
-     <div className="homeWideEventImage"><img src="/hero-home.webp" alt="Monaco Yat Fuarı 2026"/></div>
-     <div className="homeWideEventBody"><h3>Monaco Yat Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
-    </a>
-    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
-     <div className="homeWideEventDate"><b>28</b><small>EKİM</small></div>
-     <div className="homeWideEventImage"><img src="/store-directory.webp" alt="Fort Lauderdale Uluslararası Tekne Fuarı 2026"/></div>
-     <div className="homeWideEventBody"><h3>Fort Lauderdale Uluslararası Tekne Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
-    </a>
-    <a className="homeWideEventCard" href="/haberler/etkinlikler-fuarlar">
-     <div className="homeWideEventDate"><b>13</b><small>KASIM</small></div>
-     <div className="homeWideEventImage"><img src="/charter-sunreef.webp" alt="Sydney Tekne Fuarı 2026"/></div>
-     <div className="homeWideEventBody"><h3>Sydney Tekne Fuarı</h3><p>2026</p><span>Etkinliği görüntüle <b>›</b></span></div>
-    </a>
-   </div>
-   <div className="homeWideEdge homeWideEdgeRight"><span>YAKLAŞAN ETKİNLİKLER</span><b>›</b></div>
-  </div>
- </section>
+ <HomeEventsSlider/>
 
  <section id="haber" className="dpSection homeNewsSection"><div className="dpWrap">
   <div className="dpHead"><h2>Son haberler</h2><a href="/haberler">Tüm haberler</a></div>
