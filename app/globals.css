@@ -9518,3 +9518,341 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .syRefShowcaseSeller strong{font-size:10px}
   .syRefShowcaseSeller span{font-size:8px}
 }
+
+
+/* MARINA PROFILES V2 — CORPORATE FLAGS + STRIPES */
+.marinaProfilesV2{
+  background:#f6f8fa
+}
+.marinaProfilesHeroInner{
+  position:relative;
+  z-index:2;
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:#fff
+}
+.marinaProfilesHeroInner>span{
+  color:#d9b56f;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em
+}
+.marinaProfilesHeroInner h1{
+  margin:7px 0 4px;
+  color:#fff;
+  font-size:42px;
+  line-height:1
+}
+.marinaProfilesHeroInner p{
+  margin:0;
+  max-width:700px;
+  color:#d6e2eb;
+  font-size:15px
+}
+
+.marinaProfilesFilter{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  margin-top:18px;
+  padding:12px 14px;
+  background:#fff;
+  border:1px solid #e1e6ea;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(13,27,42,.05)
+}
+.marinaProfilesFilterTitle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#0d1b2a;
+  white-space:nowrap;
+  font-size:11px
+}
+.marinaProfilesCountries{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  scrollbar-width:none
+}
+.marinaProfilesCountries::-webkit-scrollbar{display:none}
+.marinaProfilesCountries button{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:0 10px;
+  border:1px solid #e1e6ea;
+  border-radius:8px;
+  background:#fff;
+  color:#24374b;
+  font-size:10px;
+  white-space:nowrap;
+  cursor:pointer
+}
+.marinaProfilesCountries button span{
+  font-size:16px;
+  line-height:1
+}
+.marinaProfilesCountries button.active{
+  background:#b58b45;
+  border-color:#b58b45;
+  color:#fff
+}
+.marinaProfilesSort{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#6e7d8a;
+  white-space:nowrap;
+  font-size:10px
+}
+.marinaProfilesSort button{
+  min-height:34px;
+  padding:0 11px;
+  border:1px solid #dfe5ea;
+  border-radius:8px;
+  background:#fff;
+  color:#0d1b2a;
+  font-size:10px
+}
+
+.marinaProfilesLayout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:24px;
+  align-items:start;
+  padding-top:16px;
+  padding-bottom:40px
+}
+.marinaProfilesList{
+  display:grid;
+  gap:9px
+}
+.marinaProfileRow{
+  position:relative;
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr) 145px;
+  min-height:105px;
+  overflow:hidden;
+  border:1px solid #e1e6ea;
+  border-radius:10px;
+  background:#fff;
+  color:#0d1b2a;
+  text-decoration:none;
+  box-shadow:0 3px 10px rgba(13,27,42,.045)
+}
+.marinaProfileStripe{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:var(--marina-accent,#b58b45)
+}
+.marinaProfileLogo{
+  display:grid;
+  place-items:center;
+  padding:10px 12px 10px 16px;
+  border-right:1px solid #e4e8eb;
+  background:#fbfcfd
+}
+.marinaProfileLogo b{
+  color:#16304a;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-align:center
+}
+.marinaProfileBody{
+  min-width:0;
+  padding:12px 14px
+}
+.marinaProfileTitle{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px
+}
+.marinaProfileTitle h3{
+  margin:0;
+  color:#0d1b2a;
+  font-size:15px
+}
+.marinaProfileTitle p{
+  margin:3px 0 0;
+  color:#6f7f8c;
+  font-size:9px
+}
+.marinaProfileFlag{
+  flex:0 0 auto;
+  min-width:64px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:5px;
+  color:#5c6974;
+  font-size:8px
+}
+.marinaProfileFlag span{
+  font-size:22px;
+  line-height:1
+}
+.marinaProfileFacilities{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px
+}
+.marinaProfileFacilities span{
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  min-width:46px
+}
+.marinaProfileFacilities i{
+  width:27px;
+  height:27px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#eef2f5;
+  border:1px solid #d8e0e6;
+  color:#16304a;
+  font-style:normal;
+  font-size:12px
+}
+.marinaProfileFacilities small{
+  color:#63717c;
+  font-size:7px;
+  line-height:1;
+  text-align:center
+}
+.marinaProfileAction{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:0 14px;
+  border-left:1px solid #e4e8eb;
+  background:#fbfcfd
+}
+.marinaProfileAction b{
+  color:#16304a;
+  font-size:8px;
+  letter-spacing:.03em
+}
+.marinaProfileAction span{
+  color:#b58b45;
+  font-size:22px;
+  font-weight:300
+}
+
+.marinaProfilesSide{
+  display:grid;
+  gap:14px
+}
+.marinaProfilesV2 .marinaSideVisual{
+  min-height:225px;
+  border-radius:10px;
+  overflow:hidden
+}
+.marinaProfilesV2 .marinaSideVisual>div{
+  position:absolute;
+  inset:auto 0 0 0;
+  display:grid;
+  gap:6px;
+  padding:20px;
+  background:linear-gradient(180deg,transparent,rgba(7,31,51,.9));
+  color:#fff
+}
+.marinaProfilesV2 .marinaSideVisual small{
+  font-size:8px;
+  letter-spacing:.08em
+}
+.marinaProfilesV2 .marinaSideVisual strong{
+  font-size:19px;
+  line-height:1.1
+}
+.marinaProfilesV2 .marinaSideVisual span{
+  font-size:9px
+}
+.marinaProfilesV2 .marinaSideAd{
+  min-height:160px
+}
+
+@media(max-width:1100px){
+  .marinaProfilesLayout{
+    grid-template-columns:minmax(0,1fr) 260px;
+    gap:18px
+  }
+  .marinaProfileRow{
+    grid-template-columns:105px minmax(0,1fr) 128px
+  }
+}
+@media(max-width:900px){
+  .marinaProfilesFilter{
+    grid-template-columns:1fr;
+    gap:10px
+  }
+  .marinaProfilesSort{
+    justify-content:space-between
+  }
+  .marinaProfilesLayout{
+    grid-template-columns:1fr
+  }
+  .marinaProfilesSide{
+    display:none
+  }
+}
+@media(max-width:680px){
+  .marinaProfilesHeroInner{
+    min-height:170px;
+    padding-left:12px;
+    padding-right:12px
+  }
+  .marinaProfilesHeroInner h1{
+    font-size:32px
+  }
+  .marinaProfilesHeroInner p{
+    font-size:12px
+  }
+  .marinaProfilesFilter{
+    margin:10px 10px 0;
+    padding:10px
+  }
+  .marinaProfilesLayout{
+    padding:10px
+  }
+  .marinaProfileRow{
+    grid-template-columns:82px minmax(0,1fr);
+    min-height:112px
+  }
+  .marinaProfileLogo{
+    padding:8px
+  }
+  .marinaProfileBody{
+    padding:10px
+  }
+  .marinaProfileAction{
+    grid-column:1/-1;
+    min-height:34px;
+    justify-content:flex-end;
+    border-left:0;
+    border-top:1px solid #e4e8eb
+  }
+  .marinaProfileFacilities{
+    gap:5px
+  }
+  .marinaProfileFacilities span{
+    min-width:38px
+  }
+  .marinaProfileFacilities small{
+    display:none
+  }
+  .marinaProfileFlag span{
+    font-size:19px
+  }
+}
