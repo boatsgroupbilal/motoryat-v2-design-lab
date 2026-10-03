@@ -10352,3 +10352,165 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     bottom:10px
   }
 }
+
+
+/* COMPACT MARINA DETAIL SCALE */
+.marinaPremiumHeroInner{
+  min-height:190px!important;
+  padding-top:34px!important;
+  padding-bottom:24px!important
+}
+.marinaPremiumHeroInner h1{
+  font-size:34px!important
+}
+.marinaPremiumHeroInner p{
+  font-size:12px!important
+}
+.marinaPremiumHeroInner>img{
+  width:70px!important;
+  height:46px!important
+}
+.marinaPremiumTabs .container{
+  min-height:44px!important;
+  gap:24px!important
+}
+.marinaPremiumStats{
+  margin-top:12px!important
+}
+.marinaPremiumStats>div{
+  min-height:64px!important
+}
+.marinaPremiumStats b{
+  font-size:18px!important
+}
+.marinaPremiumGallery{
+  margin-top:12px!important;
+  min-height:300px!important;
+  max-height:300px!important;
+  border-radius:9px!important
+}
+.marinaPremiumGalleryMain{
+  min-height:300px!important;
+  max-height:300px!important
+}
+.marinaPremiumGallerySide{
+  min-height:300px!important;
+  max-height:300px!important
+}
+.marinaPremiumGalleryMain figcaption{
+  left:12px!important;
+  bottom:11px!important;
+  padding:6px 8px!important;
+  font-size:8px!important
+}
+.marinaPremiumGalleryCount{
+  right:10px!important;
+  bottom:10px!important;
+  padding:6px 8px!important;
+  font-size:8px!important
+}
+.marinaPremiumLayout{
+  grid-template-columns:minmax(0,1fr) 290px!important;
+  gap:20px!important;
+  padding-top:12px!important;
+  padding-bottom:30px!important
+}
+.marinaPremiumMain{
+  gap:12px!important
+}
+.marinaPremiumSection{
+  padding:18px!important;
+  border-radius:8px!important
+}
+.marinaPremiumSection h2{
+  margin:4px 0 10px!important;
+  font-size:21px!important
+}
+.marinaPremiumSection p{
+  margin-bottom:9px!important;
+  font-size:11.5px!important;
+  line-height:1.55!important
+}
+.marinaPremiumSection p.lead{
+  font-size:14px!important;
+  line-height:1.5!important
+}
+.marinaPremiumFacilities{
+  gap:7px!important
+}
+.marinaPremiumFacilities>div{
+  min-height:68px!important;
+  gap:5px!important
+}
+.marinaPremiumFacilities i{
+  width:29px!important;
+  height:29px!important;
+  font-size:13px!important
+}
+.marinaPremiumSpecs{
+  margin-top:11px!important
+}
+.marinaPremiumSpecs>div{
+  min-height:46px!important;
+  padding:8px 10px!important
+}
+.marinaPremiumContact{
+  padding:16px!important
+}
+.marinaPremiumContact h3{
+  font-size:17px!important
+}
+.marinaPremiumContact dl>div{
+  padding:7px 0!important
+}
+.marinaPremiumContact>a{
+  min-height:36px!important;
+  margin-top:10px!important
+}
+
+@media(max-width:900px){
+  .marinaPremiumLayout{
+    grid-template-columns:1fr!important
+  }
+}
+@media(max-width:640px){
+  .marinaPremiumHeroInner{
+    min-height:155px!important;
+    padding:22px 12px 18px!important
+  }
+  .marinaPremiumHeroInner h1{
+    font-size:27px!important
+  }
+  .marinaPremiumHeroInner>img{
+    width:54px!important;
+    height:35px!important
+  }
+  .marinaPremiumGallery{
+    min-height:0!important;
+    max-height:none!important
+  }
+  .marinaPremiumGalleryMain{
+    min-height:200px!important;
+    max-height:200px!important
+  }
+  .marinaPremiumGallerySide{
+    min-height:100px!important;
+    max-height:100px!important;
+    grid-template-rows:100px!important
+  }
+  .marinaPremiumStats>div{
+    min-height:54px!important
+  }
+  .marinaPremiumStats b{
+    font-size:16px!important
+  }
+  .marinaPremiumSection{
+    padding:13px!important
+  }
+  .marinaPremiumSection h2{
+    font-size:18px!important
+  }
+  .marinaPremiumSection p.lead{
+    font-size:13px!important
+  }
+}
