@@ -1,77 +1,91 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 
-const marinas=[
-  {slug:'yalikavak-marina',name:'Yalıkavak Marina',loc:'Bodrum · Muğla',tag:'Premium Marina',mark:'YM',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●']},
-  {slug:'d-marin-gocek',name:'D-Marin Göcek',loc:'Göcek · Muğla',tag:'Charter Üssü',mark:'DG',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●','✦']},
-  {slug:'d-marin-turgutreis',name:'D-Marin Turgutreis',loc:'Bodrum · Muğla',tag:'Ege Rotası',mark:'DT',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●']},
-  {slug:'setur-kalamis-fenerbahce-marina',name:'Setur Kalamış & Fenerbahçe Marina',loc:'İstanbul',tag:'Şehir Marinası',mark:'SK',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●','✦']},
-  {slug:'netsel-marmaris-marina',name:'Netsel Marmaris Marina',loc:'Marmaris · Muğla',tag:'Akdeniz',mark:'NM',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●']},
-  {slug:'cesme-marina',name:'Çeşme Marina',loc:'Çeşme · İzmir',tag:'Ege',mark:'ÇM',country:'TR',fac:['⚓','⚡','◉','⛽','◈']},
-  {slug:'ece-saray-marina',name:'Ece Saray Marina',loc:'Fethiye · Muğla',tag:'Charter',mark:'ES',country:'TR',fac:['⚓','⚡','◉','⛽','●']},
-  {slug:'viaport-marina-tuzla',name:'Viaport Marina Tuzla',loc:'Tuzla · İstanbul',tag:'Marmara',mark:'VM',country:'TR',fac:['⚓','⚡','◉','⛽','◈','●']}
+const countries=[
+  {code:'ALL',flag:'🌐',name:'Tümü'},
+  {code:'TR',flag:'🇹🇷',name:'Türkiye'},
+  {code:'GR',flag:'🇬🇷',name:'Yunanistan'},
+  {code:'IT',flag:'🇮🇹',name:'İtalya'},
+  {code:'ES',flag:'🇪🇸',name:'İspanya'},
+  {code:'HR',flag:'🇭🇷',name:'Hırvatistan'},
+  {code:'ME',flag:'🇲🇪',name:'Karadağ'},
+  {code:'AE',flag:'🇦🇪',name:'BAE'},
+  {code:'BS',flag:'🇧🇸',name:'Bahamalar'},
+  {code:'AU',flag:'🇦🇺',name:'Avustralya'}
 ];
 
-export default function Page(){return <><SiteHeader/><main className="marinaDirectoryPage">
+const marinas=[
+  {slug:'d-marin-gocek',name:'D-Marin Göcek',loc:'Göcek, Muğla, Türkiye',mark:'D-MARIN',flag:'🇹🇷',country:'TR',accent:'#b9924a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'setur-kalamis-fenerbahce-marina',name:'Setur Kalamış & Fenerbahçe Marina',loc:'İstanbul, Türkiye',mark:'SETUR',flag:'🇹🇷',country:'TR',accent:'#0f9fb7',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'marina-di-porto-cervo',name:'Marina di Porto Cervo',loc:'Sardinya, İtalya',mark:'PORTO CERVO',flag:'🇮🇹',country:'IT',accent:'#16885a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'marina-port-vell',name:'Marina Port Vell',loc:'Barselona, İspanya',mark:'PORT VELL',flag:'🇪🇸',country:'ES',accent:'#d19c24',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'alimos-marina',name:'Alimos Marina',loc:'Atina, Yunanistan',mark:'ALIMOS',flag:'🇬🇷',country:'GR',accent:'#1d6bb5',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'aci-marina-dubrovnik',name:'ACI Marina Dubrovnik',loc:'Dubrovnik, Hırvatistan',mark:'ACI',flag:'🇭🇷',country:'HR',accent:'#d8483e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'porto-montenegro',name:'Porto Montenegro Marina',loc:'Tivat, Karadağ',mark:'PORTO M',flag:'🇲🇪',country:'ME',accent:'#c9343c',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'dubai-harbour-marina',name:'Dubai Harbour Marina',loc:'Dubai, Birleşik Arap Emirlikleri',mark:'DUBAI',flag:'🇦🇪',country:'AE',accent:'#d8982e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'nassau-yacht-haven',name:'Nassau Yacht Haven',loc:'Nassau, Bahamalar',mark:'NASSAU',flag:'🇧🇸',country:'BS',accent:'#23a9c6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'sydney-superyacht-marina',name:'Sydney Superyacht Marina',loc:'Sydney, Avustralya',mark:'SYDNEY',flag:'🇦🇺',country:'AU',accent:'#2855a6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']}
+];
+
+export default function Page(){return <><SiteHeader/><main className="marinaDirectoryPage marinaProfilesV2">
   <section className="marinaDirectoryHero">
     <img className="marinaDirectoryHeroImg" src="/hero-home.webp" alt="Motoryat marina rehberi"/>
     <div className="marinaDirectoryHeroShade"></div>
-    <div className="container marinaDirectoryHeroGrid">
-      <div className="marinaDirectoryHeroCopy">
-        <span>MARİNA REHBERİ</span>
-        <h1>Marinanızı bulun.</h1>
-        <p>Türkiye ve yakın rotalardaki marinaları; konum, bağlama ve hizmet seçeneklerine göre keşfedin.</p>
-        <div className="marinaDirectorySearch">
-          <input placeholder="Marina, şehir veya bölge ara"/>
-          <button type="button">ARA</button>
-        </div>
-      </div>
-
-      <a className="marinaFeaturedCard" href="/marina/yalikavak-marina">
-        <img src="/charter-luna-1.webp" alt="Öne çıkan marina"/>
-        <div className="marinaFeaturedShade"></div>
-        <div className="marinaFeaturedCopy">
-          <small>ÖNE ÇIKAN MARİNA</small>
-          <h2>Yalıkavak Marina</h2>
-          <p>Bodrum · Muğla</p>
-          <span>Profili görüntüle →</span>
-        </div>
-      </a>
+    <div className="container marinaProfilesHeroInner">
+      <span>MARİNA REHBERİ</span>
+      <h1>Marina Profilleri</h1>
+      <p>Dünyanın seçkin marinalarını keşfedin. Rotanızı planlayın, doğru limanı bulun.</p>
     </div>
   </section>
 
-  <section className="marinaDirectoryBar">
-    <div className="container">
-      <b>MARİNA PROFİLLERİ</b>
-      <div><a href="#">A–Z</a><a href="#">Ülkeye göre</a><a href="#">Haritada ara ⌕</a></div>
+  <section className="container marinaProfilesFilter">
+    <div className="marinaProfilesFilterTitle"><span>🌐</span><b>ÜLKEYE GÖRE FİLTRELE</b></div>
+    <div className="marinaProfilesCountries">
+      {countries.map((c,i)=><button className={i===0?'active':''} type="button" key={c.code}><span>{c.flag}</span>{c.name}</button>)}
     </div>
+    <div className="marinaProfilesSort"><span>Toplam {marinas.length} marina</span><button type="button">A–Z ↕</button></div>
   </section>
 
-  <section className="container marinaDirectoryLayout">
-    <div className="marinaDirectoryMain">
-      <button className="marinaCountryFilter" type="button"><span>▣</span> ÜLKEYE GÖRE FİLTRELE <b>＋</b></button>
+  <section className="container marinaProfilesLayout">
+    <div className="marinaProfilesMain">
+      <div className="marinaProfilesList">
+        {marinas.map((m)=><a
+          className="marinaProfileRow"
+          href={'/marina/'+m.slug}
+          key={m.slug}
+          style={{'--marina-accent':m.accent}}
+        >
+          <span className="marinaProfileStripe" aria-hidden="true"></span>
+          <div className="marinaProfileLogo"><b>{m.mark}</b></div>
 
-      <div className="marinaDirectoryList">
-        {marinas.map((m,i)=><a className="marinaDirectoryRow" href={'/marina/'+m.slug} key={m.slug}>
-          <div className="marinaDirectoryLogo">{m.mark}</div>
-          <div className="marinaDirectoryInfo">
-            <small>{m.loc}</small>
-            <h3>{m.name}</h3>
-            <p>{m.tag}</p>
-            <div className="marinaFacilities">{m.fac.map((x,j)=><i key={j}>{x}</i>)}</div>
+          <div className="marinaProfileBody">
+            <div className="marinaProfileTitle">
+              <div>
+                <h3>{m.name}</h3>
+                <p>⌖ {m.loc}</p>
+              </div>
+              <div className="marinaProfileFlag"><span>{m.flag}</span><b>{m.country}</b></div>
+            </div>
+
+            <div className="marinaProfileFacilities">
+              {m.fac.map((x,j)=>{
+                const parts=x.split(' ');
+                return <span key={j}><i>{parts[0]}</i><small>{parts.slice(1).join(' ')}</small></span>
+              })}
+            </div>
           </div>
-          <div className="marinaDirectoryAction">
-            <span>{m.country}</span>
-            <b>MARİNAYI GÖRÜNTÜLE ›</b>
+
+          <div className="marinaProfileAction">
+            <b>MARİNAYI GÖRÜNTÜLE</b><span>›</span>
           </div>
         </a>)}
       </div>
     </div>
 
-    <aside className="marinaDirectorySide">
+    <aside className="marinaProfilesSide">
       <a className="marinaSideVisual" href="/haberler">
         <img src="/charter-sunreef.webp" alt="Akdeniz rotaları"/>
-        <span>AKDENİZ ROTALARI</span>
+        <div><small>MARİNA REHBERİ</small><strong>Hayalinizdeki Marina Sizi Bekliyor</strong><span>Rotaları keşfet →</span></div>
       </a>
 
       <div className="marinaSideBlock">
@@ -83,13 +97,13 @@ export default function Page(){return <><SiteHeader/><main className="marinaDire
         </a>
         <a className="marinaSideNews compact" href="/haberler">
           <img src="/sale-euro-760.webp" alt="Ege marinaları"/>
-          <div><small>REHBER</small><h3>Ege kıyılarında öne çıkan rotalar</h3></div>
+          <div><small>REHBER</small><h3>Akdeniz ve Ege’de öne çıkan marinalar</h3></div>
         </a>
       </div>
 
       <a className="marinaSideAd" href="/magazalar">
         <img src="/store-mengi.webp" alt="Motoryat ticari vitrin"/>
-        <div><small>MOTORYAT.COM</small><strong>Ticari Vitrin</strong><span>Mağazaları keşfet →</span></div>
+        <div><small>MOTORYAT.COM</small><strong>Global Marina Rehberi</strong><span>Keşfet · Planla · Rotanı Oluştur</span></div>
       </a>
     </aside>
   </section>
