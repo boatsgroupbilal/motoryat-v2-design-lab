@@ -9939,3 +9939,83 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:22px
   }
 }
+
+
+/* HOMEPAGE YACHT CARDS — FINAL SIZE LOCK */
+.homePage .sqYachtGrid.homeYachtGrid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:16px!important;
+  padding:16px 0 28px!important
+}
+.homePage .homeYachtGrid .sqYachtCard{
+  aspect-ratio:.72 / 1!important;
+  grid-template-rows:56% 30% 7% 7%!important;
+  min-width:0!important
+}
+
+@media(max-width:820px){
+  .homePage .sqYachtGrid.homeYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    padding:12px 0 24px!important
+  }
+  .homePage .homeYachtGrid .sqYachtCard{
+    aspect-ratio:.72 / 1!important;
+    grid-template-rows:55% 31% 7% 7%!important;
+    border-radius:6px!important
+  }
+  .homePage .homeYachtGrid .sqYachtInfo{
+    padding:9px 10px 8px!important
+  }
+  .homePage .homeYachtGrid .sqYachtInfo h2{
+    font-size:15px!important;
+    line-height:1.08!important
+  }
+  .homePage .homeYachtGrid .sqYachtMeta{
+    font-size:9px!important
+  }
+}
+
+@media(max-width:520px){
+  .homePage .sqYachtGrid.homeYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important
+  }
+  .homePage .homeYachtGrid .sqYachtCard{
+    aspect-ratio:.70 / 1!important;
+    grid-template-rows:55% 31% 7% 7%!important
+  }
+  .homePage .homeYachtGrid .sqYachtInfo{
+    padding:8px!important
+  }
+  .homePage .homeYachtGrid .sqYachtInfo h2{
+    font-size:13px!important;
+    line-height:1.08!important
+  }
+  .homePage .homeYachtGrid .sqYachtMeta{
+    font-size:8px!important
+  }
+  .homePage .homeYachtGrid .sqYachtFacts{
+    gap:7px!important;
+    margin-top:6px!important
+  }
+  .homePage .homeYachtGrid .sqYachtFacts>div+div{
+    padding-left:7px!important
+  }
+  .homePage .homeYachtGrid .sqYachtFacts small,
+  .homePage .homeYachtGrid .sqYachtPrice small{
+    font-size:7px!important
+  }
+  .homePage .homeYachtGrid .sqYachtFacts strong{
+    font-size:10px!important
+  }
+  .homePage .homeYachtGrid .sqYachtPrice strong{
+    font-size:9px!important
+  }
+  .homePage .homeYachtGrid .sqYachtStatus span{
+    font-size:7px!important
+  }
+  .homePage .homeYachtGrid .sqYachtBrandText strong{
+    font-size:7px!important
+  }
+}
