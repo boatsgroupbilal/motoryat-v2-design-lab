@@ -9428,3 +9428,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:12px!important
   }
 }
+
+
+/* REAL RELATED LISTING IMAGE ALIGNMENT */
+.syRefShowcaseMain img,
+.syRefShowcaseSmall img{
+  object-fit:cover!important;
+  object-position:center center!important
+}
+.syRefShowcaseSmall.isSparse{
+  background:#eef1f3
+}
+.syRefShowcaseEmpty{
+  display:grid;
+  place-items:center;
+  min-width:0;
+  min-height:0;
+  background:#eef1f3;
+  color:#8a949c;
+  font-size:8px;
+  letter-spacing:.05em;
+  text-align:center;
+  padding:8px
+}
