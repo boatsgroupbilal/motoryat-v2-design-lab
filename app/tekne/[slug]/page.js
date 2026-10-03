@@ -124,36 +124,58 @@ export default async function Page({params}){
 
     <section className="syRefBottom">
       <div className="syRefBottomLeft">
-        <div className="syRefSectionHead">
-          <h2>{isCharter?'DİĞER KİRALIK İLANLAR':'DİĞER SATILIK İLANLAR'}</h2>
-          <span>••••</span>
+        <div className="syRefSectionHead syRefRelatedHead">
+          <div>
+            <small>SİZİN İÇİN SEÇTİKLERİMİZ</small>
+            <h2>Benzer İlanlar</h2>
+          </div>
+          <a href={listHref}>Tüm İlanları Gör ›</a>
         </div>
-        <div className="syRefRelatedList">
-          {related.map((x,i)=><a className="syRefRelatedRow" href={'/tekne/'+x.slug} key={x.slug}>
-            <img src={x.image} alt={x.title}/>
-            <div className="syRefRelatedMini">
-              <small>{x.kind}</small>
-              <b>{info.year}</b>
-            </div>
-            <div className="syRefRelatedInfo">
-              <h3>{x.title}</h3>
-              <p>{x.meta}</p>
-              <strong>{x.price}</strong>
-            </div>
-            <span className="syRefRelatedArrow">›</span>
-          </a>)}
+
+        <div className="syRefShowcaseList">
+          {related.map((x,i)=>{
+            const xMeta=detailMeta[x.slug]||{year:'—'};
+            const xGallery=[...new Set([x.image,...(x.gallery||[])].filter(Boolean))];
+            const photoCount=xGallery.length;
+            const smallOne=xGallery[1]||x.image;
+            const smallTwo=xGallery[2]||x.image;
+            const xParts=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
+            const xLength=xParts[0]||'—';
+            return <a className={"syRefShowcaseCard "+(isCharter?'charter':'sale')} href={'/tekne/'+x.slug} key={x.slug}>
+              <div className="syRefShowcaseMain">
+                <img src={x.image} alt={x.title}/>
+                <div className="syRefShowcaseMedia">
+                  <span>▣ {photoCount}</span>
+                  <span>▶ 0</span>
+                </div>
+              </div>
+
+              <div className="syRefShowcaseSmall">
+                <img src={smallOne} alt={x.title+' görünüm 2'}/>
+                <img src={smallTwo} alt={x.title+' görünüm 3'}/>
+              </div>
+
+              <div className="syRefShowcaseInfo">
+                <h3>{x.title}</h3>
+                <p>{xLength} · {info.seller}</p>
+                <div className="syRefShowcaseFacts">
+                  <div><small>YIL</small><b>{xMeta.year}</b></div>
+                  <div><small>{isCharter?'YENİLEME':'DURUM'}</small><b>{isCharter?'—':'SATILIK'}</b></div>
+                </div>
+                <div className="syRefShowcasePrice">
+                  <small>{isCharter?'HAFTALIK FİYAT':'FİYATI'}</small>
+                  <strong>{x.price}</strong>
+                </div>
+              </div>
+
+              <div className="syRefShowcaseBand">
+                <span>›</span>
+                <b>{isCharter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</b>
+              </div>
+            </a>
+          })}
         </div>
       </div>
-
-      <aside className="syRefNews">
-        <div className="syRefSectionHead"><h2>İLGİLİ HABERLER</h2></div>
-        <article>
-          <img src={isCharter?'/charter.webp':'/yacht.webp'} alt="Yat haberi"/>
-          <small>03 AĞUSTOS 2026</small>
-          <h3>{isCharter?'Charter sezonunda yeni rotalar':'Yat pazarında öne çıkan gelişmeler'}</h3>
-          <p>Denizcilik ve yat dünyasından seçili güncel içerikler.</p>
-        </article>
-      </aside>
     </section>
   </main><Footer/></>
 }
