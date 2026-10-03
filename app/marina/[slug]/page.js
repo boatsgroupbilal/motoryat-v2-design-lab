@@ -24,9 +24,14 @@ const profiles={
     dockType:'Yüzer ponton',
     mooringStyle:'Side-to / Stern-to',
     officeHours:'Pazartesi–Cuma 08:00–16:00',
-    intro:'Cairns Marlin Marina, Cairns şehir merkezindeki konumu ve Great Barrier Reef’e doğrudan erişimiyle Kuzey Avustralya’nın öne çıkan süperyat ve cruising marina merkezlerinden biridir.',
-    overview:'Modern yüzer ponton sistemi; cruising yatları, turizm tekneleri, sportif balıkçılık filosu ve büyük süperyatlara hizmet verir. Şehir merkezi, oteller, restoranlar, alışveriş ve Cairns Esplanade yürüme mesafesindedir. Cairns International Airport yaklaşık 10 dakika, marina ve süperyat refit bölgesi yaklaşık 5 dakika uzaklıktadır. Cairns aynı zamanda Austal Cairns, Norship Marine ve Tropical Reef Shipyard gibi büyük bakım, onarım ve refit tesislerinin bulunduğu güçlü bir denizcilik merkezidir.',
-    superyacht:'Marinada 12 özel süperyat bağlama alanı bulunur. 60 metreye kadar tekneler yüzer pontonlarda; 60–140 metre arasındaki büyük yatlar Sailfish Quay sabit rıhtımında ağırlanabilir. Yan yana bağlamada 6,5 metreye kadar draft desteklenir.',
+    intro:'Cairns Marlin Marina, Avustralya’nın Queensland eyaletinde, Cairns şehir merkezinin hemen kıyısında yer alan önemli bir süperyat ve cruising marina merkezidir. Great Barrier Reef’e açılan stratejik konumu sayesinde hem uzun menzilli yatlar hem de bölgeyi keşfeden charter ve özel tekneler için güçlü bir üs niteliğindedir.',
+    overview:'Marina toplam 261 bağlama kapasitesine sahiptir. Bunların 12’si süperyatlara ayrılmıştır. 60 metreye kadar yatlar yüzer ponton sisteminde ağırlanabilirken, Sailfish Quay bölgesi yaklaşık 140 metreye kadar büyük süperyatlara hizmet verebilecek altyapıya sahiptir. Şehir merkezi, Cairns Esplanade, restoranlar, oteller ve alışveriş alanları yürüme mesafesindedir. Cairns International Airport’a ulaşım yaklaşık 10 dakika sürer. Bölgede Austal Cairns, Norship Marine ve Tropical Reef Shipyard gibi bakım, onarım ve refit tesisleri de bulunur.',
+    superyacht:'Marinada 12 özel süperyat bağlama alanı bulunur. 60 metreye kadar tekneler yüzer pontonlarda; 60–140 metre arasındaki büyük yatlar Sailfish Quay sabit rıhtımında ağırlanabilir. Cairns, Port of Entry özelliği ve güçlü refit altyapısı sayesinde uluslararası süperyat operasyonları için Kuzey Avustralya’daki önemli merkezlerden biridir.',
+    images:[
+      '/marinas/cairns/cairns-marlin-marina-01.jpg',
+      '/marinas/cairns/cairns-marlin-marina-02.jpg',
+      '/marinas/cairns/cairns-marlin-marina-03.jpg'
+    ],
     facilities:[
       ['⚓','Bağlama'],
       ['⚡','Elektrik'],
@@ -59,7 +64,7 @@ export default async function Page({params}){
   }
 
   return <><SiteHeader/><main className="marinaPremiumDetail">
-    <section className="marinaPremiumHero">
+    <section className="marinaPremiumHero" style={{backgroundImage:`linear-gradient(90deg,rgba(8,27,45,.86),rgba(8,27,45,.55) 55%,rgba(8,27,45,.22)),url('${p.images[0]}')`}}>
       <div className="container marinaPremiumHeroInner">
         <div>
           <span>GLOBAL MARİNA REHBERİ</span>
@@ -68,6 +73,15 @@ export default async function Page({params}){
         </div>
         <img src={p.flag} alt="Avustralya bayrağı"/>
       </div>
+    </section>
+
+    <section className="container marinaPremiumGallery" aria-label="Cairns Marlin Marina fotoğraf galerisi">
+      <figure className="marinaPremiumGalleryMain"><img src={p.images[0]} alt={p.name}/><figcaption>CAIRNS MARLIN MARINA</figcaption></figure>
+      <div className="marinaPremiumGallerySide">
+        <img src={p.images[1]} alt={p.name+' marina görünümü 2'}/>
+        <img src={p.images[2]} alt={p.name+' marina görünümü 3'}/>
+      </div>
+      <div className="marinaPremiumGalleryCount">3 FOTOĞRAF</div>
     </section>
 
     <nav className="marinaPremiumTabs">
@@ -94,6 +108,7 @@ export default async function Page({params}){
           <h2>{p.name}</h2>
           <p className="lead">{p.intro}</p>
           <p>{p.overview}</p>
+          <p>Marinada elektrik, tatlı su, Wi‑Fi, yakıt ve bunkering, duş ve tuvalet, çamaşırhane, atık ve geri dönüşüm, black-water pump-out, güvenlik ve CCTV gibi temel hizmetler sunulur. Yabancı bayraklı yatlar için Cairns’in Port of Entry özelliği uluslararası seyir açısından önemli bir avantaj sağlar.</p>
         </section>
 
         <section className="marinaPremiumSection" id="tesisler">
@@ -129,6 +144,7 @@ export default async function Page({params}){
         <section className="marinaPremiumSection marinaPremiumSource">
           <h2>Kaynak ve Güncellik</h2>
           <p>Bilgiler Ports North, PredictWind, Australian Commercial Marine Group, Super Yacht Group Great Barrier Reef ve Cairns Regional Council kaynakları çapraz kontrol edilerek MOTORYAT için yeniden yazılmıştır. Güncel resmî kaynak 261 bağlama bildirirken bazı eski sektör dizinlerinde 264 rakamı görülebilir; profilde güncel Ports North rakamı esas alınmıştır.</p>
+          <p className="marinaMediaCredit">Fotoğraflar: Wikimedia Commons üzerinden yerel olarak kaydedilmiş yeniden kullanıma açık Cairns marina görselleri. Kaynak ve lisans bağlantıları aşağıdadır.</p>
           <div>
             <a href="https://www.portsnorth.com.au/cairns-marlin-marina/" target="_blank" rel="noopener noreferrer">Ports North ↗</a>
             <a href="https://explore.predictwind.com/marinas/australia/queensland/cairns-marlin-marina" target="_blank" rel="noopener noreferrer">PredictWind ↗</a>
