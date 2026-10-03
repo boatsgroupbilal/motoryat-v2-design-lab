@@ -27,7 +27,9 @@ export default async function Page({params}){
   const isLadyLuna=item.slug.startsWith('lady-luna');
   const fallbackGallery=isLadyLuna ? ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image];
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
-  const related=(isCharter?charterListings:saleListings).filter(x=>x.slug!==item.slug).slice(0,2);
+  const related=(isCharter?charterListings:saleListings)
+    .filter(x=>x.slug!==item.slug)
+    .slice(0,2);
   const listHref=isCharter?'/kiralik':'/satilik';
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
 
@@ -134,11 +136,11 @@ export default async function Page({params}){
 
         <div className="syRefShowcaseList">
           {related.map((x,i)=>{
-            const xMeta=detailMeta[x.slug]||{year:'—'};
+            const xMeta=detailMeta[x.slug]||{seller:'Motoryat Partner',year:'—'};
             const xGallery=[...new Set([x.image,...(x.gallery||[])].filter(Boolean))];
             const photoCount=xGallery.length;
-            const smallOne=xGallery[1]||x.image;
-            const smallTwo=xGallery[2]||x.image;
+            const smallOne=xGallery[1]||null;
+            const smallTwo=xGallery[2]||null;
             const xParts=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
             const xLength=xParts[0]||'—';
             return <a className={"syRefShowcaseCard "+(isCharter?'charter':'sale')} href={'/tekne/'+x.slug} key={x.slug}>
@@ -150,14 +152,18 @@ export default async function Page({params}){
                 </div>
               </div>
 
-              <div className="syRefShowcaseSmall">
-                <img src={smallOne} alt={x.title+' görünüm 2'}/>
-                <img src={smallTwo} alt={x.title+' görünüm 3'}/>
+              <div className={"syRefShowcaseSmall "+(photoCount<3?'isSparse':'')}>
+                {smallOne
+                  ? <img src={smallOne} alt={x.title+' görünüm 2'}/>
+                  : <div className="syRefShowcaseEmpty"><span>EK FOTOĞRAF YOK</span></div>}
+                {smallTwo
+                  ? <img src={smallTwo} alt={x.title+' görünüm 3'}/>
+                  : <div className="syRefShowcaseEmpty"><span>EK FOTOĞRAF YOK</span></div>}
               </div>
 
               <div className="syRefShowcaseInfo">
                 <h3>{x.title}</h3>
-                <p>{xLength} · {info.seller}</p>
+                <p>{xLength} · {xMeta.seller}</p>
                 <div className="syRefShowcaseFacts">
                   <div><small>YIL</small><b>{xMeta.year}</b></div>
                   <div><small>{isCharter?'YENİLEME':'DURUM'}</small><b>{isCharter?'—':'SATILIK'}</b></div>
