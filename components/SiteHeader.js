@@ -34,13 +34,11 @@ const equipment=[
 const news=[
  ['SON HABERLER','/haberler'],
  ['SÜPERYAT','/haberler/superyat'],
- ['YENİ İNŞA','/haberler/yeni-insa'],
+ ['YENİ İNŞA & LANSMANLAR','/haberler/yeni-insa-lansmanlar'],
  ['TEKNE TESTLERİ & İNCELEMELER','/haberler/tekne-testleri-incelemeler'],
- ['MARKALAR & FİRMALAR','/haberler/markalar-firmalar'],
+ ['TASARIM & REFIT','/haberler/tasarim-refit'],
  ['CHARTER','/haberler/charter'],
- ['EKİPMAN & TEKNOLOJİ','/haberler/ekipman-teknoloji'],
- ['MARİNALAR','/haberler/marinalar'],
- ['SEKTÖR','/haberler/sektor'],
+ ['MARKALAR','/haberler/markalar'],
  ['ETKİNLİKLER & FUARLAR','/haberler/etkinlikler-fuarlar']
 ];
 
