@@ -22,7 +22,7 @@ export function EquipmentProductCard({item}) {
   const shortText=item?.description || item?.sku || 'Tekne ve yat ekipmanı';
   return <article className="eqCommerceCard">
     <div className="eqCommerceMedia">
-      <a href={item.href||'/urunler'} aria-label={item.name}>
+      <a className="eqCommerceImageLink" href={item.href||'/urunler'} aria-label={item.name}>
         <img src={item.image} alt={item.name}/>
       </a>
       <a className="eqCommerceHoverInspect" href={item.href||'/urunler'}>İNCELE</a>
