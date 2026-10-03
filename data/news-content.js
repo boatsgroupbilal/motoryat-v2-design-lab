@@ -28,3 +28,8 @@ export function getNewsByCategory(slug){
 export function getCategoryLabel(slug){
   return newsCategories.find(x=>x.slug===slug)?.label || 'Son Haberler';
 }
+
+
+export function getNewsBySlug(slug){
+  return magazineNews.find(x=>x.slug===slug) || null;
+}
