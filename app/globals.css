@@ -4146,3 +4146,49 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     min-height:455px!important
   }
 }
+
+
+/* Interactive event slider behavior */
+.homeWideEventsRail{
+  display:flex!important;
+  gap:14px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  cursor:grab;
+  user-select:none;
+  touch-action:pan-y;
+  -webkit-overflow-scrolling:touch
+}
+.homeWideEventsRail::-webkit-scrollbar{display:none}
+.homeWideEventsRail.isDragging{
+  cursor:grabbing;
+  scroll-behavior:auto
+}
+.homeWideEventCard{
+  flex:0 0 calc((100% - 28px)/3)!important;
+  scroll-snap-align:start
+}
+.homeWideEdge{
+  border:0;
+  cursor:pointer
+}
+.homeWideEdge:active{transform:scale(.98)}
+
+@media(max-width:1200px){
+  .homeWideEventCard{
+    flex-basis:calc((100% - 14px)/2)!important
+  }
+}
+@media(max-width:768px){
+  .homeWideEventCard{
+    flex-basis:88%!important
+  }
+}
+@media(max-width:430px){
+  .homeWideEventCard{
+    flex-basis:92%!important
+  }
+}
