@@ -18,6 +18,7 @@ import recoveredStores02 from './local/stores-02.js';
 import recoveredBrands01 from './local/brands-01.js';
 import localCompanies from './export/companies.json';
 import localMarinas from './export/marinas.json';
+import generatedImageMap from './local/generated-image-map.json';
 
 const recoveredListings=[
   ...recoveredListings01,...recoveredListings02,...recoveredListings03,
@@ -70,7 +71,7 @@ function listingToCard(x){
     type,
     meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
     price:x.price_text || (isCharter&&x.weekly_rate_minor?money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR'):money(x.amount_minor??x.price_minor,x.currency||x.price_currency)),
-    image:x.image_local||listingImages[x.store_slug]||(isCharter?'/charter.webp':'/yacht.webp'),
+    image:x.image_local||generatedImageMap[x.slug]||listingImages[x.store_slug]||(isCharter?'/charter.webp':'/yacht.webp'),
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
     seller:x.seller||x.store_name||'Motoryat Partner',
