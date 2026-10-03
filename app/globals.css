@@ -2477,3 +2477,36 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     min-height:36px
   }
 }
+
+
+/* Hover inspect bar for equipment product images */
+.eqCommerceHoverInspect{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:3;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#4fa3c7;
+  color:#fff!important;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(100%);
+  transition:opacity .2s ease,transform .2s ease
+}
+.eqCommerceCard:hover .eqCommerceHoverInspect{
+  opacity:1;
+  transform:translateY(0)
+}
+.eqCommerceFav{
+  z-index:4
+}
+@media (hover:none){
+  .eqCommerceHoverInspect{display:none}
+}
