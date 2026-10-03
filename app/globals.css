@@ -9518,3 +9518,424 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .syRefShowcaseSeller strong{font-size:10px}
   .syRefShowcaseSeller span{font-size:8px}
 }
+
+
+/* MARINA DETAIL PAGE STANDARD — ISOLATED */
+.marinaPremiumDetail{
+  background:var(--bg);
+  color:var(--ink)
+}
+.marinaStdCrumb{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--mute);
+  font-size:11px
+}
+.marinaStdCrumb a{color:var(--mute)}
+.marinaStdCrumb b{color:var(--ink);font-weight:700}
+
+.marinaPremiumHero{
+  position:relative;
+  min-height:320px;
+  overflow:hidden;
+  background-size:cover!important;
+  background-position:center!important;
+  color:#fff
+}
+.marinaPremiumHeroInner{
+  min-height:320px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  padding-top:40px;
+  padding-bottom:34px
+}
+.marinaPremiumHeroInner>div>span{
+  display:block;
+  color:#d9b56f;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em
+}
+.marinaPremiumHeroInner h1{
+  margin:7px 0 6px;
+  color:#fff;
+  font:700 40px/1.05 Newsreader,serif
+}
+.marinaPremiumHeroInner p{
+  margin:0;
+  color:#d8e3eb;
+  font-size:13px
+}
+.marinaPremiumHeroInner>img{
+  width:74px;
+  height:48px;
+  object-fit:cover;
+  clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);
+  filter:drop-shadow(-4px 5px 10px rgba(0,0,0,.22))
+}
+
+.marinaPremiumGallery{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(220px,.7fr);
+  gap:4px;
+  height:280px;
+  margin-top:16px;
+  overflow:hidden;
+  border-radius:8px;
+  background:#0d1b2a
+}
+.marinaPremiumGalleryMain{
+  position:relative;
+  margin:0;
+  min-width:0;
+  height:280px
+}
+.marinaPremiumGallerySide{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:4px;
+  height:280px
+}
+.marinaPremiumGallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.marinaPremiumGalleryMain figcaption{
+  position:absolute;
+  left:12px;
+  bottom:10px;
+  padding:6px 8px;
+  background:rgba(13,27,42,.76);
+  color:#fff;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.07em
+}
+.marinaPremiumGalleryCount{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  padding:6px 8px;
+  border-radius:4px;
+  background:#fff;
+  color:var(--ink);
+  font-size:8px;
+  font-weight:900
+}
+
+.marinaPremiumTabs{
+  margin-top:14px;
+  background:#fff;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+.marinaPremiumTabs .container{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  gap:26px;
+  overflow-x:auto;
+  scrollbar-width:none
+}
+.marinaPremiumTabs .container::-webkit-scrollbar{display:none}
+.marinaPremiumTabs a{
+  color:var(--ink);
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap
+}
+
+.marinaPremiumStats{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  margin-top:16px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden
+}
+.marinaPremiumStats>div{
+  min-height:70px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:4px
+}
+.marinaPremiumStats>div+div{border-left:1px solid var(--line)}
+.marinaPremiumStats small{
+  color:var(--mute);
+  font-size:8px;
+  letter-spacing:.06em
+}
+.marinaPremiumStats b{
+  color:var(--ink);
+  font-size:18px
+}
+
+.marinaPremiumLayout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:28px;
+  align-items:start;
+  padding-top:24px;
+  padding-bottom:56px
+}
+.marinaPremiumMain{
+  display:grid;
+  gap:18px
+}
+.marinaPremiumSection{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:22px
+}
+.marinaPremiumEyebrow{
+  color:var(--brass);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em
+}
+.marinaPremiumSection h2{
+  margin:5px 0 12px;
+  color:var(--ink);
+  font:700 26px/1.1 Newsreader,serif
+}
+.marinaPremiumSection p{
+  margin:0 0 10px;
+  color:#4f6170;
+  font-size:13px;
+  line-height:1.65
+}
+.marinaPremiumSection p.lead{
+  color:#263b4d;
+  font-size:15px
+}
+.marinaPremiumFacilities{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px
+}
+.marinaPremiumFacilities>div{
+  min-height:76px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:6px;
+  padding:8px;
+  background:#f8fafb;
+  border:1px solid var(--line);
+  border-radius:7px
+}
+.marinaPremiumFacilities i{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#eaf0f4;
+  color:var(--ink);
+  font-style:normal;
+  font-size:13px
+}
+.marinaPremiumFacilities span{
+  color:#506170;
+  font-size:8px;
+  text-align:center
+}
+.marinaPremiumSpecs{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:12px;
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line)
+}
+.marinaPremiumSpecs>div{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 10px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+.marinaPremiumSpecs span{
+  color:var(--mute);
+  font-size:9px
+}
+.marinaPremiumSpecs b{
+  color:var(--ink);
+  font-size:10px
+}
+.marinaPremiumSource div{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px
+}
+.marinaPremiumSource a{
+  color:var(--sea);
+  font-size:9px
+}
+.marinaMediaCredit{
+  padding-top:10px;
+  border-top:1px solid #e7ebee;
+  color:#87939c!important;
+  font-size:9px!important
+}
+
+.marinaPremiumAside{
+  display:grid;
+  gap:16px;
+  position:sticky;
+  top:90px
+}
+.marinaPremiumContact{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:18px
+}
+.marinaPremiumContact>small{
+  color:var(--brass);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.08em
+}
+.marinaPremiumContact h3{
+  margin:5px 0 8px;
+  font:700 20px/1.1 Newsreader,serif
+}
+.marinaPremiumContact>p{
+  margin:0 0 12px;
+  color:var(--mute);
+  font-size:11px;
+  line-height:1.45
+}
+.marinaPremiumContact dl{margin:0}
+.marinaPremiumContact dl>div{
+  display:grid;
+  grid-template-columns:66px minmax(0,1fr);
+  gap:8px;
+  padding:8px 0;
+  border-top:1px solid #edf0f2
+}
+.marinaPremiumContact dt{
+  color:#8b98a2;
+  font-size:8px
+}
+.marinaPremiumContact dd{
+  margin:0;
+  color:#24384b;
+  font-size:9px;
+  overflow-wrap:anywhere
+}
+.marinaPremiumContact>a{
+  min-height:40px;
+  margin-top:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--hero);
+  color:#fff;
+  font-size:9px;
+  font-weight:900
+}
+
+@media(max-width:960px){
+  .marinaPremiumLayout{
+    grid-template-columns:1fr
+  }
+  .marinaPremiumAside{
+    position:static
+  }
+  .marinaPremiumFacilities{
+    grid-template-columns:repeat(3,minmax(0,1fr))
+  }
+}
+@media(max-width:768px){
+  .marinaStdCrumb{
+    padding-left:16px;
+    padding-right:16px
+  }
+  .marinaPremiumHero{
+    min-height:230px
+  }
+  .marinaPremiumHeroInner{
+    min-height:230px;
+    padding-top:28px;
+    padding-bottom:24px
+  }
+  .marinaPremiumHeroInner h1{
+    font-size:30px
+  }
+  .marinaPremiumHeroInner>img{
+    width:58px;
+    height:38px
+  }
+  .marinaPremiumGallery{
+    grid-template-columns:1fr;
+    height:auto;
+    margin-left:16px;
+    margin-right:16px
+  }
+  .marinaPremiumGalleryMain{
+    height:220px
+  }
+  .marinaPremiumGallerySide{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:110px;
+    height:110px
+  }
+  .marinaPremiumStats{
+    grid-template-columns:repeat(2,1fr);
+    margin-left:16px;
+    margin-right:16px
+  }
+  .marinaPremiumStats>div:nth-child(odd){border-left:0}
+  .marinaPremiumStats>div:nth-child(n+3){border-top:1px solid var(--line)}
+  .marinaPremiumLayout{
+    padding-left:16px;
+    padding-right:16px
+  }
+  .marinaPremiumFacilities{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .marinaPremiumSpecs{
+    grid-template-columns:1fr
+  }
+}
+@media(max-width:480px){
+  .marinaPremiumHero{
+    min-height:200px
+  }
+  .marinaPremiumHeroInner{
+    min-height:200px
+  }
+  .marinaPremiumHeroInner h1{
+    font-size:26px
+  }
+  .marinaPremiumGalleryMain{
+    height:190px
+  }
+  .marinaPremiumGallerySide{
+    grid-template-rows:92px;
+    height:92px
+  }
+  .marinaPremiumStats>div{
+    min-height:58px
+  }
+  .marinaPremiumSection{
+    padding:16px
+  }
+  .marinaPremiumSection h2{
+    font-size:22px
+  }
+}
