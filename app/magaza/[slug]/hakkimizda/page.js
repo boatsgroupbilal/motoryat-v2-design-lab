@@ -2,13 +2,14 @@ import SiteHeader from '../../../../components/SiteHeader';
 import Footer from '../../../../components/Footer';
 import {stores} from '../../../../data/content';
 import {getStoreProfile} from '../../../../data/storeProfiles';
+import StoreMiniNav from '../../../../components/StoreMiniNav';
 
 export default async function Page({params}){
   const {slug}=await params;
   const store=stores.find(x=>x.slug===slug)||stores[0];
   const profile=getStoreProfile(store);
 
-  return <><SiteHeader/><main className="storeProfilePage">
+  return <><SiteHeader/><main className="storeProfilePage">\n    <StoreMiniNav store={store} active="hakkimizda"/>
     <section className="storeProfileCard">
       <div className="storeProfileTop">
         <span className="storeProfileBadge">SATILIK</span>
