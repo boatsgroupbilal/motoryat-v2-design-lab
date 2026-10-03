@@ -4103,3 +4103,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     flex-basis:92%
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE HERO REFERENCE SIZE LOCK
+   Match the reference desktop image-field proportions.
+   ========================================================= */
+.homePage .dpHero{
+  height:560px!important;
+  min-height:560px!important
+}
+.homePage .dpHeroPhoto{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important
+}
+.homePage .dpHero .dpWrap{
+  min-height:560px!important
+}
+
+@media(max-width:1024px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:500px!important;
+    min-height:500px!important
+  }
+}
+
+@media(max-width:768px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:480px!important;
+    min-height:480px!important
+  }
+}
+
+@media(max-width:430px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:455px!important;
+    min-height:455px!important
+  }
+}
