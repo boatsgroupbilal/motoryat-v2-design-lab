@@ -8,8 +8,7 @@ const sale=[
  ['Yelkenli','/satilik?tip=yelkenli'],
  ['Katamaran','/satilik?tip=katamaran'],
  ['Gulet','/satilik?tip=gulet'],
- ['Tekne','/satilik?tip=tekne'],
- ['Yeni İnşa','/yeni-insa']
+ ['Tekne','/satilik?tip=tekne']
 ];
 
 const charter=[
@@ -69,6 +68,14 @@ function MobileGroup({id,label,href,items,open,setOpen,onNavigate}){
  </div>
 }
 
+function MobileLink({label,href,onNavigate}){
+ return <div className="dpMobileGroup">
+   <div className="dpMobileGroupHead">
+     <Link href={href} onClick={onNavigate}>{label}</Link>
+   </div>
+ </div>
+}
+
 function MenuIcon(){return <span className="dpHambIcon" aria-hidden="true"><i></i><i></i><i></i></span>}
 function SearchIcon(){return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="11"></circle><path d="M29.5 29.5 39 39"></path></svg>}
 
@@ -86,6 +93,7 @@ export default function SiteHeader(){
          <Mega label="Kiralık" href="/kiralik" items={charter}/>
          <Mega label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} cart/>
          <Mega label="Haberler" href="/haberler" items={news}/>
+         <li><Link href="/ilan-ver">İlan Ver</Link></li>
        </ul></nav>
        <button className="dpSearch" type="button">Ara...</button>
      </div></header>
@@ -105,6 +113,7 @@ export default function SiteHeader(){
        <MobileGroup id="charter" label="Kiralık" href="/kiralik" items={charter} open={mobileGroup} setOpen={setMobileGroup} onNavigate={closeMobile}/>
        <MobileGroup id="equipment" label="Tekne & Yat Malzemeleri" href="/urunler" items={equipment} open={mobileGroup} setOpen={setMobileGroup} onNavigate={closeMobile}/>
        <MobileGroup id="news" label="Haberler" href="/haberler" items={news} open={mobileGroup} setOpen={setMobileGroup} onNavigate={closeMobile}/>
+       <MobileLink label="İlan Ver" href="/ilan-ver" onNavigate={closeMobile}/>
      </nav>
      <div className="dpMobileDrawerFoot">
        <Link href="/magazalar" onClick={closeMobile}>Mağazalar</Link>
