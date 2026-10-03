@@ -3,6 +3,8 @@ import recoveredListings02 from './local/listings-02.js';
 import recoveredListings03 from './local/listings-03.js';
 import recoveredListings04a from './local/listings-04a.js';
 import recoveredListings04b from './local/listings-04b.js';
+import recoveredListings05a from './local/listings-05a.js';
+import recoveredListings05b from './local/listings-05b.js';
 import recoveredProducts from './local/products.js';
 import recoveredStores01 from './local/stores-01.js';
 import recoveredStores02 from './local/stores-02.js';
@@ -12,7 +14,7 @@ import localMarinas from './export/marinas.json';
 
 const recoveredListings=[
   ...recoveredListings01,...recoveredListings02,...recoveredListings03,
-  ...recoveredListings04a,...recoveredListings04b
+  ...recoveredListings04a,...recoveredListings04b,...recoveredListings05a,...recoveredListings05b
 ];
 const recoveredStores=[...recoveredStores01,...recoveredStores02];
 
