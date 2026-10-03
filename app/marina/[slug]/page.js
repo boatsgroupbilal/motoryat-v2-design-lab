@@ -15,11 +15,17 @@ const profiles={
     berths:'261',
     superyachtBerths:'12',
     maxYacht:'140 m',
-    maxDraft:'6,5 m',
-    channelDepth:'9,2 m',
+    channelDepth:'8,3 m LAT',
+    minDepth:'3 m+',
+    coordinates:'16.91959° S, 145.78223° E',
+    portOfEntry:'Evet',
+    overseasBerths:'Evet',
+    catamaranBerths:'Evet',
+    dockType:'Yüzer ponton',
+    mooringStyle:'Side-to / Stern-to',
     officeHours:'Pazartesi–Cuma 08:00–16:00',
     intro:'Cairns Marlin Marina, Cairns şehir merkezindeki konumu ve Great Barrier Reef’e doğrudan erişimiyle Kuzey Avustralya’nın öne çıkan süperyat ve cruising marina merkezlerinden biridir.',
-    overview:'Modern yüzer ponton sistemi; cruising yatları, turizm tekneleri, sportif balıkçılık filosu ve büyük süperyatlara hizmet verir. Şehir merkezi, oteller, restoranlar, alışveriş ve Cairns Esplanade yürüme mesafesindedir. Cairns International Airport yaklaşık 10 dakika, marina ve süperyat refit bölgesi yaklaşık 5 dakika uzaklıktadır.',
+    overview:'Modern yüzer ponton sistemi; cruising yatları, turizm tekneleri, sportif balıkçılık filosu ve büyük süperyatlara hizmet verir. Şehir merkezi, oteller, restoranlar, alışveriş ve Cairns Esplanade yürüme mesafesindedir. Cairns International Airport yaklaşık 10 dakika, marina ve süperyat refit bölgesi yaklaşık 5 dakika uzaklıktadır. Cairns aynı zamanda Austal Cairns, Norship Marine ve Tropical Reef Shipyard gibi büyük bakım, onarım ve refit tesislerinin bulunduğu güçlü bir denizcilik merkezidir.',
     superyacht:'Marinada 12 özel süperyat bağlama alanı bulunur. 60 metreye kadar tekneler yüzer pontonlarda; 60–140 metre arasındaki büyük yatlar Sailfish Quay sabit rıhtımında ağırlanabilir. Yan yana bağlamada 6,5 metreye kadar draft desteklenir.',
     facilities:[
       ['⚓','Bağlama'],
@@ -27,11 +33,15 @@ const profiles={
       ['◉','Tatlı Su'],
       ['◔','Wi‑Fi'],
       ['⛽','Yakıt / Bunkering'],
-      ['◈','24 Saat Güvenlik'],
-      ['♜','Duş / Çamaşırhane'],
+      ['◈','Güvenlik + CCTV'],
+      ['♜','Duş / Tuvalet'],
+      ['▤','Çamaşırhane'],
       ['⚙','Teknik Servis Erişimi'],
       ['▣','Atık / Geri Dönüşüm'],
-      ['●','Crew Araç Parkı']
+      ['◎','Black Water Pump-out'],
+      ['●','Crew Araç Parkı'],
+      ['◇','Gümrük / Port of Entry'],
+      ['△','Katamaran Bağlama']
     ]
   }
 };
@@ -99,17 +109,33 @@ export default async function Page({params}){
           <div className="marinaPremiumSpecs">
             <div><span>Özel süperyat alanı</span><b>{p.superyachtBerths} bağlama</b></div>
             <div><span>Maksimum yat uzunluğu</span><b>{p.maxYacht}</b></div>
-            <div><span>Yan yana maksimum draft</span><b>{p.maxDraft}</b></div>
-            <div><span>Minimum kanal derinliği</span><b>{p.channelDepth}</b></div>
+            <div><span>Shipping channel</span><b>{p.channelDepth}</b></div>
+            <div><span>MLW derinlik sınıfı</span><b>{p.minDepth}</b></div>
+          </div>
+        </section>
+
+        <section className="marinaPremiumSection">
+          <h2>Operasyonel Bilgiler</h2>
+          <div className="marinaPremiumSpecs">
+            <div><span>Koordinatlar</span><b>{p.coordinates}</b></div>
+            <div><span>Port of Entry</span><b>{p.portOfEntry}</b></div>
+            <div><span>Yabancı ziyaretçi bağlama</span><b>{p.overseasBerths}</b></div>
+            <div><span>Katamaran bağlama</span><b>{p.catamaranBerths}</b></div>
+            <div><span>Rıhtım tipi</span><b>{p.dockType}</b></div>
+            <div><span>Bağlama düzeni</span><b>{p.mooringStyle}</b></div>
           </div>
         </section>
 
         <section className="marinaPremiumSection marinaPremiumSource">
           <h2>Kaynak ve Güncellik</h2>
-          <p>Teknik bilgiler Ports North’un resmi Cairns Marlin Marina sayfası ve marina teknik dokümanları temel alınarak MOTORYAT için yeniden düzenlenmiştir.</p>
+          <p>Bilgiler Ports North, PredictWind, Australian Commercial Marine Group, Super Yacht Group Great Barrier Reef ve Cairns Regional Council kaynakları çapraz kontrol edilerek MOTORYAT için yeniden yazılmıştır. Güncel resmî kaynak 261 bağlama bildirirken bazı eski sektör dizinlerinde 264 rakamı görülebilir; profilde güncel Ports North rakamı esas alınmıştır.</p>
           <div>
-            <a href="https://www.portsnorth.com.au/cairns-marlin-marina/" target="_blank" rel="noopener noreferrer">Resmi marina sitesi ↗</a>
-            <a href="https://commons.wikimedia.org/wiki/File:Cairns_Marlin_Marina,_2025.jpg" target="_blank" rel="noopener noreferrer">CC BY-SA görsel kaynağı ↗</a>
+            <a href="https://www.portsnorth.com.au/cairns-marlin-marina/" target="_blank" rel="noopener noreferrer">Ports North ↗</a>
+            <a href="https://explore.predictwind.com/marinas/australia/queensland/cairns-marlin-marina" target="_blank" rel="noopener noreferrer">PredictWind ↗</a>
+            <a href="https://australianmarine.org/acmg/members/cairns-marlin-marina-ports-north/" target="_blank" rel="noopener noreferrer">ACMG ↗</a>
+            <a href="https://superyachtgroup.com/members/cairns-marlin-marina/" target="_blank" rel="noopener noreferrer">Super Yacht Group ↗</a>
+            <a href="https://www.cairns.qld.gov.au/property-and-business/business/invest-in-cairns" target="_blank" rel="noopener noreferrer">Cairns Regional Council ↗</a>
+            <a href="https://commons.wikimedia.org/wiki/File:Cairns_Marlin_Marina,_2025.jpg" target="_blank" rel="noopener noreferrer">CC BY-SA görsel ↗</a>
           </div>
         </section>
       </main>
