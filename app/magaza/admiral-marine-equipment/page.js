@@ -17,7 +17,7 @@ export default function Page(){
     </section>
     <nav className="storeNav"><div className="container"><a className="active">Ana Sayfa</a><a>Satılık</a><a>Modeller</a><a>Projeler</a><a>Ürünler</a><a>Hakkımızda</a><a>Haberler</a><a>İletişim</a></div></nav>
     <section className="section compact"><div className="container storeIntro"><div><span>{store.name.toUpperCase()}</span><h2>{store.category}</h2><p>{store.name}, Motoryat üzerindeki kurumsal vitrininde ürün, ilan, model, proje ve haber içeriklerini tek merkezde sunar.</p></div><aside><b>{store.location}</b><small>Konum</small><b>Doğrulanmış</b><small>Kurumsal profil</small></aside></div></section>
-    <section className="section alt"><div className="container"><div className="sectionHead"><div><span>SATILIK</span><h2>Mağaza ilanları</h2></div></div><div className="sqYachtGrid">{saleListings.map((x,i)=><YachtCard key={x.slug} item={x} seller={store.name} brandLogo={store.logo} year={String(2026-(i%3))} refit={String(2021+(i%4))} index={i}/>)}</div></div></section>
+    <section className="section alt"><div className="container"><div className="sectionHead"><div><span>SATILIK</span><h2>Mağaza ilanları</h2></div></div><div className="sqYachtGrid">{saleListings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={store.name} brandLogo={store.logo} year={String(2026-(i%3))} refit={String(2021+(i%4))} index={i}/>)}</div></div></section>
     <section className="section"><div className="container"><div className="sectionHead"><div><span>ÜRÜNLER</span><h2>Mağaza ürünleri</h2></div></div><div className="productGrid">{products.map(x=><ProductCard key={x.slug} item={x}/>)}</div></div></section>
   </main><Footer/></>
 }
