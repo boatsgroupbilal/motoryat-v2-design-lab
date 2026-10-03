@@ -2,29 +2,29 @@ import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 
 const countries=[
-  {code:'ALL',flag:'🌐',name:'Tümü'},
-  {code:'TR',flag:'🇹🇷',name:'Türkiye'},
-  {code:'GR',flag:'🇬🇷',name:'Yunanistan'},
-  {code:'IT',flag:'🇮🇹',name:'İtalya'},
-  {code:'ES',flag:'🇪🇸',name:'İspanya'},
-  {code:'HR',flag:'🇭🇷',name:'Hırvatistan'},
-  {code:'ME',flag:'🇲🇪',name:'Karadağ'},
-  {code:'AE',flag:'🇦🇪',name:'BAE'},
-  {code:'BS',flag:'🇧🇸',name:'Bahamalar'},
-  {code:'AU',flag:'🇦🇺',name:'Avustralya'}
+  {code:'ALL',name:'Tümü'},
+  {code:'TR',flag:'/flags/tr.svg',name:'Türkiye'},
+  {code:'GR',flag:'/flags/gr.svg',name:'Yunanistan'},
+  {code:'IT',flag:'/flags/it.svg',name:'İtalya'},
+  {code:'ES',flag:'/flags/es.svg',name:'İspanya'},
+  {code:'HR',flag:'/flags/hr.svg',name:'Hırvatistan'},
+  {code:'ME',flag:'/flags/me.svg',name:'Karadağ'},
+  {code:'AE',flag:'/flags/ae.svg',name:'BAE'},
+  {code:'BS',flag:'/flags/bs.svg',name:'Bahamalar'},
+  {code:'AU',flag:'/flags/au.svg',name:'Avustralya'}
 ];
 
 const marinas=[
-  {slug:'d-marin-gocek',name:'D-Marin Göcek',loc:'Göcek, Muğla, Türkiye',mark:'D-MARIN',flag:'🇹🇷',country:'TR',accent:'#b9924a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'setur-kalamis-fenerbahce-marina',name:'Setur Kalamış & Fenerbahçe Marina',loc:'İstanbul, Türkiye',mark:'SETUR',flag:'🇹🇷',country:'TR',accent:'#0f9fb7',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'marina-di-porto-cervo',name:'Marina di Porto Cervo',loc:'Sardinya, İtalya',mark:'PORTO CERVO',flag:'🇮🇹',country:'IT',accent:'#16885a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'marina-port-vell',name:'Marina Port Vell',loc:'Barselona, İspanya',mark:'PORT VELL',flag:'🇪🇸',country:'ES',accent:'#d19c24',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'alimos-marina',name:'Alimos Marina',loc:'Atina, Yunanistan',mark:'ALIMOS',flag:'🇬🇷',country:'GR',accent:'#1d6bb5',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'aci-marina-dubrovnik',name:'ACI Marina Dubrovnik',loc:'Dubrovnik, Hırvatistan',mark:'ACI',flag:'🇭🇷',country:'HR',accent:'#d8483e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'porto-montenegro',name:'Porto Montenegro Marina',loc:'Tivat, Karadağ',mark:'PORTO M',flag:'🇲🇪',country:'ME',accent:'#c9343c',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'dubai-harbour-marina',name:'Dubai Harbour Marina',loc:'Dubai, Birleşik Arap Emirlikleri',mark:'DUBAI',flag:'🇦🇪',country:'AE',accent:'#d8982e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'nassau-yacht-haven',name:'Nassau Yacht Haven',loc:'Nassau, Bahamalar',mark:'NASSAU',flag:'🇧🇸',country:'BS',accent:'#23a9c6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'sydney-superyacht-marina',name:'Sydney Superyacht Marina',loc:'Sydney, Avustralya',mark:'SYDNEY',flag:'🇦🇺',country:'AU',accent:'#2855a6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']}
+  {slug:'d-marin-gocek',name:'D-Marin Göcek',loc:'Göcek, Muğla, Türkiye',mark:'D-MARIN',flag:'/flags/tr.svg',country:'TR',accent:'#b9924a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'setur-kalamis-fenerbahce-marina',name:'Setur Kalamış & Fenerbahçe Marina',loc:'İstanbul, Türkiye',mark:'SETUR',flag:'/flags/tr.svg',country:'TR',accent:'#0f9fb7',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'marina-di-porto-cervo',name:'Marina di Porto Cervo',loc:'Sardinya, İtalya',mark:'PORTO CERVO',flag:'/flags/it.svg',country:'IT',accent:'#16885a',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'marina-port-vell',name:'Marina Port Vell',loc:'Barselona, İspanya',mark:'PORT VELL',flag:'/flags/es.svg',country:'ES',accent:'#d19c24',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'alimos-marina',name:'Alimos Marina',loc:'Atina, Yunanistan',mark:'ALIMOS',flag:'/flags/gr.svg',country:'GR',accent:'#1d6bb5',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'aci-marina-dubrovnik',name:'ACI Marina Dubrovnik',loc:'Dubrovnik, Hırvatistan',mark:'ACI',flag:'/flags/hr.svg',country:'HR',accent:'#d8483e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'porto-montenegro',name:'Porto Montenegro Marina',loc:'Tivat, Karadağ',mark:'PORTO M',flag:'/flags/me.svg',country:'ME',accent:'#c9343c',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'dubai-harbour-marina',name:'Dubai Harbour Marina',loc:'Dubai, Birleşik Arap Emirlikleri',mark:'DUBAI',flag:'/flags/ae.svg',country:'AE',accent:'#d8982e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'nassau-yacht-haven',name:'Nassau Yacht Haven',loc:'Nassau, Bahamalar',mark:'NASSAU',flag:'/flags/bs.svg',country:'BS',accent:'#23a9c6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'sydney-superyacht-marina',name:'Sydney Superyacht Marina',loc:'Sydney, Avustralya',mark:'SYDNEY',flag:'/flags/au.svg',country:'AU',accent:'#2855a6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']}
 ];
 
 export default function Page(){return <><SiteHeader/><main className="marinaDirectoryPage marinaProfilesV2">
@@ -41,7 +41,7 @@ export default function Page(){return <><SiteHeader/><main className="marinaDire
   <section className="container marinaProfilesFilter">
     <div className="marinaProfilesFilterTitle"><span>🌐</span><b>ÜLKEYE GÖRE FİLTRELE</b></div>
     <div className="marinaProfilesCountries">
-      {countries.map((c,i)=><button className={i===0?'active':''} type="button" key={c.code}><span>{c.flag}</span>{c.name}</button>)}
+      {countries.map((c,i)=><button className={i===0?'active':''} type="button" key={c.code}>{c.flag&&<img src={c.flag} alt=""/>}{c.name}</button>)}
     </div>
     <div className="marinaProfilesSort"><span>Toplam {marinas.length} marina</span><button type="button">A–Z ↕</button></div>
   </section>
@@ -64,7 +64,7 @@ export default function Page(){return <><SiteHeader/><main className="marinaDire
                 <h3>{m.name}</h3>
                 <p>⌖ {m.loc}</p>
               </div>
-              <div className="marinaProfileFlag"><span>{m.flag}</span><b>{m.country}</b></div>
+              <div className="marinaProfileFlag"><img src={m.flag} alt=""/></div>
             </div>
 
             <div className="marinaProfileFacilities">
