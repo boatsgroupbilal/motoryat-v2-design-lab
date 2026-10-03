@@ -4312,3 +4312,146 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     flex-basis:92%!important
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE FINAL COMPACT LOCK
+   Final override: keep homepage visibly shorter.
+   ========================================================= */
+.homePage .dpHero,
+.homePage .dpHero .dpWrap{
+  height:440px!important;
+  min-height:440px!important
+}
+.homePage .dpHero .dpWrap{
+  padding-bottom:74px!important
+}
+.homePage .dpHero h1{
+  font-size:clamp(34px,4vw,54px)!important;
+  margin:10px 0 18px!important
+}
+.homePage .dpMobileHeroQuote{
+  min-height:96px!important;
+  width:min(420px,36vw)!important;
+  padding:14px 24px 13px 70px!important
+}
+.homePage .dpMobileHeroQuote b{
+  left:50px!important;
+  top:14px!important;
+  font-size:30px!important
+}
+.homeWideEvents{
+  padding:7px 0 12px!important
+}
+.homeWideEventsRail,
+.homeWideEdge{
+  height:150px!important;
+  min-height:150px!important
+}
+.homeWideEventCard{
+  height:150px!important;
+  min-height:150px!important;
+  max-height:150px!important
+}
+.homeWideEventDate,
+.homeWideEventImage,
+.homeWideEventBody{
+  height:150px!important
+}
+.homeWideEventImage img{
+  height:150px!important
+}
+.homeWideEventBody{
+  padding:12px 14px!important
+}
+.homeWideEventBody h3{
+  font-size:15px!important
+}
+.homeWideEventBody span{
+  margin-top:10px!important;
+  min-height:32px!important
+}
+.homePage .dpSection{
+  padding:28px 0!important
+}
+
+@media(max-width:1024px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:410px!important;
+    min-height:410px!important
+  }
+  .homePage .dpMobileHeroQuote{
+    width:min(390px,46vw)!important;
+    min-height:92px!important
+  }
+  .homeWideEventsRail,
+  .homeWideEdge{
+    height:140px!important;
+    min-height:140px!important
+  }
+  .homeWideEventCard,
+  .homeWideEventDate,
+  .homeWideEventImage,
+  .homeWideEventBody{
+    height:140px!important;
+    min-height:140px!important;
+    max-height:140px!important
+  }
+  .homeWideEventImage img{
+    height:140px!important
+  }
+}
+
+@media(max-width:768px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:420px!important;
+    min-height:420px!important
+  }
+  .homePage .dpHero .dpWrap{
+    padding-top:20px!important;
+    padding-bottom:104px!important
+  }
+  .homePage .dpHero h1{
+    font-size:29px!important
+  }
+  .homePage .dpMobileHeroQuote{
+    left:30%!important;
+    width:auto!important;
+    min-height:96px!important;
+    padding:12px 12px 11px 42px!important
+  }
+  .homePage .dpMobileHeroQuote b{
+    left:30px!important;
+    top:12px!important;
+    font-size:26px!important
+  }
+  .homeWideEventsRail,
+  .homeWideEdge{
+    height:120px!important;
+    min-height:120px!important
+  }
+  .homeWideEventCard,
+  .homeWideEventDate,
+  .homeWideEventImage,
+  .homeWideEventBody{
+    height:120px!important;
+    min-height:120px!important;
+    max-height:120px!important
+  }
+  .homeWideEventImage img{
+    height:120px!important
+  }
+  .homePage .dpSection{
+    padding:22px 0!important
+  }
+}
+
+@media(max-width:430px){
+  .homePage .dpHero,
+  .homePage .dpHero .dpWrap{
+    height:400px!important;
+    min-height:400px!important
+  }
+}
