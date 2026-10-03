@@ -6454,3 +6454,89 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .eqCommerceCard:hover .eqCommerceMedia img{
   transform:none!important
 }
+
+
+/* PRODUCT CARD SINGLE VIEW + SAFE TEXT STACK */
+.eqCommerceMedia.singleView .eqCommerceImageLink{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:hidden
+}
+.eqCommerceMedia.singleView img{
+  width:200%!important;
+  max-width:none!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  padding:6px!important
+}
+
+/* prevent title / price overlap */
+.eqCommerceCard{
+  grid-template-rows:69% 23% 8%!important
+}
+.eqCommerceBody{
+  display:grid!important;
+  grid-template-rows:auto auto auto 1fr auto!important;
+  align-content:start!important;
+  gap:3px!important;
+  padding:8px 10px 8px!important;
+  overflow:hidden!important
+}
+.eqCommerceBrand{
+  position:static!important;
+  margin:0!important
+}
+.eqCommerceTitle{
+  display:block!important;
+  min-width:0!important
+}
+.eqCommerceTitle h3{
+  position:static!important;
+  display:-webkit-box!important;
+  -webkit-line-clamp:2!important;
+  -webkit-box-orient:vertical!important;
+  overflow:hidden!important;
+  max-height:30px!important;
+  margin:0!important
+}
+.eqCommerceDesc{
+  position:static!important;
+  margin:0!important;
+  min-width:0!important
+}
+.eqCommercePrice{
+  position:static!important;
+  align-self:end!important;
+  max-width:calc(100% - 50px)!important;
+  margin:0!important
+}
+.eqCommerceActions{
+  position:absolute!important;
+  right:8px!important;
+  bottom:7px!important
+}
+.eqCommerceStore{
+  min-height:42px!important
+}
+
+@media(max-width:620px){
+  .eqCommerceCard{
+    grid-template-rows:67% 25% 8%!important
+  }
+  .eqCommerceBody{
+    padding:6px 7px!important;
+    gap:2px!important
+  }
+  .eqCommerceTitle h3{
+    max-height:23px!important;
+    font-size:10px!important
+  }
+  .eqCommercePrice{
+    max-width:calc(100% - 40px)!important
+  }
+  .eqCommerceStore{
+    min-height:34px!important
+  }
+}
