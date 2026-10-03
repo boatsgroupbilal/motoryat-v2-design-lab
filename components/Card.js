@@ -38,7 +38,7 @@ export function EquipmentProductCard({item}) {
 
       <p className="eqCommerceDesc">{shortText}</p>
 
-      <div className="eqCommercePrice">
+      <div className={'eqCommercePrice '+(item.price?'hasPrice':'askPrice')}>
         <span aria-hidden="true">◇</span>
         <strong>{item.price||'Fiyat Sorunuz'}</strong>
       </div>
