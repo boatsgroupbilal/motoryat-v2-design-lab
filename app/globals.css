@@ -8131,3 +8131,125 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     height:62px
   }
 }
+
+
+/* FULL WIDTH TOP YACHT GALLERY — TARGET DESIGN */
+.syApprovedGalleryWrap{
+  width:min(1360px,calc(100% - 56px));
+  margin:16px auto 0
+}
+.syApprovedGalleryWrap .syGalleryPro{
+  width:100%;
+  gap:10px
+}
+.syApprovedGalleryWrap .syGalleryProHero{
+  height:470px;
+  border-radius:0;
+  background:#eef2f4
+}
+.syApprovedGalleryWrap .syGalleryProMain img{
+  object-fit:cover
+}
+.syApprovedGalleryWrap .syGalleryProCount{
+  left:0;
+  bottom:0;
+  min-height:40px;
+  padding:0 18px;
+  border-radius:0 18px 0 0;
+  background:#fff;
+  color:#111;
+  font-size:14px;
+  box-shadow:none
+}
+.syApprovedGalleryWrap .syGalleryProArrow{
+  width:42px;
+  height:90px;
+  background:rgba(255,255,255,.96);
+  color:#2a2a2a;
+  border-radius:0
+}
+.syApprovedGalleryWrap .syGalleryProArrow.left{
+  left:0;
+  border-radius:0 10px 10px 0
+}
+.syApprovedGalleryWrap .syGalleryProArrow.right{
+  right:0;
+  border-radius:10px 0 0 10px
+}
+.syApprovedGalleryWrap .syGalleryProStrip{
+  gap:12px;
+  padding:0 0 10px;
+  overflow-x:auto;
+  scrollbar-width:thin;
+  scrollbar-color:#2da8e0 #dbeef6
+}
+.syApprovedGalleryWrap .syGalleryProStrip button{
+  flex:0 0 150px;
+  width:150px;
+  height:88px;
+  border:0;
+  outline:2px solid transparent;
+  outline-offset:-2px;
+  background:#e9edf1
+}
+.syApprovedGalleryWrap .syGalleryProStrip button.active{
+  outline-color:#2da8e0
+}
+.syApprovedGalleryWrap .syGalleryProStrip img{
+  object-fit:cover
+}
+.syApprovedTopGrid{
+  margin-top:18px
+}
+
+@media(max-width:1100px){
+  .syApprovedGalleryWrap{
+    width:calc(100% - 40px)
+  }
+  .syApprovedGalleryWrap .syGalleryProHero{
+    height:400px
+  }
+  .syApprovedGalleryWrap .syGalleryProStrip button{
+    flex-basis:130px;
+    width:130px;
+    height:78px
+  }
+}
+
+@media(max-width:820px){
+  .syApprovedGalleryWrap{
+    width:100%;
+    margin-top:0
+  }
+  .syApprovedGalleryWrap .syGalleryProHero{
+    height:300px
+  }
+  .syApprovedGalleryWrap .syGalleryProArrow{
+    width:36px;
+    height:70px
+  }
+  .syApprovedGalleryWrap .syGalleryProStrip{
+    padding:6px 10px 8px;
+    gap:6px
+  }
+  .syApprovedGalleryWrap .syGalleryProStrip button{
+    flex-basis:100px;
+    width:100px;
+    height:64px
+  }
+  .syApprovedGalleryWrap .syGalleryProCount{
+    left:8px;
+    bottom:8px;
+    min-height:30px;
+    padding:0 10px;
+    border-radius:4px;
+    background:rgba(255,255,255,.94);
+    font-size:11px
+  }
+}
+
+@media(max-width:560px){
+  .syApprovedGalleryWrap .syGalleryProHero{
+    height:240px
+  }
+}
