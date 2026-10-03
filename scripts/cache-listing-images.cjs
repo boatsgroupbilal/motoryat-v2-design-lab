@@ -24,7 +24,7 @@ function extFor(type,url){
 }
 async function one(item){
   const ctl=new AbortController();
-  const timer=setTimeout(()=>ctl.abort(),12000);
+  const timer=setTimeout(()=>ctl.abort(),7000);
   try{
     const res=await fetch(item.url,{signal:ctl.signal,headers:{'user-agent':'Mozilla/5.0 MotoryatMediaCache/1.0'}});
     if(!res.ok) return null;
@@ -40,8 +40,8 @@ async function one(item){
 }
 (async()=>{
   const map={};
-  for(let i=0;i<sources.length;i+=12){
-    const batch=await Promise.all(sources.slice(i,i+12).map(one));
+  for(let i=0;i<sources.length;i+=24){
+    const batch=await Promise.all(sources.slice(i,i+24).map(one));
     for(const row of batch) if(row) map[row[0]]=row[1];
   }
   fs.writeFileSync(mapPath,JSON.stringify(map,null,2)+'\n');
