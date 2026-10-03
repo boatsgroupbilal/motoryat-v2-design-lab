@@ -8995,3 +8995,266 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     height:170px
   }
 }
+
+
+/* RELATED LISTINGS SHOWCASE — IMAGE 306/307 */
+.syRefBottom{
+  width:min(1240px,calc(100% - 48px));
+  display:block!important;
+  margin:28px auto 0!important;
+  padding-bottom:44px!important
+}
+.syRefBottomLeft{
+  width:100%
+}
+.syRefRelatedHead{
+  min-height:76px!important;
+  align-items:end!important;
+  border-top:0!important;
+  border-bottom:0!important
+}
+.syRefRelatedHead>div small{
+  display:block;
+  color:#8d98a2;
+  font-size:9px;
+  letter-spacing:.08em;
+  margin-bottom:4px
+}
+.syRefRelatedHead>div h2{
+  color:#0d1b2a!important;
+  font-size:28px!important;
+  font-weight:800!important
+}
+.syRefRelatedHead>a{
+  color:#0d1b2a;
+  font-size:11px;
+  text-decoration:none;
+  padding-bottom:6px;
+  border-bottom:2px solid #d6a339
+}
+.syRefShowcaseList{
+  display:grid;
+  gap:14px;
+  margin-top:10px
+}
+.syRefShowcaseCard{
+  display:grid;
+  grid-template-columns:minmax(0,1.7fr) 240px 360px 52px;
+  min-height:260px;
+  background:#fff;
+  text-decoration:none;
+  color:#fff;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(13,27,42,.08)
+}
+.syRefShowcaseMain{
+  position:relative;
+  min-width:0;
+  background:#ddd
+}
+.syRefShowcaseMain img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.syRefShowcaseMedia{
+  position:absolute;
+  left:0;
+  bottom:0;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:0 14px;
+  background:#fff;
+  color:#111
+}
+.syRefShowcaseMedia:after{
+  content:"";
+  position:absolute;
+  right:-26px;
+  top:0;
+  width:26px;
+  height:44px;
+  background:#fff;
+  clip-path:polygon(0 0,100% 100%,0 100%)
+}
+.syRefShowcaseMedia span{
+  font-size:12px
+}
+.syRefShowcaseSmall{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:4px;
+  background:#fff
+}
+.syRefShowcaseSmall img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.syRefShowcaseInfo{
+  min-width:0;
+  padding:26px 24px 20px;
+  background:#08243a
+}
+.syRefShowcaseInfo h3{
+  margin:0;
+  color:#fff;
+  font-size:28px;
+  line-height:1
+}
+.syRefShowcaseInfo>p{
+  margin:10px 0 18px;
+  color:#c6d1db;
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+.syRefShowcaseFacts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  max-width:230px;
+  margin-bottom:18px
+}
+.syRefShowcaseFacts>div+div{
+  border-left:1px solid rgba(255,255,255,.55);
+  padding-left:18px
+}
+.syRefShowcaseFacts small,
+.syRefShowcasePrice small{
+  display:block;
+  color:#ffb12b;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.03em
+}
+.syRefShowcaseCard.charter .syRefShowcaseFacts small,
+.syRefShowcaseCard.charter .syRefShowcasePrice small{
+  color:#00d1b2
+}
+.syRefShowcaseFacts b{
+  display:block;
+  margin-top:4px;
+  color:#fff;
+  font-size:17px
+}
+.syRefShowcasePrice strong{
+  display:block;
+  margin-top:4px;
+  color:#fff;
+  font-size:17px
+}
+.syRefShowcaseBand{
+  display:grid;
+  grid-template-rows:54px 1fr;
+  place-items:center;
+  background:#ffad22;
+  color:#fff
+}
+.syRefShowcaseCard.charter .syRefShowcaseBand{
+  background:#00c9b7
+}
+.syRefShowcaseBand span{
+  font-size:32px;
+  font-weight:300
+}
+.syRefShowcaseBand b{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:14px;
+  letter-spacing:.04em
+}
+
+@media(max-width:1100px){
+  .syRefBottom{
+    width:calc(100% - 36px)
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:minmax(0,1.55fr) 200px 320px 48px;
+    min-height:230px
+  }
+  .syRefShowcaseInfo h3{
+    font-size:24px
+  }
+}
+
+@media(max-width:820px){
+  .syRefBottom{
+    width:100%!important
+  }
+  .syRefBottomLeft{
+    padding:0 10px
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:1.4fr .8fr;
+    grid-template-areas:
+      "main small"
+      "info info";
+    min-height:0
+  }
+  .syRefShowcaseMain{
+    grid-area:main;
+    min-height:190px
+  }
+  .syRefShowcaseSmall{
+    grid-area:small;
+    min-height:190px
+  }
+  .syRefShowcaseInfo{
+    grid-area:info;
+    padding:16px
+  }
+  .syRefShowcaseBand{
+    display:none
+  }
+  .syRefShowcaseInfo h3{
+    font-size:22px
+  }
+  .syRefShowcaseInfo>p{
+    font-size:12px
+  }
+}
+
+@media(max-width:560px){
+  .syRefRelatedHead>div h2{
+    font-size:24px!important
+  }
+  .syRefRelatedHead>a{
+    font-size:10px
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:1fr 110px;
+  }
+  .syRefShowcaseMain,
+  .syRefShowcaseSmall{
+    min-height:150px
+  }
+  .syRefShowcaseMedia{
+    min-height:34px;
+    padding:0 10px
+  }
+  .syRefShowcaseMedia:after{
+    height:34px;
+    right:-20px;
+    width:20px
+  }
+  .syRefShowcaseInfo{
+    padding:13px
+  }
+  .syRefShowcaseInfo h3{
+    font-size:19px
+  }
+  .syRefShowcaseFacts{
+    max-width:100%;
+    margin-bottom:12px
+  }
+  .syRefShowcaseFacts b,
+  .syRefShowcasePrice strong{
+    font-size:14px
+  }
+}
