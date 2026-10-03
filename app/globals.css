@@ -6189,3 +6189,150 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     background-position:center center!important
   }
 }
+
+
+/* PRODUCT CARD 75-25 IMAGE-FIRST OVERRIDE */
+.eqCommerceCard{
+  display:grid!important;
+  grid-template-rows:75% 25%!important;
+  aspect-ratio:.78/1!important;
+  height:auto!important;
+  min-height:0!important
+}
+.eqCommerceMedia{
+  aspect-ratio:auto!important;
+  min-height:0!important;
+  height:100%!important
+}
+.eqCommerceMedia img{
+  padding:8px!important
+}
+.eqCommerceBody{
+  position:relative;
+  min-height:0!important;
+  height:100%!important;
+  padding:9px 10px 38px!important;
+  overflow:hidden!important
+}
+.eqCommerceBrand{
+  padding:2px 6px!important;
+  font-size:7px!important
+}
+.eqCommerceTitle h3{
+  display:-webkit-box!important;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden!important;
+  min-height:0!important;
+  margin:5px 0 0!important;
+  font-size:14px!important;
+  line-height:1.02!important
+}
+.eqCommerceDesc{
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+  margin-top:3px!important;
+  font-size:8px!important;
+  line-height:1.1!important
+}
+.eqCommercePrice{
+  position:absolute!important;
+  left:10px!important;
+  bottom:11px!important;
+  max-width:calc(100% - 58px)!important;
+  margin:0!important;
+  gap:5px!important
+}
+.eqCommercePrice>span{
+  font-size:12px!important
+}
+.eqCommercePrice strong{
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+  font-size:12px!important
+}
+.eqCommerceActions{
+  position:absolute!important;
+  right:9px!important;
+  bottom:7px!important;
+  margin:0!important;
+  padding:0!important
+}
+.eqCommerceCart{
+  width:38px!important;
+  min-width:38px!important;
+  height:34px!important;
+  min-height:34px!important;
+  padding:0!important
+}
+.eqCommerceCart span{font-size:13px!important}
+.eqCommerceCart b{font-size:9px!important}
+.eqCommerceFav{
+  width:34px!important;
+  height:34px!important;
+  top:9px!important;
+  right:9px!important
+}
+
+@media(max-width:900px){
+  .eqCommerceCard{
+    grid-template-rows:74% 26%!important;
+    aspect-ratio:.80/1!important
+  }
+}
+
+@media(max-width:620px){
+  .eqCommerceCard{
+    grid-template-rows:70% 30%!important;
+    aspect-ratio:.76/1!important
+  }
+  .eqCommerceMedia{
+    aspect-ratio:auto!important
+  }
+  .eqCommerceMedia img{
+    padding:5px!important
+  }
+  .eqCommerceBody{
+    min-height:0!important;
+    padding:7px 7px 32px!important
+  }
+  .eqCommerceBrand{
+    padding:2px 5px!important;
+    font-size:6px!important
+  }
+  .eqCommerceTitle h3{
+    margin-top:4px!important;
+    font-size:11px!important;
+    line-height:1.02!important
+  }
+  .eqCommerceDesc{
+    margin-top:2px!important;
+    font-size:7px!important
+  }
+  .eqCommercePrice{
+    left:7px!important;
+    bottom:8px!important;
+    max-width:calc(100% - 47px)!important
+  }
+  .eqCommercePrice>span{font-size:10px!important}
+  .eqCommercePrice strong{font-size:10px!important}
+  .eqCommerceActions{
+    right:6px!important;
+    bottom:5px!important
+  }
+  .eqCommerceCart{
+    width:32px!important;
+    min-width:32px!important;
+    height:29px!important;
+    min-height:29px!important
+  }
+  .eqCommerceFav{
+    width:30px!important;
+    height:30px!important;
+    top:6px!important;
+    right:6px!important;
+    font-size:16px!important
+  }
+}
