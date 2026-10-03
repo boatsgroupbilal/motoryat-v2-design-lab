@@ -50,10 +50,12 @@ export default async function Page({params}){
       </div>
     </div>
 
+    <div className="syApprovedGalleryWrap">
+      <YachtDetailGallery images={images} title={item.title}/>
+    </div>
+
     <div className="syApprovedWrap syApprovedTopGrid">
       <section className="syApprovedMain">
-        <YachtDetailGallery images={images} title={item.title}/>
-
         <div className="syApprovedTitleRow">
           <div>
             <h1>{item.title}</h1>
