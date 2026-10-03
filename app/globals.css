@@ -8253,3 +8253,259 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     height:240px
   }
 }
+
+
+/* REFERENCE YACHT GALLERY — SCREENSHOT 337 */
+.syGalleryPro,
+.syGalleryClean,
+.sySimpleGallery,
+.syCompactGallery{
+  display:none!important
+}
+.syApprovedGalleryWrap{
+  width:min(1240px,calc(100% - 48px))!important;
+  margin:0 auto!important
+}
+.syGalleryRef{
+  width:100%;
+  display:grid;
+  gap:10px
+}
+.syGalleryRefHero{
+  position:relative;
+  width:100%;
+  height:480px;
+  overflow:hidden;
+  background:#eef2f4
+}
+.syGalleryRefMain{
+  width:100%;
+  height:100%;
+  border:0;
+  padding:0;
+  margin:0;
+  display:block;
+  background:#eef2f4;
+  cursor:pointer
+}
+.syGalleryRefMain img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.syGalleryRefArrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  width:34px;
+  height:66px;
+  border:0;
+  background:#fff;
+  color:#4b4b4b;
+  font-size:34px;
+  line-height:1;
+  display:grid;
+  place-items:center;
+  cursor:pointer
+}
+.syGalleryRefArrow.left{
+  left:0;
+  border-radius:0 10px 10px 0
+}
+.syGalleryRefArrow.right{
+  right:0;
+  border-radius:10px 0 0 10px
+}
+.syGalleryRefCount{
+  position:absolute;
+  left:0;
+  bottom:0;
+  z-index:4;
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 14px;
+  background:#fff;
+  color:#111;
+  font-size:12px;
+  font-weight:700
+}
+.syGalleryRefCount:after{
+  content:"";
+  position:absolute;
+  right:-18px;
+  top:0;
+  width:18px;
+  height:36px;
+  background:#fff;
+  clip-path:polygon(0 0,100% 100%,0 100%)
+}
+.syGalleryRefFullscreen{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  z-index:4;
+  width:34px;
+  height:34px;
+  border:1px solid rgba(255,255,255,.8);
+  background:rgba(255,255,255,.88);
+  color:#444;
+  font-size:17px;
+  cursor:pointer
+}
+.syGalleryRefStrip{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:0 8px;
+  scroll-behavior:smooth;
+  scrollbar-width:none
+}
+.syGalleryRefStrip::-webkit-scrollbar{display:none}
+.syGalleryRefStrip button{
+  flex:0 0 110px;
+  width:110px;
+  height:60px;
+  border:0;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background:#e7ebee;
+  cursor:pointer;
+  opacity:.96
+}
+.syGalleryRefStrip button.active{
+  outline:2px solid #0ca6e8;
+  outline-offset:-2px
+}
+.syGalleryRefStrip img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.syGalleryRefProgress{
+  position:relative;
+  height:4px;
+  margin-top:2px;
+  background:#d7edf6;
+  overflow:hidden
+}
+.syGalleryRefProgress span{
+  position:absolute;
+  top:0;
+  bottom:0;
+  background:#12a8e5;
+  transition:left .2s ease
+}
+.syApprovedBrochure{
+  margin-top:14px;
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+  background:#e7e7e7;
+  border:1px solid #d5d5d5;
+  color:#111;
+  font-size:12px;
+  text-decoration:none
+}
+.syApprovedBrochure b{
+  display:grid;
+  place-items:center;
+  width:24px;
+  height:24px;
+  border:1px solid #8c8c8c;
+  background:#fff;
+  color:#111;
+  font-size:8px
+}
+.syApprovedDetailTabs{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  min-height:48px;
+  margin-top:10px;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd
+}
+.syApprovedDetailTabs a{
+  color:#168fd2;
+  font-size:11px;
+  text-decoration:none
+}
+.syApprovedDetailTabs a:first-child{
+  color:#111
+}
+.syApprovedTopGrid{
+  margin-top:14px!important
+}
+
+@media(max-width:1100px){
+  .syApprovedGalleryWrap{
+    width:calc(100% - 36px)!important
+  }
+  .syGalleryRefHero{
+    height:420px
+  }
+}
+@media(max-width:820px){
+  .syApprovedGalleryWrap{
+    width:100%!important
+  }
+  .syGalleryRefHero{
+    height:300px
+  }
+  .syGalleryRefArrow{
+    width:32px;
+    height:58px;
+    font-size:30px
+  }
+  .syGalleryRefStrip{
+    padding:0 8px
+  }
+  .syGalleryRefStrip button{
+    flex-basis:92px;
+    width:92px;
+    height:56px
+  }
+  .syApprovedBrochure{
+    margin-left:10px;
+    margin-right:10px
+  }
+  .syApprovedDetailTabs{
+    margin-left:10px;
+    margin-right:10px;
+    gap:20px;
+    overflow-x:auto;
+    white-space:nowrap
+  }
+}
+@media(max-width:560px){
+  .syGalleryRefHero{
+    height:235px
+  }
+  .syGalleryRefCount{
+    min-height:30px;
+    font-size:10px;
+    padding:0 10px
+  }
+  .syGalleryRefCount:after{
+    height:30px
+  }
+  .syGalleryRefFullscreen{
+    width:30px;
+    height:30px;
+    right:7px;
+    bottom:7px
+  }
+  .syGalleryRefStrip button{
+    flex-basis:82px;
+    width:82px;
+    height:52px
+  }
+}
