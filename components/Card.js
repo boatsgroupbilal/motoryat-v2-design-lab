@@ -33,7 +33,6 @@ export function EquipmentProductCard({item}) {
           style={item.cardImagePosition?{objectPosition:item.cardImagePosition}:undefined}
         />
       </a>
-      <a className="eqCommerceHoverInspect" href={item.href||'/urunler'}>İNCELE</a>
       <button className="eqCommerceFav" aria-label="Favoriye ekle">♡</button>
     </div>
 
