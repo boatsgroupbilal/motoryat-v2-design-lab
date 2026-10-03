@@ -1,0 +1,42 @@
+name: Import Cairns Marina Media
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-cairns-marina-media.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-media:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download licensed Cairns marina images
+        run: |
+          set -euo pipefail
+          mkdir -p public/marinas/cairns
+          curl -L --fail --retry 3 -A "Mozilla/5.0 MotoryatMediaBot/1.0"             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cairns_Marlin_Marina%2C_2025.jpg?width=1600"             -o public/marinas/cairns/cairns-marlin-marina-01.jpg
+          curl -L --fail --retry 3 -A "Mozilla/5.0 MotoryatMediaBot/1.0"             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shangri-La_The_Marina%2C_Cairns%2C_2025%2C_01.jpg?width=1200"             -o public/marinas/cairns/cairns-marlin-marina-02.jpg
+          curl -L --fail --retry 3 -A "Mozilla/5.0 MotoryatMediaBot/1.0"             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shangri-La_The_Marina%2C_Cairns%2C_2025%2C_02.jpg?width=1200"             -o public/marinas/cairns/cairns-marlin-marina-03.jpg
+          file public/marinas/cairns/*.jpg
+          test -s public/marinas/cairns/cairns-marlin-marina-01.jpg
+          test -s public/marinas/cairns/cairns-marlin-marina-02.jpg
+          test -s public/marinas/cairns/cairns-marlin-marina-03.jpg
+
+      - name: Commit local media
+        run: |
+          git config user.name "motoryat-media-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/marinas/cairns
+          if git diff --cached --quiet; then
+            echo "Media already present."
+            exit 0
+          fi
+          git commit -m "Add licensed Cairns Marlin Marina media"
+          git push origin main
