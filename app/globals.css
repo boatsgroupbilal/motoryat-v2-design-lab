@@ -7421,3 +7421,424 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:8px
   }
 }
+
+
+/* APPROVED SIMPLE YACHT DETAIL LAYOUT */
+.syApprovedDetail{
+  background:#f5f7f8;
+  color:var(--ink)
+}
+.syApprovedWrap{
+  width:min(1180px,calc(100% - 48px));
+  margin:0 auto
+}
+.syApprovedCrumbBar{
+  background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.syApprovedCrumb{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--mute);
+  font-size:11px
+}
+.syApprovedCrumb a{
+  color:var(--ink)
+}
+.syApprovedCrumb span{
+  color:#9aa6b0
+}
+.syApprovedTopGrid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:28px;
+  align-items:start;
+  padding-top:14px
+}
+.syApprovedMain{
+  min-width:0
+}
+
+/* gallery fills the full main content width */
+.syApprovedMain .sySimpleGallery{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  height:360px!important
+}
+.syApprovedMain .sySimpleGallery{
+  grid-template-columns:minmax(0,2.25fr) minmax(220px,.75fr)!important
+}
+.syApprovedTitleRow{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+  padding:18px 0 14px;
+  background:#fff
+}
+.syApprovedTitleRow h1{
+  margin:0;
+  color:var(--ink);
+  font:800 clamp(30px,3vw,46px)/1 Newsreader,serif
+}
+.syApprovedTitleRow p{
+  margin:7px 0 0;
+  color:var(--mute);
+  font-size:12px
+}
+.syApprovedTitleRow>strong{
+  flex:0 0 auto;
+  color:#0b63d1;
+  font-size:28px;
+  line-height:1.1
+}
+.syApprovedFacts{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  background:#f0f3f6;
+  border:1px solid #e1e6ea;
+  border-radius:6px;
+  overflow:hidden
+}
+.syApprovedFacts>div{
+  min-height:66px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:10px 16px;
+  border-right:1px solid #dfe5e9
+}
+.syApprovedFacts>div:last-child{
+  border-right:0
+}
+.syApprovedFacts small{
+  color:#84919d;
+  font-size:8px;
+  font-weight:800
+}
+.syApprovedFacts b{
+  margin-top:3px;
+  color:var(--ink);
+  font-size:12px;
+  line-height:1.2
+}
+.syApprovedSection{
+  padding:22px 0 0
+}
+.syApprovedSection h2{
+  margin:0 0 10px;
+  color:var(--ink);
+  font:800 24px/1.1 Newsreader,serif
+}
+.syApprovedSection h2:after{
+  content:"";
+  display:block;
+  width:28px;
+  height:2px;
+  margin-top:7px;
+  background:var(--brass)
+}
+.syApprovedSection p{
+  max-width:780px;
+  margin:0;
+  color:#485967;
+  font-size:14px;
+  line-height:1.65
+}
+.syApprovedSpecs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+  background:#fff
+}
+.syApprovedSpecs>div{
+  min-height:44px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center;
+  padding:8px 12px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+.syApprovedSpecs span{
+  color:var(--mute);
+  font-size:11px
+}
+.syApprovedSpecs b{
+  color:var(--ink);
+  font-size:11px
+}
+
+/* one single frame for contact + company */
+.syApprovedSide{
+  position:sticky;
+  top:86px;
+  display:grid;
+  gap:14px
+}
+.syApprovedContactCard{
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(11,34,57,.06)
+}
+.syApprovedContactCard>h2{
+  margin:0;
+  padding:16px 16px 10px;
+  color:var(--ink);
+  font:800 20px/1 Newsreader,serif
+}
+.syApprovedContactActions{
+  display:grid;
+  gap:8px;
+  padding:0 16px 16px
+}
+.syApprovedContactActions a{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #0b63d1;
+  border-radius:4px;
+  background:#fff;
+  color:#0b63d1;
+  font-size:11px;
+  font-weight:900
+}
+.syApprovedContactActions .primary{
+  background:#0b63d1;
+  color:#fff
+}
+.syApprovedContactActions .whatsapp{
+  border-color:#16a34a;
+  color:#16a34a
+}
+.syApprovedFirm{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  gap:12px;
+  align-items:center;
+  padding:16px;
+  border-top:1px solid var(--line)
+}
+.syApprovedFirmLogo{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid var(--line)
+}
+.syApprovedFirmLogo img{
+  width:48px;
+  height:48px;
+  object-fit:contain
+}
+.syApprovedFirm small{
+  color:#8a96a0;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.08em
+}
+.syApprovedFirm h3{
+  margin:3px 0 2px;
+  color:var(--ink);
+  font-size:14px
+}
+.syApprovedFirm p{
+  margin:0;
+  color:var(--mute);
+  font-size:10px
+}
+.syApprovedFirm a{
+  display:inline-block;
+  margin-top:6px;
+  color:#0b63d1;
+  font-size:10px;
+  font-weight:800
+}
+.syApprovedMiniForm{
+  display:grid;
+  gap:8px;
+  padding:14px 16px 16px;
+  border-top:1px solid var(--line)
+}
+.syApprovedMiniForm input,
+.syApprovedMiniForm textarea{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  padding:9px 10px;
+  font:inherit
+}
+.syApprovedMiniForm textarea{
+  min-height:68px;
+  resize:vertical
+}
+.syApprovedMiniForm button{
+  min-height:40px;
+  border:0;
+  background:var(--brass);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer
+}
+.syApprovedAd{
+  width:300px;
+  height:300px;
+  display:block;
+  margin:0 auto;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#fff
+}
+.syApprovedAd img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.syApprovedRelated{
+  margin-top:36px;
+  padding:28px 0 48px;
+  background:#fff;
+  border-top:1px solid var(--line)
+}
+.syApprovedRelatedHead{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px
+}
+.syApprovedRelatedHead h2{
+  margin:0;
+  font:800 26px/1 Newsreader,serif
+}
+.syApprovedRelatedHead a{
+  color:#0b63d1;
+  font-size:11px;
+  font-weight:800
+}
+
+@media(max-width:1000px){
+  .syApprovedWrap{
+    width:calc(100% - 32px)
+  }
+  .syApprovedTopGrid{
+    grid-template-columns:minmax(0,1fr) 290px;
+    gap:20px
+  }
+  .syApprovedMain .sySimpleGallery{
+    height:320px!important
+  }
+  .syApprovedTitleRow>strong{
+    font-size:24px
+  }
+}
+
+@media(max-width:820px){
+  .syApprovedWrap{
+    width:calc(100% - 24px)
+  }
+  .syApprovedTopGrid{
+    grid-template-columns:1fr;
+    gap:18px
+  }
+  .syApprovedMain .sySimpleGallery{
+    width:100%!important;
+    height:auto!important
+  }
+  .syApprovedMain .sySimpleGalleryMain{
+    height:260px!important
+  }
+  .syApprovedMain .sySimpleGalleryThumbs{
+    height:100px!important
+  }
+  .syApprovedTitleRow{
+    padding-top:14px
+  }
+  .syApprovedTitleRow h1{
+    font-size:28px
+  }
+  .syApprovedTitleRow>strong{
+    font-size:22px
+  }
+  .syApprovedFacts{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .syApprovedFacts>div:nth-child(2){
+    border-right:0
+  }
+  .syApprovedFacts>div:nth-child(-n+2){
+    border-bottom:1px solid #dfe5e9
+  }
+  .syApprovedSide{
+    position:static
+  }
+  .syApprovedAd{
+    display:none
+  }
+}
+
+@media(max-width:560px){
+  .syApprovedWrap{
+    width:calc(100% - 20px)
+  }
+  .syApprovedCrumb{
+    min-height:38px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+  }
+  .syApprovedMain .sySimpleGalleryMain{
+    height:230px!important
+  }
+  .syApprovedMain .sySimpleGalleryThumbs{
+    height:88px!important
+  }
+  .syApprovedTitleRow{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:12px
+  }
+  .syApprovedTitleRow h1{
+    font-size:24px
+  }
+  .syApprovedTitleRow>strong{
+    font-size:18px
+  }
+  .syApprovedFacts>div{
+    min-height:58px;
+    padding:8px 10px
+  }
+  .syApprovedSection{
+    padding-top:18px
+  }
+  .syApprovedSection h2{
+    font-size:21px
+  }
+  .syApprovedSection p{
+    font-size:13px
+  }
+  .syApprovedSpecs{
+    grid-template-columns:1fr
+  }
+  .syApprovedSpecs>div{
+    border-right:0
+  }
+  .syApprovedContactCard>h2{
+    font-size:18px
+  }
+  .syApprovedMiniForm{
+    display:none
+  }
+}
