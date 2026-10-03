@@ -5502,3 +5502,329 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     flex-direction:column
   }
 }
+
+
+/* =========================================================
+   MOTORYAT V2 — CUSTOMER STORE MINI SITE
+   ========================================================= */
+.storeMiniSite{background:#f5f7f8}
+.storeMiniHero{
+  position:relative;
+  height:430px;
+  overflow:hidden;
+  background:#0b2239;
+  color:#fff
+}
+.storeMiniCover{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover
+}
+.storeMiniShade{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(11,34,57,.90),rgba(11,34,57,.52) 54%,rgba(11,34,57,.18))
+}
+.storeMiniHeroInner{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr) auto;
+  gap:22px;
+  align-items:end;
+  padding-bottom:92px
+}
+.storeMiniLogo{
+  width:110px;height:110px;
+  display:grid;place-items:center;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.55)
+}
+.storeMiniLogo img{width:88%;height:88%;object-fit:contain}
+.storeMiniHeroText span{
+  color:#ffb12a;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em
+}
+.storeMiniHeroText h1{
+  margin:5px 0 7px;
+  color:#fff;
+  font:700 44px/1.05 Newsreader,serif
+}
+.storeMiniHeroText p{margin:0;color:#d8e1e7}
+.storeMiniContact{
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.storeMiniContact a{
+  width:54px;height:54px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#fff;
+  color:#182431;
+  font-size:24px;
+  text-decoration:none
+}
+.storeMiniMore{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(420px,56vw);
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:#0b2239;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:900;
+  clip-path:polygon(10% 0,90% 0,82% 100%,18% 100%)
+}
+.storeMiniMore b{font-size:24px;font-weight:300}
+.storeMiniNav{
+  background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.storeMiniNav .container{
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  scrollbar-width:none
+}
+.storeMiniNav .container::-webkit-scrollbar{display:none}
+.storeMiniNav a{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  white-space:nowrap;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  border-bottom:2px solid transparent
+}
+.storeMiniNav a.active{
+  color:var(--sea);
+  border-bottom-color:var(--brass)
+}
+.storeMiniIntro{padding:42px 0;background:#fff}
+.storeMiniIntroGrid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:50px
+}
+.storeMiniIntroGrid>div>span{
+  color:var(--brass);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em
+}
+.storeMiniIntro h2{
+  margin:6px 0 12px;
+  font:700 34px/1.1 Newsreader,serif
+}
+.storeMiniIntro p{
+  max-width:780px;
+  margin:0;
+  color:#4d6170;
+  font-size:15px;
+  line-height:1.7
+}
+.storeMiniIntro aside{
+  display:grid;
+  gap:5px;
+  align-content:start;
+  padding:22px;
+  border:1px solid var(--line);
+  background:#f7f9fa
+}
+.storeMiniIntro aside small{
+  margin-top:7px;
+  color:var(--mute);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.1em
+}
+.storeMiniIntro aside b{font-size:14px}
+.storeMiniIntro aside a{
+  margin-top:14px;
+  color:var(--sea);
+  font-size:11px;
+  font-weight:800;
+  text-decoration:none
+}
+
+/* Edmiston-style expanded profile reference */
+.storeProfilePage{
+  background:#f5f5f5;
+  padding:28px 0 50px
+}
+.storeProfileCard{
+  width:min(520px,calc(100% - 28px));
+  margin:0 auto;
+  background:#333;
+  border-top:2px solid #ffad22
+}
+.storeProfileTop{
+  position:relative;
+  min-height:300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:#eef0f1;
+  overflow:hidden
+}
+.storeProfileBadge{
+  align-self:center;
+  min-width:150px;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:-1px;
+  padding:0 28px;
+  background:#ffad22;
+  color:#fff;
+  font-size:18px;
+  clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)
+}
+.storeProfileBrand{
+  flex:1;
+  display:grid;
+  place-items:center;
+  padding:24px
+}
+.storeProfileBrand img{
+  max-width:70%;
+  max-height:120px;
+  object-fit:contain
+}
+.storeProfileContactBar{
+  display:grid;
+  grid-template-columns:96px 1fr 96px;
+  align-items:center;
+  min-height:84px;
+  background:linear-gradient(90deg,#434343 0 20%,#0c2035 20% 80%,#434343 80% 100%)
+}
+.storeProfileCircle{
+  width:58px;height:58px;
+  display:grid;place-items:center;
+  justify-self:center;
+  border-radius:50%;
+  background:#fff;
+  color:#282828;
+  font-size:28px;
+  text-decoration:none
+}
+.storeProfileMore{
+  color:#fff;
+  text-align:center;
+  font-size:17px;
+  font-weight:700
+}
+.storeProfileBody{
+  background:#333;
+  color:#fff;
+  padding:28px 34px 22px
+}
+.storeProfileBody section{
+  margin-bottom:28px
+}
+.storeProfileBody section:last-child{margin-bottom:0}
+.storeProfileBody h2{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin:0 0 12px;
+  color:#ffad22;
+  font-size:18px;
+  font-weight:500
+}
+.storeProfileBody h2 span{
+  min-width:20px;
+  color:#ffad22;
+  font-size:17px
+}
+.storeProfileBody p{
+  margin:0;
+  color:#fff;
+  font-size:16px;
+  line-height:1.8
+}
+.storeProfileFooter{
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffad22
+}
+.storeProfileFooter a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800
+}
+.storeProfileFooter span{
+  margin-left:14px;
+  font-size:23px;
+  font-weight:300
+}
+
+@media(max-width:820px){
+  .storeMiniHero{height:360px}
+  .storeMiniHeroInner{
+    grid-template-columns:84px minmax(0,1fr);
+    padding-bottom:82px
+  }
+  .storeMiniLogo{width:84px;height:84px}
+  .storeMiniContact{
+    grid-column:1/-1;
+    justify-content:flex-end;
+    margin-top:-8px
+  }
+  .storeMiniHeroText h1{font-size:36px}
+  .storeMiniIntroGrid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .storeMiniHero{height:330px}
+  .storeMiniHeroInner{
+    grid-template-columns:68px minmax(0,1fr);
+    gap:13px;
+    align-items:end;
+    padding-bottom:78px
+  }
+  .storeMiniLogo{width:68px;height:68px}
+  .storeMiniHeroText h1{font-size:29px}
+  .storeMiniHeroText p{font-size:12px}
+  .storeMiniContact a{width:46px;height:46px;font-size:20px}
+  .storeMiniMore{
+    width:66vw;
+    min-height:52px;
+    font-size:12px
+  }
+  .storeMiniIntro{padding:30px 0}
+  .storeMiniIntro h2{font-size:28px}
+  .storeProfilePage{padding-top:14px}
+  .storeProfileTop{min-height:270px}
+  .storeProfileBadge{
+    min-width:135px;
+    min-height:44px;
+    font-size:16px
+  }
+  .storeProfileContactBar{
+    grid-template-columns:82px 1fr 82px;
+    min-height:76px
+  }
+  .storeProfileCircle{
+    width:54px;height:54px;font-size:25px
+  }
+  .storeProfileMore{font-size:15px}
+  .storeProfileBody{padding:26px 26px 20px}
+  .storeProfileBody p{font-size:15px}
+}
