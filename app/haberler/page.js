@@ -1,16 +1,81 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
+import {magazineNews,newsCategories} from '../../data/news-content';
 
-const news=[
- {slug:'yeni-model-ve-lansman-haberleri',title:'Yeni model ve lansman haberleri',cat:'NEW LAUNCHES',image:'/sale-euro-850.webp'},
- {slug:'turkiye-yat-uretiminden-son-gelismeler',title:'Türkiye yat üretiminden son gelişmeler',cat:'INDUSTRY',image:'/store-mengi.webp'},
- {slug:'charter-sezonu-ve-destinasyon-rehberi',title:'Charter sezonu ve destinasyon rehberi',cat:'CHARTER',image:'/charter-luna-hero.webp'},
- {slug:'ekipman-teknoloji-ve-deniz-elektronigi',title:'Ekipman, teknoloji ve deniz elektroniği',cat:'TECHNOLOGY',image:'/product-genoa.webp'}
-];
+export default function Page(){
+ const lead=magazineNews[0];
+ const side=magazineNews.slice(1,3);
+ const editors=magazineNews.slice(3,6);
+ const latest=magazineNews.slice(1);
 
-export default function Page(){return <><SiteHeader/><main>
-  <section className="syPageIntro syNewsIntro"><div className="syContainer"><span>NEWS</span><h1>Haberler & Etkinlikler</h1><p>Yeni lansmanlar, tasarım, charter, brokerage, marinalar ve sektör gündemi.</p></div></section>
-  <div className="sySubNav"><div className="syContainer">{['Tümü','Yeni Lansmanlar','Yeni Tasarımlar','İç Tasarım','Refit','Charter','Brokerage','Marinalar','Sektör','Etkinlikler','Röportajlar'].map((x,i)=><button className={i===0?'active':''} key={x}>{x}</button>)}</div></div>
-  <section className="sySection"><div className="syContainer syNewsFeature"><a className="syNewsLead" href={'/haber/'+news[0].slug}><img src={news[0].image} alt=""/><div><small>{news[0].cat}</small><h3>{news[0].title}</h3><span>Haberi oku →</span></div></a><div className="syNewsSide">{news.slice(1).map(x=><a href={'/haber/'+x.slug} key={x.slug}><img src={x.image} alt=""/><div><small>{x.cat}</small><h3>{x.title}</h3><span>Devamını oku →</span></div></a>)}</div></div></section>
-  <section className="sySection syPale"><div className="syContainer"><div className="sySectionHead"><div><span>LATEST</span><h2>Son Haberler</h2></div></div><div className="syNewsGrid">{[...news,...news].map((x,i)=><a href={'/haber/'+x.slug} key={i}><img src={x.image} alt=""/><small>{x.cat}</small><h3>{x.title}</h3><p>Motoryat sektör gündeminden öne çıkan gelişmeler ve detaylar.</p></a>)}</div></div></section>
-</main><Footer/></>}
+ return <><SiteHeader/><main className="newsMagazinePage">
+  <section className="newsMagazineMasthead">
+    <div className="container">
+      <span>MOTORYAT HABER</span>
+      <h1>Denizcilik dünyasının gündemi</h1>
+      <p>Süperyat, yeni inşa, testler, tasarım, charter, markalar ve etkinliklerden seçilmiş haberler.</p>
+    </div>
+  </section>
+
+  <nav className="newsMagazineNav" aria-label="Haber kategorileri">
+    <div className="container">
+      {newsCategories.map((x)=><a key={x.slug||'all'} className={!x.slug?'active':''} href={x.slug?'/haberler/'+x.slug:'/haberler'}>{x.label}</a>)}
+    </div>
+  </nav>
+
+  <section className="container newsMagazineLeadGrid">
+    <a className="newsMagazineLead" href={'/haber/'+lead.slug}>
+      <img src={lead.image} alt={lead.title}/>
+      <div className="newsMagazineLeadShade"></div>
+      <div className="newsMagazineLeadCopy">
+        <small>{lead.cat} · {lead.date}</small>
+        <h2>{lead.title}</h2>
+        <p>{lead.summary}</p>
+        <span>Haberi oku →</span>
+      </div>
+    </a>
+
+    <div className="newsMagazineSide">
+      {side.map((x)=><a className="newsMagazineSideCard" href={'/haber/'+x.slug} key={x.slug}>
+        <img src={x.image} alt={x.title}/>
+        <div>
+          <small>{x.cat}</small>
+          <h3>{x.title}</h3>
+          <span>{x.date}</span>
+        </div>
+      </a>)}
+    </div>
+  </section>
+
+  <section className="container newsMagazineStrip">
+    {editors.map((x)=><a href={'/haber/'+x.slug} key={x.slug}>
+      <img src={x.image} alt={x.title}/>
+      <div>
+        <small>{x.cat}</small>
+        <h3>{x.title}</h3>
+        <span>{x.date}</span>
+      </div>
+    </a>)}
+  </section>
+
+  <section className="newsMagazineLatest">
+    <div className="container">
+      <div className="newsMagazineSectionHead">
+        <div><small>GÜNCEL</small><h2>Son Haberler</h2></div>
+        <a href="/haberler">Tümünü gör</a>
+      </div>
+      <div className="newsMagazineLatestGrid">
+        {latest.map((x)=><a className="newsMagazineLatestCard" href={'/haber/'+x.slug} key={x.slug}>
+          <img src={x.image} alt={x.title}/>
+          <div>
+            <small>{x.cat} · {x.date}</small>
+            <h3>{x.title}</h3>
+            <p>{x.summary}</p>
+            <span>Devamını oku →</span>
+          </div>
+        </a>)}
+      </div>
+    </div>
+  </section>
+ </main><Footer/></>
+}
