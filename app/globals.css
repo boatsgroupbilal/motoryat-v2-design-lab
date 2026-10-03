@@ -2578,3 +2578,416 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .eqCommercePrice.askPrice>span{
   color:#00c9b5!important;
 }
+
+
+/* =========================================================
+   MOTORYAT MOBILE / TABLET EDITORIAL LAYOUT
+   Inspired by premium marine editorial UX; Motoryat identity retained.
+   ========================================================= */
+.dpMobileHeroQuote,.dpMobileEvents{display:none}
+
+.dpFooterInner{
+  display:grid!important;
+  grid-template-columns:1.1fr 1.4fr 1fr;
+  gap:34px!important;
+  align-items:start!important
+}
+.dpFooterBrand{
+  display:block!important
+}
+.dpFooterBrand img{
+  width:215px!important;
+  max-width:100%!important;
+  height:auto!important;
+  margin-bottom:14px
+}
+.dpFooterBrand p{
+  max-width:26ch;
+  color:#d0d8df;
+  font-size:13px
+}
+.dpFooterLinks{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px
+}
+.dpFooterLinks h3,.dpFooterNewsletter h3{
+  margin-bottom:12px;
+  color:#fff;
+  font-size:15px
+}
+.dpFooterLinks a{
+  display:block;
+  padding:4px 0;
+  color:#c3cbd2;
+  font-size:13px
+}
+.dpFooterNewsletter>div{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:8px
+}
+.dpFooterNewsletter input{
+  min-width:0;
+  height:42px;
+  padding:0 12px;
+  border:1px solid #405265;
+  border-radius:5px;
+  background:#10283e;
+  color:#fff
+}
+.dpFooterNewsletter button{
+  height:42px;
+  padding:0 16px;
+  border:0;
+  border-radius:5px;
+  background:#00a8d6;
+  color:#fff;
+  font-weight:800
+}
+.dpFooterBottom{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.1)
+}
+.dpFooterSocial{
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.dpFooterSocial>a{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border:1px solid #8796a3;
+  border-radius:50%;
+  color:#fff;
+  font-size:12px;
+  font-weight:900
+}
+
+@media(max-width:1024px) and (min-width:769px){
+  .dpWrap,.container,.syContainer{max-width:100%;padding-left:28px;padding-right:28px}
+  .dpHero{height:500px}
+  .homeNewsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .homeNewsGrid>.homeNewsCard:last-child{grid-column:1/-1;display:grid;grid-template-columns:42% 58%}
+  .sqYachtGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .equipmentProductGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .dpFooterInner{grid-template-columns:1fr 1fr}
+  .dpFooterNewsletter{grid-column:1/-1}
+}
+
+@media(max-width:768px){
+  .dpMobileHeader{
+    height:72px!important;
+    min-height:72px!important;
+    grid-template-columns:52px minmax(0,1fr) 52px!important;
+    padding:0 14px!important;
+    background:#2f3336!important;
+    border-bottom:1px solid #3c444b!important
+  }
+  .dpMobileLogo{
+    height:64px!important;
+    padding:5px 8px!important
+  }
+  .dpMobileLogo img{
+    max-width:190px!important;
+    height:44px!important;
+    max-height:44px!important
+  }
+  .dpMobileMenuBtn,.dpMobileSearchBtn{
+    width:48px!important;
+    height:48px!important
+  }
+  .dpHambIcon{width:28px!important;height:21px!important}
+  .dpHambIcon i{width:28px!important;height:3px!important}
+  .dpMobileDrawer{
+    top:72px!important;
+    padding:18px 18px calc(30px + env(safe-area-inset-bottom,0px))!important;
+    background:#17191b!important;
+    color:#fff!important
+  }
+  .dpMobileGroup{
+    border-bottom:1px solid #34383c!important
+  }
+  .dpMobileGroupHead>a{
+    color:#fff!important;
+    font-size:17px!important
+  }
+  .dpMobileSub a{
+    color:#bfc8cf!important
+  }
+  .dpMobileDrawerFoot{
+    border-top:1px solid #34383c!important
+  }
+  .dpMobileDrawerFoot a{color:#fff!important}
+
+  .dpHero{
+    height:590px!important;
+    background:#092d49
+  }
+  .dpHeroPhoto{
+    object-position:center;
+  }
+  .dpHeroShade{
+    background:linear-gradient(90deg,rgba(7,39,64,.97) 0%,rgba(7,39,64,.82) 46%,rgba(7,39,64,.28) 100%)!important
+  }
+  .dpHero .dpWrap{
+    justify-content:center!important;
+    align-items:flex-start;
+    padding-top:34px!important;
+    padding-bottom:150px!important
+  }
+  .dpHero small{
+    font-size:11px!important;
+    text-transform:uppercase;
+    letter-spacing:.08em
+  }
+  .dpHero h1{
+    max-width:11ch!important;
+    margin:12px 0 22px!important;
+    font:800 35px/1.13 Archivo,sans-serif!important;
+    text-transform:uppercase
+  }
+  .dpBtn{
+    background:#24a7d7!important;
+    color:#fff!important;
+    border-radius:4px!important;
+    padding:12px 18px!important;
+    font-size:12px!important;
+    text-transform:uppercase
+  }
+  .dpDots{display:none!important}
+  .dpMobileHeroQuote{
+    position:absolute;
+    left:34%;
+    right:0;
+    bottom:0;
+    z-index:4;
+    min-height:132px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:20px 18px 18px 54px;
+    background:#f1f3f3;
+    color:#16202a;
+    clip-path:polygon(18% 0,100% 0,100% 100%,18% 100%,0 50%)
+  }
+  .dpMobileHeroQuote b{
+    position:absolute;
+    left:43px;
+    top:24px;
+    color:#20addb;
+    font-size:34px;
+    line-height:1
+  }
+  .dpMobileHeroQuote p{
+    margin:0;
+    font-size:14px;
+    line-height:1.35
+  }
+  .dpMobileHeroQuote span{
+    margin-top:7px;
+    color:#20addb;
+    font-size:11px;
+    font-weight:800
+  }
+
+  .dpMobileEvents{
+    display:block;
+    padding:16px 0 10px;
+    background:#fff;
+    overflow:hidden
+  }
+  .dpMobileEventRail{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding:0 14px 4px;
+    scrollbar-width:none
+  }
+  .dpMobileEventRail::-webkit-scrollbar{display:none}
+  .dpMobileEventRail a{
+    flex:0 0 280px;
+    min-height:68px;
+    display:grid;
+    grid-template-columns:76px minmax(0,1fr) 28px;
+    align-items:stretch;
+    overflow:hidden;
+    border-radius:5px;
+    background:#8993a2;
+    color:#fff
+  }
+  .dpMobileEventRail strong{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#ffb21d;
+    color:#fff
+  }
+  .dpMobileEventRail strong b{font-size:24px;line-height:1}
+  .dpMobileEventRail strong small{font-size:10px}
+  .dpMobileEventRail span{
+    align-self:center;
+    padding:0 12px;
+    font-size:13px;
+    font-weight:800;
+    line-height:1.2
+  }
+  .dpMobileEventRail span em{
+    display:block;
+    margin-top:2px;
+    font-style:normal;
+    font-weight:500
+  }
+  .dpMobileEventRail i{
+    align-self:center;
+    font-size:28px;
+    font-style:normal
+  }
+
+  .dpSection{padding:34px 0!important}
+  .dpHead{
+    align-items:flex-end!important;
+    margin-bottom:18px!important;
+    padding-bottom:10px;
+    border-bottom:3px solid #20addb
+  }
+  .dpHead h2{
+    font:500 25px/1.1 Archivo,sans-serif!important;
+    text-transform:uppercase
+  }
+  .dpHead a{
+    font-size:10px!important;
+    text-transform:uppercase
+  }
+
+  .homeNewsGrid{gap:16px!important}
+  .homeNewsCard{
+    grid-template-columns:43% 57%!important;
+    min-height:132px!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    background:#f0f2f2!important
+  }
+  .homeNewsBody{
+    min-height:132px!important;
+    padding:12px 12px 10px!important
+  }
+  .homeNewsMeta{
+    color:#20addb!important;
+    font-size:9px!important
+  }
+  .homeNewsBody h3{
+    font:600 15px/1.25 Archivo,sans-serif!important
+  }
+  .homeNewsRead{
+    margin:auto 0 0!important;
+    padding:0!important;
+    background:transparent!important;
+    color:#20addb!important;
+    font-size:9px!important
+  }
+  .homeNewsRead b{color:#20addb!important}
+  .homeNewsIndex{
+    top:8px!important;
+    left:8px!important;
+    background:#0b2239!important;
+    color:#fff!important
+  }
+
+  .dpTabs{
+    overflow-x:auto;
+    scrollbar-width:none;
+    gap:0!important
+  }
+  .dpTabs::-webkit-scrollbar{display:none}
+  .dpTabs button{
+    flex:0 0 auto;
+    padding:11px 14px!important;
+    font-size:12px!important
+  }
+
+  .sqYachtGrid.homeYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    padding-top:12px!important
+  }
+  .sqYachtGrid.homeYachtGrid .sqYachtCard{
+    border-radius:5px!important
+  }
+
+  .dpFooter{
+    padding:38px 0 26px!important;
+    background:#2f3336!important
+  }
+  .dpFooterInner{
+    grid-template-columns:1fr!important;
+    gap:30px!important
+  }
+  .dpFooterBrand{
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,.12)
+  }
+  .dpFooterBrand img{
+    width:210px!important;
+    margin:0 auto 14px!important
+  }
+  .dpFooterBrand p{
+    margin:0 auto;
+    text-align:center;
+    font-size:12px
+  }
+  .dpFooterLinks{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px
+  }
+  .dpFooterLinks h3,.dpFooterNewsletter h3{
+    font-size:17px
+  }
+  .dpFooterLinks a{
+    font-size:13px;
+    padding:5px 0
+  }
+  .dpFooterNewsletter>div{
+    grid-template-columns:1fr
+  }
+  .dpFooterNewsletter input,.dpFooterNewsletter button{
+    width:100%;
+    height:46px
+  }
+  .dpFooterBottom{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+    padding-top:24px
+  }
+  .dpFooterSocial{
+    flex-wrap:wrap
+  }
+  .dpFooterBottom small{
+    color:#9aa5ad;
+    font-size:11px
+  }
+}
+
+@media(max-width:430px){
+  .dpHero{height:560px!important}
+  .dpHero h1{font-size:31px!important}
+  .dpMobileHeroQuote{
+    left:31%;
+    min-height:126px;
+    padding-left:48px
+  }
+  .dpMobileHeroQuote b{left:38px}
+  .dpMobileEventRail a{flex-basis:260px}
+  .dpHead h2{font-size:22px!important}
+  .sqYachtGrid.homeYachtGrid{gap:8px!important}
+}
