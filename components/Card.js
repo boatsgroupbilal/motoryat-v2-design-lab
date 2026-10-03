@@ -25,7 +25,7 @@ export function EquipmentProductCard({item}) {
   const storeHref=item?.storeHref || '/magazalar';
 
   return <article className="eqCommerceCard">
-    <div className="eqCommerceMedia">
+    <div className={"eqCommerceMedia"+(item.singleView?" singleView":"")}>
       <a className="eqCommerceImageLink" href={item.href||'/urunler'} aria-label={item.name}>
         <img
           src={item.image}
