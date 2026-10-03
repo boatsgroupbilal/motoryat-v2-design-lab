@@ -26,7 +26,8 @@ export default async function Page({params}){
   const status=isCharter?(metaParts[1]||'Charter'):(metaParts[1]||'Satılık');
   const location=!isCharter?(metaParts[2]||'Türkiye'):'Türkiye / Akdeniz';
   const isLadyLuna=item.slug.startsWith('lady-luna');
-  const images=isLadyLuna ? [item.image,'/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image,item.image,item.image];
+  const fallbackGallery=isLadyLuna ? ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image];
+  const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
   const related=(isCharter?charterListings:saleListings).filter(x=>x.slug!==item.slug).slice(0,4);
   const listHref=isCharter?'/kiralik':'/satilik';
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
