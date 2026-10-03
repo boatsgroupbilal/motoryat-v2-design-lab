@@ -6,10 +6,10 @@ export const saleListings = [
 ];
 
 export const charterListings = [
- {slug:'lady-luna-32m',title:'Lady Luna',meta:'32 m · Motor Yacht Charter',price:'Haftalık teklif alın',image:'/charter-luna-hero.webp',href:'/tekne/lady-luna-32m',kind:'KİRALIK'},
+ {slug:'lady-luna-32m',title:'Lady Luna',meta:'32 m · Motor Yacht Charter',price:'Haftalık teklif alın',image:'/charter-luna-hero.webp',gallery:['/charter-luna-1.webp','/charter-luna-9.webp'],href:'/tekne/lady-luna-32m',kind:'KİRALIK'},
  {slug:'sunreef-charter',title:'Sunreef Charter',meta:'Luxury Catamaran',price:'Haftalık teklif alın',image:'/charter-sunreef.webp',href:'/tekne/sunreef-charter',kind:'KİRALIK'},
- {slug:'lady-luna-exterior',title:'Lady Luna Exterior',meta:'32 m · Crewed Charter',price:'Haftalık teklif alın',image:'/charter-luna-1.webp',href:'/tekne/lady-luna-exterior',kind:'KİRALIK'},
- {slug:'lady-luna-experience',title:'Lady Luna Experience',meta:'32 m · Premium Charter',price:'Haftalık teklif alın',image:'/charter-luna-9.webp',href:'/tekne/lady-luna-experience',kind:'KİRALIK'},
+ {slug:'lady-luna-exterior',title:'Lady Luna Exterior',meta:'32 m · Crewed Charter',price:'Haftalık teklif alın',image:'/charter-luna-1.webp',gallery:['/charter-luna-hero.webp','/charter-luna-9.webp'],href:'/tekne/lady-luna-exterior',kind:'KİRALIK'},
+ {slug:'lady-luna-experience',title:'Lady Luna Experience',meta:'32 m · Premium Charter',price:'Haftalık teklif alın',image:'/charter-luna-9.webp',gallery:['/charter-luna-hero.webp','/charter-luna-1.webp'],href:'/tekne/lady-luna-experience',kind:'KİRALIK'},
 ];
 
 export const stores = [
