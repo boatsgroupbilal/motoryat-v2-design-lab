@@ -4,12 +4,6 @@ import HomeTabs from '../components/HomeTabs';
 import HomeEventsSlider from '../components/HomeEventsSlider';
 import {saleListings,charterListings} from '../data/content';
 
-const news=[
- {meta:'Yeni suya inişler · 1 Ekim',title:'Denizcilikte yeni dönem ve öne çıkan gelişmeler',image:'/sale-euro-850.webp',href:'/haber/yeni-model-ve-lansman-haberleri'},
- {meta:'Tersane · 30 Eylül',title:'Türkiye yat üretiminden son gelişmeler',image:'/store-mengi.webp',href:'/haber/turkiye-yat-uretiminden-son-gelismeler'},
- {meta:'Röportaj · 28 Eylül',title:'Akdeniz charter sezonu ve yeni rotalar',image:'/charter-luna-hero.webp',href:'/haber/charter-sezonu-ve-destinasyon-rehberi'}
-];
-
 export default function Home(){return <><SiteHeader/><main className="homePage">
  <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpMobileHeroQuote"><b>“</b><p>Denizcilikte keşfet, bağlan ve ticaret yap.</p><span>MOTORYAT.COM</span></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
 
