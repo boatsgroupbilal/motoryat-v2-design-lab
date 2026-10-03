@@ -3,6 +3,7 @@ import Footer from '../../../components/Footer';
 import {ProductCard,YachtCard} from '../../../components/Card';
 import {products,saleListings,charterListings,stores} from '../../../data/content';
 import {getStoreProfile} from '../../../data/storeProfiles';
+import StoreMiniNav from '../../../components/StoreMiniNav';
 
 function matchesStore(item,store){
   const hay=(item.title+' '+item.meta+' '+item.slug).toLowerCase();
@@ -44,16 +45,8 @@ export default async function Page({params}){
       </a>
     </section>
 
-    <nav className="storeMiniNav">
-      <div className="container">
-        <a className="active" href={'/magaza/'+store.slug}>Ana Sayfa</a>
-        {hasSale&&<a href="#satilik">Satılık</a>}
-        {hasCharter&&<a href="#kiralik">Kiralık</a>}
-        {hasProducts&&<a href="#urunler">Ürünler</a>}
-        <a href={'/magaza/'+store.slug+'/hakkimizda'}>Hakkımızda</a>
-        <a href="#iletisim">İletişim</a>
-      </div>
-    </nav>
+    <StoreMiniNav store={store} active="home"/>
+
 
     <section className="storeMiniIntro">
       <div className="container storeMiniIntroGrid">
