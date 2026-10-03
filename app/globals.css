@@ -4766,3 +4766,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     min-height:36px!important
   }
 }
+
+
+/* =========================================================
+   SALE / CHARTER TOP HERO SIZE — slightly larger
+   ========================================================= */
+@media(min-width:821px){
+  .luxListingPage .luxPageTop{
+    min-height:340px!important;
+    padding:52px 0 44px!important;
+    display:flex!important;
+    align-items:center!important
+  }
+  .luxListingPage .luxPageTop>.syContainer{
+    width:100%!important
+  }
+  .luxListingPage .luxCrumb{
+    margin-bottom:16px!important
+  }
+  .luxListingPage .luxTitleRow h1{
+    margin-top:6px!important;
+    margin-bottom:12px!important
+  }
+}
+
+@media(max-width:820px){
+  .luxListingPage .luxPageTop{
+    min-height:240px!important;
+    padding:30px 0 26px!important
+  }
+}
+
+@media(max-width:520px){
+  .luxListingPage .luxPageTop{
+    min-height:210px!important;
+    padding:24px 0 20px!important
+  }
+}
