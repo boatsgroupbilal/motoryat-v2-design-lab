@@ -52,9 +52,17 @@ export default async function Page({params}){
 
     <div className="syApprovedGalleryWrap">
       <YachtDetailGallery images={images} title={item.title}/>
+      <a className="syApprovedBrochure" href="#" aria-label="Broşürü indir">
+        <span>BROŞÜRÜ İNDİRİN</span><b>PDF</b>
+      </a>
+      <nav className="syApprovedDetailTabs" aria-label="İlan bölümleri">
+        <a href="#genel-bakis">GENEL BAKIŞ</a>
+        <a href="#teknik">TEÇHİZAT</a>
+        <a href="#teknik">ÖZELLİKLER</a>
+      </nav>
     </div>
 
-    <div className="syApprovedWrap syApprovedTopGrid">
+    <div className="syApprovedWrap syApprovedTopGrid" id="genel-bakis">
       <section className="syApprovedMain">
         <div className="syApprovedTitleRow">
           <div>
@@ -78,7 +86,7 @@ export default async function Page({params}){
             : item.title+' satılık ilanı. Temel bilgiler, görseller ve yetkili satıcı iletişim bilgileri bu sayfada sunulur.'}</p>
         </section>
 
-        <section className="syApprovedSection">
+        <section className="syApprovedSection" id="teknik">
           <h2>Teknik Özellikler</h2>
           <div className="syApprovedSpecs">
             {specs.map(([k,v])=><div key={k}><span>{k}</span><b>{v}</b></div>)}
