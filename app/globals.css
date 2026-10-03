@@ -2333,27 +2333,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-weight:900
 }
 .eqCommerceActions{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 34px;
-  gap:7px;
+  display:flex;
+  justify-content:flex-end;
   margin-top:auto;
   padding-top:12px
-}
-.eqCommercePrimary{
-  min-height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  border-radius:6px;
-  background:linear-gradient(90deg,#1f63d6,#2f7aec);
-  color:#fff!important;
-  font-size:10px;
-  font-weight:900
-}
-.eqCommercePrimary b{
-  font-size:18px;
-  line-height:1
 }
 .eqCommerceCart{
   min-height:34px;
@@ -2388,8 +2371,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .eqCommerceTitle h3{font-size:13px;min-height:30px}
   .eqCommerceDesc{font-size:8px}
   .eqCommercePrice strong{font-size:12px}
-  .eqCommerceActions{grid-template-columns:minmax(0,1fr) 30px;gap:5px}
-  .eqCommercePrimary,.eqCommerceCart{min-height:30px}
+  .eqCommerceActions{justify-content:flex-end}
+  .eqCommerceCart{min-height:30px}
 }
 
 
@@ -2500,7 +2483,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transform:translateY(100%);
   transition:opacity .2s ease,transform .2s ease
 }
-.eqCommerceCard:hover .eqCommerceHoverInspect{
+.eqCommerceMedia:hover .eqCommerceHoverInspect{
   opacity:1;
   transform:translateY(0)
 }
