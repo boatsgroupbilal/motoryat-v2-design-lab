@@ -1,6 +1,8 @@
 import recoveredListings01 from './local/listings-01.js';
 import recoveredListings02 from './local/listings-02.js';
 import recoveredListings03 from './local/listings-03.js';
+import recoveredListings04a from './local/listings-04a.js';
+import recoveredListings04b from './local/listings-04b.js';
 import recoveredProducts from './local/products.js';
 import recoveredStores01 from './local/stores-01.js';
 import recoveredStores02 from './local/stores-02.js';
@@ -8,7 +10,10 @@ import recoveredBrands01 from './local/brands-01.js';
 import localCompanies from './export/companies.json';
 import localMarinas from './export/marinas.json';
 
-const recoveredListings=[...recoveredListings01,...recoveredListings02,...recoveredListings03];
+const recoveredListings=[
+  ...recoveredListings01,...recoveredListings02,...recoveredListings03,
+  ...recoveredListings04a,...recoveredListings04b
+];
 const recoveredStores=[...recoveredStores01,...recoveredStores02];
 
 const fallbackSaleListings = [
@@ -25,6 +30,21 @@ const fallbackCharterListings = [
  {slug:'lady-luna-experience',title:'Lady Luna Experience',meta:'32 m · Premium Charter',price:'Haftalık teklif alın',image:'/charter-luna-9.webp',gallery:['/charter-luna-hero.webp','/charter-luna-1.webp'],href:'/tekne/lady-luna-experience',kind:'KİRALIK'},
 ];
 
+const storeImages={
+  'admiral-marine-equipment':'/store-admiral.webp',
+  'mengi-yay':'/store-mengi.webp',
+  'rmk-yachts':'/media/stores/rmk-yachts-cover.webp',
+  'yener-tekne':'/sale-yener-35.webp',
+  'euro-boat-turkey':'/sale-euro-700.webp'
+};
+
+const listingImages={
+  'yener-tekne':'/sale-yener-35.webp',
+  'mengi-yay':'/store-mengi.webp',
+  'euro-boat-turkey':'/sale-euro-700.webp',
+  'rmk-yachts':'/media/stores/rmk-yachts-cover.webp'
+};
+
 function money(amountMinor,currency){
   if(amountMinor==null || !currency) return 'Fiyat Sorunuz';
   try{return new Intl.NumberFormat('tr-TR',{style:'currency',currency,maximumFractionDigits:0}).format(Number(amountMinor)/100)}
@@ -40,7 +60,7 @@ function listingToCard(x){
     type,
     meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
     price:x.price_text || (isCharter&&x.weekly_rate_minor?money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR'):money(x.amount_minor??x.price_minor,x.currency||x.price_currency)),
-    image:isCharter?'/charter.webp':'/yacht.webp',
+    image:x.image_local||listingImages[x.store_slug]||(isCharter?'/charter.webp':'/yacht.webp'),
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
     seller:x.seller||x.store_name||'Motoryat Partner',
@@ -48,12 +68,13 @@ function listingToCard(x){
   };
 }
 
-function productToCard(x){
+function productToCard(x,index){
+  const productImages=['/product-genoa.webp','/product-boom.webp','/product-codezero.webp','/product-block.webp'];
   return {
     ...x,
     description:x.short_description||x.description||'Tekne ve yat ekipmanı',
     price:x.price_text||money(x.amount_minor??x.price_minor,x.currency),
-    image:'/product.webp',
+    image:x.store_slug==='admiral-marine-equipment'?productImages[index%productImages.length]:'/product.webp',
     storeName:x.store_name||x.brand||'Motoryat Mağazası',
     storeLogo:'',
     storeHref:x.store_slug?'/magaza/'+x.store_slug:'/magazalar',
@@ -66,7 +87,7 @@ function storeToCard(x){
     ...x,
     category:'Denizcilik',
     location:x.location||x.country||'Türkiye',
-    image:'/store-directory.webp',
+    image:storeImages[x.slug]||'/store-directory.webp',
     logo:'/motoryat-logo.svg',
     href:'/magaza/'+x.slug
   };
