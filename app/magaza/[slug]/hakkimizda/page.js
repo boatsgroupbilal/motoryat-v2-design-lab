@@ -13,8 +13,10 @@ export default async function Page({params}){
     <section className="storeProfileCard">
       <div className="storeProfileTop">
         <span className="storeProfileBadge">SATILIK</span>
-        <div className="storeProfileBrand">
-          <img src={store.logo} alt={store.name}/>
+        <div className="storeProfileBrand storeProfileBrandText">
+          <small>KURUMSAL PROFİL</small>
+          <strong>{store.name}</strong>
+          <span>{store.category} · {store.location}</span>
         </div>
         <div className="storeProfileContactBar">
           <a href="#iletisim" className="storeProfileCircle" aria-label="Telefon">☎</a>
