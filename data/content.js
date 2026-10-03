@@ -1,10 +1,15 @@
-import localListings from './export/listings.json';
-import localProducts from './export/products.json';
-import localStores from './export/stores.json';
+import recoveredListings01 from './local/listings-01.js';
+import recoveredListings02 from './local/listings-02.js';
+import recoveredListings03 from './local/listings-03.js';
+import recoveredProducts from './local/products.js';
+import recoveredStores01 from './local/stores-01.js';
+import recoveredStores02 from './local/stores-02.js';
+import recoveredBrands01 from './local/brands-01.js';
 import localCompanies from './export/companies.json';
-import localBrands from './export/brands.json';
 import localMarinas from './export/marinas.json';
-import exportManifest from './export/manifest.json';
+
+const recoveredListings=[...recoveredListings01,...recoveredListings02,...recoveredListings03];
+const recoveredStores=[...recoveredStores01,...recoveredStores02];
 
 const fallbackSaleListings = [
  {slug:'euro-boat-700c-center-console',title:'Euro Boat 700C Center Console',meta:'7.00 m · Yeni · İstanbul',price:'Fiyat Sorunuz',image:'/sale-euro-700.webp',href:'/tekne/euro-boat-700c-center-console'},
@@ -20,53 +25,34 @@ const fallbackCharterListings = [
  {slug:'lady-luna-experience',title:'Lady Luna Experience',meta:'32 m · Premium Charter',price:'Haftalık teklif alın',image:'/charter-luna-9.webp',gallery:['/charter-luna-hero.webp','/charter-luna-1.webp'],href:'/tekne/lady-luna-experience',kind:'KİRALIK'},
 ];
 
-const fallbackStores = [
- {slug:'admiral-marine-equipment',name:'Admiral Marine Equipment',category:'Tekne ekipmanları',location:'İstanbul',image:'/store-admiral.webp',logo:'/motoryat-logo.svg',href:'/magaza/admiral-marine-equipment'},
- {slug:'mengi-yay',name:'Mengi Yay',category:'Yat üretimi & projeler',location:'Tuzla, İstanbul',image:'/store-mengi.webp',logo:'/motoryat-logo.svg',href:'/magaza/mengi-yay'},
- {slug:'rmk-marine',name:'RMK Marine',category:'Superyacht & refit',location:'Tuzla, İstanbul',image:'/store-rmk.webp',logo:'/motoryat-logo.svg',href:'/magaza/rmk-marine'},
- {slug:'sunreef-yachts-charter',name:'Sunreef Yachts Charter',category:'Luxury charter',location:'Global',image:'/store-directory.webp',logo:'/motoryat-logo.svg',href:'/magaza/sunreef-yachts-charter'},
-];
-
-const fallbackProducts = [
- {slug:'admiral-cenova-sarma-sistemi',name:'Admiral Cenova Sarma Sistemi',brand:'Admiral',sku:'Genoa',image:'/product-genoa.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-cenova-sarma-sistemi'},
- {slug:'admiral-boom-donanimi',name:'Admiral Boom Donanımı',brand:'Admiral',sku:'Boom',image:'/product-boom.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-boom-donanimi'},
- {slug:'admiral-code-zero-sistemi',name:'Admiral Code Zero Sistemi',brand:'Admiral',sku:'Code Zero',image:'/product-codezero.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-code-zero-sistemi'},
- {slug:'admiral-guverte-blogu',name:'Admiral Güverte Bloğu',brand:'Admiral',sku:'Deck Block',image:'/product-block.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-guverte-blogu'},
-];
-
 function money(amountMinor,currency){
   if(amountMinor==null || !currency) return 'Fiyat Sorunuz';
-  try{
-    return new Intl.NumberFormat('tr-TR',{style:'currency',currency,maximumFractionDigits:0}).format(Number(amountMinor)/100);
-  }catch{
-    return `${Number(amountMinor)/100} ${currency}`;
-  }
+  try{return new Intl.NumberFormat('tr-TR',{style:'currency',currency,maximumFractionDigits:0}).format(Number(amountMinor)/100)}
+  catch{return `${Number(amountMinor)/100} ${currency}`}
 }
 
 function listingToCard(x){
-  const isCharter=x.type==='charter';
+  const type=x.type||x.status||'sale';
+  const isCharter=type==='charter';
+  const length=x.length!=null?`${x.length} m`:null;
   return {
     ...x,
-    slug:x.slug,
-    title:x.title,
-    meta:[x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
-    price:isCharter && x.weekly_rate_minor ? money(x.weekly_rate_minor,x.currency||'EUR') : money(x.amount_minor,x.currency),
+    type,
+    meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
+    price:x.price_text || (isCharter&&x.weekly_rate_minor?money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR'):money(x.amount_minor??x.price_minor,x.currency||x.price_currency)),
     image:isCharter?'/charter.webp':'/yacht.webp',
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
-    seller:x.seller||'Motoryat Partner'
+    seller:x.seller||x.store_name||'Motoryat Partner',
+    sellerSlug:x.seller_slug||x.store_slug||''
   };
 }
 
 function productToCard(x){
   return {
     ...x,
-    slug:x.slug,
-    name:x.name,
-    brand:x.brand||'Motoryat',
-    sku:x.sku||'—',
     description:x.short_description||x.description||'Tekne ve yat ekipmanı',
-    price:money(x.amount_minor,x.currency),
+    price:x.price_text||money(x.amount_minor??x.price_minor,x.currency),
     image:'/product.webp',
     storeName:x.store_name||x.brand||'Motoryat Mağazası',
     storeLogo:'',
@@ -78,26 +64,32 @@ function productToCard(x){
 function storeToCard(x){
   return {
     ...x,
-    slug:x.slug,
-    name:x.name,
     category:'Denizcilik',
     location:x.location||x.country||'Türkiye',
-    image:'/store.webp',
+    image:'/store-directory.webp',
     logo:'/motoryat-logo.svg',
     href:'/magaza/'+x.slug
   };
 }
 
-export const hasLocalExport = Array.isArray(localListings) && localListings.length>0;
-export const dataManifest = exportManifest;
+const normalizedListings=recoveredListings.map(listingToCard);
+export const hasLocalExport=normalizedListings.length>0;
+export const dataManifest={
+  source:'MOTORYAT_V4.8.40.319.9_RECOVERY_FULL_SINGLE_HOSTINGER.zip',
+  snapshot_date:'2026-10-01',
+  saray_deniz_excluded:true,
+  listings_loaded:normalizedListings.length,
+  products_loaded:recoveredProducts.length,
+  stores_loaded:recoveredStores.length,
+  brands_loaded:recoveredBrands01.length
+};
 
-const normalizedListings = hasLocalExport ? localListings.map(listingToCard) : [];
-export const saleListings = normalizedListings.length ? normalizedListings.filter(x=>x.type==='sale') : fallbackSaleListings;
-export const charterListings = normalizedListings.length ? normalizedListings.filter(x=>x.type==='charter') : fallbackCharterListings;
-export const products = Array.isArray(localProducts) && localProducts.length ? localProducts.map(productToCard) : fallbackProducts;
-export const stores = Array.isArray(localStores) && localStores.length ? localStores.map(storeToCard) : fallbackStores;
-export const companies = Array.isArray(localCompanies) ? localCompanies : [];
-export const brands = Array.isArray(localBrands) ? localBrands : [];
-export const marinas = Array.isArray(localMarinas) ? localMarinas : [];
+export const saleListings=normalizedListings.filter(x=>x.type==='sale').length?normalizedListings.filter(x=>x.type==='sale'):fallbackSaleListings;
+export const charterListings=normalizedListings.filter(x=>x.type==='charter').length?normalizedListings.filter(x=>x.type==='charter'):fallbackCharterListings;
+export const products=recoveredProducts.length?recoveredProducts.map(productToCard):[];
+export const stores=recoveredStores.length?recoveredStores.map(storeToCard):[];
+export const companies=Array.isArray(localCompanies)?localCompanies:[];
+export const brands=recoveredBrands01;
+export const marinas=Array.isArray(localMarinas)?localMarinas:[];
 
 export const productCategories=['Motor & Mekanik','Elektrik','Elektronik & Navigasyon','Güverte','Çapa & Bağlama','Pompa & Tesisat','Güvenlik','Boya & Bakım','Yelken & Donanım','Halat & Rigging','Kabin & Konfor','Mutfak & Soğutma','Su Sporları','Bot & Tender','Balıkçılık','Yedek Parça'];
