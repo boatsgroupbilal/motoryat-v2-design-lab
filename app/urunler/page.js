@@ -1,6 +1,7 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {products,productCategories} from '../../data/content';
+import {EquipmentProductCard} from '../../components/Card';
 
 const quickCategories=[
   ['▦','Tüm Ürünler'],
@@ -70,21 +71,7 @@ export default function Page(){
           </div>
 
           <div className="equipmentProductGrid">
-            {items.map((x,i)=><article className="equipmentProductCard" key={x.slug+'-'+i}>
-              <a className="equipmentProductMedia" href={x.href}>
-                <img src={x.image} alt={x.name}/>
-                <span className="equipmentFav" aria-hidden="true">♡</span>
-              </a>
-              <div className="equipmentProductBody">
-                <small>{x.brand}</small>
-                <a href={x.href}><h3>{x.name}</h3></a>
-                <p>{x.sku}</p>
-                <div className="equipmentProductBottom">
-                  <strong>{x.price||'Fiyat Sorunuz'}</strong>
-                  <button aria-label="Sepete ekle">▣</button>
-                </div>
-              </div>
-            </article>)}
+            {items.map((x,i)=><EquipmentProductCard item={x} key={x.slug+'-'+i}/>)}
           </div>
         </div>
       </section>
