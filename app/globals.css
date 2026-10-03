@@ -3335,7 +3335,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .marinaFeaturedCard{
   position:relative;
-  min-height:300px;
+  min-height:240px;
   overflow:hidden;
   border-radius:4px;
   box-shadow:0 16px 36px rgba(0,0,0,.24);
@@ -5145,7 +5145,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-weight:900
 }
 .syDetailWideImage{
-  height:420px;
+  height:300px;
   overflow:hidden;
   background:#dfe5e9
 }
@@ -10834,7 +10834,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .newsMagazineSectionHead h2{
   margin-top:2px;
   color:#0d1b2a;
-  font:800 26px/1 Newsreader,serif;
+  font:800 22px/1 Newsreader,serif;
 }
 .newsMagazineSectionHead>a{
   color:#0d1b2a;
@@ -11058,9 +11058,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 .newsArticleHeader{
-  max-width:980px!important;
-  padding-top:24px!important;
-  padding-bottom:18px!important;
+  max-width:860px!important;
+  padding-top:16px!important;
+  padding-bottom:12px!important;
 }
 .newsArticleCrumb{
   display:flex;
@@ -11082,22 +11082,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   max-width:900px;
   margin:7px 0 10px;
   color:#0d1b2a;
-  font:800 clamp(34px,5vw,56px)/1.02 Newsreader,serif;
+  font:800 clamp(28px,4vw,44px)/1.02 Newsreader,serif;
 }
 .newsArticleDeck{
   max-width:780px;
   margin:0;
   color:#586570;
-  font-size:15px;
-  line-height:1.5;
+  font-size:13px;
+  line-height:1.45;
 }
 .newsArticleMeta{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:18px;
-  margin-top:18px;
-  padding-top:12px;
+  margin-top:12px;
+  padding-top:9px;
   border-top:1px solid #dedbd3;
 }
 .newsArticleMeta>div:first-child{
@@ -11129,7 +11129,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 .newsArticleHero{
-  max-width:1180px!important;
+  max-width:1060px!important;
 }
 .newsArticleHero img{
   width:100%;
@@ -11146,47 +11146,47 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 .newsArticleLayout{
   display:grid;
-  grid-template-columns:minmax(0,760px) 280px;
+  grid-template-columns:minmax(0,660px) 240px;
   justify-content:center;
-  gap:42px;
+  gap:28px;
   align-items:start;
-  padding-top:28px!important;
-  padding-bottom:42px!important;
+  padding-top:20px!important;
+  padding-bottom:30px!important;
 }
 .newsArticleContent{
   min-width:0;
 }
 .newsArticleContent p{
-  margin:0 0 18px;
+  margin:0 0 14px;
   color:#3e4d5a;
-  font:400 16px/1.72 Georgia,serif;
+  font:400 14px/1.65 Georgia,serif;
 }
 .newsArticleContent .newsArticleLead{
   color:#243746;
-  font-size:19px;
-  line-height:1.6;
+  font-size:16px;
+  line-height:1.55;
 }
 .newsArticleContent h2{
-  margin:30px 0 12px;
+  margin:22px 0 9px;
   color:#0d1b2a;
-  font:800 28px/1.08 Newsreader,serif;
+  font:800 23px/1.08 Newsreader,serif;
 }
 .newsArticleInlineImage{
-  margin:26px 0 24px;
+  margin:18px 0 16px;
 }
 .newsArticleInlineImage img{
   width:100%;
-  max-height:390px;
+  max-height:280px;
   object-fit:cover;
   border-radius:6px;
 }
 .newsArticleContent blockquote{
-  margin:28px 0;
-  padding:18px 20px;
+  margin:20px 0;
+  padding:14px 16px;
   border-left:4px solid #c2a878;
   background:#fff;
   color:#0d1b2a;
-  font:700 20px/1.35 Newsreader,serif;
+  font:700 17px/1.35 Newsreader,serif;
 }
 
 .newsArticleAside{
@@ -11200,7 +11200,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:#fff;
   border:1px solid #dedbd3;
   border-radius:6px;
-  padding:14px;
+  padding:11px;
 }
 .newsArticleSideBox>small,
 .newsArticleRelatedHead{
@@ -11211,7 +11211,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .newsArticleSideBox h3{
   margin:5px 0 10px;
-  font:700 19px/1.12 Newsreader,serif;
+  font:700 16px/1.12 Newsreader,serif;
 }
 .newsArticleSideBox>a{
   color:#0f6e7a;
@@ -11237,7 +11237,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .newsArticleRelated>a{
   display:grid;
-  grid-template-columns:76px minmax(0,1fr);
+  grid-template-columns:64px minmax(0,1fr);
   gap:9px;
   padding:10px 0;
   border-top:1px solid #ece9e2;
@@ -11246,8 +11246,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   margin-top:8px;
 }
 .newsArticleRelated img{
-  width:76px;
-  height:58px;
+  width:64px;
+  height:48px;
   object-fit:cover;
   border-radius:4px;
 }
@@ -11266,7 +11266,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 .newsArticleMore{
-  padding:28px 0 42px;
+  padding:22px 0 30px;
   background:#fff;
   border-top:1px solid #dedbd3;
 }
@@ -11309,7 +11309,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .newsArticleMoreGrid h3{
   margin-top:4px;
-  font:700 15px/1.15 Newsreader,serif;
+  font:700 13px/1.15 Newsreader,serif;
 }
 
 @media(max-width:960px){
@@ -11330,7 +11330,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     padding-top:18px!important;
   }
   .newsArticleHeader h1{
-    font-size:38px;
+    font-size:32px;
   }
   .newsArticleDeck{
     font-size:13px;
@@ -11347,10 +11347,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     position:static;
   }
   .newsArticleContent p{
-    font-size:15px;
+    font-size:14px;
   }
   .newsArticleContent .newsArticleLead{
-    font-size:18px;
+    font-size:16px;
   }
   .newsArticleMoreGrid{
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -11358,26 +11358,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 @media(max-width:520px){
   .newsArticleHeader h1{
-    font-size:31px;
+    font-size:27px;
   }
   .newsArticleMeta{
     align-items:flex-start;
   }
   .newsArticleHero img{
-    height:220px;
+    height:180px;
   }
   .newsArticleContent h2{
-    font-size:24px;
+    font-size:21px;
   }
   .newsArticleContent p{
-    font-size:14px;
-    line-height:1.65;
+    font-size:13px;
+    line-height:1.6;
   }
   .newsArticleContent .newsArticleLead{
-    font-size:17px;
+    font-size:15px;
   }
   .newsArticleContent blockquote{
-    font-size:18px;
+    font-size:16px;
   }
   .newsArticleMoreGrid{
     grid-template-columns:1fr;
