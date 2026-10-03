@@ -6101,3 +6101,91 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:560px){
   .syInquiryTwoCol{grid-template-columns:1fr}
 }
+
+
+/* GLOBAL INNER-PAGE HERO — USE HOMEPAGE IMAGE */
+.luxPageTop,
+.storeDirectoryHero,
+.syPageIntro,
+.directoryHero,
+.commerceHero,
+.utilityHero,
+.entityHero,
+.newsTop{
+  background-image:
+    linear-gradient(90deg,rgba(11,34,57,.90),rgba(11,34,57,.64) 52%,rgba(11,34,57,.38)),
+    url('/hero-home.webp')!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  color:#fff!important
+}
+.luxPageTop h1,
+.storeDirectoryHero h1,
+.syPageIntro h1,
+.directoryHero h1,
+.commerceHero h1,
+.utilityHero h1,
+.entityHero h1,
+.newsTop h1{
+  color:#fff!important
+}
+.luxPageTop p,
+.storeDirectoryHero p,
+.syPageIntro p,
+.directoryHero p,
+.commerceHero p,
+.utilityHero p,
+.entityHero p,
+.newsTop p{
+  color:#d4e0e8!important
+}
+
+/* Sections that previously supplied a separate cover image */
+.equipmentHero,
+.marinaDirectoryHero,
+.storeHero,
+.storeMiniHero,
+.storeMiniSectionHero{
+  background-image:url('/hero-home.webp')!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important
+}
+.equipmentHeroImage,
+.marinaDirectoryHeroImg,
+.storeHero>img,
+.storeMiniCover,
+.storeMiniSectionHero>img{
+  opacity:0!important;
+  pointer-events:none!important
+}
+
+/* Keep one consistent dark overlay over the shared image */
+.equipmentHeroShade,
+.marinaDirectoryHeroShade,
+.storeHeroShade,
+.storeMiniShade{
+  background:linear-gradient(90deg,rgba(11,34,57,.90),rgba(11,34,57,.60) 52%,rgba(11,34,57,.28))!important
+}
+.storeMiniSectionHero>div:first-of-type{
+  background:linear-gradient(90deg,rgba(11,34,57,.90),rgba(11,34,57,.60) 52%,rgba(11,34,57,.28))!important
+}
+
+@media(max-width:768px){
+  .luxPageTop,
+  .storeDirectoryHero,
+  .syPageIntro,
+  .directoryHero,
+  .commerceHero,
+  .utilityHero,
+  .entityHero,
+  .newsTop,
+  .equipmentHero,
+  .marinaDirectoryHero,
+  .storeHero,
+  .storeMiniHero,
+  .storeMiniSectionHero{
+    background-position:center center!important
+  }
+}
