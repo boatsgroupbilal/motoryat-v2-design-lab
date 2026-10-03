@@ -9,6 +9,6 @@ export default async function Page({params}){
   return <><SiteHeader/><main>
     <section className="entityHero"><div className="container"><span>MARKA</span><h1>{name}</h1><p>Modeller, teknik bilgiler, haberler ve mevcut ilanlar.</p></div></section>
     <section className="section"><div className="container entitySplit"><div><span className="eyebrow">MARKA PROFİLİ</span><h2>{name} modellerini keşfedin</h2><p>Marka profilinde üretici bilgileri, model aileleri, teknik veriler ve Motoryat üzerindeki ilgili ilanlar birlikte gösterilir.</p></div><div className="entityStats"><div><small>MODELLER</small><b>24</b></div><div><small>İLANLAR</small><b>18</b></div><div><small>HABERLER</small><b>12</b></div></div></div></section>
-    <section className="section alt"><div className="container"><div className="sectionHead"><div><span>SATILIK</span><h2>{name} ilanları</h2></div></div><div className="sqYachtGrid">{saleListings.map((x,i)=><YachtCard key={x.slug} item={x} seller={name} year={String(2026-(i%3))} refit={String(2021+(i%4))} index={i}/>)}</div></div></section>
+    <section className="section alt"><div className="container"><div className="sectionHead"><div><span>SATILIK</span><h2>{name} ilanları</h2></div></div><div className="sqYachtGrid">{saleListings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={name} year={String(2026-(i%3))} refit={String(2021+(i%4))} index={i}/>)}</div></div></section>
   </main><Footer/></>
 }
