@@ -12,8 +12,8 @@ export default function YachtListingRow({
   const charter=type==='charter';
   const tone=index%2===0?'toneGold':'toneTurquoise';
 
-  const brand=seller||'Motoryat.com';
-  const initials=brand.split(' ').filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+  const brand=item?.sellerName || item?.brandName || item?.brand || seller || 'Motoryat.com';
+  const logo=brandLogo || item?.sellerLogo || item?.brandLogo || item?.logo || '';
   const photoCount=[28,24,32,37][index%4];
   const videoCount=[3,5,4,0][index%4];
 
@@ -47,12 +47,12 @@ export default function YachtListingRow({
       <b>→</b>
     </Link>
 
-    <div className="sqYachtBrand">
+    <div className={'sqYachtBrand '+(logo?'hasLogo':'hasWordmark')}>
       <div className="sqYachtBrandMark">
-        {brandLogo ? <img src={brandLogo} alt=""/> : <span>{initials||'MY'}</span>}
+        {logo ? <img src={logo} alt={brand+' logo'}/> : <span className="sqYachtBrandWordmark">{brand}</span>}
       </div>
       <div className="sqYachtBrandText">
-        <strong>{brand}</strong>
+        {logo ? <strong>{brand}</strong> : null}
         <small>Yetkili Satıcı <i>✓</i></small>
       </div>
     </div>
