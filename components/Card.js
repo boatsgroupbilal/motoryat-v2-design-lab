@@ -20,10 +20,18 @@ export function ProductCard({item}){return <a className="productCard" href={item
 
 export function EquipmentProductCard({item}) {
   const shortText=item?.description || item?.sku || 'Tekne ve yat ekipmanı';
+  const storeName=item?.storeName || item?.seller || item?.brand || 'Motoryat Mağazası';
+  const storeLogo=item?.storeLogo || '/motoryat-logo.svg';
+  const storeHref=item?.storeHref || '/magazalar';
+
   return <article className="eqCommerceCard">
     <div className="eqCommerceMedia">
       <a className="eqCommerceImageLink" href={item.href||'/urunler'} aria-label={item.name}>
-        <img src={item.image} alt={item.name}/>
+        <img
+          src={item.image}
+          alt={item.name}
+          style={item.cardImagePosition?{objectPosition:item.cardImagePosition}:undefined}
+        />
       </a>
       <a className="eqCommerceHoverInspect" href={item.href||'/urunler'}>İNCELE</a>
       <button className="eqCommerceFav" aria-label="Favoriye ekle">♡</button>
@@ -49,5 +57,11 @@ export function EquipmentProductCard({item}) {
         </button>
       </div>
     </div>
+
+    <a className="eqCommerceStore" href={storeHref}>
+      <span className="eqCommerceStoreLogo"><img src={storeLogo} alt=""/></span>
+      <span className="eqCommerceStoreText"><small>MAĞAZA</small><b>{storeName}</b></span>
+      <span className="eqCommerceStoreArrow">→</span>
+    </a>
   </article>
 }
