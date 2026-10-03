@@ -5973,3 +5973,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .storeMiniServiceGrid{grid-template-columns:1fr}
   .storeMiniContactCards{grid-template-columns:1fr}
 }
+
+
+/* STORE ABOUT TEXT-ONLY PROFILE */
+.storeProfileBrandText{
+  display:flex!important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:34px 24px!important
+}
+.storeProfileBrandText small{
+  color:#6b7780;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.14em
+}
+.storeProfileBrandText strong{
+  margin-top:10px;
+  color:#152433;
+  font:700 34px/1.05 Newsreader,serif
+}
+.storeProfileBrandText span{
+  margin-top:8px;
+  color:#6b7780;
+  font-size:13px
+}
