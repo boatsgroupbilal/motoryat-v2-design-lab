@@ -1,0 +1,77 @@
+name: Export Motoryat Local Data
+
+on:
+  push:
+    branches:
+      - work-local-data-20261003
+    paths:
+      - '.github/workflows/export-local-data.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work-local-data-20261003
+
+      - name: Export public Motoryat datasets
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="https://yjhxcqenexsaosgvsznl.supabase.co/functions/v1/tezmarin-page-probe"
+          mkdir -p data/export
+
+          export_kind () {
+            kind="$1"
+            page=0
+            tmp="$(mktemp)"
+            echo '[]' > "$tmp"
+
+            while true; do
+              out="$(mktemp)"
+              curl --fail --retry 4 --retry-delay 2 --connect-timeout 20 --max-time 120                 "$BASE?kind=$kind&page=$page&limit=200" -o "$out"
+
+              count="$(jq -r '.count // 0' "$out")"
+              jq -s '.[0] + (.[1].rows // [])' "$tmp" "$out" > "$tmp.next"
+              mv "$tmp.next" "$tmp"
+              rm -f "$out"
+
+              echo "$kind page=$page count=$count"
+              if [ "$count" -lt 200 ]; then
+                break
+              fi
+              page=$((page+1))
+            done
+
+            jq '.' "$tmp" > "data/export/$kind.json"
+            rm -f "$tmp"
+          }
+
+          for kind in listings products stores companies brands marinas; do
+            export_kind "$kind"
+          done
+
+          test "$(jq 'length' data/export/products.json)" -eq 708
+          test "$(jq 'length' data/export/stores.json)" -eq 76
+          test "$(jq '[.[] | select(.slug=="saray-deniz-malzemeleri")] | length' data/export/stores.json)" -eq 0
+          test "$(jq '[.[] | select((.store_slug // "")=="saray-deniz-malzemeleri")] | length' data/export/products.json)" -eq 0
+
+          jq -n             --arg exported_at "$(date -u +%FT%TZ)"             --argjson listings "$(jq 'length' data/export/listings.json)"             --argjson products "$(jq 'length' data/export/products.json)"             --argjson stores "$(jq 'length' data/export/stores.json)"             --argjson companies "$(jq 'length' data/export/companies.json)"             --argjson brands "$(jq 'length' data/export/brands.json)"             --argjson marinas "$(jq 'length' data/export/marinas.json)"             '{exported_at:$exported_at,source:"motoryat-premium",saray_excluded:true,listings:$listings,products:$products,stores:$stores,companies:$companies,brands:$brands,marinas:$marinas}'             > data/export/manifest.json
+
+      - name: Commit exported datasets
+        run: |
+          set -euo pipefail
+          git config user.name "motoryat-data-export"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/export
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "Export Supabase data locally without Saray Deniz"
+          git push origin HEAD:work-local-data-20261003
