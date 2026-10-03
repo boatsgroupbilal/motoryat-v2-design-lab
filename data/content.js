@@ -20,10 +20,10 @@ export const stores = [
 ];
 
 export const products = [
- {slug:'admiral-cenova-sarma-sistemi',name:'Admiral Cenova Sarma Sistemi',brand:'Admiral',sku:'Genoa',image:'/product-genoa.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'/motoryat-logo.svg',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-cenova-sarma-sistemi'},
- {slug:'admiral-boom-donanimi',name:'Admiral Boom Donanımı',brand:'Admiral',sku:'Boom',image:'/product-boom.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'/motoryat-logo.svg',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-boom-donanimi'},
- {slug:'admiral-code-zero-sistemi',name:'Admiral Code Zero Sistemi',brand:'Admiral',sku:'Code Zero',image:'/product-codezero.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'/motoryat-logo.svg',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-code-zero-sistemi'},
- {slug:'admiral-guverte-blogu',name:'Admiral Güverte Bloğu',brand:'Admiral',sku:'Deck Block',image:'/product-block.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'/motoryat-logo.svg',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-guverte-blogu'},
+ {slug:'admiral-cenova-sarma-sistemi',name:'Admiral Cenova Sarma Sistemi',brand:'Admiral',sku:'Genoa',image:'/product-genoa.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-cenova-sarma-sistemi'},
+ {slug:'admiral-boom-donanimi',name:'Admiral Boom Donanımı',brand:'Admiral',sku:'Boom',image:'/product-boom.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-boom-donanimi'},
+ {slug:'admiral-code-zero-sistemi',name:'Admiral Code Zero Sistemi',brand:'Admiral',sku:'Code Zero',image:'/product-codezero.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-code-zero-sistemi'},
+ {slug:'admiral-guverte-blogu',name:'Admiral Güverte Bloğu',brand:'Admiral',sku:'Deck Block',image:'/product-block.webp',cardImagePosition:'left center',singleView:true,storeName:'Admiral Marine Equipment',storeLogo:'',storeHref:'/magaza/admiral-marine-equipment',href:'/urun/admiral-guverte-blogu'},
 ];
 
 export const productCategories=['Motor & Mekanik','Elektrik','Elektronik & Navigasyon','Güverte','Çapa & Bağlama','Pompa & Tesisat','Güvenlik','Boya & Bakım','Yelken & Donanım','Halat & Rigging','Kabin & Konfor','Mutfak & Soğutma','Su Sporları','Bot & Tender','Balıkçılık','Yedek Parça'];
