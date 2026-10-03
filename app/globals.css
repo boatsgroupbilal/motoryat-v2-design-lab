@@ -2570,3 +2570,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     min-height:44px!important
   }
 }
+
+
+/* Ask-price accent */
+.eqCommercePrice.askPrice,
+.eqCommercePrice.askPrice strong,
+.eqCommercePrice.askPrice>span{
+  color:#00c9b5!important;
+}
