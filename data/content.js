@@ -55,11 +55,11 @@ const storeImages={
   'euro-boat-turkey':'/sale-euro-700.webp'
 };
 
-const listingImages={
-  'yener-tekne':'/sale-yener-35.webp',
-  'mengi-yay':'/store-mengi.webp',
-  'euro-boat-turkey':'/sale-euro-700.webp',
-  'rmk-yachts':'/media/stores/rmk-yachts-cover.webp'
+const exactListingImages={
+  'euro-boat-700c-center-console':'/sale-euro-700.webp',
+  'euro-boat-850ht-hard-top':'/sale-euro-850.webp',
+  'euro-boat-760ht-hard-top':'/sale-euro-760.webp',
+  'yener-tekne-ynr-35-trawler':'/sale-yener-35.webp'
 };
 
 function money(amountMinor,currency){
@@ -77,7 +77,7 @@ function listingToCard(x){
     type,
     meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
     price:x.price_text || (isCharter&&x.weekly_rate_minor?money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR'):money(x.amount_minor??x.price_minor,x.currency||x.price_currency)),
-    image:x.image_local||generatedImageMap[x.slug]||listingImages[x.store_slug]||(isCharter?'/charter.webp':'/yacht.webp'),
+    image:x.image_local||generatedImageMap[x.slug]||exactListingImages[x.slug]||(isCharter?'/charter.webp':'/yacht.webp'),
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
     seller:x.seller||x.store_name||'Motoryat Partner',
@@ -91,7 +91,7 @@ function productToCard(x,index){
     ...x,
     description:x.short_description||x.description||'Tekne ve yat ekipmanı',
     price:x.price_text||money(x.amount_minor??x.price_minor,x.currency),
-    image:x.store_slug==='admiral-marine-equipment'?productImages[index%productImages.length]:'/product.webp',
+    image:generatedImageMap[x.slug]||(x.store_slug==='admiral-marine-equipment'?productImages[index%productImages.length]:'/product.webp'),
     storeName:x.store_name||x.brand||'Motoryat Mağazası',
     storeLogo:'',
     storeHref:x.store_slug?'/magaza/'+x.store_slug:'/magazalar',
@@ -104,7 +104,7 @@ function storeToCard(x){
     ...x,
     category:'Denizcilik',
     location:x.location||x.country||'Türkiye',
-    image:storeImages[x.slug]||'/store-directory.webp',
+    image:storeImages[x.slug]||(normalizedListings.find(i=>i.store_slug===x.slug && generatedImageMap[i.slug])?.image)||'/store-directory.webp',
     logo:'/motoryat-logo.svg',
     href:'/magaza/'+x.slug
   };
