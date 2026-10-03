@@ -166,7 +166,7 @@ export default async function Page({params}){
           <a href={sellerHref}>MAĞAZAYI GÖR <span>→</span></a>
         </div>
 
-        <div className="syAd">300 × 300<small>REKLAM ALANI</small></div>
+        <a className="syAd syAdMedia" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters"><img src="/ads/la-romana-charters-300x300.gif" alt="La Romana Charters"/></a>
       </aside>
     </div>
 
