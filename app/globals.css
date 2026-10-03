@@ -3892,3 +3892,214 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     height:470px!important
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE WIDE EVENTS STRIP
+   ========================================================= */
+.homeWideEvents{
+  width:100%;
+  padding:10px 0 22px;
+  background:#f3f3f3;
+  overflow:hidden
+}
+.homeWideEventsShell{
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) 54px;
+  gap:12px;
+  width:100%;
+  max-width:1880px;
+  margin:0 auto;
+  padding:0 12px
+}
+.homeWideEdge{
+  position:relative;
+  min-height:184px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#fff
+}
+.homeWideEdgeLeft{background:#0b2239}
+.homeWideEdgeRight{background:#20addb}
+.homeWideEdge span{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.08em
+}
+.homeWideEdge b{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  font-weight:400
+}
+.homeWideEdgeLeft b{left:14px}
+.homeWideEdgeRight b{right:14px}
+
+.homeWideEventsRail{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  min-width:0
+}
+.homeWideEventCard{
+  min-height:184px;
+  display:grid;
+  grid-template-columns:74px minmax(0,1.05fr) minmax(0,.95fr);
+  overflow:hidden;
+  border-radius:4px;
+  background:linear-gradient(90deg,#7f858a 0%,#b2b7bb 100%);
+  color:#fff
+}
+.homeWideEventDate{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:15px;
+  background:#ffb21d
+}
+.homeWideEventDate b{
+  font-size:25px;
+  line-height:1;
+  font-weight:900
+}
+.homeWideEventDate small{
+  margin-top:7px;
+  font-size:10px;
+  font-weight:900
+}
+.homeWideEventImage{
+  min-width:0;
+  overflow:hidden
+}
+.homeWideEventImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.homeWideEventBody{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:18px 20px
+}
+.homeWideEventBody h3{
+  margin:0;
+  color:#fff;
+  font:800 20px/1.2 Archivo,sans-serif;
+  text-transform:uppercase
+}
+.homeWideEventBody p{
+  margin-top:6px;
+  color:#f4f6f7;
+  font-size:16px
+}
+.homeWideEventBody span{
+  width:max-content;
+  margin-top:18px;
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:0 14px;
+  border:1px solid rgba(255,255,255,.72);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase
+}
+.homeWideEventBody span b{
+  font-size:18px;
+  line-height:1
+}
+
+/* old compact event rail no longer used */
+.homePage .dpMobileEvents{display:none!important}
+
+@media(max-width:1200px){
+  .homeWideEventsShell{
+    grid-template-columns:44px minmax(0,1fr) 44px;
+    gap:8px
+  }
+  .homeWideEventsRail{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .homeWideEventCard:last-child{
+    display:none
+  }
+}
+
+@media(max-width:768px){
+  .homeWideEvents{
+    padding:8px 0 14px
+  }
+  .homeWideEventsShell{
+    grid-template-columns:34px minmax(0,1fr) 34px;
+    gap:6px;
+    padding:0 6px
+  }
+  .homeWideEdge{
+    min-height:132px
+  }
+  .homeWideEdge span{
+    font-size:8px
+  }
+  .homeWideEventsRail{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none
+  }
+  .homeWideEventsRail::-webkit-scrollbar{display:none}
+  .homeWideEventCard{
+    flex:0 0 88%;
+    min-height:132px;
+    grid-template-columns:56px minmax(0,1fr) minmax(0,1.05fr);
+    scroll-snap-align:start
+  }
+  .homeWideEventDate{
+    padding-top:10px
+  }
+  .homeWideEventDate b{
+    font-size:18px
+  }
+  .homeWideEventDate small{
+    margin-top:4px;
+    font-size:8px
+  }
+  .homeWideEventBody{
+    padding:10px 10px
+  }
+  .homeWideEventBody h3{
+    font-size:14px
+  }
+  .homeWideEventBody p{
+    margin-top:4px;
+    font-size:12px
+  }
+  .homeWideEventBody span{
+    min-height:30px;
+    margin-top:9px;
+    padding:0 8px;
+    font-size:8px
+  }
+  .homeWideEventCard:last-child{
+    display:grid
+  }
+}
+
+@media(max-width:430px){
+  .homeWideEventsShell{
+    grid-template-columns:28px minmax(0,1fr) 28px
+  }
+  .homeWideEdge b{font-size:20px}
+  .homeWideEventCard{
+    flex-basis:92%
+  }
+}
