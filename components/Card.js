@@ -25,6 +25,7 @@ export function EquipmentProductCard({item}) {
       <a href={item.href||'/urunler'} aria-label={item.name}>
         <img src={item.image} alt={item.name}/>
       </a>
+      <a className="eqCommerceHoverInspect" href={item.href||'/urunler'}>İNCELE</a>
       <button className="eqCommerceFav" aria-label="Favoriye ekle">♡</button>
     </div>
 
