@@ -9451,3 +9451,70 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   text-align:center;
   padding:8px
 }
+
+
+/* LATEST RELATED CARD SELLER BLOCK */
+.syRefShowcaseSmall{
+  display:grid!important;
+  grid-template-rows:1fr 1fr!important;
+  gap:3px!important;
+  background:#fff
+}
+.syRefShowcaseSmall>img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important
+}
+.syRefShowcaseSeller{
+  position:relative;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:5px;
+  padding:10px;
+  background:#a9afb5;
+  color:#fff;
+  text-align:center;
+  overflow:hidden
+}
+.syRefShowcaseSeller:before{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:86px;
+  height:36px;
+  background:#a9afb5;
+  clip-path:polygon(20% 100%,50% 0,80% 100%)
+}
+.syRefShowcaseSeller strong{
+  position:relative;
+  z-index:1;
+  font-size:11px;
+  letter-spacing:.02em
+}
+.syRefShowcaseSeller span{
+  position:relative;
+  z-index:1;
+  max-width:100%;
+  font-size:9px;
+  line-height:1.2;
+  font-weight:700;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.syRefShowcaseSeller small{
+  position:relative;
+  z-index:1;
+  font-size:7px;
+  opacity:.8;
+  letter-spacing:.08em
+}
+
+@media(max-width:820px){
+  .syRefShowcaseSeller strong{font-size:10px}
+  .syRefShowcaseSeller span{font-size:8px}
+}
