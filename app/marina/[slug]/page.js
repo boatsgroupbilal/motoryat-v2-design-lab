@@ -64,6 +64,8 @@ export default async function Page({params}){
   }
 
   return <><SiteHeader/><main className="marinaPremiumDetail">
+    <div className="container marinaStdCrumb"><a href="/">Ana Sayfa</a><span>›</span><a href="/marinalar">Marinalar</a><span>›</span><b>{p.name}</b></div>
+
     <section className="marinaPremiumHero" style={{backgroundImage:`linear-gradient(90deg,rgba(8,27,45,.86),rgba(8,27,45,.55) 55%,rgba(8,27,45,.22)),url('${p.images[0]}')`}}>
       <div className="container marinaPremiumHeroInner">
         <div>
@@ -97,7 +99,7 @@ export default async function Page({params}){
       <div><small>TOPLAM BAĞLAMA</small><b>{p.berths}</b></div>
       <div><small>SÜPERYAT BAĞLAMA</small><b>{p.superyachtBerths}</b></div>
       <div><small>MAKS. YAT</small><b>{p.maxYacht}</b></div>
-      <div><small>MAKS. DRAFT</small><b>{p.maxDraft}</b></div>
+      <div><small>KANAL DERİNLİĞİ</small><b>{p.channelDepth}</b></div>
       <div><small>VHF</small><b>16</b></div>
     </section>
 
