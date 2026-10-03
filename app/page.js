@@ -10,7 +10,15 @@ const news=[
 ];
 
 export default function Home(){return <><SiteHeader/><main>
- <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
+ <section className="dpHero"><img className="dpHeroPhoto" src="/hero-home.webp" alt="Motoryat"/><div className="dpHeroShade"></div><div className="dpWrap"><small>Etkinlik · 2 Ekim 2026</small><h1>Denizcilikte bu haftanın öne çıkanları</h1><a className="dpBtn" href="/haberler">Haberi oku</a></div><div className="dpMobileHeroQuote"><b>“</b><p>Denizcilikte keşfet, bağlan ve ticaret yap.</p><span>MOTORYAT.COM</span></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
+
+ <section className="dpMobileEvents" aria-label="Yaklaşan etkinlikler">
+  <div className="dpMobileEventRail">
+   <a href="/haberler/etkinlikler-fuarlar"><strong><b>08</b><small>EKİM</small></strong><span>İstanbul Denizcilik Buluşmaları <em>2026</em></span><i>›</i></a>
+   <a href="/haberler/etkinlikler-fuarlar"><strong><b>28</b><small>EKİM</small></strong><span>Uluslararası Tekne Fuarı <em>2026</em></span><i>›</i></a>
+   <a href="/haberler/etkinlikler-fuarlar"><strong><b>13</b><small>KASIM</small></strong><span>Yat & Ekipman Zirvesi <em>2026</em></span><i>›</i></a>
+  </div>
+ </section>
 
  <section id="haber" className="dpSection homeNewsSection"><div className="dpWrap">
   <div className="dpHead"><h2>Son haberler</h2><a href="/haberler">Tüm haberler</a></div>
