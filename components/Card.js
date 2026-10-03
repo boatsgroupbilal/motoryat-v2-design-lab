@@ -19,32 +19,36 @@ export function ProductCard({item}){return <a className="productCard" href={item
 
 
 export function EquipmentProductCard({item}) {
-  const hasPrice=Boolean(item?.price);
+  const shortText=item?.description || item?.sku || 'Tekne ve yat ekipmanı';
   return <article className="eqCommerceCard">
     <div className="eqCommerceMedia">
       <a href={item.href||'/urunler'} aria-label={item.name}>
         <img src={item.image} alt={item.name}/>
       </a>
-      <span className="eqCommerceBrand">{item.brand}</span>
       <button className="eqCommerceFav" aria-label="Favoriye ekle">♡</button>
     </div>
 
     <div className="eqCommerceBody">
-      <div className="eqCommerceCode">ÜRÜN KODU · {item.sku}</div>
+      <span className="eqCommerceBrand">{item.brand}</span>
+
       <a className="eqCommerceTitle" href={item.href||'/urunler'}>
         <h3>{item.name}</h3>
       </a>
 
+      <p className="eqCommerceDesc">{shortText}</p>
+
       <div className="eqCommercePrice">
-        <small>FİYAT</small>
+        <span aria-hidden="true">◇</span>
         <strong>{item.price||'Fiyat Sorunuz'}</strong>
       </div>
 
       <div className="eqCommerceActions">
         <a className="eqCommercePrimary" href={item.href||'/urunler'}>
-          {hasPrice?'Sepete Ekle':'Ürünü İncele'}
+          Ürünü İncele <b>›</b>
         </a>
-        <button className="eqCommerceCart" aria-label={hasPrice?'Sepete ekle':'Ürün detayına git'}>＋</button>
+        <button className="eqCommerceCart" aria-label="Sepete ekle">
+          <span aria-hidden="true">🛒</span><b>＋</b>
+        </button>
       </div>
     </div>
   </article>
