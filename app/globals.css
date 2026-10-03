@@ -1799,3 +1799,219 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .dpMobileLogo{padding-left:6px!important;padding-right:6px!important}
  .dpMobileLogo img{max-width:156px!important;height:38px!important}
 }
+
+
+/* =========================================================
+   GLOBAL TWO-COLOR CARD SYSTEM — LOCKED
+   Rule: Gold / Turquoise / Gold / Turquoise.
+   Adjacent cards never share the same accent.
+   Accent-bar text is always black for maximum readability.
+   Applies sitewide to listings, news, brands and card directories.
+   ========================================================= */
+:root{
+ --card-gold:#ffb21d;
+ --card-turquoise:#00c9b5;
+ --card-bar-ink:#111111;
+}
+
+/* Alternating accent assignment */
+.sqYachtGrid>.sqYachtCard:nth-child(odd),
+.homeNewsGrid>.homeNewsCard:nth-child(odd),
+.brandIndex>a:nth-child(odd),
+.storeGrid>.storeCard:nth-child(odd),
+.productGrid>.productCard:nth-child(odd),
+.marinaGrid>.marinaCard:nth-child(odd),
+.serviceGrid>.serviceCard:nth-child(odd),
+.storeDirectoryList>.storeDirectoryCard:nth-child(odd),
+.syNewsGrid>a:nth-child(odd),
+.syNewsSide>a:nth-child(odd),
+.dpDir>.dpCard:nth-child(odd){
+ --card-accent:var(--card-gold);
+}
+.sqYachtGrid>.sqYachtCard:nth-child(even),
+.homeNewsGrid>.homeNewsCard:nth-child(even),
+.brandIndex>a:nth-child(even),
+.storeGrid>.storeCard:nth-child(even),
+.productGrid>.productCard:nth-child(even),
+.marinaGrid>.marinaCard:nth-child(even),
+.serviceGrid>.serviceCard:nth-child(even),
+.storeDirectoryList>.storeDirectoryCard:nth-child(even),
+.syNewsGrid>a:nth-child(even),
+.syNewsSide>a:nth-child(even),
+.dpDir>.dpCard:nth-child(even){
+ --card-accent:var(--card-turquoise);
+}
+.syNewsLead{--card-accent:var(--card-gold)}
+
+/* Yacht cards keep the approved structure; only accent alternates */
+.sqYachtCard.toneGold{
+ --card-accent:var(--card-gold);
+ --sq-accent:var(--card-gold)!important;
+}
+.sqYachtCard.toneTurquoise{
+ --card-accent:var(--card-turquoise);
+ --sq-accent:var(--card-turquoise)!important;
+}
+
+/* Outer card accent is always the card's assigned color */
+.sqYachtCard,
+.homeNewsCard,
+.brandIndex>a,
+.storeCard,
+.productCard,
+.marinaCard,
+.serviceCard,
+.storeDirectoryCard,
+.syNewsGrid>a,
+.syNewsSide>a,
+.syNewsLead,
+.dpDir>.dpCard{
+ border:2px solid var(--card-accent)!important;
+ background:#fff;
+}
+
+/* Every colored action/status bar uses readable black copy */
+.sqYachtStatus{
+ background:var(--card-accent)!important;
+ color:var(--card-bar-ink)!important;
+}
+.sqYachtStatus span,
+.sqYachtStatus b{
+ color:var(--card-bar-ink)!important;
+}
+
+/* Homepage news: same alternating card rule + colored read bar */
+.homeNewsIndex{
+ background:var(--card-accent)!important;
+ color:var(--card-bar-ink)!important;
+}
+.homeNewsRead{
+ background:var(--card-accent)!important;
+ color:var(--card-bar-ink)!important;
+ border-top:0!important;
+ margin:18px -18px -16px;
+ padding:12px 18px!important;
+}
+.homeNewsRead span,
+.homeNewsRead b{
+ color:var(--card-bar-ink)!important;
+}
+
+/* Brand cards */
+.brandIndex{
+ gap:18px;
+}
+.brandIndex>a{
+ display:flex;
+ flex-direction:column;
+ min-width:0;
+ min-height:150px;
+ overflow:hidden;
+ border-radius:8px;
+ padding:18px;
+ box-shadow:0 6px 18px rgba(11,34,57,.07);
+}
+.brandIndex>a>small{
+ color:var(--card-bar-ink)!important;
+ background:var(--card-accent);
+ width:max-content;
+ padding:4px 8px;
+ border-radius:12px;
+ font-weight:900;
+}
+.brandIndex>a>b{
+ font:800 21px/1.15 Newsreader,serif;
+ color:var(--ink);
+}
+.brandIndex>a>span:last-child{
+ margin:auto -18px -18px;
+ padding:10px 18px;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+ font-size:12px;
+ font-weight:900;
+}
+
+/* News index cards */
+.syNewsLead,
+.syNewsSide>a,
+.syNewsGrid>a{
+ overflow:hidden;
+ border-radius:8px;
+ box-shadow:0 6px 18px rgba(11,34,57,.07);
+}
+.syNewsLead>div>span,
+.syNewsSide>a>div>span{
+ display:block;
+ margin-top:12px;
+ padding:9px 11px;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+ font-weight:900;
+}
+.syNewsGrid>a>small{
+ display:inline-block;
+ margin:12px 12px 0;
+ padding:5px 8px;
+ border-radius:12px;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+ font-weight:900;
+}
+
+/* Store, product, marina, service and directory cards inherit the same rule */
+.storeInfo .arrow{
+ display:grid;
+ place-items:center;
+ min-width:32px;
+ height:32px;
+ border-radius:50%;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+}
+.productBody>b{
+ display:block;
+ margin:12px -16px -18px;
+ padding:10px 16px;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+}
+.marinaCard>span:last-child,
+.serviceCard>small{
+ display:inline-flex;
+ width:max-content;
+ padding:6px 9px;
+ border-radius:14px;
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+ font-weight:900;
+}
+.storeDirectoryAction{
+ background:var(--card-accent);
+ color:var(--card-bar-ink)!important;
+ border-left:0!important;
+ padding:12px!important;
+}
+.storeDirectoryAction span,
+.storeDirectoryAction b{
+ color:var(--card-bar-ink)!important;
+}
+
+/* Legacy/simple cards also alternate when they live in a card row */
+.dpDir>.dpCard{
+ border-color:var(--card-accent)!important;
+}
+
+/* Mobile preserves the same sequence and readable bars */
+@media(max-width:820px){
+ .homeNewsRead{
+   margin:12px -14px -12px;
+   padding:10px 14px!important;
+ }
+}
+@media(max-width:520px){
+ .homeNewsRead{
+   margin:9px -11px -10px;
+   padding:8px 11px!important;
+ }
+}
