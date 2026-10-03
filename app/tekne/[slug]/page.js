@@ -31,153 +31,103 @@ export default async function Page({params}){
   const related=(isCharter?charterListings:saleListings).filter(x=>x.slug!==item.slug).slice(0,4);
   const listHref=isCharter?'/kiralik':'/satilik';
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
-  const listingNo='MY-'+item.slug.slice(0,4).toUpperCase()+'-26';
+
   const specs=[
-    ['İlan Türü',isCharter?'Kiralık':'Satılık'],
     ['Boy',length],
     ['Yıl',info.year],
     ['Durum',status],
     ['Konum',location],
+    ['İlan Türü',isCharter?'Kiralık':'Satılık'],
     ['Yetkili Firma',info.seller]
   ];
 
-  return <><SiteHeader/><main className="syYachtDetail syYachtDetailV2">
-    <div className="syDetailCrumbBar">
-      <div className="syContainer syDetailCrumb">
+  return <><SiteHeader/><main className="syApprovedDetail">
+    <div className="syApprovedCrumbBar">
+      <div className="syApprovedWrap syApprovedCrumb">
         <a href="/">Motoryat</a><span>›</span>
         <a href={listHref}>{isCharter?'Kiralık':'Satılık'}</a><span>›</span>
         <b>{item.title}</b>
       </div>
     </div>
 
-    <YachtDetailGallery
-      images={images}
-      title={item.title}
-      meta={item.meta}
-      year={info.year}
-      status={status}
-      price={item.price}
-      isCharter={isCharter}
-    />
+    <div className="syApprovedWrap syApprovedTopGrid">
+      <section className="syApprovedMain">
+        <YachtDetailGallery images={images} title={item.title}/>
 
-    <section className="syDetailSummary">
-      <div className="syContainer syDetailSummaryGrid">
-        <div className="syDetailTitleBlock">
-          <div className="syDetailEyebrow"><i></i>{isCharter?'FOR CHARTER':'FOR SALE'}</div>
-          <h1>{item.title}</h1>
-          <p>{item.meta} · İlan No: {listingNo}</p>
-          <div className="syDetailTitleActions">
-            <button type="button">♡ Favoriye Ekle</button>
-            <button type="button">↗ Paylaş</button>
-            <button type="button">İlanı Bildir</button>
+        <div className="syApprovedTitleRow">
+          <div>
+            <h1>{item.title}</h1>
+            <p>⌖ {location}</p>
           </div>
-        </div>
-        <div className="syDetailHeadlinePrice">
-          <small>{isCharter?'CHARTER FİYATI':'SATIŞ FİYATI'}</small>
           <strong>{item.price}</strong>
-          <span>Satıcıdan güncel bilgi alın</span>
         </div>
-      </div>
-    </section>
 
-    <section className="syDetailQuickWrap">
-      <div className="syContainer syDetailQuick">
-        <div><small>BOY</small><b>{length}</b></div>
-        <div><small>YIL</small><b>{info.year}</b></div>
-        <div><small>DURUM</small><b>{status}</b></div>
-        <div><small>KONUM</small><b>{location}</b></div>
-        <div><small>FİRMA</small><b>{info.seller}</b></div>
-      </div>
-    </section>
+        <div className="syApprovedFacts">
+          <div><small>BOY</small><b>{length}</b></div>
+          <div><small>YIL</small><b>{info.year}</b></div>
+          <div><small>DURUM</small><b>{status}</b></div>
+          <div><small>MARKA / MODEL</small><b>{item.title}</b></div>
+        </div>
 
-    <div className="syContainer syDetailBody">
-      <article className="syDetailArticle">
-        <nav className="syDetailTabs" aria-label="İlan detay bölümleri">
-          <a className="active" href="#genel-bakis">Genel Bakış</a>
-          <a href="#teknik">Teknik Özellikler</a>
-          <a href="#galeri">Galeri</a>
-          <a href="#konum">Konum</a>
-        </nav>
-
-        <section className="syDetailSection" id="genel-bakis">
-          <div className="syDetailSectionHead"><div><span>İLAN DETAYI</span><h2>{item.title}</h2></div></div>
-          <p className="syDetailLead">{isCharter ? item.title+' charter ilanı; görselleri, temel bilgileri ve doğrudan bilgi talebi akışını tek sayfada sunar.' : item.title+' satılık ilanı; görselleri, temel teknik bilgileri ve satıcı iletişim alanlarını tek sayfada sunar.'}</p>
-          <p>İlanda doğrulanmış üretici, model, motor, donanım, bakım ve kullanım bilgileri bulunduğunda bu bölüm genişletilebilir. Fiyat ve müsaitlik bilgileri için yetkili firmadan güncel teyit alınmalıdır.</p>
+        <section className="syApprovedSection">
+          <h2>Açıklama</h2>
+          <p>{isCharter
+            ? item.title+' charter ilanı. Güncel müsaitlik, rota ve fiyat bilgileri için yetkili firmadan bilgi alabilirsiniz.'
+            : item.title+' satılık ilanı. Temel bilgiler, görseller ve yetkili satıcı iletişim bilgileri bu sayfada sunulur.'}</p>
         </section>
 
-        <section className="syDetailSection" id="teknik">
-          <div className="syDetailSectionHead"><div><span>ÖZELLİKLER</span><h2>Teknik Bilgiler</h2></div></div>
-          <div className="sySpecs">{specs.map(([k,v])=><div key={k}><small>{k}</small><b>{v}</b></div>)}</div>
-        </section>
-
-        <section className="syDetailSection">
-          <div className="syDetailSectionHead"><div><span>İLAN HİZMETLERİ</span><h2>Hızlı Bilgi ve Teklif</h2></div></div>
-          <div className="syDetailFeatureList">
-            <div>Yetkili firma iletişim alanı</div>
-            <div>Teklif / bilgi talep formu</div>
-            <div>Telefon ve WhatsApp erişimi</div>
-            <div>Görsel galeri ve ilan özeti</div>
+        <section className="syApprovedSection">
+          <h2>Teknik Özellikler</h2>
+          <div className="syApprovedSpecs">
+            {specs.map(([k,v])=><div key={k}><span>{k}</span><b>{v}</b></div>)}
           </div>
         </section>
+      </section>
 
-        <section className="syDetailSection" id="galeri">
-          <div className="syDetailSectionHead"><div><span>GALERİ</span><h2>{item.title} görselleri</h2></div></div>
-          <div className="syDetailWideImage"><img src={images[1]} alt={item.title+' detay görünümü'}/></div>
-        </section>
+      <aside className="syApprovedSide">
+        <div className="syApprovedContactCard">
+          <h2>İletişim ve Firma</h2>
 
-        <section className="syDetailSection" id="konum">
-          <div className="syDetailSectionHead"><div><span>KONUM</span><h2>İlan Konumu</h2></div></div>
-          <div className="syDetailLocationBox"><div><small>KONUM BİLGİSİ</small><b>{location}</b></div></div>
-        </section>
-      </article>
-
-      <aside className="syDetailAside">
-        <div className="syInquiry">
-          <div className="syInquiryPrice">
-            <small>{isCharter?'CHARTER / HAFTALIK':'SATIŞ FİYATI'}</small>
-            <strong>{item.price}</strong>
-            <span>Güncel fiyat ve koşullar için bilgi isteyin.</span>
+          <div className="syApprovedContactActions">
+            <a className="primary" href="#bilgi-formu">✉ Bilgi Al</a>
+            <a href="#bilgi-formu">☎ Telefon ile Ara</a>
+            <a className="whatsapp" href="#bilgi-formu">WhatsApp</a>
           </div>
-          <div className="syInquiryForm syInquiryFormCompact" id="bilgi-formu">
-            <h3>Bu ilan hakkında bilgi alın</h3>
-            <div className="syInquiryTwoCol">
-              <input type="text" aria-label="Ad soyad" placeholder="Ad Soyad"/>
-              <input type="tel" aria-label="Telefon" placeholder="Telefon"/>
+
+          <div className="syApprovedFirm">
+            <div className="syApprovedFirmLogo">
+              <img src="/motoryat-logo.svg" alt=""/>
             </div>
-            <input type="email" aria-label="E-posta" placeholder="E-posta"/>
-            <textarea aria-label="Mesaj" defaultValue={item.title+' hakkında bilgi almak istiyorum.'}></textarea>
+            <div>
+              <small>SATICI / FİRMA</small>
+              <h3>{info.seller}</h3>
+              <p>⌖ {location}</p>
+              <a href={sellerHref}>Mağaza Profili →</a>
+            </div>
+          </div>
+
+          <form className="syApprovedMiniForm" id="bilgi-formu">
+            <input type="text" placeholder="Ad Soyad" aria-label="Ad Soyad"/>
+            <input type="tel" placeholder="Telefon" aria-label="Telefon"/>
+            <textarea defaultValue={item.title+' hakkında bilgi almak istiyorum.'} aria-label="Mesaj"></textarea>
             <button type="button">BİLGİ / TEKLİF İSTE</button>
-          </div>
-          <div className="syContactButtons">
-            <a href="#bilgi-formu">☎ Telefon</a>
-            <a href="#bilgi-formu">WhatsApp</a>
-          </div>
+          </form>
         </div>
 
-        <div className="syStoreProfileCard">
-          <div className="syStoreProfileHead">
-            <div className="syStoreProfileLogo"><img src="/motoryat-logo.svg" alt=""/></div>
-            <div><small>YETKİLİ MAĞAZA</small><h3>{info.seller}</h3><p>{location}</p></div>
-          </div>
-          <div className="syStoreProfileMeta">
-            <span>Mağaza Profili</span>
-            <span>{isCharter?'Charter':'Satış'}</span>
-          </div>
-          <a href={sellerHref}>MAĞAZAYI GÖR <span>→</span></a>
-        </div>
-
-        <a className="syAd syAdMedia" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters"><img src="/ads/la-romana-charters-300x300.gif" alt="La Romana Charters"/></a>
+        <a className="syApprovedAd" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters">
+          <img src="/ads/la-romana-charters-300x300.gif" alt="La Romana Charters"/>
+        </a>
       </aside>
     </div>
 
-    {related.length>0 && <section className="syDetailRelated">
-      <div className="syContainer">
-        <div className="syDetailRelatedHead">
-          <div><span>{isCharter?'DİĞER CHARTER İLANLARI':'BENZER İLANLAR'}</span><h2>Bunlar da ilginizi çekebilir</h2></div>
-          <a href={listHref}>Tüm ilanları gör →</a>
+    {related.length>0&&<section className="syApprovedRelated">
+      <div className="syApprovedWrap">
+        <div className="syApprovedRelatedHead">
+          <h2>Benzer İlanlar</h2>
+          <a href={listHref}>Tümünü Gör →</a>
         </div>
-        <div className="sqYachtGrid syDetailRelatedGrid">
-          {related.map((x,i)=><YachtCard key={x.slug} item={x} type={isCharter?'charter':'sale'} seller={isCharter?'Charter Partner':'Yetkili Satıcı'} year={info.year} refit="—" index={i}/>)}
+        <div className="sqYachtGrid">
+          {related.map((x,i)=><YachtCard key={x.slug} item={x} type={isCharter?'charter':'sale'} seller={info.seller} year={info.year} refit="—" index={i}/>)}
         </div>
       </div>
     </section>}
