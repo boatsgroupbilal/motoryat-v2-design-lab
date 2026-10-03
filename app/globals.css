@@ -2270,7 +2270,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   padding:10px;
   transition:transform .2s ease
 }
-.eqCommerceCard:hover .eqCommerceMedia img{transform:scale(1.02)}
+.eqCommerceCard:hover .eqCommerceMedia img{transform:none}
 .eqCommerceFav{
   position:absolute;
   top:8px;
@@ -6440,4 +6440,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .eqCommerceStoreText small{
     font-size:5px
   }
+}
+
+
+/* PRODUCT CARD — NO INSPECT / NO IMAGE ANIMATION */
+.eqCommerceHoverInspect{
+  display:none!important
+}
+.eqCommerceMedia img{
+  transform:none!important;
+  transition:none!important
+}
+.eqCommerceCard:hover .eqCommerceMedia img{
+  transform:none!important
 }
