@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 
-export default function YachtDetailGallery({images,title,meta,year,status,price,isCharter=false}){
+export default function YachtDetailGallery({images,title}){
   const safe=(images||[]).filter(Boolean);
   const [open,setOpen]=useState(false);
   const [active,setActive]=useState(0);
@@ -12,43 +12,24 @@ export default function YachtDetailGallery({images,title,meta,year,status,price,
   const next=(e)=>{e.stopPropagation();setActive(v=>(v+1)%safe.length)};
 
   return <>
-    <section className="syCompactGallery" aria-label={title+' görsel galerisi'}>
-      <button className="syCompactMain" type="button" onClick={()=>show(0)}>
+    <section className="sySimpleGallery" aria-label={title+' görsel galerisi'}>
+      <button className="sySimpleGalleryMain" type="button" onClick={()=>show(0)} aria-label="Ana fotoğrafı büyüt">
         <img src={safe[0]} alt={title}/>
-        <span className="syCompactMediaCount">▣ {safe.length}</span>
+        <span>{safe.length} FOTOĞRAF</span>
       </button>
 
-      <div className="syCompactThumbs">
-        <button type="button" onClick={()=>show(1)}>
+      <div className="sySimpleGalleryThumbs">
+        <button type="button" onClick={()=>show(1)} aria-label="İkinci fotoğrafı büyüt">
           <img src={safe[1]||safe[0]} alt={title+' görünüm 2'}/>
         </button>
-        <button type="button" onClick={()=>show(2)}>
+        <button type="button" onClick={()=>show(2)} aria-label="Üçüncü fotoğrafı büyüt">
           <img src={safe[2]||safe[0]} alt={title+' görünüm 3'}/>
-          <span>GALERİ</span>
+          <span>TÜM FOTOĞRAFLAR</span>
         </button>
-      </div>
-
-      <div className="syCompactInfo">
-        <div className="syCompactInfoBody">
-          <h1>{title}</h1>
-          <p>{meta}</p>
-          <div className="syCompactFacts">
-            <div><small>YIL</small><b>{year}</b></div>
-            <div><small>DURUM</small><b>{status}</b></div>
-          </div>
-          <div className="syCompactPrice">
-            <small>{isCharter?'CHARTER FİYATI':'FİYATI'}</small>
-            <strong>{price}</strong>
-          </div>
-        </div>
-        <div className={"syCompactStatus "+(isCharter?'charter':'sale')}>
-          <span>›</span>
-          <b>{isCharter?'KİRALIK İLAN':'SATIŞ İLANI'}</b>
-        </div>
       </div>
     </section>
 
-    {open&&<div className="syGalleryLightbox" role="dialog" aria-modal="true" onClick={()=>setOpen(false)}>
+    {open&&<div className="syGalleryLightbox" role="dialog" aria-modal="true" aria-label="İlan fotoğraf galerisi" onClick={()=>setOpen(false)}>
       <button className="syGalleryClose" type="button" onClick={()=>setOpen(false)} aria-label="Kapat">×</button>
       {safe.length>1&&<button className="syGalleryPrev" type="button" onClick={prev} aria-label="Önceki">‹</button>}
       <img src={safe[active]} alt={title+' büyük görünüm'} onClick={e=>e.stopPropagation()}/>
