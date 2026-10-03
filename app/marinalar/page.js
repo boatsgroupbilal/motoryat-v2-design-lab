@@ -24,7 +24,8 @@ const marinas=[
   {slug:'porto-montenegro',name:'Porto Montenegro Marina',loc:'Tivat, Karadağ',mark:'PORTO M',flag:'/flags/me.svg',country:'ME',accent:'#c9343c',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
   {slug:'dubai-harbour-marina',name:'Dubai Harbour Marina',loc:'Dubai, Birleşik Arap Emirlikleri',mark:'DUBAI',flag:'/flags/ae.svg',country:'AE',accent:'#d8982e',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
   {slug:'nassau-yacht-haven',name:'Nassau Yacht Haven',loc:'Nassau, Bahamalar',mark:'NASSAU',flag:'/flags/bs.svg',country:'BS',accent:'#23a9c6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
-  {slug:'sydney-superyacht-marina',name:'Sydney Superyacht Marina',loc:'Sydney, Avustralya',mark:'SYDNEY',flag:'/flags/au.svg',country:'AU',accent:'#2855a6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']}
+  {slug:'sydney-superyacht-marina',name:'Sydney Superyacht Marina',loc:'Sydney, Avustralya',mark:'SYDNEY',flag:'/flags/au.svg',country:'AU',accent:'#2855a6',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']},
+  {slug:'cairns-marlin-marina',name:'Cairns Marlin Marina',loc:'Cairns, Queensland, Avustralya',mark:'CAIRNS',flag:'/flags/au.svg',country:'AU',accent:'#167aa8',fac:['⚓ Bağlama','⚡ Elektrik','◉ Su','◔ Wi-Fi','⛽ Yakıt','♜ Restoran','⚙ Teknik Servis']}
 ];
 
 export default function Page(){return <><SiteHeader/><main className="marinaDirectoryPage marinaProfilesV2">
