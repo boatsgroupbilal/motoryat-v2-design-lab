@@ -29,6 +29,7 @@ export default async function Page({params}){
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
   const related=(isCharter?charterListings:saleListings)
     .filter(x=>x.slug!==item.slug)
+    .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
     .slice(0,2);
   const listHref=isCharter?'/kiralik':'/satilik';
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
@@ -140,7 +141,6 @@ export default async function Page({params}){
             const xGallery=[...new Set([x.image,...(x.gallery||[])].filter(Boolean))];
             const photoCount=xGallery.length;
             const smallOne=xGallery[1]||null;
-            const smallTwo=xGallery[2]||null;
             const xParts=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
             const xLength=xParts[0]||'—';
             return <a className={"syRefShowcaseCard "+(isCharter?'charter':'sale')} href={'/tekne/'+x.slug} key={x.slug}>
@@ -152,21 +152,23 @@ export default async function Page({params}){
                 </div>
               </div>
 
-              <div className={"syRefShowcaseSmall "+(photoCount<3?'isSparse':'')}>
+              <div className="syRefShowcaseSmall">
                 {smallOne
                   ? <img src={smallOne} alt={x.title+' görünüm 2'}/>
                   : <div className="syRefShowcaseEmpty"><span>EK FOTOĞRAF YOK</span></div>}
-                {smallTwo
-                  ? <img src={smallTwo} alt={x.title+' görünüm 3'}/>
-                  : <div className="syRefShowcaseEmpty"><span>EK FOTOĞRAF YOK</span></div>}
+                <div className="syRefShowcaseSeller">
+                  <strong>{isCharter?'KİRALIK':'SATILIK'}</strong>
+                  <span>{xMeta.seller}</span>
+                  <small>YETKİLİ SATICI</small>
+                </div>
               </div>
 
               <div className="syRefShowcaseInfo">
                 <h3>{x.title}</h3>
-                <p>{xLength} · {xMeta.seller}</p>
+                <p>UZUNLUK: {xLength}</p>
                 <div className="syRefShowcaseFacts">
                   <div><small>YIL</small><b>{xMeta.year}</b></div>
-                  <div><small>{isCharter?'YENİLEME':'DURUM'}</small><b>{isCharter?'—':'SATILIK'}</b></div>
+                  <div><small>{isCharter?'TÜR':'DURUM'}</small><b>{isCharter?'KİRALIK':'SATILIK'}</b></div>
                 </div>
                 <div className="syRefShowcasePrice">
                   <small>{isCharter?'HAFTALIK FİYAT':'FİYATI'}</small>
