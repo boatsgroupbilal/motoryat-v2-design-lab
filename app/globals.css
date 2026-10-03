@@ -9880,3 +9880,64 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border-radius:2px;
   box-shadow:0 0 0 1px rgba(13,27,42,.12)
 }
+
+
+/* PREMIUM MARINA CORNER FLAGS */
+.marinaProfileRow{
+  position:relative!important
+}
+.marinaProfileTitle{
+  padding-right:54px
+}
+.marinaProfileFlag{
+  position:absolute!important;
+  top:0!important;
+  right:0!important;
+  width:68px!important;
+  height:42px!important;
+  min-width:0!important;
+  display:block!important;
+  overflow:hidden!important;
+  background:transparent!important;
+  filter:drop-shadow(-3px 4px 7px rgba(13,27,42,.16));
+  z-index:3
+}
+.marinaProfileFlag img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  clip-path:polygon(28% 0,100% 0,100% 100%,0 100%)
+}
+.marinaProfileFlag:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.34)
+}
+.marinaProfileBody{
+  position:relative
+}
+
+/* filter flags stay discreet, not boxed */
+.marinaProfilesCountries button img{
+  width:24px!important;
+  height:16px!important;
+  border-radius:1px!important;
+  box-shadow:none!important;
+  object-fit:cover!important
+}
+
+@media(max-width:680px){
+  .marinaProfileTitle{
+    padding-right:44px
+  }
+  .marinaProfileFlag{
+    width:56px!important;
+    height:35px!important
+  }
+}
