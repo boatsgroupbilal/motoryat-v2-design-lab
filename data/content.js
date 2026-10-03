@@ -19,6 +19,8 @@ import recoveredBrands01 from './local/brands-01.js';
 import recoveredBrands02 from './local/brands-02.js';
 import recoveredBrands03 from './local/brands-03.js';
 import recoveredBrands04 from './local/brands-04.js';
+import recoveredBrands05 from './local/brands-05.js';
+import recoveredBrands06 from './local/brands-06.js';
 import localCompanies from './export/companies.json';
 import localMarinas from './export/marinas.json';
 import generatedImageMap from './local/generated-image-map.json';
@@ -29,6 +31,7 @@ const recoveredListings=[
   ...recoveredListings06,...recoveredListings07,...recoveredListings08,...recoveredListings09,...recoveredListings10,...recoveredListings11,...recoveredListings12
 ];
 const recoveredStores=[...recoveredStores01,...recoveredStores02];
+const recoveredBrands=[...recoveredBrands01,...recoveredBrands02,...recoveredBrands03,...recoveredBrands04,...recoveredBrands05,...recoveredBrands06];
 
 const fallbackSaleListings = [
  {slug:'euro-boat-700c-center-console',title:'Euro Boat 700C Center Console',meta:'7.00 m · Yeni · İstanbul',price:'Fiyat Sorunuz',image:'/sale-euro-700.webp',href:'/tekne/euro-boat-700c-center-console'},
@@ -116,7 +119,7 @@ export const dataManifest={
   listings_loaded:normalizedListings.length,
   products_loaded:recoveredProducts.length,
   stores_loaded:recoveredStores.length,
-  brands_loaded:recoveredBrands01.length
+  brands_loaded:recoveredBrands.length
 };
 
 export const saleListings=normalizedListings.filter(x=>x.type==='sale').length?normalizedListings.filter(x=>x.type==='sale'):fallbackSaleListings;
@@ -124,7 +127,7 @@ export const charterListings=normalizedListings.filter(x=>x.type==='charter').le
 export const products=recoveredProducts.length?recoveredProducts.map(productToCard):[];
 export const stores=recoveredStores.length?recoveredStores.map(storeToCard):[];
 export const companies=Array.isArray(localCompanies)?localCompanies:[];
-export const brands=recoveredBrands01;
+export const brands=recoveredBrands;
 export const marinas=Array.isArray(localMarinas)?localMarinas:[];
 
 export const productCategories=['Motor & Mekanik','Elektrik','Elektronik & Navigasyon','Güverte','Çapa & Bağlama','Pompa & Tesisat','Güvenlik','Boya & Bakım','Yelken & Donanım','Halat & Rigging','Kabin & Konfor','Mutfak & Soğutma','Su Sporları','Bot & Tender','Balıkçılık','Yedek Parça'];
