@@ -1827,6 +1827,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .syNewsSide>a:nth-child(odd),
 .dpDir>.dpCard:nth-child(odd){
  --card-accent:var(--card-gold);
+ --card-inner-accent:var(--card-turquoise);
 }
 .sqYachtGrid>.sqYachtCard:nth-child(even),
 .homeNewsGrid>.homeNewsCard:nth-child(even),
@@ -1840,17 +1841,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .syNewsSide>a:nth-child(even),
 .dpDir>.dpCard:nth-child(even){
  --card-accent:var(--card-turquoise);
+ --card-inner-accent:var(--card-gold);
 }
-.syNewsLead{--card-accent:var(--card-gold)}
+.syNewsLead{
+ --card-accent:var(--card-gold);
+ --card-inner-accent:var(--card-turquoise);
+}
 
 /* Yacht cards keep the approved structure; only accent alternates */
 .sqYachtCard.toneGold{
  --card-accent:var(--card-gold);
- --sq-accent:var(--card-gold)!important;
+ --card-inner-accent:var(--card-turquoise);
+ --sq-accent:var(--card-turquoise)!important;
 }
 .sqYachtCard.toneTurquoise{
  --card-accent:var(--card-turquoise);
- --sq-accent:var(--card-turquoise)!important;
+ --card-inner-accent:var(--card-gold);
+ --sq-accent:var(--card-gold)!important;
 }
 
 /* Outer card accent is always the card's assigned color */
@@ -2014,4 +2021,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    margin:9px -11px -10px;
    padding:8px 11px!important;
  }
+}
+
+
+/* Opposite-color inner accent rule */
+.homeNewsMeta,
+.storeDirectoryInfo>small,
+.productBody>small,
+.marinaCard>small,
+.serviceCard h3,
+.syNewsGrid>a>h3,
+.syNewsLead>div>small,
+.syNewsSide>a>div>small{
+ color:var(--card-inner-accent)!important;
 }
