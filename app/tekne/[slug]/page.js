@@ -1,6 +1,5 @@
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
-import {YachtCard} from '../../../components/Card';
 import {saleListings,charterListings} from '../../../data/content';
 import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
@@ -28,111 +27,133 @@ export default async function Page({params}){
   const isLadyLuna=item.slug.startsWith('lady-luna');
   const fallbackGallery=isLadyLuna ? ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image];
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
-  const related=(isCharter?charterListings:saleListings).filter(x=>x.slug!==item.slug).slice(0,4);
+  const related=(isCharter?charterListings:saleListings).filter(x=>x.slug!==item.slug).slice(0,2);
   const listHref=isCharter?'/kiralik':'/satilik';
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
 
-  const specs=[
-    ['Boy',length],
-    ['Yıl',info.year],
-    ['Durum',status],
-    ['Konum',location],
-    ['İlan Türü',isCharter?'Kiralık':'Satılık'],
-    ['Yetkili Firma',info.seller]
-  ];
+  return <><SiteHeader/><main className="syRefPage">
+    <div className="syRefGalleryWrap">
+      <YachtDetailGallery images={images} title={item.title}/>
 
-  return <><SiteHeader/><main className="syApprovedDetail">
-    <div className="syApprovedCrumbBar">
-      <div className="syApprovedWrap syApprovedCrumb">
-        <a href="/">Motoryat</a><span>›</span>
-        <a href={listHref}>{isCharter?'Kiralık':'Satılık'}</a><span>›</span>
-        <b>{item.title}</b>
+      <a className="syRefBrochure" href="#" aria-label="Broşürü indir">
+        <span>BROŞÜRÜ İNDİRİN</span><b>PDF</b>
+      </a>
+
+      <div className="syRefTabs">
+        <nav aria-label="İlan bölümleri">
+          <a className="active" href="#genel-bakis">GENEL BAKIŞ</a>
+          <a href="#teknik">TEÇHİZAT</a>
+          <a href="#teknik">ÖZELLİKLER</a>
+        </nav>
+        <div className="syRefTabsActions">
+          <button type="button" aria-label="Paylaş">↗</button>
+          <a href={listHref}>{isCharter?'KİRALAMA ARAMA':'SATIŞ ARAMA'}⌕</a>
+        </div>
       </div>
     </div>
 
-    <div className="syApprovedGalleryWrap">
-      <YachtDetailGallery images={images} title={item.title}/>
-      <a className="syApprovedBrochure" href="#" aria-label="Broşürü indir">
-        <span>BROŞÜRÜ İNDİRİN</span><b>PDF</b>
-      </a>
-      <nav className="syApprovedDetailTabs" aria-label="İlan bölümleri">
-        <a href="#genel-bakis">GENEL BAKIŞ</a>
-        <a href="#teknik">TEÇHİZAT</a>
-        <a href="#teknik">ÖZELLİKLER</a>
-      </nav>
-    </div>
-
-    <div className="syApprovedWrap syApprovedTopGrid" id="genel-bakis">
-      <section className="syApprovedMain">
-        <div className="syApprovedTitleRow">
+    <div className="syRefContentWrap" id="genel-bakis">
+      <section className="syRefOverview">
+        <div className="syRefOverviewTop">
           <div>
+            <span className="syRefEyebrow">{isCharter?'KİRALIK':'SATILIK'}</span>
             <h1>{item.title}</h1>
-            <p>⌖ {location}</p>
           </div>
-          <strong>{item.price}</strong>
+          <button type="button" className="syRefInfoDot" aria-label="İlan bilgisi">i</button>
         </div>
 
-        <div className="syApprovedFacts">
-          <div><small>BOY</small><b>{length}</b></div>
-          <div><small>YIL</small><b>{info.year}</b></div>
-          <div><small>DURUM</small><b>{status}</b></div>
-          <div><small>MARKA / MODEL</small><b>{item.title}</b></div>
+        <div className="syRefMetaLine">
+          <span>⌁ {info.seller}</span>
+          <span>▣ {info.year}</span>
+          <span>↔ {length}</span>
+          <span>♙ {isCharter?'Charter':'Satılık'}</span>
         </div>
 
-        <section className="syApprovedSection">
-          <h2>Açıklama</h2>
+        <div className="syRefCopy">
+          <p>{item.title}, seçili görselleri, temel teknik bilgileri ve yetkili firma iletişim alanlarını tek sayfada sunan sade bir ilan yapısına sahiptir.</p>
           <p>{isCharter
-            ? item.title+' charter ilanı. Güncel müsaitlik, rota ve fiyat bilgileri için yetkili firmadan bilgi alabilirsiniz.'
-            : item.title+' satılık ilanı. Temel bilgiler, görseller ve yetkili satıcı iletişim bilgileri bu sayfada sunulur.'}</p>
-        </section>
+            ? 'Güncel müsaitlik, rota ve fiyat bilgileri için yetkili firma ile doğrudan iletişime geçebilirsiniz.'
+            : 'Fiyat, konum, donanım ve güncel satış durumu için yetkili firma ile doğrudan iletişime geçebilirsiniz.'}</p>
+        </div>
 
-        <section className="syApprovedSection" id="teknik">
-          <h2>Teknik Özellikler</h2>
-          <div className="syApprovedSpecs">
-            {specs.map(([k,v])=><div key={k}><span>{k}</span><b>{v}</b></div>)}
+        <button type="button" className="syRefExpand">⌄ GENİŞLETMEK</button>
+
+        <section className="syRefTechnical" id="teknik">
+          <h2>TEKNİK ÖZELLİKLER</h2>
+          <div className="syRefTechGrid">
+            <div><span>Boy</span><b>{length}</b></div>
+            <div><span>Yıl</span><b>{info.year}</b></div>
+            <div><span>Durum</span><b>{status}</b></div>
+            <div><span>Konum</span><b>{location}</b></div>
+            <div><span>İlan Türü</span><b>{isCharter?'Kiralık':'Satılık'}</b></div>
+            <div><span>Yetkili Firma</span><b>{info.seller}</b></div>
           </div>
         </section>
       </section>
 
-      <aside className="syApprovedSide">
-        <div className="syApprovedContactCard">
-          <h2>İletişim ve Firma</h2>
-
-          <div className="syApprovedContactActions">
-            <a className="primary" href="#">✉ Bilgi Al</a>
-            <a href="#">☎ Telefon ile Ara</a>
-            <a className="whatsapp" href="#">WhatsApp</a>
-          </div>
-
-          <div className="syApprovedFirm">
-            <div className="syApprovedFirmLogo">
+      <aside className="syRefSidebar">
+        <div className="syRefSellerCard">
+          <div className="syRefSellerTop">
+            <span>{isCharter?'KİRALIK':'SATILIK'}</span>
+            <div className="syRefSellerBrand">
               <img src="/motoryat-logo.svg" alt=""/>
-            </div>
-            <div>
-              <small>SATICI / FİRMA</small>
-              <h3>{info.seller}</h3>
-              <p>⌖ {location}</p>
-              <a href={sellerHref}>Mağaza Profili →</a>
+              <b>{info.seller}</b>
             </div>
           </div>
+
+          <div className="syRefSellerActions">
+            <a href="#">☎</a>
+            <a className="more" href={sellerHref}>DAHA FAZLA BİLGİ</a>
+            <a href="#">✉</a>
+          </div>
+
+          <div className="syRefPriceBlock">
+            <small>{isCharter?'CHARTER FİYATI':'LİSTELENMİŞ FİYAT'}</small>
+            <strong>{item.price}</strong>
+            <p>MEVCUT KONUM: <b>{location}</b></p>
+          </div>
+
+          <a className="syRefSellerBrochure" href="#">BROŞÜRÜ İNDİRİN <b>PDF</b></a>
         </div>
 
-        <a className="syApprovedAd" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters">
+        <a className="syRefAd" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters">
           <img src="/ads/la-romana-charters-300x300.gif" alt="La Romana Charters"/>
         </a>
       </aside>
     </div>
 
-    {related.length>0&&<section className="syApprovedRelated">
-      <div className="syApprovedWrap">
-        <div className="syApprovedRelatedHead">
-          <h2>Benzer İlanlar</h2>
-          <a href={listHref}>Tümünü Gör →</a>
+    <section className="syRefBottom">
+      <div className="syRefBottomLeft">
+        <div className="syRefSectionHead">
+          <h2>{isCharter?'DİĞER KİRALIK İLANLAR':'DİĞER SATILIK İLANLAR'}</h2>
+          <span>••••</span>
         </div>
-        <div className="sqYachtGrid">
-          {related.map((x,i)=><YachtCard key={x.slug} item={x} type={isCharter?'charter':'sale'} seller={info.seller} year={info.year} refit="—" index={i}/>)}
+        <div className="syRefRelatedList">
+          {related.map((x,i)=><a className="syRefRelatedRow" href={'/tekne/'+x.slug} key={x.slug}>
+            <img src={x.image} alt={x.title}/>
+            <div className="syRefRelatedMini">
+              <small>{x.kind}</small>
+              <b>{info.year}</b>
+            </div>
+            <div className="syRefRelatedInfo">
+              <h3>{x.title}</h3>
+              <p>{x.meta}</p>
+              <strong>{x.price}</strong>
+            </div>
+            <span className="syRefRelatedArrow">›</span>
+          </a>)}
         </div>
       </div>
-    </section>}
+
+      <aside className="syRefNews">
+        <div className="syRefSectionHead"><h2>İLGİLİ HABERLER</h2></div>
+        <article>
+          <img src={isCharter?'/charter.webp':'/yacht.webp'} alt="Yat haberi"/>
+          <small>03 AĞUSTOS 2026</small>
+          <h3>{isCharter?'Charter sezonunda yeni rotalar':'Yat pazarında öne çıkan gelişmeler'}</h3>
+          <p>Denizcilik ve yat dünyasından seçili güncel içerikler.</p>
+        </article>
+      </aside>
+    </section>
   </main><Footer/></>
 }
