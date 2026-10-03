@@ -9258,3 +9258,173 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:14px
   }
 }
+
+
+/* COMPACT RELATED LISTINGS + TOP GALLERY GAP */
+.syRefGalleryWrap{
+  margin-top:18px!important
+}
+
+.syRefBottom{
+  width:min(1180px,calc(100% - 48px))!important;
+  margin-top:22px!important;
+  padding-bottom:34px!important
+}
+.syRefRelatedHead{
+  min-height:58px!important
+}
+.syRefRelatedHead>div h2{
+  font-size:24px!important
+}
+.syRefShowcaseList{
+  gap:10px!important;
+  margin-top:8px!important
+}
+.syRefShowcaseCard{
+  grid-template-columns:minmax(0,1.9fr) 170px 280px 44px!important;
+  min-height:185px!important;
+  max-height:185px!important
+}
+.syRefShowcaseMedia{
+  min-height:34px!important;
+  gap:10px!important;
+  padding:0 10px!important
+}
+.syRefShowcaseMedia:after{
+  right:-20px!important;
+  width:20px!important;
+  height:34px!important
+}
+.syRefShowcaseMedia span{
+  font-size:10px!important
+}
+.syRefShowcaseSmall{
+  gap:3px!important
+}
+.syRefShowcaseInfo{
+  padding:18px 16px 14px!important
+}
+.syRefShowcaseInfo h3{
+  font-size:20px!important;
+  line-height:1.05!important
+}
+.syRefShowcaseInfo>p{
+  margin:7px 0 12px!important;
+  font-size:11px!important
+}
+.syRefShowcaseFacts{
+  max-width:190px!important;
+  margin-bottom:12px!important
+}
+.syRefShowcaseFacts>div+div{
+  padding-left:12px!important
+}
+.syRefShowcaseFacts small,
+.syRefShowcasePrice small{
+  font-size:8px!important
+}
+.syRefShowcaseFacts b{
+  margin-top:2px!important;
+  font-size:13px!important
+}
+.syRefShowcasePrice strong{
+  margin-top:2px!important;
+  font-size:13px!important
+}
+.syRefShowcaseBand{
+  grid-template-rows:42px 1fr!important
+}
+.syRefShowcaseBand span{
+  font-size:26px!important
+}
+.syRefShowcaseBand b{
+  font-size:11px!important
+}
+
+@media(max-width:1100px){
+  .syRefGalleryWrap{
+    margin-top:16px!important
+  }
+  .syRefBottom{
+    width:calc(100% - 36px)!important
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:minmax(0,1.75fr) 145px 245px 40px!important;
+    min-height:165px!important;
+    max-height:165px!important
+  }
+  .syRefShowcaseInfo{
+    padding:14px 12px 11px!important
+  }
+  .syRefShowcaseInfo h3{
+    font-size:18px!important
+  }
+}
+
+@media(max-width:820px){
+  .syRefGalleryWrap{
+    margin-top:10px!important
+  }
+  .syRefBottom{
+    width:100%!important
+  }
+  .syRefRelatedHead{
+    min-height:52px!important
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:1.55fr .65fr!important;
+    grid-template-areas:
+      "main small"
+      "info info"!important;
+    min-height:0!important;
+    max-height:none!important
+  }
+  .syRefShowcaseMain,
+  .syRefShowcaseSmall{
+    min-height:145px!important;
+    max-height:145px!important
+  }
+  .syRefShowcaseInfo{
+    padding:12px 13px!important
+  }
+  .syRefShowcaseInfo h3{
+    font-size:17px!important
+  }
+  .syRefShowcaseInfo>p{
+    margin:5px 0 9px!important;
+    font-size:10px!important
+  }
+  .syRefShowcaseFacts{
+    margin-bottom:9px!important
+  }
+}
+
+@media(max-width:560px){
+  .syRefGalleryWrap{
+    margin-top:8px!important
+  }
+  .syRefBottomLeft{
+    padding:0 8px!important
+  }
+  .syRefRelatedHead>div h2{
+    font-size:21px!important
+  }
+  .syRefShowcaseCard{
+    grid-template-columns:1fr 92px!important
+  }
+  .syRefShowcaseMain,
+  .syRefShowcaseSmall{
+    min-height:118px!important;
+    max-height:118px!important
+  }
+  .syRefShowcaseInfo{
+    padding:10px!important
+  }
+  .syRefShowcaseInfo h3{
+    font-size:15px!important
+  }
+  .syRefShowcaseFacts b,
+  .syRefShowcasePrice strong{
+    font-size:12px!important
+  }
+}
