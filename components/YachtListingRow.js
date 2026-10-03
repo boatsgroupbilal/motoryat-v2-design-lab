@@ -42,8 +42,8 @@ export default function YachtListingRow({
       </div>
     </div>
 
-    <Link href={item.href} className="sqYachtStatus" aria-label={(charter?'Kiralama listesi: ':'Satış ilanı: ')+item.title}>
-      <span>{charter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</span>
+    <Link href={item.href} className="sqYachtStatus" aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}>
+      <span>{charter?'KİRALIK':'SATILIK'}</span>
       <b>→</b>
     </Link>
 
