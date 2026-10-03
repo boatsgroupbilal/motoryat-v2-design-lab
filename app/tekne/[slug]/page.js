@@ -2,6 +2,7 @@ import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
 import {YachtCard} from '../../../components/Card';
 import {saleListings,charterListings} from '../../../data/content';
+import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
 const detailMeta={
   'euro-boat-700c-center-console':{seller:'Euro Boat',sellerSlug:'euro-boat',year:'2026'},
@@ -48,17 +49,15 @@ export default async function Page({params}){
       </div>
     </div>
 
-    <section className="syDetailGallery" aria-label={item.title+' görsel galerisi'}>
-      <div className="syDetailHeroImg">
-        <img src={images[0]} alt={item.title}/>
-        <span className="syDetailGalleryBadge">{isCharter?'KİRALIK':'SATILIK'}</span>
-        <button className="syDetailGalleryButton" type="button">Tüm fotoğraflar</button>
-      </div>
-      <div className="syDetailThumbs">
-        <div className="syDetailThumb"><img src={images[1]} alt={item.title+' görünüm 2'}/></div>
-        <div className="syDetailThumb"><img src={images[2]} alt={item.title+' görünüm 3'}/><span>GALERİ</span></div>
-      </div>
-    </section>
+    <YachtDetailGallery
+      images={images}
+      title={item.title}
+      meta={item.meta}
+      year={info.year}
+      status={status}
+      price={item.price}
+      isCharter={isCharter}
+    />
 
     <section className="syDetailSummary">
       <div className="syContainer syDetailSummaryGrid">
