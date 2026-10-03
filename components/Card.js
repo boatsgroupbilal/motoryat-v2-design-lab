@@ -44,9 +44,6 @@ export function EquipmentProductCard({item}) {
       </div>
 
       <div className="eqCommerceActions">
-        <a className="eqCommercePrimary" href={item.href||'/urunler'}>
-          Ürünü İncele <b>›</b>
-        </a>
         <button className="eqCommerceCart" aria-label="Sepete ekle">
           <span aria-hidden="true">🛒</span><b>＋</b>
         </button>
