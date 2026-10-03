@@ -89,9 +89,9 @@ export default async function Page({params}){
           <h2>İletişim ve Firma</h2>
 
           <div className="syApprovedContactActions">
-            <a className="primary" href="#bilgi-formu">✉ Bilgi Al</a>
-            <a href="#bilgi-formu">☎ Telefon ile Ara</a>
-            <a className="whatsapp" href="#bilgi-formu">WhatsApp</a>
+            <a className="primary" href="#">✉ Bilgi Al</a>
+            <a href="#">☎ Telefon ile Ara</a>
+            <a className="whatsapp" href="#">WhatsApp</a>
           </div>
 
           <div className="syApprovedFirm">
@@ -105,13 +105,6 @@ export default async function Page({params}){
               <a href={sellerHref}>Mağaza Profili →</a>
             </div>
           </div>
-
-          <form className="syApprovedMiniForm" id="bilgi-formu">
-            <input type="text" placeholder="Ad Soyad" aria-label="Ad Soyad"/>
-            <input type="tel" placeholder="Telefon" aria-label="Telefon"/>
-            <textarea defaultValue={item.title+' hakkında bilgi almak istiyorum.'} aria-label="Mesaj"></textarea>
-            <button type="button">BİLGİ / TEKLİF İSTE</button>
-          </form>
         </div>
 
         <a className="syApprovedAd" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters">
