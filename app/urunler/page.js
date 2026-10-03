@@ -13,6 +13,27 @@ const quickCategories=[
 
 const brands=['Admiral','Raymarine','Garmin','Lewmar','Volvo Penta'];
 
+const categoryMenu=[
+  ['⚙','Motor & Mekanik',482],
+  ['🛢','Motor Yağları',346],
+  ['◉','Pervaneler',395],
+  ['⚡','Elektrik',865],
+  ['⌖','Elektronik & Navigasyon',824],
+  ['⚓','Güverte',991],
+  ['⛓','Çapa & Bağlama',1186],
+  ['💧','Pompa & Tesisat',1333],
+  ['🛟','Güvenlik',1502],
+  ['🖌','Boya & Bakım',1870],
+  ['⛵','Yelken & Donanım',1845],
+  ['🪢','Halat & Rigging',2011],
+  ['▤','Kabin & Konfor',2183],
+  ['❄','Mutfak & Soğutma',2358],
+  ['🏄','Su Sporları',2521],
+  ['🚤','Bot & Tender',2698],
+  ['🎣','Balıkçılık',2886],
+  ['🔩','Yedek Parça',3038]
+];
+
 export default function Page(){
   const items=[...products,...products];
 
@@ -48,10 +69,18 @@ export default function Page(){
 
       <section className="equipmentLayout">
         <aside className="equipmentSidebar">
-          <div className="equipmentSideGroup">
-            <div className="equipmentSideTitle">KATEGORİLER</div>
-            <a className="active" href="#"><span>Tüm Ürünler</span><b>{items.length}</b></a>
-            {productCategories.map((x,i)=><a href="#" key={x}><span>{x}</span><b>{String(48+(i*17))}</b></a>)}
+          <div className="equipmentSideGroup equipmentCategoryGroup">
+            <div className="equipmentCategoryHead"><span>☰</span><b>TÜM KATEGORİLER</b></div>
+            <a className="active equipmentCategoryRow" href="#">
+              <span className="equipmentCategoryIcon">▦</span>
+              <span className="equipmentCategoryName">Tüm Ürünler</span>
+              <b>{items.length}</b>
+            </a>
+            {categoryMenu.map(([icon,label,count])=><a className="equipmentCategoryRow" href="#" key={label}>
+              <span className="equipmentCategoryIcon" aria-hidden="true">{icon}</span>
+              <span className="equipmentCategoryName">{label}</span>
+              <b>{count}</b>
+            </a>)}
           </div>
           <div className="equipmentSideGroup equipmentBrands">
             <div className="equipmentSideTitle">MARKA</div>
