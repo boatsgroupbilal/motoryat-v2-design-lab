@@ -2,7 +2,7 @@
 
 import {useEffect,useRef,useState} from 'react';
 
-export default function YachtDetailGallery({images,title}){
+export default function YachtDetailGallery({images,title,totalCount}){
   const gallery=[...new Set((images||[]).filter(Boolean))];
   const [active,setActive]=useState(0);
   const [open,setOpen]=useState(false);
@@ -49,7 +49,7 @@ export default function YachtDetailGallery({images,title}){
 
         {gallery.length>1&&<button className="syGalleryRefArrow right" type="button" onClick={(e)=>move(1,e)} aria-label="Sonraki fotoğraf">›</button>}
 
-        <div className="syGalleryRefCount">▣ <b>{gallery.length}</b> RESİM</div>
+        <div className="syGalleryRefCount">▣ <b>{totalCount||gallery.length}</b> RESİM</div>
         <button className="syGalleryRefFullscreen" type="button" onClick={()=>setOpen(true)} aria-label="Tam ekran galeri">⛶</button>
       </div>
 
