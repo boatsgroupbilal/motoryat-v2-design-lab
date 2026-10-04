@@ -76,7 +76,6 @@ export default function DemoListingPage(){
       <div className="syRefTabs demoGeneralTab">
         <nav aria-label="İlan bölümü">
           <a className="active" href="#genel-bakis">İLAN DETAYLARI</a>
-          <a href="#ozellikler">ÖZELLİKLER</a>
         </nav>
         <div className="syRefTabsActions">
           <button type="button" aria-label="Paylaş">↗</button>
@@ -100,6 +99,11 @@ export default function DemoListingPage(){
             <em>KDV hariç · Pazarlığa açık</em>
           </div>
         </header>
+
+        <div className="simpleListingDescription">
+          <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ve güçlü performansı bir araya getiren bir motoryattır.</p>
+          <p>İki kabinli yerleşimi, geniş kokpiti ve pratik yaşam alanlarıyla aile kullanımı ve uzun hafta sonu seyirleri için uygundur. Tekne Marina Punat, Hırvatistan’da görülebilir.</p>
+        </div>
 
         <section className="simpleVisualFacts" aria-label="Temel tekne ölçüleri">
           <div><span className="simpleFactIcon">↔</span><small>BOY</small><b>11,66 m</b></div>
