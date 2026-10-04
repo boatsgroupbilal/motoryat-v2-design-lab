@@ -6,31 +6,20 @@ const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.we
 
 const generalRows=[
   ['Tekne kimliği','S68211'],
-  ['Tekne modeli','Bavaria S 36 HT Diesel'],
-  ['Tekne adı','Nightlife'],
   ['Üretici','Bavaria'],
   ['Tekne türü','Motorlu tekne'],
-  ['Tekne kategorisi','Motorlu yat'],
-  ['Kategori','İkinci el tekne'],
+  ['Kategori','Motorlu yat · İkinci el'],
   ['Üretim yılı','2018'],
   ['Durum','Yeni gibi · Kiraya verildi'],
-  ['Konum','Hırvatistan · Marina Punat'],
   ['Bayrak','Hırvatistan'],
   ['Kişi','8'],
-  ['Kabin / yataklar','2 / 4+2'],
+  ['Yatak kapasitesi','4+2'],
   ['Gövde malzemesi','Fiber'],
   ['Gövde türü','Planya teknesi']
 ];
 
 const technicalRows=[
-  ['Uzunluk','11,66 m (38 feet)'],
-  ['Genişlik','3,59 m'],
-  ['Ağırlık','Yakl. 6.800 kg'],
-  ['Duş','2'],
-  ['Tuvalet sayısı','1'],
-  ['Isıtıcı','Klimalı ısıtma'],
   ['Motor','Volvo Penta D3'],
-  ['Motor gücü','2 × 220 BG (162 kW)'],
   ['Yakıt','Dizel'],
   ['Tahrik','Z tahriki'],
   ['Seyir hızı','24 kn'],
@@ -39,7 +28,10 @@ const technicalRows=[
   ['Azami hızda tüketim','50 l/saat'],
   ['Yakıt deposu','520 l'],
   ['Temiz su deposu','250 l'],
-  ['Pis su tankı','50 l']
+  ['Pis su tankı','50 l'],
+  ['Duş','2'],
+  ['Tuvalet sayısı','1'],
+  ['Isıtıcı','Klimalı ısıtma']
 ];
 
 const equipment=[
@@ -138,13 +130,6 @@ export default function DemoListingPage(){
             </div>
           </details>
 
-          <details className="simpleAccordion">
-            <summary><span>İlan Açıklaması</span><b>Daha Fazla Gör</b></summary>
-            <div className="simpleAccordionBody">
-              <p>Bavaria S 36 HT Diesel, geniş kokpit alanı, iki kabinli yerleşimi ve çift Volvo Penta dizel motoruyla hem günlük kullanım hem de uzun seyirler için uygun bir motoryattır.</p>
-              <p>Tekne düzenli bakımlıdır ve mevcut durumda Marina Punat, Hırvatistan’da görülebilir. Fiyat KDV hariçtir ve makul teklifler değerlendirilir.</p>
-            </div>
-          </details>
 
           <details className="simpleAccordion">
             <summary><span>Bakım & Servis Geçmişi</span><b>Daha Fazla Gör</b></summary>
@@ -171,11 +156,6 @@ export default function DemoListingPage(){
             <span className="premiumCompanyCheck" aria-label="Doğrulanmış firma">✓</span>
           </div>
 
-          <div className="demoPricePro">
-            <small>GÜNCEL SATIŞ FİYATI</small>
-            <strong>€ 159.000</strong>
-            <p>KDV hariç · Pazarlığa açık</p>
-          </div>
 
           <div className="demoContactGrid">
             <a href="#">☎ <span>Ara</span></a>
@@ -191,28 +171,12 @@ export default function DemoListingPage(){
           </div>
         </section>
 
-        <div className="demoAdSlot">
-          <a className="syRefAd demoAdCard" href="/magazalar" aria-label="Sponsorlu reklam">
-            <span className="demoAdBadge">SPONSORLU</span>
-            <img src="/ads/motoryat-firma-magaza-300.webp" alt="Motoryat kurumsal reklam"/>
-          </a>
-        </div>
 
-        <section className="demoListingSummary">
-          <small>İLAN ÖZETİ</small>
-          <dl>
-            <div><dt>İlan No</dt><dd>S68211</dd></div>
-            <div><dt>Üretim Yılı</dt><dd>2018</dd></div>
-            <div><dt>Konum</dt><dd>Hırvatistan</dd></div>
-            <div><dt>Durum</dt><dd>Yeni gibi</dd></div>
-            <div><dt>Ekspertiz</dt><dd>Uygun</dd></div>
-          </dl>
-        </section>
       </aside>
     </div>
 
     <section className="syRefBottom">
-      <div className="syRefBottomGrid">
+      <div className="syRefBottomGrid demoBottomNoAds">
         <div className="syRefBottomLeft">
           <div className="syRefSectionHead syRefRelatedHead">
             <div><small>SİZİN İÇİN SEÇTİKLERİMİZ</small><h2>Benzer İlanlar</h2></div>
@@ -251,12 +215,6 @@ export default function DemoListingPage(){
           </div>
         </div>
 
-        <aside className="syRefBottomAds demoTripleAds" aria-label="Sponsorlu reklam">
-          <a className="syRefBottomAd demoAdCard" href="/magazalar" aria-label="Sponsorlu reklam">
-            <span className="demoAdBadge">SPONSORLU</span>
-            <img src="/ads/motoryat-house-ad-300-png.webp" alt="Sponsorlu reklam"/>
-          </a>
-        </aside>
       </div>
     </section>
   </main><Footer/></>;
