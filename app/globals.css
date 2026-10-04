@@ -11636,3 +11636,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:7px!important;
   }
 }
+
+
+/* FINAL MOBILE HEADER COLOR LOCK */
+@media(max-width:768px){
+  .dpMobileHeader{
+    background:#000!important;
+    border-bottom:1px solid #111!important;
+  }
+  .dpMobileLogo{
+    background:#000!important;
+  }
+}
