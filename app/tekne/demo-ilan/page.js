@@ -247,8 +247,10 @@ export default function DemoListingPage(){
         </section>
 
         <div className="demoAdSlot">
-          <span>REKLAM</span>
-          <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-firma-magaza-300.webp" alt="300x300 demo reklam"/></a>
+          <a className="syRefAd demoAdCard" href="/magazalar" aria-label="Sponsorlu reklam">
+            <span className="demoAdBadge">SPONSORLU</span>
+            <img src="/ads/motoryat-firma-magaza-300.webp" alt="Motoryat kurumsal reklam"/>
+          </a>
         </div>
 
         <section className="demoListingSummary">
@@ -264,8 +266,10 @@ export default function DemoListingPage(){
         </section>
 
         <div className="demoAdSlot">
-          <span>REKLAM</span>
-          <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-house-ad-300-png.webp" alt="300x300 ikinci demo reklam"/></a>
+          <a className="syRefAd demoAdCard" href="/magazalar" aria-label="Sponsorlu reklam">
+            <span className="demoAdBadge">SPONSORLU</span>
+            <img src="/ads/motoryat-house-ad-300-png.webp" alt="Motoryat reklam alanı"/>
+          </a>
         </div>
 
         <section className="demoHelpBox">
@@ -315,15 +319,15 @@ export default function DemoListingPage(){
           </div>
         </div>
 
-        <aside className="syRefBottomAds demoTripleAds">
-          <div className="demoLabel">REKLAM</div>
+        <aside className="syRefBottomAds demoTripleAds" aria-label="Sponsorlu reklamlar">
           {[
             '/ads/motoryat-house-ad-300-png.webp',
             '/ads/motoryat-firma-magaza-300.webp',
             '/ads/la-romana-charters-300x300.gif'
           ].map((src,i)=>
-            <a className="syRefBottomAd" href="/magazalar" key={src}>
-              <img src={src} alt={`300x300 reklam ${i+1}`}/>
+            <a className="syRefBottomAd demoAdCard" href="/magazalar" key={src} aria-label={`Sponsorlu reklam ${i+1}`}>
+              <span className="demoAdBadge">SPONSORLU</span>
+              <img src={src} alt={`Sponsorlu reklam ${i+1}`}/>
             </a>
           )}
         </aside>
