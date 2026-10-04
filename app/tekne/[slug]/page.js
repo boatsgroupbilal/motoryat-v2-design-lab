@@ -176,7 +176,6 @@ export default async function Page({params}){
           <summary><span>Bakım & Servis Geçmişi</span><b>Daha Fazla Gör</b></summary>
           <div className="realDetailAccordionBody"><p>{maintenance}</p></div>
         </details> : null}
-        </section>
       </section>
 
       <aside className="syRefSidebar">
