@@ -49,8 +49,7 @@ export default async function Page({params}){
 
       <div className="syRefTabs">
         <nav aria-label="İlan bölümleri">
-          <a className="active" href="#genel-bakis">GENEL BAKIŞ</a>
-          <a href="#techizat">TEÇHİZAT</a>
+          <a className="active" href="#genel-bakis">İLAN DETAYLARI</a>
           <a href="#ozellikler">ÖZELLİKLER</a>
         </nav>
         <div className="syRefTabsActions">
