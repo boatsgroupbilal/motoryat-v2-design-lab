@@ -1,5 +1,6 @@
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
+import DemoMosaicGallery from '../../../components/DemoMosaicGallery';
 
 const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.webp'];
 
@@ -47,14 +48,18 @@ const specs=[
 export default function DemoListingPage(){
   return <><SiteHeader/><main className="syRefPage demoListingPage">
     <div className="syRefGalleryWrap">
-      <div className="demoGallery">
-        <img className="demoGalleryMain" src={photos[0]} alt="Demo Yacht 42 ana görsel"/>
-        <div className="demoGallerySide">
-          <img src={photos[1]} alt="Demo Yacht 42 ikinci görsel"/>
-          <img src={photos[2]} alt="Demo Yacht 42 üçüncü görsel"/>
-        </div>
-        <span className="demoCount">24 FOTOĞRAF · 1 VİDEO</span>
-      </div>
+      <DemoMosaicGallery
+        title="Demo Yacht 42"
+        images={[
+          photos[0],
+          photos[1],
+          photos[2],
+          '/sale-euro-760.webp',
+          '/sale-euro-850.webp'
+        ]}
+        photoCount={24}
+        videoCount={2}
+      />
       <div className="syRefTabs demoGeneralTab">
         <nav aria-label="Demo ilan bölümü">
           <a className="active" href="#genel-bakis">GENEL ÖZELLİKLER</a>
