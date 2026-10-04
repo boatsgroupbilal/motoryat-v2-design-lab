@@ -75,7 +75,8 @@ export default function DemoListingPage(){
 
       <div className="syRefTabs demoGeneralTab">
         <nav aria-label="İlan bölümü">
-          <a className="active" href="#genel-bakis">GENEL ÖZELLİKLER</a>
+          <a className="active" href="#genel-bakis">İLAN DETAYLARI</a>
+          <a href="#ozellikler">ÖZELLİKLER</a>
         </nav>
         <div className="syRefTabsActions">
           <button type="button" aria-label="Paylaş">↗</button>
