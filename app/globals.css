@@ -11394,3 +11394,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     aspect-ratio:auto;
   }
 }
+
+
+@import './size-lock.css';
