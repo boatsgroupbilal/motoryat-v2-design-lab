@@ -25,6 +25,7 @@ export default async function Page({params}){
   const status=isCharter?(metaParts[1]||'Charter'):(metaParts[1]||'Satılık');
   const location=!isCharter?(metaParts[2]||'Türkiye'):'Türkiye / Akdeniz';
   const isLadyLuna=item.slug.startsWith('lady-luna');
+  const detailVideo=item.slug==='grande-mare-gm-42-fly-la-notte-gm-40'?'/listings/grande-mare/gm42/walkthrough.mp4':null;
   const fallbackGallery=isLadyLuna ? ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image];
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
   const related=(isCharter?charterListings:saleListings)
@@ -37,6 +38,7 @@ export default async function Page({params}){
   return <><SiteHeader/><main className="syRefPage">
     <div className="syRefGalleryWrap">
       <YachtDetailGallery images={images} title={item.title}/>
+      {detailVideo ? <div style={{maxWidth:'1280px',margin:'18px auto 0',padding:'0 24px'}}><video controls playsInline preload="metadata" style={{display:'block',width:'100%',maxHeight:'680px',objectFit:'cover',background:'#0D1B2A'}}><source src={detailVideo} type="video/mp4"/></video></div> : null}
 
       <a className="syRefBrochure" href="#" aria-label="Broşürü indir">
         <span>BROŞÜRÜ İNDİRİN</span><b>PDF</b>
