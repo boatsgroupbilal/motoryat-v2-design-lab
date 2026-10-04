@@ -92,8 +92,13 @@ export default function DemoListingPage(){
         <div className="demoLabel">5 · İLAN AÇIKLAMASI</div>
         <div className="syRefCopy demoFullCopy">
           <p><b>Demo Yacht 42</b>, günlük seyir konforunu yüksek performans ve modern iç yaşam alanlarıyla birleştiren 12,80 metrelik yeni nesil bir motoryat örneğidir. Bu demo ilan; Motoryat.com’daki gerçek ilanların hangi bilgi yapısıyla yayınlanacağını göstermek amacıyla hazırlanmıştır.</p>
-          <p>Geniş kıç kokpit, hidrolik yüzme platformu, iki kabinli konaklama planı ve aydınlık salonuyla hem hafta sonu kullanımı hem de uzun kıyı seyirleri için dengeli bir yerleşim sunar. Çift Volvo Penta dizel motor, joystick manevra sistemi ve bow thruster özellikle marina manevralarında kullanım kolaylığı sağlar.</p>
-          <p>Teknede jeneratör, klima, tam navigasyon paketi, AIS, radar, VHF, elektrikli çapa ırgatı, teak güverte ve gelişmiş ses sistemi bulunmaktadır. Gövde ve mekanik sistemler ekspertize açıktır. Teslim öncesi son kontroller, servis kayıtları ve ekipman listesi yetkili firma tarafından alıcıya sunulur.</p>
+          <details className="demoMore">
+            <summary>Daha Fazla Gör <span>⌄</span></summary>
+            <div className="demoMoreBody">
+              <p>Geniş kıç kokpit, hidrolik yüzme platformu, iki kabinli konaklama planı ve aydınlık salonuyla hem hafta sonu kullanımı hem de uzun kıyı seyirleri için dengeli bir yerleşim sunar. Çift Volvo Penta dizel motor, joystick manevra sistemi ve bow thruster özellikle marina manevralarında kullanım kolaylığı sağlar.</p>
+              <p>Teknede jeneratör, klima, tam navigasyon paketi, AIS, radar, VHF, elektrikli çapa ırgatı, teak güverte ve gelişmiş ses sistemi bulunmaktadır. Gövde ve mekanik sistemler ekspertize açıktır. Teslim öncesi son kontroller, servis kayıtları ve ekipman listesi yetkili firma tarafından alıcıya sunulur.</p>
+            </div>
+          </details>
         </div>
 
         <div className="demoLabel">6 · ÖNE ÇIKANLAR</div>
@@ -122,27 +127,37 @@ export default function DemoListingPage(){
 
         <section className="demoNarrativeSection">
           <div className="demoLabel">9 · MOTOR / PERFORMANS</div>
-          <h2>MOTOR & PERFORMANS</h2>
-          <p>Çift Volvo Penta D6 dizel motor toplam 880 HP güç üretir. Normal seyir hızı yaklaşık 24 knot, uygun deniz ve yük koşullarında maksimum hız yaklaşık 31 knot seviyesindedir. Joystick kontrolü, bow thruster ve elektronik gaz kolları düşük hız manevralarında kolaylık sağlar.</p>
-          <div className="demoInlineFacts">
+          <details className="demoAccordion" open>
+            <summary><span>MOTOR & PERFORMANS</span><b>Daha Fazla Gör</b></summary>
+            <div className="demoAccordionBody">
+              <p>Çift Volvo Penta D6 dizel motor toplam 880 HP güç üretir. Normal seyir hızı yaklaşık 24 knot, uygun deniz ve yük koşullarında maksimum hız yaklaşık 31 knot seviyesindedir. Joystick kontrolü, bow thruster ve elektronik gaz kolları düşük hız manevralarında kolaylık sağlar.</p>
+              <div className="demoInlineFacts">
             <span><small>MOTOR SAATİ</small><b>35 saat</b></span>
             <span><small>SEYİR HIZI</small><b>24 knot</b></span>
             <span><small>MAKS. HIZ</small><b>31 knot</b></span>
             <span><small>MENZİL</small><b>~320 nm</b></span>
-          </div>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section className="demoNarrativeSection">
           <div className="demoLabel">10 · YAŞAM ALANI</div>
-          <h2>İÇ MEKAN & KONAKLAMA</h2>
-          <p>Alt güvertede baş tarafta çift kişilik ana kabin, sancak tarafta misafir kabini ve ayrı duş bölmeli banyo bulunur. Salon alanında geniş oturma grubu, açılır masa, tam donanımlı mutfak ve doğal ışığı artıran geniş cam yüzeyler yer alır.</p>
-          <p>Kokpit; güneşlenme alanı, dış yemek masası ve denize kolay erişim sağlayan yüzme platformuyla sosyal kullanıma göre düzenlenmiştir.</p>
+          <details className="demoAccordion">
+            <summary><span>İÇ MEKAN & KONAKLAMA</span><b>Daha Fazla Gör</b></summary>
+            <div className="demoAccordionBody">
+              <p>Alt güvertede baş tarafta çift kişilik ana kabin, sancak tarafta misafir kabini ve ayrı duş bölmeli banyo bulunur. Salon alanında geniş oturma grubu, açılır masa, tam donanımlı mutfak ve doğal ışığı artıran geniş cam yüzeyler yer alır.</p>
+              <p>Kokpit; güneşlenme alanı, dış yemek masası ve denize kolay erişim sağlayan yüzme platformuyla sosyal kullanıma göre düzenlenmiştir.</p>
+            </div>
+          </details>
         </section>
 
         <section className="demoNarrativeSection">
           <div className="demoLabel">11 · GÜVERTE / DIŞ DONANIM</div>
-          <h2>GÜVERTE & DIŞ DONANIM</h2>
-          <div className="demoBulletColumns">
+          <details className="demoAccordion">
+            <summary><span>GÜVERTE & DIŞ DONANIM</span><b>Daha Fazla Gör</b></summary>
+            <div className="demoAccordionBody">
+              <div className="demoBulletColumns">
             <ul>
               <li>Teak kaplı kıç kokpit</li>
               <li>Paslanmaz korkuluklar</li>
@@ -155,32 +170,42 @@ export default function DemoListingPage(){
               <li>Güneşlenme minderleri</li>
               <li>Fender ve bağlama halatları</li>
             </ul>
-          </div>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section className="demoNarrativeSection" id="bakim">
           <div className="demoLabel">12 · BAKIM / TESLİM / GARANTİ</div>
-          <h2>BAKIM & TESLİM BİLGİLERİ</h2>
-          <div className="demoTimeline">
+          <details className="demoAccordion">
+            <summary><span>BAKIM & TESLİM BİLGİLERİ</span><b>Daha Fazla Gör</b></summary>
+            <div className="demoAccordionBody">
+              <div className="demoTimeline">
             <div><b>2026</b><span>Tekne üretimden çıktı ve ilk devreye alma kontrolleri tamamlandı.</span></div>
             <div><b>35 saat</b><span>Motor çalışma süresi. İlk servis kontrolü kayıtlı.</span></div>
             <div><b>Ekspertiz</b><span>Alıcı tarafından bağımsız survey / ekspertiz yapılabilir.</span></div>
             <div><b>Teslim</b><span>İstanbul’da görülmeye ve kısa sürede teslimata hazır.</span></div>
-          </div>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section className="demoNarrativeSection">
           <div className="demoLabel">13 · SATIŞ NOTLARI</div>
-          <h2>SATIŞA DAHİL OLANLAR</h2>
-          <div className="demoIncluded">
+          <details className="demoAccordion">
+            <summary><span>SATIŞA DAHİL OLANLAR</span><b>Daha Fazla Gör</b></summary>
+            <div className="demoAccordionBody">
+              <div className="demoIncluded">
             <span>✓ Standart güvenlik ekipmanları</span>
             <span>✓ Bağlama halatları ve usturmaçalar</span>
             <span>✓ Navigasyon cihazları</span>
             <span>✓ Klima ve jeneratör</span>
             <span>✓ Mutfak ekipmanları</span>
             <span>✓ Orijinal kullanıcı kitapçıkları</span>
-          </div>
-          <p className="demoLegalNote">Bu demo ilandaki fiyat ve teknik bilgiler örnek amaçlıdır. Gerçek ilanlarda nihai fiyat, donanım, vergi, garanti ve teslim kapsamı satıcı firma tarafından doğrulanır.</p>
+              </div>
+              <p className="demoLegalNote">Bu demo ilandaki fiyat ve teknik bilgiler örnek amaçlıdır. Gerçek ilanlarda nihai fiyat, donanım, vergi, garanti ve teslim kapsamı satıcı firma tarafından doğrulanır.</p>
+            </div>
+          </details>
         </section>
       </section>
 
