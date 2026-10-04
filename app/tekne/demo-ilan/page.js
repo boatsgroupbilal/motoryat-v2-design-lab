@@ -136,18 +136,48 @@ export default function DemoListingPage(){
             <div><small>SİZİN İÇİN SEÇTİKLERİMİZ</small><h2>Benzer İlanlar</h2></div>
             <a href="/satilik">Tüm İlanları Gör ›</a>
           </div>
-          <div className="demoRelatedMini">
-            {[['Demo Sport 38','11.60 m','€ 790.000',photos[1]],['Demo Fly 50','15.35 m','€ 1.950.000',photos[2]]].map((x,i)=>
-              <a href="#" className="demoRelatedCard" key={i}>
-                <img src={x[3]} alt={x[0]}/>
-                <div><small>SATILIK</small><h3>{x[0]}</h3><p>{x[1]} · 2026</p><strong>{x[2]}</strong></div>
+          <div className="demoRelatedReference">
+            {[
+              {title:'Demo Sport 38',length:'11.60 m',year:'2026',cabins:'2',guests:'8',price:'€ 790.000',main:photos[1],small:photos[0]},
+              {title:'Demo Fly 50',length:'15.35 m',year:'2024',cabins:'3',guests:'10',price:'€ 1.950.000',main:photos[2],small:photos[1]},
+              {title:'Demo Explorer 46',length:'14.20 m',year:'2025',cabins:'3',guests:'9',price:'€ 1.420.000',main:photos[0],small:photos[2]},
+              {title:'Demo Cruiser 44',length:'13.40 m',year:'2023',cabins:'2',guests:'8',price:'€ 980.000',main:photos[1],small:photos[2]}
+            ].map((x,i)=>
+              <a href="#" className="demoRefRelatedCard" key={i}>
+                <div className="demoRefMainMedia">
+                  <img src={x.main} alt={x.title}/>
+                  <div className="demoRefMediaCount"><span>▣ {24+i*3}</span><span>▷ 0</span></div>
+                </div>
+                <div className="demoRefSideMedia">
+                  <img src={x.small} alt=""/>
+                  <div className="demoRefBroker"><b>SATILIK</b><span>Motoryat Partner</span></div>
+                </div>
+                <div className="demoRefInfo">
+                  <h3>{x.title}</h3>
+                  <p>UZUNLUK: {x.length}</p>
+                  <div className="demoRefFacts">
+                    <span><small>YIL</small><b>{x.year}</b></span>
+                    <span><small>KABİNLER</small><b>{x.cabins}</b></span>
+                    <span><small>MİSAFİRLER</small><b>{x.guests}</b></span>
+                  </div>
+                  <div className="demoRefPrice"><small>FİYATI</small><strong>{x.price}</strong></div>
+                </div>
+                <div className="demoRefSaleBand"><b>›</b><span>SATIŞ İLANI</span></div>
               </a>
             )}
           </div>
         </div>
-        <aside className="syRefBottomAds">
-          <div className="demoLabel">11 · ALT REKLAM</div>
-          <a className="syRefBottomAd" href="/magazalar"><img src="/ads/motoryat-house-ad-300-png.webp" alt="Alt demo reklam"/></a>
+        <aside className="syRefBottomAds demoTripleAds">
+          <div className="demoLabel">11 · 3 ADET 300 × 300 REKLAM</div>
+          {[
+            '/ads/motoryat-house-ad-300-png.webp',
+            '/ads/motoryat-firma-magaza-300.webp',
+            '/ads/la-romana-charters-300x300.gif'
+          ].map((src,i)=>
+            <a className="syRefBottomAd" href="/magazalar" key={src}>
+              <img src={src} alt={`300x300 reklam ${i+1}`}/>
+            </a>
+          )}
         </aside>
       </div>
     </section>
