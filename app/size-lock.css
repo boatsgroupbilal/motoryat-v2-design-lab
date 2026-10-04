@@ -1381,3 +1381,133 @@ html,body{
     display:none!important;
   }
 }
+
+
+/* Reference mosaic gallery */
+.demoMosaicGallery{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.03fr) minmax(0,1fr)!important;
+  gap:4px!important;
+  width:100%!important;
+  height:420px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+.demoMosaicMain,
+.demoMosaicTile{
+  position:relative!important;
+  overflow:hidden!important;
+  border:0!important;
+  padding:0!important;
+  margin:0!important;
+  background:#dfe6ea!important;
+  cursor:pointer!important;
+}
+.demoMosaicMain img,
+.demoMosaicTile img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+.demoMosaicSide{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  grid-template-rows:1fr 1fr!important;
+  gap:4px!important;
+  min-width:0!important;
+}
+.demoMosaicStatus{
+  position:absolute!important;
+  top:14px!important;
+  left:14px!important;
+  z-index:2!important;
+  padding:8px 10px!important;
+  background:rgba(70,70,70,.76)!important;
+  color:#fff!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.03em!important;
+}
+.demoMosaicVideoShade{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
+  background:rgba(13,27,42,.22)!important;
+  color:#fff!important;
+}
+.demoMosaicPlay{
+  display:grid!important;
+  place-items:center!important;
+  width:70px!important;
+  height:70px!important;
+  border-radius:50%!important;
+  background:rgba(13,27,42,.72)!important;
+  color:#fff!important;
+  font-size:30px!important;
+  line-height:1!important;
+}
+.demoMosaicVideoShade b{
+  padding:6px 9px!important;
+  background:rgba(13,27,42,.72)!important;
+  font-size:10px!important;
+  letter-spacing:.03em!important;
+}
+.demoMosaicCount{
+  position:absolute!important;
+  right:12px!important;
+  bottom:12px!important;
+  z-index:2!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  padding:9px 11px!important;
+  background:rgba(13,27,42,.78)!important;
+  color:#fff!important;
+  font-size:11px!important;
+  font-weight:800!important;
+}
+.demoMosaicModal{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2000!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:32px!important;
+  background:rgba(0,0,0,.9)!important;
+}
+.demoMosaicModal img{
+  max-width:min(1400px,94vw)!important;
+  max-height:88vh!important;
+  object-fit:contain!important;
+}
+.demoMosaicClose{
+  position:fixed!important;
+  top:18px!important;
+  right:22px!important;
+  z-index:2001!important;
+  width:42px!important;
+  height:42px!important;
+  border:1px solid rgba(255,255,255,.45)!important;
+  border-radius:50%!important;
+  background:rgba(0,0,0,.55)!important;
+  color:#fff!important;
+  font-size:27px!important;
+  cursor:pointer!important;
+}
+@media(max-width:820px){
+  .demoMosaicGallery{
+    grid-template-columns:1fr!important;
+    height:300px!important;
+  }
+  .demoMosaicSide{display:none!important}
+}
+@media(max-width:560px){
+  .demoMosaicGallery{height:235px!important}
+  .demoMosaicStatus{top:9px!important;left:9px!important}
+}
