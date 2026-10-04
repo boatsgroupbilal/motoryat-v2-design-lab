@@ -2619,3 +2619,84 @@ html,body{
     gap:10px!important;
   }
 }
+
+
+/* Listing about + specs */
+.refListingDetails{
+  display:grid!important;
+  gap:22px!important;
+}
+.refSectionEyebrow{
+  display:block!important;
+  margin-bottom:5px!important;
+  color:#8C6A3B!important;
+  font-size:8px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+}
+.refAboutSection h2,
+.refSpecsSection h2{
+  margin:0!important;
+  color:#0D1B2A!important;
+  font-size:20px!important;
+  line-height:1.15!important;
+}
+.refAboutSection h3{
+  margin:10px 0 7px!important;
+  color:#0D1B2A!important;
+  font-size:15px!important;
+}
+.refAboutSection p{
+  margin:0!important;
+  max-width:980px!important;
+  color:#4f606b!important;
+  font-size:10px!important;
+  line-height:1.7!important;
+}
+.refSpecsSection{
+  padding-top:20px!important;
+  border-top:1px solid #e2e7ea!important;
+}
+.refSpecsGrid{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  margin-top:12px!important;
+  border:1px solid #dfe5e8!important;
+}
+.refSpecsGrid dl{
+  margin:0!important;
+}
+.refSpecsGrid dl+dl{
+  border-left:1px solid #dfe5e8!important;
+}
+.refSpecsGrid dl>div{
+  display:grid!important;
+  grid-template-columns:minmax(120px,42%) minmax(0,1fr)!important;
+  align-items:center!important;
+  min-height:42px!important;
+  border-bottom:1px solid #e8ecef!important;
+}
+.refSpecsGrid dl>div:last-child{
+  border-bottom:0!important;
+}
+.refSpecsGrid dt{
+  padding:9px 12px!important;
+  color:#78858e!important;
+  font-size:9px!important;
+}
+.refSpecsGrid dd{
+  margin:0!important;
+  padding:9px 12px!important;
+  color:#0D1B2A!important;
+  font-size:10px!important;
+  font-weight:800!important;
+}
+@media(max-width:820px){
+  .refSpecsGrid{
+    grid-template-columns:1fr!important;
+  }
+  .refSpecsGrid dl+dl{
+    border-left:0!important;
+    border-top:1px solid #dfe5e8!important;
+  }
+}
