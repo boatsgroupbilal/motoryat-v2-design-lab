@@ -13,7 +13,6 @@ export default function YachtListingRow({
   const tone=index%2===0?'toneGold':'toneTurquoise';
 
   const brand=item?.sellerName || item?.brandName || item?.brand || seller || 'Motoryat.com';
-  const logo=brandLogo || item?.sellerLogo || item?.brandLogo || item?.logo || '';
   const photoCount=[28,24,32,37][index%4];
   const videoCount=[3,5,4,0][index%4];
 
@@ -47,14 +46,12 @@ export default function YachtListingRow({
       <b>→</b>
     </Link>
 
-    <div className={'sqYachtBrand '+(logo?'hasLogo':'hasWordmark')}>
-      <div className="sqYachtBrandMark">
-        {logo ? <img src={logo} alt={brand+' logo'}/> : <span className="sqYachtBrandWordmark">{brand}</span>}
-      </div>
+    <div className="sqYachtBrand premiumSellerName">
       <div className="sqYachtBrandText">
-        {logo ? <strong>{brand}</strong> : null}
-        <small>Yetkili Satıcı <i>✓</i></small>
+        <small>YETKİLİ SATICI</small>
+        <strong>{brand}</strong>
       </div>
+      <span className="premiumSellerVerified" aria-label="Doğrulanmış firma">✓</span>
     </div>
   </article>
 }
