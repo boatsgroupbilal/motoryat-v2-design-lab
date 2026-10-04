@@ -43,10 +43,6 @@ export default async function Page({params}){
       <YachtDetailGallery images={images} title={item.title}/>
       {detailVideo ? <div style={{maxWidth:'1280px',margin:'18px auto 0',padding:'0 24px'}}><video controls playsInline preload="metadata" style={{display:'block',width:'100%',maxHeight:'680px',objectFit:'cover',background:'#0D1B2A'}}><source src={detailVideo} type="video/mp4"/></video></div> : null}
 
-      <a className="syRefBrochure" href="#" aria-label="Broşürü indir">
-        <span>BROŞÜRÜ İNDİRİN</span><b>PDF</b>
-      </a>
-
       <div className="syRefTabs">
         <nav aria-label="İlan bölümleri">
           <a className="active" href="#genel-bakis">İLAN DETAYLARI</a>
@@ -107,12 +103,13 @@ export default async function Page({params}){
 
       <aside className="syRefSidebar">
         <div className="syRefSellerCard">
-          <div className="syRefSellerTop">
+          <div className="syRefSellerTop premiumDetailSellerTop">
             <span>{isCharter?'KİRALIK':'SATILIK'}</span>
-            <div className="syRefSellerBrand">
-              <img src="/motoryat-logo.svg" alt=""/>
+            <div className="premiumDetailSellerName">
+              <small>YETKİLİ SATICI</small>
               <b>{info.seller}</b>
             </div>
+            <i aria-label="Doğrulanmış firma">✓</i>
           </div>
 
           <div className="syRefSellerActions">
