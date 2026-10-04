@@ -3,17 +3,58 @@ import Footer from '../../../components/Footer';
 
 const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.webp'];
 
+const highlights=[
+  '2026 model · sıfır kondisyon',
+  'Çift dizel motor · toplam 880 HP',
+  '2 kabin · 1 banyo · 8 kişi gündüz kapasitesi',
+  'Jeneratör, klima ve tam navigasyon paketi',
+  'Teak güverte · elektrikli ırgat · kıç duş',
+  'Teslime hazır · ekspertize açık'
+];
+
+const equipmentGroups=[
+  {title:'Motor & Mekanik',items:['2 × Volvo Penta D6 440 HP','Joystick manevra sistemi','Bow thruster','Otomatik trim sistemi','Elektrikli sintine pompaları','Motor bölmesi yangın algılama']},
+  {title:'Navigasyon & Elektronik',items:['2 × 12 inç çok fonksiyonlu ekran','GPS / Chartplotter','Radar','AIS Class B','VHF DSC telsiz','Derinlik ve hız göstergesi']},
+  {title:'Elektrik & Enerji',items:['9 kW jeneratör','220V kıyı bağlantısı','Akü şarj sistemi','İnverter','Servis ve marş akü grupları','LED iç / dış aydınlatma']},
+  {title:'Güverte & Demirleme',items:['Teak kokpit ve platform','Elektrikli çapa ırgatı','Paslanmaz çapa ve zincir','Kıç oturma grubu','Yüzme platformu','Dış duş ve güverte aydınlatması']},
+  {title:'İç Mekan & Konfor',items:['2 kabin','1 elektrikli WC / duş','Salon oturma grubu','Buzdolabı ve ocak','Klima sistemi','Bluetooth ses sistemi']},
+  {title:'Güvenlik',items:['Can yelekleri','Yangın söndürücüler','Duman dedektörü','Acil durum sintine pompası','İlk yardım seti','Navigasyon fenerleri']}
+];
+
+const specs=[
+ ['Marka / Model','Demo Yachts 42'],
+ ['Model Yılı','2026'],
+ ['Kondisyon','Yeni'],
+ ['Boy','12.80 m'],
+ ['Genişlik','4.10 m'],
+ ['Su Çekimi','1.05 m'],
+ ['Gövde','GRP / Fiberglass'],
+ ['Yakıt','Dizel'],
+ ['Motor','2 × Volvo Penta D6'],
+ ['Toplam Güç','880 HP'],
+ ['Seyir Hızı','24 knot'],
+ ['Maksimum Hız','31 knot'],
+ ['Yakıt Kapasitesi','1.100 L'],
+ ['Temiz Su','350 L'],
+ ['Kabin','2'],
+ ['Banyo / WC','1'],
+ ['Yatak Kapasitesi','4'],
+ ['Gündüz Kapasitesi','8 kişi'],
+ ['Bayrak','Türkiye'],
+ ['Konum','İstanbul, Türkiye']
+];
+
 export default function DemoListingPage(){
   return <><SiteHeader/><main className="syRefPage demoListingPage">
     <div className="syRefGalleryWrap">
       <div className="demoLabel">1 · GALERİ / ANA FOTOĞRAF</div>
       <div className="demoGallery">
-        <img className="demoGalleryMain" src={photos[0]} alt="Demo ilan ana görsel"/>
+        <img className="demoGalleryMain" src={photos[0]} alt="Demo Yacht 42 ana görsel"/>
         <div className="demoGallerySide">
-          <img src={photos[1]} alt="Demo ikinci görsel"/>
-          <img src={photos[2]} alt="Demo üçüncü görsel"/>
+          <img src={photos[1]} alt="Demo Yacht 42 ikinci görsel"/>
+          <img src={photos[2]} alt="Demo Yacht 42 üçüncü görsel"/>
         </div>
-        <span className="demoCount">3 FOTOĞRAF</span>
+        <span className="demoCount">24 FOTOĞRAF · 1 VİDEO</span>
       </div>
 
       <div className="demoLabel">2 · BROŞÜR ALANI</div>
@@ -25,6 +66,7 @@ export default function DemoListingPage(){
           <a className="active" href="#genel-bakis">GENEL BAKIŞ</a>
           <a href="#techizat">TEÇHİZAT</a>
           <a href="#ozellikler">ÖZELLİKLER</a>
+          <a href="#bakim">BAKIM & TESLİM</a>
         </nav>
         <div className="syRefTabsActions"><button type="button">↗</button><a href="/satilik">SATIŞ ARAMA⌕</a></div>
       </div>
@@ -34,49 +76,116 @@ export default function DemoListingPage(){
       <section className="syRefOverview">
         <div className="demoLabel">4 · ANA İLAN BİLGİSİ</div>
         <div className="syRefOverviewTop">
-          <div><span className="syRefEyebrow">SATILIK</span><h1>DEMO YACHT 42</h1></div>
+          <div><span className="syRefEyebrow">SATILIK · YENİ</span><h1>DEMO YACHT 42</h1></div>
           <button type="button" className="syRefInfoDot">i</button>
         </div>
 
         <div className="syRefMetaLine">
-          <span>⌁ Demo Yachts</span><span>▣ 2026</span><span>↔ 12.80 m</span><span>♙ Satılık</span>
+          <span>⌁ Demo Yachts</span><span>▣ 2026</span><span>↔ 12.80 m</span><span>♙ İstanbul</span><span>✓ Doğrulanmış Firma</span>
         </div>
 
-        <div className="demoLabel">5 · AÇIKLAMA</div>
-        <div className="syRefCopy">
-          <p>Bu alan ilan açıklaması içindir. Teknenin öne çıkan özellikleri, kullanım amacı, bakım durumu ve kısa satış bilgileri burada görünür.</p>
-          <p>Bu demo sayfa gerçek veri içermez; sadece sayfa düzeninin hangi bölümde ne göstereceğini anlatır.</p>
+        <div className="demoListingIntro">
+          <strong>€ 1.250.000</strong>
+          <span>Vergi durumu ve teslim koşulları için satıcıdan teyit alın.</span>
         </div>
 
-        <section className="syRefTechnical" id="teknik">
-          <div id="techizat" className="syRefAnchorSection">
-            <div className="demoLabel">6 · TEÇHİZAT</div>
-            <h2>TEÇHİZAT</h2>
-            <div className="syRefTechGrid">
-              <div><span>Motor</span><b>2 × 440 HP</b></div>
-              <div><span>Jeneratör</span><b>9 kW</b></div>
-              <div><span>Navigasyon</span><b>GPS + Radar</b></div>
-              <div><span>Klima</span><b>Var</b></div>
-            </div>
-          </div>
+        <div className="demoLabel">5 · İLAN AÇIKLAMASI</div>
+        <div className="syRefCopy demoFullCopy">
+          <p><b>Demo Yacht 42</b>, günlük seyir konforunu yüksek performans ve modern iç yaşam alanlarıyla birleştiren 12,80 metrelik yeni nesil bir motoryat örneğidir. Bu demo ilan; Motoryat.com’daki gerçek ilanların hangi bilgi yapısıyla yayınlanacağını göstermek amacıyla hazırlanmıştır.</p>
+          <p>Geniş kıç kokpit, hidrolik yüzme platformu, iki kabinli konaklama planı ve aydınlık salonuyla hem hafta sonu kullanımı hem de uzun kıyı seyirleri için dengeli bir yerleşim sunar. Çift Volvo Penta dizel motor, joystick manevra sistemi ve bow thruster özellikle marina manevralarında kullanım kolaylığı sağlar.</p>
+          <p>Teknede jeneratör, klima, tam navigasyon paketi, AIS, radar, VHF, elektrikli çapa ırgatı, teak güverte ve gelişmiş ses sistemi bulunmaktadır. Gövde ve mekanik sistemler ekspertize açıktır. Teslim öncesi son kontroller, servis kayıtları ve ekipman listesi yetkili firma tarafından alıcıya sunulur.</p>
+        </div>
 
-          <div id="ozellikler" className="syRefAnchorSection">
-            <div className="demoLabel">7 · ÖZELLİKLER</div>
-            <h2>ÖZELLİKLER</h2>
-            <div className="syRefTechGrid">
-              <div><span>Boy</span><b>12.80 m</b></div>
-              <div><span>Yıl</span><b>2026</b></div>
-              <div><span>Genişlik</span><b>4.10 m</b></div>
-              <div><span>Konum</span><b>İstanbul, Türkiye</b></div>
-              <div><span>Kabin</span><b>2</b></div>
-              <div><span>Yakıt</span><b>Dizel</b></div>
-            </div>
+        <div className="demoLabel">6 · ÖNE ÇIKANLAR</div>
+        <div className="demoHighlights">
+          {highlights.map(x=><div key={x}><span>✓</span><b>{x}</b></div>)}
+        </div>
+
+        <section className="syRefTechnical" id="ozellikler">
+          <div className="demoLabel">7 · TEKNİK ÖZELLİKLER</div>
+          <h2>TEKNİK ÖZELLİKLER</h2>
+          <div className="syRefTechGrid demoSpecGrid">
+            {specs.map(([k,v])=><div key={k}><span>{k}</span><b>{v}</b></div>)}
           </div>
+        </section>
+
+        <section id="techizat" className="demoEquipmentSection">
+          <div className="demoLabel">8 · TEÇHİZAT VE DONANIM</div>
+          <h2>TEÇHİZAT & DONANIM</h2>
+          <div className="demoEquipmentGrid">
+            {equipmentGroups.map(g=><article key={g.title}>
+              <h3>{g.title}</h3>
+              <ul>{g.items.map(i=><li key={i}>{i}</li>)}</ul>
+            </article>)}
+          </div>
+        </section>
+
+        <section className="demoNarrativeSection">
+          <div className="demoLabel">9 · MOTOR / PERFORMANS</div>
+          <h2>MOTOR & PERFORMANS</h2>
+          <p>Çift Volvo Penta D6 dizel motor toplam 880 HP güç üretir. Normal seyir hızı yaklaşık 24 knot, uygun deniz ve yük koşullarında maksimum hız yaklaşık 31 knot seviyesindedir. Joystick kontrolü, bow thruster ve elektronik gaz kolları düşük hız manevralarında kolaylık sağlar.</p>
+          <div className="demoInlineFacts">
+            <span><small>MOTOR SAATİ</small><b>35 saat</b></span>
+            <span><small>SEYİR HIZI</small><b>24 knot</b></span>
+            <span><small>MAKS. HIZ</small><b>31 knot</b></span>
+            <span><small>MENZİL</small><b>~320 nm</b></span>
+          </div>
+        </section>
+
+        <section className="demoNarrativeSection">
+          <div className="demoLabel">10 · YAŞAM ALANI</div>
+          <h2>İÇ MEKAN & KONAKLAMA</h2>
+          <p>Alt güvertede baş tarafta çift kişilik ana kabin, sancak tarafta misafir kabini ve ayrı duş bölmeli banyo bulunur. Salon alanında geniş oturma grubu, açılır masa, tam donanımlı mutfak ve doğal ışığı artıran geniş cam yüzeyler yer alır.</p>
+          <p>Kokpit; güneşlenme alanı, dış yemek masası ve denize kolay erişim sağlayan yüzme platformuyla sosyal kullanıma göre düzenlenmiştir.</p>
+        </section>
+
+        <section className="demoNarrativeSection">
+          <div className="demoLabel">11 · GÜVERTE / DIŞ DONANIM</div>
+          <h2>GÜVERTE & DIŞ DONANIM</h2>
+          <div className="demoBulletColumns">
+            <ul>
+              <li>Teak kaplı kıç kokpit</li>
+              <li>Paslanmaz korkuluklar</li>
+              <li>Elektrikli çapa ırgatı</li>
+              <li>Kıç duş sistemi</li>
+            </ul>
+            <ul>
+              <li>Yüzme platformu</li>
+              <li>Güverte LED aydınlatma</li>
+              <li>Güneşlenme minderleri</li>
+              <li>Fender ve bağlama halatları</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="demoNarrativeSection" id="bakim">
+          <div className="demoLabel">12 · BAKIM / TESLİM / GARANTİ</div>
+          <h2>BAKIM & TESLİM BİLGİLERİ</h2>
+          <div className="demoTimeline">
+            <div><b>2026</b><span>Tekne üretimden çıktı ve ilk devreye alma kontrolleri tamamlandı.</span></div>
+            <div><b>35 saat</b><span>Motor çalışma süresi. İlk servis kontrolü kayıtlı.</span></div>
+            <div><b>Ekspertiz</b><span>Alıcı tarafından bağımsız survey / ekspertiz yapılabilir.</span></div>
+            <div><b>Teslim</b><span>İstanbul’da görülmeye ve kısa sürede teslimata hazır.</span></div>
+          </div>
+        </section>
+
+        <section className="demoNarrativeSection">
+          <div className="demoLabel">13 · SATIŞ NOTLARI</div>
+          <h2>SATIŞA DAHİL OLANLAR</h2>
+          <div className="demoIncluded">
+            <span>✓ Standart güvenlik ekipmanları</span>
+            <span>✓ Bağlama halatları ve usturmaçalar</span>
+            <span>✓ Navigasyon cihazları</span>
+            <span>✓ Klima ve jeneratör</span>
+            <span>✓ Mutfak ekipmanları</span>
+            <span>✓ Orijinal kullanıcı kitapçıkları</span>
+          </div>
+          <p className="demoLegalNote">Bu demo ilandaki fiyat ve teknik bilgiler örnek amaçlıdır. Gerçek ilanlarda nihai fiyat, donanım, vergi, garanti ve teslim kapsamı satıcı firma tarafından doğrulanır.</p>
         </section>
       </section>
 
       <aside className="syRefSidebar demoProSidebar">
-        <div className="demoLabel">8 · FİYAT / SATICI / İLETİŞİM</div>
+        <div className="demoLabel">14 · FİYAT / SATICI / İLETİŞİM</div>
 
         <section className="demoSellerPro">
           <div className="demoSellerProTop">
@@ -125,13 +234,36 @@ export default function DemoListingPage(){
           <span>REKLAM · 300 × 300</span>
           <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-firma-magaza-300.webp" alt="300x300 demo reklam"/></a>
         </div>
+
+        <section className="demoListingSummary">
+          <small>İLAN ÖZETİ</small>
+          <dl>
+            <div><dt>İlan No</dt><dd>MY-DEMO-0042</dd></div>
+            <div><dt>Yayın Tarihi</dt><dd>04.10.2026</dd></div>
+            <div><dt>Son Güncelleme</dt><dd>Bugün</dd></div>
+            <div><dt>Görüntülenme</dt><dd>1.284</dd></div>
+            <div><dt>Durum</dt><dd>Satışta</dd></div>
+            <div><dt>Ekspertiz</dt><dd>Uygun</dd></div>
+          </dl>
+        </section>
+
+        <div className="demoAdSlot">
+          <span>REKLAM · 300 × 300</span>
+          <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-house-ad-300-png.webp" alt="300x300 ikinci demo reklam"/></a>
+        </div>
+
+        <section className="demoHelpBox">
+          <b>Bu ilan hakkında yardıma mı ihtiyacınız var?</b>
+          <p>Satıcıya ulaşamıyorsanız veya ilan bilgileri hakkında destek istiyorsanız Motoryat ekibine bildirin.</p>
+          <a href="#">İlanı Bildir / Destek Al →</a>
+        </section>
       </aside>
     </div>
 
     <section className="syRefBottom">
       <div className="syRefBottomGrid">
         <div className="syRefBottomLeft">
-          <div className="demoLabel">10 · BENZER İLANLAR</div>
+          <div className="demoLabel">15 · BENZER İLANLAR</div>
           <div className="syRefSectionHead syRefRelatedHead">
             <div><small>SİZİN İÇİN SEÇTİKLERİMİZ</small><h2>Benzer İlanlar</h2></div>
             <a href="/satilik">Tüm İlanları Gör ›</a>
@@ -167,8 +299,9 @@ export default function DemoListingPage(){
             )}
           </div>
         </div>
+
         <aside className="syRefBottomAds demoTripleAds">
-          <div className="demoLabel">11 · 3 ADET 300 × 300 REKLAM</div>
+          <div className="demoLabel">16 · 3 ADET 300 × 300 REKLAM</div>
           {[
             '/ads/motoryat-house-ad-300-png.webp',
             '/ads/motoryat-firma-magaza-300.webp',
