@@ -1,11 +1,13 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
+import MobileListingFilters from '../../components/MobileListingFilters';
 import {saleListings} from '../../data/content';
 
 export default function Page(){
  const listings=saleListings;
  return <><SiteHeader/><main className="luxListingPage">
+  <MobileListingFilters type="sale"/>
   <section className="luxPageTop"><div className="syContainer">
    <div className="luxCrumb">Motoryat / Satılık</div>
    <div className="luxTitleRow"><div><span>FOR SALE</span><h1>Satılık Yatlar</h1><p>Motor yat, yelkenli ve yeni inşa projelerini tek listede karşılaştırın.</p></div><div className="luxCount"><strong>{listings.length}</strong><span>ilan</span></div></div>
