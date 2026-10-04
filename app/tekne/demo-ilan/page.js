@@ -1,6 +1,6 @@
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
-import DemoMosaicGallery from '../../../components/DemoMosaicGallery';
+import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
 const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.webp'];
 
@@ -52,7 +52,7 @@ const equipment=[
 export default function DemoListingPage(){
   return <><SiteHeader/><main className="syRefPage demoListingPage simpleListingDemo">
     <div className="syRefGalleryWrap">
-      <DemoMosaicGallery
+      <YachtDetailGallery
         title="Bavaria S 36 HT Diesel"
         images={[
           photos[0],
@@ -61,8 +61,7 @@ export default function DemoListingPage(){
           '/sale-euro-760.webp',
           '/sale-euro-850.webp'
         ]}
-        photoCount={24}
-        videoCount={2}
+        totalCount={24}
       />
 
       <div className="syRefTabs demoGeneralTab">
