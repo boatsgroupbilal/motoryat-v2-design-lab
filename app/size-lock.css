@@ -2700,3 +2700,19 @@ html,body{
     border-top:1px solid #dfe5e8!important;
   }
 }
+
+
+/* Seller placement: desktop beside gallery, mobile below listing details */
+.refSellerMobile{
+  display:none!important;
+}
+@media(max-width:820px){
+  .refSellerDesktop{
+    display:none!important;
+  }
+  .refSellerMobile{
+    display:block!important;
+    margin-top:16px!important;
+    margin-bottom:76px!important;
+  }
+}
