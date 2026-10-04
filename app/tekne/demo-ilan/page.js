@@ -100,6 +100,15 @@ export default function DemoListingPage(){
           </div>
         </header>
 
+        <section className="simpleVisualFacts" aria-label="Temel tekne ölçüleri">
+          <div><span className="simpleFactIcon">↔</span><small>BOY</small><b>11,66 m</b></div>
+          <div><span className="simpleFactIcon">⇆</span><small>GENİŞLİK</small><b>3,59 m</b></div>
+          <div><span className="simpleFactIcon">↧</span><small>SU ÇEKİMİ</small><b>1,05 m</b></div>
+          <div><span className="simpleFactIcon">⚓</span><small>AĞIRLIK</small><b>6.800 kg</b></div>
+          <div><span className="simpleFactIcon">⚙</span><small>MOTOR</small><b>2 × 220 BG</b></div>
+          <div><span className="simpleFactIcon">▣</span><small>KABİN</small><b>2</b></div>
+        </section>
+
         <section className="simpleDataSection">
           <h2>Tekne Bilgileri</h2>
           <dl className="simpleDataList">
