@@ -19,7 +19,7 @@ export default async function Page({params}){
   const all=[...saleListings,...charterListings];
   const item=all.find(x=>x.slug===slug)||saleListings[1];
   const isCharter=item.kind==='KİRALIK';
-  const info=detailMeta[item.slug]||{seller:'Motoryat Partner',sellerSlug:'magazalar',year:'—'};
+  const info=detailMeta[item.slug]||{seller:item.seller||item.store_name||'Motoryat Partner',sellerSlug:item.sellerSlug||item.store_slug||'magazalar',year:item.year||'—'};
   const metaParts=(item.meta||'').split('·').map(x=>x.trim()).filter(Boolean);
   const length=metaParts[0]||'—';
   const status=isCharter?(metaParts[1]||'Charter'):(metaParts[1]||'Satılık');
@@ -33,6 +33,9 @@ export default async function Page({params}){
     .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
     .slice(0,2);
   const listHref=isCharter?'/kiralik':'/satilik';
+  const relatedAds=isCharter
+    ? ['/ads/motoryat-house-ad-300-png.webp']
+    : ['/ads/motoryat-firma-magaza-300.webp'];
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
 
   return <><SiteHeader/><main className="syRefPage">
@@ -47,8 +50,8 @@ export default async function Page({params}){
       <div className="syRefTabs">
         <nav aria-label="İlan bölümleri">
           <a className="active" href="#genel-bakis">GENEL BAKIŞ</a>
-          <a href="#teknik">TEÇHİZAT</a>
-          <a href="#teknik">ÖZELLİKLER</a>
+          <a href="#techizat">TEÇHİZAT</a>
+          <a href="#ozellikler">ÖZELLİKLER</a>
         </nav>
         <div className="syRefTabsActions">
           <button type="button" aria-label="Paylaş">↗</button>
@@ -84,14 +87,21 @@ export default async function Page({params}){
         <button type="button" className="syRefExpand">⌄ GENİŞLETMEK</button>
 
         <section className="syRefTechnical" id="teknik">
-          <h2>TEKNİK ÖZELLİKLER</h2>
-          <div className="syRefTechGrid">
-            <div><span>Boy</span><b>{length}</b></div>
-            <div><span>Yıl</span><b>{info.year}</b></div>
-            <div><span>Durum</span><b>{status}</b></div>
-            <div><span>Konum</span><b>{location}</b></div>
-            <div><span>İlan Türü</span><b>{isCharter?'Kiralık':'Satılık'}</b></div>
-            <div><span>Yetkili Firma</span><b>{info.seller}</b></div>
+          <div id="techizat" className="syRefAnchorSection">
+            <h2>TEÇHİZAT</h2>
+            <div className="syRefTechGrid">
+              <div><span>Boy</span><b>{length}</b></div>
+              <div><span>Yıl</span><b>{info.year}</b></div>
+              <div><span>Durum</span><b>{status}</b></div>
+              <div><span>Konum</span><b>{location}</b></div>
+            </div>
+          </div>
+          <div id="ozellikler" className="syRefAnchorSection">
+            <h2>ÖZELLİKLER</h2>
+            <div className="syRefTechGrid">
+              <div><span>İlan Türü</span><b>{isCharter?'Kiralık':'Satılık'}</b></div>
+              <div><span>Yetkili Firma</span><b>{info.seller}</b></div>
+            </div>
           </div>
         </section>
       </section>
@@ -128,6 +138,7 @@ export default async function Page({params}){
     </div>
 
     <section className="syRefBottom">
+      <div className="syRefBottomGrid">
       <div className="syRefBottomLeft">
         <div className="syRefSectionHead syRefRelatedHead">
           <div>
@@ -185,6 +196,10 @@ export default async function Page({params}){
             </a>
           })}
         </div>
+      </div>
+      <aside className="syRefBottomAds" aria-label="İlan reklamları">
+        {relatedAds.slice(0,related.length>3?2:1).map((src,i)=><a className="syRefBottomAd" href="/magazalar" key={src+i}><img src={src} alt="Motoryat reklam"/></a>)}
+      </aside>
       </div>
     </section>
   </main><Footer/></>
