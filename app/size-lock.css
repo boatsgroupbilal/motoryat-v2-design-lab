@@ -1547,3 +1547,116 @@ html,body{
   max-height:86vh!important;
   background:#000!important;
 }
+
+
+/* Modern listing information header */
+.demoListingHeaderCard{
+  margin:0 0 20px!important;
+  background:#fff!important;
+  border:1px solid #d9e1e6!important;
+  box-shadow:0 6px 20px rgba(13,27,42,.05)!important;
+}
+.demoListingHeaderTop{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 250px!important;
+  gap:24px!important;
+  align-items:end!important;
+  padding:18px 20px 16px!important;
+}
+.demoListingType{
+  display:inline-block!important;
+  margin-bottom:6px!important;
+  color:#b27b18!important;
+  font-size:9px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+}
+.demoListingHeaderTop h1{
+  margin:0!important;
+  font-size:30px!important;
+  line-height:1.05!important;
+  color:#0D1B2A!important;
+}
+.demoListingHeaderTop p{
+  margin:6px 0 0!important;
+  color:#74818b!important;
+  font-size:10px!important;
+}
+.demoListingPrice{
+  text-align:right!important;
+}
+.demoListingPrice small{
+  display:block!important;
+  color:#7c8992!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+}
+.demoListingPrice strong{
+  display:block!important;
+  margin-top:4px!important;
+  color:#0D1B2A!important;
+  font-size:26px!important;
+  line-height:1!important;
+}
+.demoListingPrice span{
+  display:block!important;
+  margin-top:6px!important;
+  color:#8a959d!important;
+  font-size:7px!important;
+}
+.demoListingQuickFacts{
+  display:grid!important;
+  grid-template-columns:repeat(6,1fr)!important;
+  border-top:1px solid #edf1f3!important;
+  border-bottom:1px solid #edf1f3!important;
+}
+.demoListingQuickFacts>div{
+  min-width:0!important;
+  padding:11px 8px!important;
+  text-align:center!important;
+}
+.demoListingQuickFacts>div+div{
+  border-left:1px solid #edf1f3!important;
+}
+.demoListingQuickFacts small{
+  display:block!important;
+  color:#8b969e!important;
+  font-size:7px!important;
+  font-weight:800!important;
+}
+.demoListingQuickFacts b{
+  display:block!important;
+  margin-top:3px!important;
+  color:#0D1B2A!important;
+  font-size:11px!important;
+}
+.demoListingHeaderFoot{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:14px!important;
+  padding:9px 14px!important;
+  background:#f7f8f9!important;
+  color:#72808a!important;
+  font-size:8px!important;
+}
+.demoListingHeaderFoot span:first-child{
+  color:#2d7b55!important;
+  font-weight:800!important;
+}
+@media(max-width:820px){
+  .demoListingHeaderTop{
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  .demoListingPrice{text-align:left!important}
+  .demoListingQuickFacts{grid-template-columns:repeat(3,1fr)!important}
+  .demoListingQuickFacts>div:nth-child(4){border-left:0!important;border-top:1px solid #edf1f3!important}
+  .demoListingQuickFacts>div:nth-child(5),
+  .demoListingQuickFacts>div:nth-child(6){border-top:1px solid #edf1f3!important}
+}
+@media(max-width:560px){
+  .demoListingHeaderTop{padding:14px!important}
+  .demoListingHeaderTop h1{font-size:24px!important}
+  .demoListingPrice strong{font-size:22px!important}
+}
