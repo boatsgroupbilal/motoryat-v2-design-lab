@@ -1660,3 +1660,272 @@ html,body{
   .demoListingHeaderTop h1{font-size:24px!important}
   .demoListingPrice strong{font-size:22px!important}
 }
+
+
+/* =========================================================
+   SIMPLE YACHT LISTING — FINAL DEMO
+   Keep mosaic gallery unchanged; simplify everything below.
+   ========================================================= */
+.simpleListingDemo .syRefContentWrap{
+  align-items:start!important;
+}
+.simpleListingMain{
+  background:#fff!important;
+  border:1px solid #e0e5e8!important;
+  padding:0!important;
+}
+.simpleListingTitle{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 230px!important;
+  gap:22px!important;
+  align-items:end!important;
+  padding:20px 22px!important;
+  border-bottom:1px solid #e5eaed!important;
+}
+.simpleListingTitle>div:first-child>span{
+  display:inline-block!important;
+  margin-bottom:5px!important;
+  color:#a57932!important;
+  font-size:8px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+}
+.simpleListingTitle h1{
+  margin:0!important;
+  color:#0D1B2A!important;
+  font-size:29px!important;
+  line-height:1.08!important;
+}
+.simpleListingTitle p{
+  margin:6px 0 0!important;
+  color:#71808a!important;
+  font-size:10px!important;
+}
+.simpleListingPrice{
+  text-align:right!important;
+}
+.simpleListingPrice small{
+  display:block!important;
+  color:#87949d!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+}
+.simpleListingPrice del{
+  display:block!important;
+  margin-top:4px!important;
+  color:#9aa4aa!important;
+  font-size:13px!important;
+}
+.simpleListingPrice strong{
+  display:block!important;
+  margin-top:1px!important;
+  color:#0D1B2A!important;
+  font-size:27px!important;
+  line-height:1.05!important;
+}
+.simpleListingPrice em{
+  display:block!important;
+  margin-top:6px!important;
+  color:#6d7a83!important;
+  font-size:8px!important;
+  font-style:normal!important;
+}
+
+.simpleDataSection{
+  padding:21px 22px 0!important;
+}
+.simpleDataSection+.simpleDataSection{
+  padding-top:26px!important;
+}
+.simpleDataSection h2{
+  margin:0 0 9px!important;
+  padding-bottom:8px!important;
+  border-bottom:2px solid #0D1B2A!important;
+  color:#0D1B2A!important;
+  font-size:17px!important;
+  line-height:1.2!important;
+}
+.simpleDataList{
+  margin:0!important;
+}
+.simpleDataList>div{
+  display:grid!important;
+  grid-template-columns:minmax(150px,35%) minmax(0,1fr)!important;
+  gap:18px!important;
+  align-items:center!important;
+  min-height:37px!important;
+  border-bottom:1px solid #e8ecef!important;
+}
+.simpleDataList dt{
+  padding:7px 0!important;
+  color:#75838d!important;
+  font-size:9px!important;
+}
+.simpleDataList dd{
+  margin:0!important;
+  padding:7px 0!important;
+  color:#0D1B2A!important;
+  font-size:10px!important;
+  font-weight:700!important;
+}
+
+.simpleAccordionGroup{
+  margin-top:26px!important;
+  border-top:1px solid #dfe5e8!important;
+}
+.simpleAccordion{
+  border-bottom:1px solid #dfe5e8!important;
+}
+.simpleAccordion summary{
+  list-style:none!important;
+  cursor:pointer!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+  min-height:50px!important;
+  padding:0 22px!important;
+  background:#fff!important;
+}
+.simpleAccordion summary::-webkit-details-marker{
+  display:none!important;
+}
+.simpleAccordion summary span{
+  color:#0D1B2A!important;
+  font-size:13px!important;
+  font-weight:800!important;
+}
+.simpleAccordion summary b{
+  color:#78858e!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  text-transform:uppercase!important;
+}
+.simpleAccordion summary b::after{
+  content:' +';
+  margin-left:4px!important;
+  color:#a67d3a!important;
+  font-size:13px!important;
+}
+.simpleAccordion[open] summary b::after{
+  content:' −';
+}
+.simpleAccordionBody{
+  padding:2px 22px 18px!important;
+  background:#fafbfb!important;
+}
+.simpleAccordionBody p{
+  margin:10px 0 0!important;
+  color:#4f606b!important;
+  font-size:10px!important;
+  line-height:1.65!important;
+}
+.simpleEquipmentList{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:0 20px!important;
+}
+.simpleEquipmentList span{
+  padding:9px 0!important;
+  border-bottom:1px solid #e7ebee!important;
+  color:#4b5d68!important;
+  font-size:9px!important;
+}
+
+/* Seller block: compact and aligned with the simplified data table */
+.simpleListingDemo .demoProSidebar{
+  gap:12px!important;
+}
+.simpleListingDemo .demoSellerPro{
+  box-shadow:none!important;
+  border:1px solid #dfe5e8!important;
+}
+.simpleListingDemo .demoSellerProTop{
+  padding:10px 12px!important;
+}
+.simpleListingDemo .demoCompanyHead{
+  padding:13px!important;
+}
+.simpleListingDemo .demoPricePro{
+  padding:13px!important;
+}
+.simpleListingDemo .demoPrimaryCta{
+  min-height:42px!important;
+  margin:0 12px 10px!important;
+}
+.simpleListingDemo .demoSellerLinks a{
+  min-height:36px!important;
+}
+.simpleListingDemo .demoListingSummary{
+  box-shadow:none!important;
+}
+
+/* General features bar remains one simple anchor only */
+.simpleListingDemo .demoGeneralTab{
+  margin-top:8px!important;
+  height:50px!important;
+  min-height:50px!important;
+}
+.simpleListingDemo .demoGeneralTab nav a{
+  font-size:10px!important;
+}
+
+/* Keep related section separate and visually lighter */
+.simpleListingDemo .syRefBottom{
+  margin-top:20px!important;
+}
+.simpleListingDemo .syRefRelatedHead{
+  min-height:52px!important;
+}
+.simpleListingDemo .syRefRelatedHead>div h2{
+  font-size:22px!important;
+}
+
+@media(max-width:1100px){
+  .simpleListingTitle{
+    grid-template-columns:minmax(0,1fr) 205px!important;
+  }
+}
+@media(max-width:820px){
+  .simpleListingMain{
+    margin-left:16px!important;
+    margin-right:16px!important;
+  }
+  .simpleListingTitle{
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+    padding:17px!important;
+  }
+  .simpleListingPrice{
+    text-align:left!important;
+  }
+  .simpleDataSection{
+    padding:18px 17px 0!important;
+  }
+  .simpleAccordion summary{
+    padding:0 17px!important;
+  }
+  .simpleAccordionBody{
+    padding:2px 17px 16px!important;
+  }
+}
+@media(max-width:560px){
+  .simpleListingTitle h1{
+    font-size:24px!important;
+  }
+  .simpleListingPrice strong{
+    font-size:24px!important;
+  }
+  .simpleDataList>div{
+    grid-template-columns:42% minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+  .simpleDataList dt,
+  .simpleDataList dd{
+    font-size:9px!important;
+  }
+  .simpleEquipmentList{
+    grid-template-columns:1fr!important;
+  }
+}
