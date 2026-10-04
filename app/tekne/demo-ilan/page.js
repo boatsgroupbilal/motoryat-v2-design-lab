@@ -110,7 +110,7 @@ export default function DemoListingPage(){
           <div><span className="simpleFactIcon">▣</span><small>KABİN</small><b>2</b></div>
         </section>
 
-        <section className="simpleDataSection">
+        <section className="simpleDataSection" id="ozellikler">
           <h2>Tekne Bilgileri</h2>
           <dl className="simpleDataList">
             {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
@@ -125,7 +125,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="simpleAccordionGroup">
-          <details className="simpleAccordion">
+          <details className="simpleAccordion" id="techizat">
             <summary><span>Donanım & Teçhizat</span><b>Daha Fazla Gör</b></summary>
             <div className="simpleAccordionBody">
               <div className="simpleEquipmentList">
@@ -158,13 +158,13 @@ export default function DemoListingPage(){
             <span className="demoVerified">✓ DOĞRULANMIŞ FİRMA</span>
           </div>
 
-          <div className="demoCompanyHead">
-            <div className="demoCompanyLogo"><img src="/motoryat-logo.svg" alt="Yetkili satıcı"/></div>
+          <div className="demoCompanyHead premiumCompanyHead">
             <div className="demoCompanyTitle">
               <small>YETKİLİ SATICI</small>
               <h3>Motoryat Partner</h3>
               <p>Marina Punat · Hırvatistan</p>
             </div>
+            <span className="premiumCompanyCheck" aria-label="Doğrulanmış firma">✓</span>
           </div>
 
           <div className="demoPricePro">
