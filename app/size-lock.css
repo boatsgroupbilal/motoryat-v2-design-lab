@@ -2122,3 +2122,12 @@ html,body{
     padding:14px 17px 3px!important;
   }
 }
+
+
+/* Demo related area after removing extra ads */
+.demoBottomNoAds{
+  grid-template-columns:minmax(0,1fr)!important;
+}
+.demoBottomNoAds .syRefBottomLeft{
+  width:100%!important;
+}
