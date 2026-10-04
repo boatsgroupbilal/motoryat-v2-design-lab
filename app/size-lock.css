@@ -2260,3 +2260,4 @@ html,body{
   .realDataList>div{grid-template-columns:42% minmax(0,1fr)!important;gap:12px!important}
   .realDataList dt,.realDataList dd{font-size:9px!important}
 }
+/* redeploy trigger: yacht detail build fix */
