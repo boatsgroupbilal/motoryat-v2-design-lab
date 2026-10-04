@@ -1511,3 +1511,39 @@ html,body{
   .demoMosaicGallery{height:235px!important}
   .demoMosaicStatus{top:9px!important;left:9px!important}
 }
+
+
+/* Final mosaic gallery interaction controls */
+.demoMosaicModal .demoMosaicPrev,
+.demoMosaicModal .demoMosaicNext{
+  position:fixed!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:2001!important;
+  width:48px!important;
+  height:72px!important;
+  border:0!important;
+  background:rgba(0,0,0,.48)!important;
+  color:#fff!important;
+  font-size:42px!important;
+  cursor:pointer!important;
+}
+.demoMosaicPrev{left:18px!important}
+.demoMosaicNext{right:18px!important}
+.demoMosaicCounter{
+  position:fixed!important;
+  left:50%!important;
+  bottom:18px!important;
+  transform:translateX(-50%)!important;
+  z-index:2001!important;
+  padding:7px 10px!important;
+  background:rgba(0,0,0,.58)!important;
+  color:#fff!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+.demoMosaicModalVideo{
+  width:min(1200px,92vw)!important;
+  max-height:86vh!important;
+  background:#000!important;
+}
