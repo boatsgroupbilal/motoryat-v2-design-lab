@@ -47,7 +47,6 @@ const specs=[
 export default function DemoListingPage(){
   return <><SiteHeader/><main className="syRefPage demoListingPage">
     <div className="syRefGalleryWrap">
-      <div className="demoLabel">1 · GALERİ / ANA FOTOĞRAF</div>
       <div className="demoGallery">
         <img className="demoGalleryMain" src={photos[0]} alt="Demo Yacht 42 ana görsel"/>
         <div className="demoGallerySide">
@@ -56,8 +55,6 @@ export default function DemoListingPage(){
         </div>
         <span className="demoCount">24 FOTOĞRAF · 1 VİDEO</span>
       </div>
-
-      <div className="demoLabel">2 · İLAN BİLGİ BAŞLIĞI</div>
       <div className="syRefTabs demoGeneralTab">
         <nav aria-label="Demo ilan bölümü">
           <a className="active" href="#genel-bakis">GENEL ÖZELLİKLER</a>
@@ -68,7 +65,7 @@ export default function DemoListingPage(){
 
     <div className="syRefContentWrap" id="genel-bakis">
       <section className="syRefOverview">
-        <div className="demoLabel">4 · ANA İLAN BİLGİSİ</div>
+        <div className="demoLabel">İLAN BİLGİLERİ</div>
         <div className="syRefOverviewTop">
           <div><span className="syRefEyebrow">SATILIK · YENİ</span><h1>DEMO YACHT 42</h1></div>
           <button type="button" className="syRefInfoDot">i</button>
@@ -83,7 +80,7 @@ export default function DemoListingPage(){
           <span>Vergi durumu ve teslim koşulları için satıcıdan teyit alın.</span>
         </div>
 
-        <div className="demoLabel">5 · İLAN AÇIKLAMASI</div>
+        <div className="demoLabel">İLAN AÇIKLAMASI</div>
         <div className="syRefCopy demoFullCopy">
           <p><b>Demo Yacht 42</b>, günlük seyir konforunu yüksek performans ve modern iç yaşam alanlarıyla birleştiren 12,80 metrelik yeni nesil bir motoryat örneğidir. Bu demo ilan; Motoryat.com’daki gerçek ilanların hangi bilgi yapısıyla yayınlanacağını göstermek amacıyla hazırlanmıştır.</p>
           <details className="demoMore">
@@ -95,13 +92,13 @@ export default function DemoListingPage(){
           </details>
         </div>
 
-        <div className="demoLabel">6 · ÖNE ÇIKANLAR</div>
+        <div className="demoLabel">ÖNE ÇIKAN ÖZELLİKLER</div>
         <div className="demoHighlights">
           {highlights.map(x=><div key={x}><span>✓</span><b>{x}</b></div>)}
         </div>
 
         <section className="syRefTechnical" id="ozellikler">
-          <div className="demoLabel">7 · TEKNİK ÖZELLİKLER</div>
+          <div className="demoLabel">TEKNİK ÖZELLİKLER</div>
           <h2>TEKNİK ÖZELLİKLER</h2>
           <div className="syRefTechGrid demoSpecGrid">
             {specs.map(([k,v])=><div key={k}><span>{k}</span><b>{v}</b></div>)}
@@ -109,7 +106,7 @@ export default function DemoListingPage(){
         </section>
 
         <section id="techizat" className="demoEquipmentSection">
-          <div className="demoLabel">8 · TEÇHİZAT VE DONANIM</div>
+          <div className="demoLabel">TEÇHİZAT & DONANIM</div>
           <h2>TEÇHİZAT & DONANIM</h2>
           <div className="demoEquipmentGrid">
             {equipmentGroups.map(g=><article key={g.title}>
@@ -120,7 +117,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="demoNarrativeSection">
-          <div className="demoLabel">9 · MOTOR / PERFORMANS</div>
+          <div className="demoLabel">MOTOR & PERFORMANS</div>
           <details className="demoAccordion">
             <summary><span>MOTOR & PERFORMANS</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
@@ -136,7 +133,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="demoNarrativeSection">
-          <div className="demoLabel">10 · YAŞAM ALANI</div>
+          <div className="demoLabel">İÇ MEKAN & KONAKLAMA</div>
           <details className="demoAccordion">
             <summary><span>İÇ MEKAN & KONAKLAMA</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
@@ -147,7 +144,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="demoNarrativeSection">
-          <div className="demoLabel">11 · GÜVERTE / DIŞ DONANIM</div>
+          <div className="demoLabel">GÜVERTE & DIŞ DONANIM</div>
           <details className="demoAccordion">
             <summary><span>GÜVERTE & DIŞ DONANIM</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
@@ -170,7 +167,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="demoNarrativeSection" id="bakim">
-          <div className="demoLabel">12 · BAKIM / TESLİM / GARANTİ</div>
+          <div className="demoLabel">BAKIM & TESLİM</div>
           <details className="demoAccordion">
             <summary><span>BAKIM & TESLİM BİLGİLERİ</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
@@ -185,7 +182,7 @@ export default function DemoListingPage(){
         </section>
 
         <section className="demoNarrativeSection">
-          <div className="demoLabel">13 · SATIŞ NOTLARI</div>
+          <div className="demoLabel">SATIŞ BİLGİLERİ</div>
           <details className="demoAccordion">
             <summary><span>SATIŞA DAHİL OLANLAR</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
@@ -204,7 +201,7 @@ export default function DemoListingPage(){
       </section>
 
       <aside className="syRefSidebar demoProSidebar">
-        <div className="demoLabel">14 · FİYAT / SATICI / İLETİŞİM</div>
+        <div className="demoLabel">YETKİLİ SATICI</div>
 
         <section className="demoSellerPro">
           <div className="demoSellerProTop">
@@ -250,7 +247,7 @@ export default function DemoListingPage(){
         </section>
 
         <div className="demoAdSlot">
-          <span>REKLAM · 300 × 300</span>
+          <span>REKLAM</span>
           <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-firma-magaza-300.webp" alt="300x300 demo reklam"/></a>
         </div>
 
@@ -267,7 +264,7 @@ export default function DemoListingPage(){
         </section>
 
         <div className="demoAdSlot">
-          <span>REKLAM · 300 × 300</span>
+          <span>REKLAM</span>
           <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-house-ad-300-png.webp" alt="300x300 ikinci demo reklam"/></a>
         </div>
 
@@ -282,7 +279,6 @@ export default function DemoListingPage(){
     <section className="syRefBottom">
       <div className="syRefBottomGrid">
         <div className="syRefBottomLeft">
-          <div className="demoLabel">15 · BENZER İLANLAR</div>
           <div className="syRefSectionHead syRefRelatedHead">
             <div><small>SİZİN İÇİN SEÇTİKLERİMİZ</small><h2>Benzer İlanlar</h2></div>
             <a href="/satilik">Tüm İlanları Gör ›</a>
@@ -320,7 +316,7 @@ export default function DemoListingPage(){
         </div>
 
         <aside className="syRefBottomAds demoTripleAds">
-          <div className="demoLabel">16 · 3 ADET 300 × 300 REKLAM</div>
+          <div className="demoLabel">REKLAM</div>
           {[
             '/ads/motoryat-house-ad-300-png.webp',
             '/ads/motoryat-firma-magaza-300.webp',
