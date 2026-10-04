@@ -4,6 +4,37 @@ import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
 const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.webp'];
 
+
+function SellerCard({className=''}) {
+  return <aside className={'refSellerCard '+className}>
+    <div className="refSellerTopline">
+      <span>YETKİLİ SATICI</span>
+      <b>✓ DOĞRULANMIŞ</b>
+    </div>
+
+    <div className="refSellerIdentity">
+      <small>KURUMSAL MAĞAZA</small>
+      <h2>Motoryat Partner</h2>
+      <p>⌖ Marina Punat · Hırvatistan</p>
+    </div>
+
+    <div className="refSellerAgent">
+      <small>İLAN YETKİLİSİ</small>
+      <strong>Satış Ekibi</strong>
+      <span>+90 5XX XXX XX XX</span>
+    </div>
+
+    <div className="refSellerActions">
+      <a className="refCall" href="#">☎ TELEFONU GÖSTER</a>
+      <a className="refWhatsapp" href="#">◉ WHATSAPP İLE YAZ</a>
+    </div>
+
+    <a className="refSellerAll" href="/magazalar">Mağazanın Tüm İlanları <b>→</b></a>
+    <a className="refSellerProfile" href="/magazalar">Mağaza bilgilerini görüntüle <b>›</b></a>
+    <a className="refSellerBrochure" href="#">Broşürü İndir <b>PDF</b></a>
+  </aside>;
+}
+
 export default function DemoListingPage(){
   return <><SiteHeader/><main className="syRefPage refListingDemo">
     <div className="refListingShell">
@@ -44,33 +75,7 @@ export default function DemoListingPage(){
           />
         </section>
 
-        <aside className="refSellerCard">
-          <div className="refSellerTopline">
-            <span>YETKİLİ SATICI</span>
-            <b>✓ DOĞRULANMIŞ</b>
-          </div>
-
-          <div className="refSellerIdentity">
-            <small>KURUMSAL MAĞAZA</small>
-            <h2>Motoryat Partner</h2>
-            <p>⌖ Marina Punat · Hırvatistan</p>
-          </div>
-
-          <div className="refSellerAgent">
-            <small>İLAN YETKİLİSİ</small>
-            <strong>Satış Ekibi</strong>
-            <span>+90 5XX XXX XX XX</span>
-          </div>
-
-          <div className="refSellerActions">
-            <a className="refCall" href="#">☎ TELEFONU GÖSTER</a>
-            <a className="refWhatsapp" href="#">◉ WHATSAPP İLE YAZ</a>
-          </div>
-
-          <a className="refSellerAll" href="/magazalar">Mağazanın Tüm İlanları <b>→</b></a>
-          <a className="refSellerProfile" href="/magazalar">Mağaza bilgilerini görüntüle <b>›</b></a>
-          <a className="refSellerBrochure" href="#">Broşürü İndir <b>PDF</b></a>
-        </aside>
+        <SellerCard className="refSellerDesktop"/>
       </div>
 
       <section className="refQuickFacts" aria-label="Temel tekne bilgileri">
@@ -119,6 +124,8 @@ export default function DemoListingPage(){
           </div>
         </section>
       </section>
+
+      <SellerCard className="refSellerMobile"/>
     </div>
 
     <div className="refMobileSticky">
