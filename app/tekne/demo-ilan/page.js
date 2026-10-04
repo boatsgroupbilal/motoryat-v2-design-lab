@@ -57,10 +57,7 @@ export default function DemoListingPage(){
         <span className="demoCount">24 FOTOĞRAF · 1 VİDEO</span>
       </div>
 
-      <div className="demoLabel">2 · BROŞÜR ALANI</div>
-      <div className="syRefBrochure"><span>BROŞÜRÜ İNDİRİN</span><b>PDF</b></div>
-
-      <div className="demoLabel">3 · İLAN BİLGİ BAŞLIĞI</div>
+      <div className="demoLabel">2 · İLAN BİLGİ BAŞLIĞI</div>
       <div className="syRefTabs demoGeneralTab">
         <nav aria-label="Demo ilan bölümü">
           <a className="active" href="#genel-bakis">GENEL ÖZELLİKLER</a>
