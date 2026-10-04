@@ -14,6 +14,21 @@ const detailMeta={
   'lady-luna-experience':{seller:'Lady Luna Charter',sellerSlug:'lady-luna',year:'2022'}
 };
 
+function pick(item,...keys){
+  for(const key of keys){
+    const value=item?.[key];
+    if(value!==undefined && value!==null && value!=='') return value;
+  }
+  return null;
+}
+function textValue(value,suffix=''){
+  if(value===undefined || value===null || value==='') return null;
+  return String(value)+(suffix||'');
+}
+function row(label,value){
+  return value===undefined || value===null || value==='' ? null : [label,String(value)];
+}
+
 export default async function Page({params}){
   const {slug}=await params;
   const all=[...saleListings,...charterListings];
@@ -37,6 +52,61 @@ export default async function Page({params}){
     ? ['/ads/motoryat-house-ad-300-png.webp']
     : ['/ads/motoryat-firma-magaza-300.webp'];
   const sellerHref=info.sellerSlug==='magazalar'?'/magazalar':'/magaza/'+info.sellerSlug;
+
+  const generalRows=[
+    row('Tekne kimliği',pick(item,'listing_id','boat_id','id')),
+    row('Tekne modeli',pick(item,'model','model_name')),
+    row('Tekne adı',pick(item,'boat_name','vessel_name','name')),
+    row('Üretici',pick(item,'manufacturer','brand_name','brand')),
+    row('Tekne türü',pick(item,'vessel_type','boat_type')),
+    row('Kategori',pick(item,'category','condition')),
+    row('Üretim yılı',pick(item,'year')),
+    row('Durum',pick(item,'condition','status_text')),
+    row('Konum',pick(item,'location')),
+    row('Bayrak',pick(item,'flag','flag_country')),
+    row('Kişi',pick(item,'guest_capacity','guests','capacity')),
+    row('Kabin / yataklar',pick(item,'cabins_beds','cabins_and_beds')),
+    row('Gövde malzemesi',pick(item,'hull_material')),
+    row('Gövde türü',pick(item,'hull_type'))
+  ].filter(Boolean);
+
+  const technicalRows=[
+    row('Motor',pick(item,'engine','engine_model','motor')),
+    row('Motor gücü',pick(item,'engine_power','motor_power','power')),
+    row('Motor saati',pick(item,'engine_hours','motor_hours')),
+    row('Yakıt',pick(item,'fuel','fuel_type')),
+    row('Tahrik',pick(item,'drive','drive_type','propulsion')),
+    row('Seyir hızı',pick(item,'cruising_speed','cruise_speed')),
+    row('Azami hız',pick(item,'max_speed','maximum_speed')),
+    row('Seyir hızında tüketim',pick(item,'cruise_consumption','cruising_consumption')),
+    row('Azami hızda tüketim',pick(item,'max_consumption','maximum_consumption')),
+    row('Yakıt deposu',pick(item,'fuel_tank','fuel_capacity')),
+    row('Temiz su deposu',pick(item,'water_tank','fresh_water_capacity')),
+    row('Pis su tankı',pick(item,'waste_tank','black_water_capacity')),
+    row('Duş',pick(item,'showers','shower_count')),
+    row('Tuvalet sayısı',pick(item,'toilets','wc_count')),
+    row('Isıtıcı',pick(item,'heating','heater')),
+    row('Jeneratör',pick(item,'generator')),
+    row('Klima',pick(item,'air_conditioning','aircon'))
+  ].filter(Boolean);
+
+  const visualFacts=[
+    row('BOY',pick(item,'length') ? textValue(pick(item,'length'),' m') : length),
+    row('GENİŞLİK',pick(item,'beam','width') ? textValue(pick(item,'beam','width'),' m') : null),
+    row('SU ÇEKİMİ',pick(item,'draft') ? textValue(pick(item,'draft'),' m') : null),
+    row('AĞIRLIK',pick(item,'weight','displacement')),
+    row('MOTOR',pick(item,'engine_power','motor_power','power')),
+    row('KABİN',pick(item,'cabins'))
+  ].filter(Boolean).slice(0,6);
+
+  const description=pick(item,'description','long_description','short_description');
+  const equipmentRaw=pick(item,'equipment','equipment_list','features');
+  const equipmentItems=Array.isArray(equipmentRaw)
+    ? equipmentRaw.filter(Boolean)
+    : typeof equipmentRaw==='string'
+      ? equipmentRaw.split(/\n|,|;/).map(x=>x.trim()).filter(Boolean)
+      : [];
+  const maintenance=pick(item,'maintenance','maintenance_history','service_history','refit_notes');
 
   return <><SiteHeader/><main className="syRefPage">
     <div className="syRefGalleryWrap">
@@ -71,32 +141,41 @@ export default async function Page({params}){
           <span>♙ {isCharter?'Charter':'Satılık'}</span>
         </div>
 
-        <div className="syRefCopy">
-          <p>{item.title}, seçili görselleri, temel teknik bilgileri ve yetkili firma iletişim alanlarını tek sayfada sunan sade bir ilan yapısına sahiptir.</p>
-          <p>{isCharter
-            ? 'Güncel müsaitlik, rota ve fiyat bilgileri için yetkili firma ile doğrudan iletişime geçebilirsiniz.'
-            : 'Fiyat, konum, donanım ve güncel satış durumu için yetkili firma ile doğrudan iletişime geçebilirsiniz.'}</p>
-        </div>
+        {description ? <div className="syRefCopy">
+          <p>{description}</p>
+        </div> : null}
 
-        <button type="button" className="syRefExpand">⌄ GENİŞLETMEK</button>
+        {visualFacts.length ? <div className="realVisualFacts">
+          {visualFacts.map(([label,value])=><div key={label}><small>{label}</small><b>{value}</b></div>)}
+        </div> : null}
 
-        <section className="syRefTechnical" id="teknik">
-          <div id="techizat" className="syRefAnchorSection">
-            <h2>TEÇHİZAT</h2>
-            <div className="syRefTechGrid">
-              <div><span>Boy</span><b>{length}</b></div>
-              <div><span>Yıl</span><b>{info.year}</b></div>
-              <div><span>Durum</span><b>{status}</b></div>
-              <div><span>Konum</span><b>{location}</b></div>
+        {generalRows.length ? <section className="realDataSection">
+          <h2>Tekne Bilgileri</h2>
+          <dl className="realDataList">
+            {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+        </section> : null}
+
+        {technicalRows.length ? <section className="realDataSection">
+          <h2>Teknik Bilgiler</h2>
+          <dl className="realDataList">
+            {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+        </section> : null}
+
+        {equipmentItems.length ? <details className="realDetailAccordion">
+          <summary><span>Donanım & Teçhizat</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody">
+            <div className="realEquipmentList">
+              {equipmentItems.map((x,i)=><span key={i}>✓ {x}</span>)}
             </div>
           </div>
-          <div id="ozellikler" className="syRefAnchorSection">
-            <h2>ÖZELLİKLER</h2>
-            <div className="syRefTechGrid">
-              <div><span>İlan Türü</span><b>{isCharter?'Kiralık':'Satılık'}</b></div>
-              <div><span>Yetkili Firma</span><b>{info.seller}</b></div>
-            </div>
-          </div>
+        </details> : null}
+
+        {maintenance ? <details className="realDetailAccordion">
+          <summary><span>Bakım & Servis Geçmişi</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody"><p>{maintenance}</p></div>
+        </details> : null}
         </section>
       </section>
 
