@@ -127,7 +127,7 @@ export default function DemoListingPage(){
 
         <section className="demoNarrativeSection">
           <div className="demoLabel">9 · MOTOR / PERFORMANS</div>
-          <details className="demoAccordion" open>
+          <details className="demoAccordion">
             <summary><span>MOTOR & PERFORMANS</span><b>Daha Fazla Gör</b></summary>
             <div className="demoAccordionBody">
               <p>Çift Volvo Penta D6 dizel motor toplam 880 HP güç üretir. Normal seyir hızı yaklaşık 24 knot, uygun deniz ve yük koşullarında maksimum hız yaklaşık 31 knot seviyesindedir. Joystick kontrolü, bow thruster ve elektronik gaz kolları düşük hız manevralarında kolaylık sağlar.</p>
