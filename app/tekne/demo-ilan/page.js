@@ -319,17 +319,11 @@ export default function DemoListingPage(){
           </div>
         </div>
 
-        <aside className="syRefBottomAds demoTripleAds" aria-label="Sponsorlu reklamlar">
-          {[
-            '/ads/motoryat-house-ad-300-png.webp',
-            '/ads/motoryat-firma-magaza-300.webp',
-            '/ads/la-romana-charters-300x300.gif'
-          ].map((src,i)=>
-            <a className="syRefBottomAd demoAdCard" href="/magazalar" key={src} aria-label={`Sponsorlu reklam ${i+1}`}>
-              <span className="demoAdBadge">SPONSORLU</span>
-              <img src={src} alt={`Sponsorlu reklam ${i+1}`}/>
-            </a>
-          )}
+        <aside className="syRefBottomAds demoTripleAds" aria-label="Sponsorlu reklam">
+          <a className="syRefBottomAd demoAdCard" href="/magazalar" aria-label="Sponsorlu reklam">
+            <span className="demoAdBadge">SPONSORLU</span>
+            <img src="/ads/motoryat-house-ad-300-png.webp" alt="Sponsorlu reklam"/>
+          </a>
         </aside>
       </div>
     </section>
