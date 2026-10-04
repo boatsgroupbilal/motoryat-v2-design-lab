@@ -1,6 +1,7 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
+import MobileListingFilters from '../../components/MobileListingFilters';
 import {charterListings} from '../../data/content';
 
 const sellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
@@ -9,6 +10,7 @@ const years=['2022','2024','2022','2022'];
 export default function Page(){
  const listings=[...charterListings,...charterListings];
  return <><SiteHeader/><main className="luxListingPage">
+  <MobileListingFilters type="charter"/>
   <section className="luxPageTop luxCharterTop"><div className="syContainer">
    <div className="luxCrumb">Motoryat / Kiralık</div>
    <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>200+</strong><span>charter</span></div></div>
