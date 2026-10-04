@@ -1,52 +1,102 @@
 'use client';
 
-import {useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 
-const media=[
-  {type:'image',src:'/sale-yener-35.webp',alt:'Demo Yacht 42 ana görünüm'},
-  {type:'video',src:'/listings/grande-mare/gm42/walkthrough.mp4',poster:'/sale-euro-700.webp',alt:'Demo Yacht 42 video'},
-  {type:'image',src:'/sale-euro-850.webp',alt:'Demo Yacht 42 üst görünüm'},
-  {type:'image',src:'/sale-euro-760.webp',alt:'Demo Yacht 42 tersane görünümü'},
-  {type:'image',src:'/charter-luna-hero.webp',alt:'Demo Yacht 42 kıç görünüm'}
-];
+export default function DemoMosaicGallery({
+  title='Yat',
+  images=[],
+  photoCount,
+  videoCount=1,
+  videoSrc='/listings/grande-mare/gm42/walkthrough.mp4'
+}){
+  const fallback=[
+    '/sale-yener-35.webp',
+    '/sale-euro-700.webp',
+    '/sale-euro-850.webp',
+    '/sale-euro-760.webp',
+    '/charter-luna-hero.webp'
+  ];
+  const unique=[...new Set([...(images||[]),...fallback].filter(Boolean))];
+  const gallery=unique.slice(0,Math.max(5,unique.length));
+  const shown=[gallery[0],gallery[1],gallery[2],gallery[3],gallery[4]];
+  const totalPhotos=photoCount||gallery.length;
 
-export default function DemoMosaicGallery(){
   const [active,setActive]=useState(null);
-  const open=item=>setActive(item);
-  const close=()=>setActive(null);
+  const [videoOpen,setVideoOpen]=useState(false);
+  const touchStart=useRef(null);
+
+  useEffect(()=>{
+    if(active===null&&!videoOpen) return;
+    const onKey=e=>{
+      if(e.key==='Escape'){setActive(null);setVideoOpen(false)}
+      if(active!==null&&e.key==='ArrowLeft') setActive(v=>(v-1+gallery.length)%gallery.length);
+      if(active!==null&&e.key==='ArrowRight') setActive(v=>(v+1)%gallery.length);
+    };
+    window.addEventListener('keydown',onKey);
+    return ()=>window.removeEventListener('keydown',onKey);
+  },[active,videoOpen,gallery.length]);
+
+  const move=(delta,e)=>{
+    e?.stopPropagation();
+    setActive(v=>(v+delta+gallery.length)%gallery.length);
+  };
+
+  const onTouchStart=e=>{
+    touchStart.current=e.touches?.[0]?.clientX??null;
+  };
+  const onTouchEnd=e=>{
+    if(active===null||touchStart.current==null) return;
+    const end=e.changedTouches?.[0]?.clientX??touchStart.current;
+    const delta=end-touchStart.current;
+    touchStart.current=null;
+    if(Math.abs(delta)<45) return;
+    setActive(v=>delta<0?(v+1)%gallery.length:(v-1+gallery.length)%gallery.length);
+  };
 
   return <>
-    <div className="demoMosaicGallery">
-      <button className="demoMosaicMain" type="button" onClick={()=>open(media[0])} aria-label="Ana fotoğrafı büyüt">
-        <img src={media[0].src} alt={media[0].alt}/>
-        <span className="demoStockBadge">SATILIK</span>
+    <section className="demoMosaicGallery" aria-label={title+' galerisi'}>
+      <button className="demoMosaicMain" type="button" onClick={()=>setActive(0)} aria-label="Ana fotoğrafı büyüt">
+        <img src={shown[0]} alt={title+' ana görünüm'}/>
+        <span className="demoMosaicStatus">SATILIK</span>
       </button>
 
-      <button className="demoMosaicTile demoMosaicVideo" type="button" onClick={()=>open(media[1])} aria-label="Videoyu aç">
-        <img src={media[1].poster} alt={media[1].alt}/>
-        <span className="demoPlayCircle">▶</span>
-        <strong>VİDEOLARI İZLE <b>(1)</b></strong>
-      </button>
+      <div className="demoMosaicSide">
+        <button className="demoMosaicTile demoMosaicVideo" type="button" onClick={()=>setVideoOpen(true)} aria-label="Videoları izle">
+          <img src={shown[1]} alt={title+' video önizleme'}/>
+          <span className="demoMosaicVideoShade">
+            <i className="demoMosaicPlay">▶</i>
+            <b>VİDEOLARI İZLE ({videoCount})</b>
+          </span>
+        </button>
 
-      <button className="demoMosaicTile" type="button" onClick={()=>open(media[2])} aria-label="Fotoğrafı büyüt">
-        <img src={media[2].src} alt={media[2].alt}/>
-      </button>
+        <button className="demoMosaicTile" type="button" onClick={()=>setActive(2)} aria-label="Fotoğrafı büyüt">
+          <img src={shown[2]} alt={title+' üst görünüm'}/>
+        </button>
 
-      <button className="demoMosaicTile" type="button" onClick={()=>open(media[3])} aria-label="Fotoğrafı büyüt">
-        <img src={media[3].src} alt={media[3].alt}/>
-      </button>
+        <button className="demoMosaicTile" type="button" onClick={()=>setActive(3)} aria-label="Fotoğrafı büyüt">
+          <img src={shown[3]} alt={title+' detay görünüm'}/>
+        </button>
 
-      <button className="demoMosaicTile demoMosaicCountTile" type="button" onClick={()=>open(media[4])} aria-label="Tüm fotoğrafları gör">
-        <img src={media[4].src} alt={media[4].alt}/>
-        <span className="demoPhotoCount">▣ <b>24 FOTOĞRAF</b></span>
-      </button>
-    </div>
+        <button className="demoMosaicTile demoMosaicCountTile" type="button" onClick={()=>setActive(4)} aria-label="Tüm fotoğrafları gör">
+          <img src={shown[4]} alt={title+' kıç görünüm'}/>
+          <span className="demoMosaicCount">▣ <b>{totalPhotos} FOTOĞRAF</b></span>
+        </button>
+      </div>
+    </section>
 
-    {active&&<div className="demoLightbox" role="dialog" aria-modal="true" aria-label="Galeri önizleme">
-      <button className="demoLightboxClose" type="button" onClick={close} aria-label="Kapat">×</button>
-      {active.type==='video'
-        ? <video controls autoPlay playsInline poster={active.poster}><source src={active.src} type="video/mp4"/></video>
-        : <img src={active.src} alt={active.alt}/>}
+    {active!==null&&<div className="demoMosaicModal" role="dialog" aria-modal="true" aria-label="Fotoğraf galerisi" onClick={()=>setActive(null)} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      <button className="demoMosaicClose" type="button" onClick={()=>setActive(null)} aria-label="Kapat">×</button>
+      {gallery.length>1&&<button className="demoMosaicPrev" type="button" onClick={e=>move(-1,e)} aria-label="Önceki fotoğraf">‹</button>}
+      <img src={gallery[active]} alt={title+' büyük görünüm '+(active+1)} onClick={e=>e.stopPropagation()}/>
+      {gallery.length>1&&<button className="demoMosaicNext" type="button" onClick={e=>move(1,e)} aria-label="Sonraki fotoğraf">›</button>}
+      <div className="demoMosaicCounter">{active+1} / {gallery.length}</div>
+    </div>}
+
+    {videoOpen&&<div className="demoMosaicModal" role="dialog" aria-modal="true" aria-label="Yat videosu" onClick={()=>setVideoOpen(false)}>
+      <button className="demoMosaicClose" type="button" onClick={()=>setVideoOpen(false)} aria-label="Kapat">×</button>
+      <video className="demoMosaicModalVideo" controls autoPlay playsInline poster={shown[1]} onClick={e=>e.stopPropagation()}>
+        <source src={videoSrc} type="video/mp4"/>
+      </video>
     </div>}
   </>;
 }
