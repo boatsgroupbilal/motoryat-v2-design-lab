@@ -75,20 +75,56 @@ export default function DemoListingPage(){
         </section>
       </section>
 
-      <aside className="syRefSidebar">
+      <aside className="syRefSidebar demoProSidebar">
         <div className="demoLabel">8 · FİYAT / SATICI / İLETİŞİM</div>
-        <div className="syRefSellerCard">
-          <div className="syRefSellerTop">
-            <span>SATILIK</span>
-            <div className="syRefSellerBrand"><img src="/motoryat-logo.svg" alt=""/><b>Demo Yachts</b></div>
-          </div>
-          <div className="syRefSellerActions"><a href="#">☎</a><a className="more" href="#">DAHA FAZLA BİLGİ</a><a href="#">✉</a></div>
-          <div className="syRefPriceBlock"><small>LİSTELENMİŞ FİYAT</small><strong>€ 1.250.000</strong><p>MEVCUT KONUM: <b>İstanbul, Türkiye</b></p></div>
-          <a className="syRefSellerBrochure" href="#">BROŞÜRÜ İNDİRİN <b>PDF</b></a>
-        </div>
 
-        <div className="demoLabel">9 · 300 × 300 REKLAM</div>
-        <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-firma-magaza-300.webp" alt="300x300 demo reklam"/></a>
+        <section className="demoSellerPro">
+          <div className="demoSellerProTop">
+            <span className="demoSalePill">SATILIK</span>
+            <span className="demoVerified">✓ DOĞRULANMIŞ FİRMA</span>
+          </div>
+
+          <div className="demoCompanyHead">
+            <div className="demoCompanyLogo"><img src="/motoryat-logo.svg" alt="Demo Yachts"/></div>
+            <div className="demoCompanyTitle">
+              <small>YETKİLİ SATICI</small>
+              <h3>Demo Yachts</h3>
+              <p>İstanbul, Türkiye</p>
+            </div>
+          </div>
+
+          <div className="demoCompanyMeta">
+            <span><b>24</b><small>Aktif İlan</small></span>
+            <span><b>12+</b><small>Yıl Deneyim</small></span>
+            <span><b>Hızlı</b><small>Yanıt</small></span>
+          </div>
+
+          <div className="demoPricePro">
+            <small>LİSTELENMİŞ FİYAT</small>
+            <strong>€ 1.250.000</strong>
+            <p>Vergiler ve teslim koşulları için satıcıdan teyit alın.</p>
+          </div>
+
+          <div className="demoContactGrid">
+            <a href="#">☎ <span>Ara</span></a>
+            <a href="#">◉ <span>WhatsApp</span></a>
+            <a href="#">✉ <span>E-posta</span></a>
+          </div>
+
+          <a className="demoPrimaryCta" href="#">FİYAT VE DETAYLI BİLGİ AL</a>
+
+          <div className="demoSellerLinks">
+            <a href="/magazalar">Firma Profilini Gör <b>→</b></a>
+            <a href="#">Broşürü İndir <b>PDF</b></a>
+          </div>
+
+          <div className="demoTrustLine">Motoryat doğrulanmış ticari profil · İletişim bilgileri firma tarafından sağlanır.</div>
+        </section>
+
+        <div className="demoAdSlot">
+          <span>REKLAM · 300 × 300</span>
+          <a className="syRefAd" href="/magazalar"><img src="/ads/motoryat-firma-magaza-300.webp" alt="300x300 demo reklam"/></a>
+        </div>
       </aside>
     </div>
 
