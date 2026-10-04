@@ -60,13 +60,10 @@ export default function DemoListingPage(){
       <div className="demoLabel">2 · BROŞÜR ALANI</div>
       <div className="syRefBrochure"><span>BROŞÜRÜ İNDİRİN</span><b>PDF</b></div>
 
-      <div className="demoLabel">3 · İLAN İÇİ SEKME MENÜSÜ</div>
-      <div className="syRefTabs">
-        <nav aria-label="Demo ilan bölümleri">
-          <a className="active" href="#genel-bakis">GENEL BAKIŞ</a>
-          <a href="#techizat">TEÇHİZAT</a>
-          <a href="#ozellikler">ÖZELLİKLER</a>
-          <a href="#bakim">BAKIM & TESLİM</a>
+      <div className="demoLabel">3 · İLAN BİLGİ BAŞLIĞI</div>
+      <div className="syRefTabs demoGeneralTab">
+        <nav aria-label="Demo ilan bölümü">
+          <a className="active" href="#genel-bakis">GENEL ÖZELLİKLER</a>
         </nav>
         <div className="syRefTabsActions"><button type="button">↗</button><a href="/satilik">SATIŞ ARAMA⌕</a></div>
       </div>
