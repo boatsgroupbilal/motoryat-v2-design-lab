@@ -866,3 +866,198 @@ html,body{
   .demoCompanyHead{grid-template-columns:52px 1fr!important}
   .demoCompanyLogo{width:52px!important;height:52px!important}
 }
+
+
+/* Demo related listing reference layout + 3x 300 ads */
+.demoRelatedReference{
+  display:grid!important;
+  gap:12px!important;
+}
+.demoRefRelatedCard{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.55fr) 180px 320px 42px!important;
+  min-height:180px!important;
+  max-height:180px!important;
+  overflow:hidden!important;
+  text-decoration:none!important;
+  background:#fff!important;
+  border:1px solid #d9e1e6!important;
+}
+.demoRefMainMedia{
+  position:relative!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.demoRefMainMedia img,
+.demoRefSideMedia>img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.demoRefMediaCount{
+  position:absolute!important;
+  left:10px!important;
+  bottom:8px!important;
+  display:flex!important;
+  gap:12px!important;
+  padding:4px 7px!important;
+  background:rgba(255,255,255,.92)!important;
+  color:#516574!important;
+  font-size:8px!important;
+}
+.demoRefSideMedia{
+  display:grid!important;
+  grid-template-rows:1fr 72px!important;
+  border-left:3px solid #fff!important;
+  border-right:3px solid #fff!important;
+  background:#aeb4ba!important;
+  overflow:hidden!important;
+}
+.demoRefBroker{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  color:#fff!important;
+  background:#a9afb5!important;
+  text-align:center!important;
+}
+.demoRefBroker b{
+  font-size:9px!important;
+}
+.demoRefBroker span{
+  font-size:8px!important;
+}
+.demoRefInfo{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:14px 18px!important;
+  background:#08263b!important;
+  color:#fff!important;
+}
+.demoRefInfo h3{
+  margin:0!important;
+  font-size:19px!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  color:#fff!important;
+}
+.demoRefInfo>p{
+  margin:4px 0 10px!important;
+  text-align:center!important;
+  font-size:9px!important;
+  font-weight:700!important;
+  color:#d6e1e8!important;
+}
+.demoRefFacts{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  margin:0 0 10px!important;
+}
+.demoRefFacts span{
+  min-width:0!important;
+  padding:0 8px!important;
+  text-align:center!important;
+}
+.demoRefFacts span+span{
+  border-left:1px solid rgba(255,255,255,.45)!important;
+}
+.demoRefFacts small{
+  display:block!important;
+  color:#ffb126!important;
+  font-size:8px!important;
+  font-weight:800!important;
+}
+.demoRefFacts b{
+  display:block!important;
+  margin-top:2px!important;
+  font-size:12px!important;
+  color:#fff!important;
+}
+.demoRefPrice{
+  text-align:center!important;
+}
+.demoRefPrice small{
+  margin-right:5px!important;
+  color:#ffb126!important;
+  font-size:8px!important;
+}
+.demoRefPrice strong{
+  color:#ffb126!important;
+  font-size:12px!important;
+}
+.demoRefSaleBand{
+  display:grid!important;
+  grid-template-rows:42px 1fr!important;
+  background:#ffab21!important;
+  color:#fff!important;
+  text-align:center!important;
+}
+.demoRefSaleBand b{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:25px!important;
+  line-height:1!important;
+}
+.demoRefSaleBand span{
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:9px!important;
+  font-weight:800!important;
+}
+.demoTripleAds{
+  padding-top:58px!important;
+  gap:12px!important;
+}
+.demoTripleAds .demoLabel{
+  margin:0 0 2px!important;
+  text-align:left!important;
+}
+.demoTripleAds .syRefBottomAd{
+  width:300px!important;
+  height:300px!important;
+  margin:0!important;
+  border:0!important;
+}
+.demoTripleAds .syRefBottomAd img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+
+@media(max-width:1100px){
+  .demoRefRelatedCard{
+    grid-template-columns:minmax(0,1.4fr) 150px 270px 38px!important;
+    min-height:165px!important;
+    max-height:165px!important;
+  }
+  .demoRefSideMedia{
+    grid-template-rows:1fr 64px!important;
+  }
+  .demoRefInfo h3{font-size:17px!important}
+  .demoTripleAds .syRefBottomAd{
+    width:260px!important;
+    height:260px!important;
+  }
+}
+@media(max-width:820px){
+  .demoRefRelatedCard{
+    grid-template-columns:1.45fr .75fr!important;
+    grid-template-areas:
+      "main side"
+      "info info"!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+  .demoRefMainMedia{grid-area:main!important;min-height:150px!important}
+  .demoRefSideMedia{grid-area:side!important;min-height:150px!important}
+  .demoRefInfo{grid-area:info!important}
+  .demoRefSaleBand{display:none!important}
+  .demoTripleAds{display:none!important}
+}
