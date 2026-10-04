@@ -82,8 +82,42 @@ export default function DemoListingPage(){
       </section>
 
       <section className="refListingDetails" id="genel-bakis">
-        <h2>İLAN DETAYLARI</h2>
-        <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ve güçlü performansı bir araya getiren bir motoryattır. İki kabinli yerleşimi, geniş kokpiti ve pratik yaşam alanlarıyla aile kullanımı ve uzun hafta sonu seyirleri için uygundur. Tekne Marina Punat, Hırvatistan’da görülebilir.</p>
+        <section className="refAboutSection">
+          <span className="refSectionEyebrow">İLAN AÇIKLAMASI</span>
+          <h2>İLAN HAKKINDA</h2>
+          <h3>Bavaria S 36 HT Diesel</h3>
+          <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ve güçlü performansı bir araya getiren bir motoryattır. İki kabinli yerleşimi, geniş kokpiti ve pratik yaşam alanlarıyla aile kullanımı ve uzun hafta sonu seyirleri için uygundur. Tekne Marina Punat, Hırvatistan’da görülebilir.</p>
+        </section>
+
+        <section className="refSpecsSection">
+          <span className="refSectionEyebrow">İLAN ÖZELLİKLERİ</span>
+          <h2>Teknik Özellikler</h2>
+          <div className="refSpecsGrid">
+            <dl>
+              <div><dt>Model Yılı</dt><dd>2018</dd></div>
+              <div><dt>Uzunluk</dt><dd>11,66 m</dd></div>
+              <div><dt>Genişlik</dt><dd>3,59 m</dd></div>
+              <div><dt>Su Çekimi</dt><dd>1,05 m</dd></div>
+              <div><dt>Marka</dt><dd>Bavaria</dd></div>
+              <div><dt>Model</dt><dd>S 36 HT Diesel</dd></div>
+              <div><dt>Tekne Tipi</dt><dd>Motorlu Yat</dd></div>
+              <div><dt>Durum</dt><dd>İkinci El · Yeni Gibi</dd></div>
+              <div><dt>İlan No</dt><dd>S68211</dd></div>
+            </dl>
+
+            <dl>
+              <div><dt>Yolcu Kapasitesi</dt><dd>8</dd></div>
+              <div><dt>Kabin</dt><dd>2</dd></div>
+              <div><dt>Motor</dt><dd>2 × Volvo Penta D3</dd></div>
+              <div><dt>Yakıt Tipi</dt><dd>Dizel</dd></div>
+              <div><dt>Yakıt Tankı</dt><dd>520 L</dd></div>
+              <div><dt>Su Tankı</dt><dd>250 L</dd></div>
+              <div><dt>Seyir Hızı</dt><dd>24 kn</dd></div>
+              <div><dt>Maksimum Hız</dt><dd>30 kn</dd></div>
+              <div><dt>Konum</dt><dd>Marina Punat · Hırvatistan</dd></div>
+            </dl>
+          </div>
+        </section>
       </section>
     </div>
 
