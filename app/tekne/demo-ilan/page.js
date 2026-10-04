@@ -70,20 +70,35 @@ export default function DemoListingPage(){
 
     <div className="syRefContentWrap" id="genel-bakis">
       <section className="syRefOverview">
-        <div className="demoLabel">İLAN BİLGİLERİ</div>
-        <div className="syRefOverviewTop">
-          <div><span className="syRefEyebrow">SATILIK · YENİ</span><h1>DEMO YACHT 42</h1></div>
-          <button type="button" className="syRefInfoDot">i</button>
-        </div>
+        <section className="demoListingHeaderCard">
+          <div className="demoListingHeaderTop">
+            <div>
+              <span className="demoListingType">SATILIK · YENİ</span>
+              <h1>DEMO YACHT 42</h1>
+              <p>Demo Yachts · İstanbul, Türkiye</p>
+            </div>
+            <div className="demoListingPrice">
+              <small>LİSTELENMİŞ FİYAT</small>
+              <strong>€ 1.250.000</strong>
+              <span>Vergi ve teslim koşulları için satıcıdan teyit alın.</span>
+            </div>
+          </div>
 
-        <div className="syRefMetaLine">
-          <span>⌁ Demo Yachts</span><span>▣ 2026</span><span>↔ 12.80 m</span><span>♙ İstanbul</span><span>✓ Doğrulanmış Firma</span>
-        </div>
+          <div className="demoListingQuickFacts">
+            <div><small>MODEL YILI</small><b>2026</b></div>
+            <div><small>BOY</small><b>12.80 m</b></div>
+            <div><small>MOTOR</small><b>2 × 440 HP</b></div>
+            <div><small>KABİN</small><b>2</b></div>
+            <div><small>KONUM</small><b>İstanbul</b></div>
+            <div><small>DURUM</small><b>Yeni</b></div>
+          </div>
 
-        <div className="demoListingIntro">
-          <strong>€ 1.250.000</strong>
-          <span>Vergi durumu ve teslim koşulları için satıcıdan teyit alın.</span>
-        </div>
+          <div className="demoListingHeaderFoot">
+            <span>✓ Doğrulanmış Firma</span>
+            <span>İlan No: MY-DEMO-0042</span>
+            <span>Son Güncelleme: Bugün</span>
+          </div>
+        </section>
 
         <div className="demoLabel">İLAN AÇIKLAMASI</div>
         <div className="syRefCopy demoFullCopy">
