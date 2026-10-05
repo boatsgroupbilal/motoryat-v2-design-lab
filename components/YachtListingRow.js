@@ -48,7 +48,6 @@ export default function YachtListingRow({
 
     <div className="sqYachtBrand premiumSellerName">
       <div className="sqYachtBrandText">
-        <small>YETKİLİ SATICI</small>
         <strong>{brand}</strong>
       </div>
       <span className="premiumSellerVerified" aria-label="Doğrulanmış firma">✓</span>
