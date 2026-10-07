@@ -2,10 +2,10 @@ import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
 import MobileListingFilters from '../../components/MobileListingFilters';
-import {saleListings} from '../../data/content';
+import {saleListings,demoListing} from '../../data/content';
 
 export default function Page(){
- const listings=saleListings;
+ const listings=[demoListing,...saleListings.filter(x=>x.slug!==demoListing.slug)];
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="sale"/>
   <section className="luxPageTop"><div className="syContainer">
