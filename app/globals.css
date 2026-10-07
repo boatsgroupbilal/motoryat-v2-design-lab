@@ -13402,3 +13402,140 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:#1c354d!important;
   color:#dce6ed!important;
 }
+
+
+/* MOTORYAT SALE STICKY ACCORDION FILTER */
+.saleListingLayout{
+  display:grid!important;
+  grid-template-columns:220px minmax(0,1fr)!important;
+  gap:20px!important;
+  align-items:start!important;
+}
+.saleListingMain{
+  min-width:0!important;
+}
+.saleListingMain .sqYachtGrid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+}
+.saleFilterSidebar{
+  position:sticky!important;
+  top:88px!important;
+  max-height:calc(100vh - 106px)!important;
+  overflow:auto!important;
+  border:1px solid #dfe4e7!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  padding:12px 10px 10px!important;
+  scrollbar-width:thin!important;
+}
+.saleFilterSidebar h2{
+  margin:0!important;
+  padding:2px 2px 12px!important;
+  color:#0D1B2A!important;
+  font:800 20px/1.1 Newsreader,serif!important;
+}
+.saleFilterSection{
+  border-top:1px solid #e4e8eb!important;
+}
+.saleFilterSectionHead{
+  width:100%!important;
+  min-height:48px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  padding:0 8px!important;
+  border:0!important;
+  background:#fff!important;
+  color:#0D1B2A!important;
+  text-align:left!important;
+  cursor:pointer!important;
+}
+.saleFilterSectionHead span{
+  font-size:11px!important;
+  font-weight:800!important;
+}
+.saleFilterSectionHead b{
+  color:#70808c!important;
+  font-size:17px!important;
+  line-height:1!important;
+}
+.saleFilterSection.open .saleFilterSectionHead{
+  background:#f5f7f8!important;
+}
+.saleFilterSectionBody{
+  padding:0 8px 10px!important;
+}
+.saleFilterSectionBody input,
+.saleFilterSectionBody select{
+  width:100%!important;
+  height:36px!important;
+  border:1px solid #dfe4e7!important;
+  border-radius:5px!important;
+  background:#fff!important;
+  color:#0D1B2A!important;
+  padding:0 8px!important;
+  font-size:10px!important;
+}
+.saleFilterPair{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:7px!important;
+}
+.saleFilterApply{
+  width:100%!important;
+  min-height:46px!important;
+  margin-top:12px!important;
+  border:0!important;
+  border-radius:7px!important;
+  background:#0D1B2A!important;
+  color:#fff!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  cursor:pointer!important;
+}
+.saleFilterClear{
+  width:100%!important;
+  min-height:30px!important;
+  border:0!important;
+  background:transparent!important;
+  color:#8a7653!important;
+  font-size:8px!important;
+  cursor:pointer!important;
+}
+.saleListingMain .luxResultsBar{
+  margin-bottom:16px!important;
+  padding:10px 12px!important;
+  min-height:54px!important;
+  border:1px solid #e1e5e8!important;
+  border-radius:10px!important;
+  background:#fff!important;
+}
+.saleListingMain .luxResultsBar b{
+  font-size:16px!important;
+}
+
+@media(max-width:1100px){
+  .saleListingLayout{
+    grid-template-columns:200px minmax(0,1fr)!important;
+    gap:16px!important;
+  }
+  .saleListingMain .sqYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+}
+
+@media(max-width:768px){
+  .saleListingLayout{
+    display:block!important;
+  }
+  .saleFilterSidebar{
+    display:none!important;
+  }
+  .saleListingMain .sqYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+}
