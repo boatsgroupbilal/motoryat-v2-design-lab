@@ -166,6 +166,72 @@ function prioritizeOwnedMedia(items){
   return [...items].sort((a,b)=>Number(Boolean(ownedMediaForSlug(b.slug)))-Number(Boolean(ownedMediaForSlug(a.slug))));
 }
 
+const admiralProductMedia={
+  'admiral-code-zero':'code-zero.webp',
+  'admiral-gennaker':'gennaker.webp',
+  'admiral-hydraulic-gennaker':'hydraulic-gennaker.webp',
+  'admiral-mainsail-furler':'mainsail-furler.webp',
+  'admiral-mainsail-electric-kit':'mainsail-electric-kit.webp',
+  'admiral-inmast-furlers':'inmast-furlers.webp',
+  'admiral-electric-hydraulic-furlers':'electric-hydraulic-furlers.webp',
+  'admiral-hydraulic-furler-new-body':'hydraulic-furler-new-body.webp',
+  'admiral-ah50-hydraulic-genoa':'ah50-hydraulic-genoa.webp',
+  'admiral-underdeck-furling':'underdeck-furling.webp',
+  'admiral-manual-chrome-winches':'manual-chrome-winches.webp',
+  'admiral-manual-aluminium-winches':'manual-aluminium-winches.webp',
+  'admiral-electric-aluminium-winches':'electric-aluminium-winches.webp',
+  'admiral-electric-chrome-winches':'electric-chrome-winches.webp',
+  'admiral-hydraulic-aluminium-winches':'hydraulic-aluminium-winches.webp',
+  'admiral-hydraulic-chrome-winches':'hydraulic-chrome-winches.webp',
+  'admiral-rm-series-blocks':'rm-series-blocks.webp',
+  'admiral-ocean-80-blocks':'ocean-80-blocks.webp',
+  'admiral-ocean-100-blocks':'ocean-100-blocks.webp',
+  'admiral-ocean-130-blocks':'ocean-130-blocks.webp',
+  'admiral-hydraulic-pistons':'hydraulic-pistons.webp',
+  'admiral-gas-hydraulic-boomvang':'boomvang.webp',
+  'admiral-genoa-tracks-cars':'genoa-tracks-cars.webp',
+  'admiral-mast-tracks-fullbatten':'mast-tracks-fullbatten.webp',
+  'admiral-mainsheet-track-car':'mainsheet-track-car.webp',
+  'admiral-boom-brakes':'boom-brakes.webp'
+};
+
+function ownedProductMedia(slug){
+  if(admiralProductMedia[slug]) return OWNED_MEDIA_ORIGIN+'/products/admiral/'+admiralProductMedia[slug];
+  if(/^admiral-rom-/.test(slug)) return OWNED_MEDIA_ORIGIN+'/products/admiral/rollmaster.webp';
+  if(/^admiral-rro-/.test(slug)) return OWNED_MEDIA_ORIGIN+'/products/admiral/race-reef.webp';
+  if(/^admiral-(?:r|ro)-/.test(slug)) return OWNED_MEDIA_ORIGIN+'/products/admiral/manual-furlers.webp';
+  return null;
+}
+
+const ownedStoreMedia={
+  'admiral-marine-equipment':{
+    cover:OWNED_MEDIA_ORIGIN+'/stores/admiral-marine-equipment/cover.webp',
+    logo:OWNED_MEDIA_ORIGIN+'/stores/admiral-marine-equipment/logo.jpg'
+  },
+  'rmk-yachts':{
+    cover:OWNED_MEDIA_ORIGIN+'/media/stores-official-seed/rmk-yachts-cover.webp',
+    logo:OWNED_MEDIA_ORIGIN+'/media/company-logos/rmk-marine.webp'
+  },
+  'su-marine':{
+    cover:OWNED_MEDIA_ORIGIN+'/media/stores-official-seed/su-marine-cover.webp',
+    logo:'/motoryat-logo.svg'
+  },
+  'mengi-yay':{
+    cover:OWNED_MEDIA_ORIGIN+'/stores/mengi-yay/ancora.jpg',
+    logo:OWNED_MEDIA_ORIGIN+'/media/company-logos/mengi-yay.png'
+  },
+  'euro-boat-turkey':{
+    cover:OWNED_MEDIA_ORIGIN+'/media/euro-boat-turkey/listings/850ht-hard-top/001.webp',
+    logo:OWNED_MEDIA_ORIGIN+'/media/company-logos/euro-boat.png'
+  },
+  'deniz-yatcilik':{
+    logo:OWNED_MEDIA_ORIGIN+'/media/company-logos/deniz-yatcilik.jpg'
+  },
+  'karina':{
+    logo:OWNED_MEDIA_ORIGIN+'/media/company-logos/karina.jpg'
+  }
+};
+
 function money(amountMinor,currency){
   if(amountMinor==null || !currency) return 'Fiyat Sorunuz';
   try{return new Intl.NumberFormat('tr-TR',{style:'currency',currency,maximumFractionDigits:0}).format(Number(amountMinor)/100)}
@@ -201,25 +267,29 @@ function listingToCard(x){
 
 function productToCard(x,index){
   const productImages=['/product-genoa.webp','/product-boom.webp','/product-codezero.webp','/product-block.webp'];
+  const ownedImage=ownedProductMedia(x.slug);
+  const storeMedia=ownedStoreMedia[x.store_slug]||{};
   return {
     ...x,
     description:x.short_description||x.description||'Tekne ve yat ekipmanı',
     price:x.price_text||money(x.amount_minor??x.price_minor,x.currency),
-    image:generatedImageMap[x.slug]||(x.store_slug==='admiral-marine-equipment'?productImages[index%productImages.length]:'/product.webp'),
+    image:ownedImage||generatedImageMap[x.slug]||(x.store_slug==='admiral-marine-equipment'?productImages[index%productImages.length]:'/product.webp'),
     storeName:x.store_name||x.brand||'Motoryat Mağazası',
-    storeLogo:'',
+    storeLogo:storeMedia.logo||'',
     storeHref:x.store_slug?'/magaza/'+x.store_slug:'/magazalar',
     href:'/urun/'+x.slug
   };
 }
 
 function storeToCard(x){
+  const owned=ownedStoreMedia[x.slug]||{};
+  const related=normalizedListings.find(i=>i.store_slug===x.slug && i.image && i.image!=='/yacht.webp' && i.image!=='/charter.webp');
   return {
     ...x,
     category:'Denizcilik',
     location:x.location||x.country||'Türkiye',
-    image:storeImages[x.slug]||(normalizedListings.find(i=>i.store_slug===x.slug && generatedImageMap[i.slug])?.image)||'/store-directory.webp',
-    logo:'/motoryat-logo.svg',
+    image:owned.cover||storeImages[x.slug]||related?.image||'/store-directory.webp',
+    logo:owned.logo||'/motoryat-logo.svg',
     href:'/magaza/'+x.slug
   };
 }
