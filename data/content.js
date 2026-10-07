@@ -62,6 +62,110 @@ const exactListingImages={
   'yener-tekne-ynr-35-trawler':'/sale-yener-35.webp'
 };
 
+/*
+ * MOTORYAT OWNED MEDIA BRIDGE
+ * The V31734 production snapshot already contains these assets under public/.
+ * On tasarim.motoryat.com we read them from the owner-controlled motoryat.com
+ * static origin, so no Supabase Storage calls are needed for the design lab.
+ */
+const OWNED_MEDIA_ORIGIN='https://motoryat.com';
+
+const euroMediaFolders={
+  'euro-boat-850cc-cabin-cruiser':'850cc-cabin-cruiser',
+  'euro-boat-850ht-hard-top':'850ht-hard-top',
+  'euro-boat-760ht-hard-top':'760ht-hard-top',
+  'euro-boat-600cc-cabin-cruiser':'600cc-cabin-cruiser',
+  'euro-boat-600wa-walkaround':'600wa-walkaround',
+  'euro-boat-600fm-fisherman':'600fm-fisherman',
+  'euro-boat-520cc-cabin-cruiser':'520cc-cabin-cruiser',
+  'euro-boat-850c-center-console':'850c-center-console',
+  'euro-boat-700c-center-console':'700c-center-console',
+  'euro-boat-600-center-console-2019':'600-center-console-2019',
+  'euro-boat-575g-gezi-teknesi':'575g-leisure-boat',
+  'euro-boat-500g-gezi-teknesi':'500g-leisure-boat',
+  'euro-boat-475c-center-console':'475c-center-console',
+  'euro-boat-420g-gezi-teknesi':'420g-leisure-boat',
+  'euro-boat-460b-balikci-teknesi':'460b-fishing-boat',
+  'euro-boat-435b-balikci-teknesi':'435b-fishing-boat',
+  'euro-boat-420b-balikci-teknesi':'420b-fishing-boat',
+  'euro-boat-405b-balikci-teknesi':'405b-fishing-boat',
+  'euro-boat-375b-balikci-teknesi':'375b-fishing-boat',
+  'euro-boat-335b-balikci-teknesi':'335b-fishing-boat',
+  'euro-boat-280f-filika-sandal':'280f-lifeboat-dinghy'
+};
+
+const tezmarinLocalSlugs=new Set([
+  'tezmarin-xo-dfndr-8',
+  'tezmarin-t-tender-ub-270',
+  'tezmarin-xo-explr-9',
+  'tezmarin-beneteau-antares-8',
+  'tezmarin-zen-40s',
+  'tezmarin-xo-dfndr-9-motorsuz',
+  'tezmarin-t-tender-open-aluminum-360',
+  'tezmarin-lagoon-42-millennium',
+  'tezmarin-beneteau-antares-12-coupe'
+]);
+const tezmarinPngSlugs=new Set([
+  'tezmarin-t-tender-ub-270',
+  'tezmarin-t-tender-open-aluminum-360'
+]);
+
+const yenerLocalMedia={
+  'yener-tekne-ynr-35-trawler':'/listings/yener-tekne/ynr-35/exterior-01-side.webp',
+  'yener-tekne-ynr-42-trawler':'/listings/yener-tekne/ynr-42/official-01.png',
+  'yener-tekne-ynr-55-trawler':'/listings/yener-tekne/ynr-55/official-01.png',
+  'yener-tekne-ynr-63-aluminyum-trawler':'/listings/yener-tekne/ynr-63/official-01.png',
+  'yener-tekne-larimar-24m':'/listings/yener-tekne/larimar/official-01.png',
+  'yener-tekne-shiraz-14-20m':'/listings/yener-tekne/shiraz/official-01.png'
+};
+
+const ladyLunaGallery=[
+  1,2,3,4,6,7,8,10,11,12,14,15,17,18,20,22,23,24,26,28,31,34,36,39,42,43,46,49,52,54
+].map(n=>OWNED_MEDIA_ORIGIN+'/media/lady-luna/official-gallery/lady-luna-'+n+'.jpg');
+
+function ownedMediaForSlug(slug){
+  if(!slug) return null;
+
+  if(slug==='lady-luna-32-1-m-kiralik-motoryat'){
+    return {
+      cover:OWNED_MEDIA_ORIGIN+'/media/lady-luna/hero-poster.webp',
+      gallery:ladyLunaGallery
+    };
+  }
+
+  if(slug.startsWith('sunreef-')){
+    const folder=slug.replace(/^sunreef-/,'');
+    const cover=OWNED_MEDIA_ORIGIN+'/media/sunreef-charter/listings/'+folder+'/001.webp';
+    return {cover,gallery:[cover]};
+  }
+
+  if(euroMediaFolders[slug]){
+    const folder=euroMediaFolders[slug];
+    const base=OWNED_MEDIA_ORIGIN+'/media/euro-boat-turkey/listings/'+folder+'/';
+    return {
+      cover:base+'001.webp',
+      gallery:['001.webp','002.webp','003.webp','004.webp'].map(file=>base+file)
+    };
+  }
+
+  if(tezmarinLocalSlugs.has(slug)){
+    const ext=tezmarinPngSlugs.has(slug)?'png':'jpg';
+    const cover=OWNED_MEDIA_ORIGIN+'/listing-media/tezmarin/'+slug+'/01.'+ext;
+    return {cover,gallery:[cover]};
+  }
+
+  if(yenerLocalMedia[slug]){
+    const cover=OWNED_MEDIA_ORIGIN+yenerLocalMedia[slug];
+    return {cover,gallery:[cover]};
+  }
+
+  return null;
+}
+
+function prioritizeOwnedMedia(items){
+  return [...items].sort((a,b)=>Number(Boolean(ownedMediaForSlug(b.slug)))-Number(Boolean(ownedMediaForSlug(a.slug))));
+}
+
 function money(amountMinor,currency){
   if(amountMinor==null || !currency) return 'Fiyat Sorunuz';
   try{return new Intl.NumberFormat('tr-TR',{style:'currency',currency,maximumFractionDigits:0}).format(Number(amountMinor)/100)}
@@ -80,12 +184,14 @@ function listingToCard(x){
   const textPrice=x.price_text && !/^fiyat(?:ı)?\s*sor(?:unuz)?$/i.test(String(x.price_text).trim())
     ? x.price_text
     : null;
+  const ownedMedia=ownedMediaForSlug(x.slug);
   return {
     ...x,
     type,
     meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
     price:numericPrice || textPrice || 'Fiyat Sorunuz',
-    image:x.image_local||generatedImageMap[x.slug]||exactListingImages[x.slug]||(isCharter?'/charter.webp':'/yacht.webp'),
+    image:ownedMedia?.cover||x.image_local||generatedImageMap[x.slug]||exactListingImages[x.slug]||(isCharter?'/charter.webp':'/yacht.webp'),
+    gallery:ownedMedia?.gallery||x.gallery||[],
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
     seller:x.seller||x.store_name||'Motoryat Partner',
@@ -121,8 +227,10 @@ function storeToCard(x){
 const normalizedListings=recoveredListings.map(listingToCard);
 export const hasLocalExport=normalizedListings.length>0;
 export const dataManifest={
-  source:'MOTORYAT_V4.8.40.319.9_RECOVERY_FULL_SINGLE_HOSTINGER.zip',
-  snapshot_date:'2026-10-01',
+  source:'MOTORYAT_31734_STORE_MOBILE_HORIZONTAL_HEADER_FULL_HOSTINGER.zip',
+  snapshot_date:'2026-10-07',
+  supabase_runtime_required:false,
+  owned_media_origin:OWNED_MEDIA_ORIGIN,
   saray_deniz_excluded:true,
   listings_loaded:normalizedListings.length,
   products_loaded:recoveredProducts.length,
@@ -145,8 +253,26 @@ export const demoListing={
   demo:true
 };
 
-export const saleListings=normalizedListings.filter(x=>x.type==='sale').length?normalizedListings.filter(x=>x.type==='sale'):fallbackSaleListings;
-export const charterListings=normalizedListings.filter(x=>x.type==='charter').length?normalizedListings.filter(x=>x.type==='charter'):fallbackCharterListings;
+const ladyLunaListing=listingToCard({
+  slug:'lady-luna-32-1-m-kiralik-motoryat',
+  title:'Lady Luna · 32.1M Motor Yacht',
+  status:'charter',
+  type:'charter',
+  vessel_type:'Motor Yacht',
+  length:32.1,
+  location:'Türkiye / Akdeniz',
+  price_text:'Fiyat Sorunuz',
+  store_name:'Lady Luna Charter',
+  store_slug:'lady-luna'
+});
+
+const recoveredSale=normalizedListings.filter(x=>x.type==='sale');
+const recoveredCharter=normalizedListings.filter(x=>x.type==='charter');
+
+export const saleListings=recoveredSale.length?prioritizeOwnedMedia(recoveredSale):fallbackSaleListings;
+export const charterListings=recoveredCharter.length
+  ? [ladyLunaListing,...prioritizeOwnedMedia(recoveredCharter).filter(x=>x.slug!==ladyLunaListing.slug)]
+  : fallbackCharterListings;
 export const products=recoveredProducts.length?recoveredProducts.map(productToCard):[];
 export const stores=recoveredStores.length?recoveredStores.map(storeToCard):[];
 export const companies=Array.isArray(localCompanies)?localCompanies:[];
