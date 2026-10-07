@@ -13106,3 +13106,136 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     display:none!important;
   }
 }
+
+
+/* MOTORYAT.COM STYLE SALE FILTER PANEL */
+.motoryatLiveFilters{
+  background:#fff!important;
+  border-bottom:1px solid #e4e8eb!important;
+}
+.motoryatLiveFilters>.syContainer{
+  padding-top:16px!important;
+  padding-bottom:16px!important;
+}
+.motoryatFilterHead{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  margin-bottom:14px!important;
+}
+.motoryatFilterHead small{
+  display:block!important;
+  color:#87939b!important;
+  font-size:8px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+}
+.motoryatFilterHead h2{
+  margin:3px 0 0!important;
+  color:#0D1B2A!important;
+  font-size:18px!important;
+}
+.motoryatFilterHead button{
+  border:0!important;
+  background:transparent!important;
+  color:#6d7881!important;
+  font-size:10px!important;
+  cursor:pointer!important;
+}
+
+.motoryatFilterGrid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+.motoryatFilterGrid label,
+.motoryatFilterRange{
+  min-width:0!important;
+  margin:0!important;
+  padding:10px 11px!important;
+  border:1px solid #dfe4e7!important;
+  background:#fff!important;
+}
+.motoryatFilterGrid small,
+.motoryatFilterRange legend{
+  display:block!important;
+  margin:0 0 5px!important;
+  padding:0!important;
+  color:#7a8790!important;
+  font-size:8px!important;
+  font-weight:900!important;
+  letter-spacing:.06em!important;
+}
+.motoryatFilterGrid select,
+.motoryatFilterGrid input{
+  width:100%!important;
+  height:30px!important;
+  border:0!important;
+  outline:0!important;
+  background:#fff!important;
+  color:#0D1B2A!important;
+  font-size:11px!important;
+  font-weight:700!important;
+}
+.motoryatFilterGrid input::placeholder{
+  color:#a0aab1!important;
+  font-weight:600!important;
+}
+
+.motoryatFilterRange{
+  border-radius:0!important;
+}
+.motoryatFilterRange>div{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:7px!important;
+}
+.motoryatFilterRange input{
+  border:1px solid #e3e7ea!important;
+  padding:0 8px!important;
+}
+
+.motoryatFilterSearch,
+.motoryatFilterLocation{
+  grid-column:span 2!important;
+}
+
+.motoryatFilterActions{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin-top:12px!important;
+}
+.motoryatFilterActions button{
+  min-height:38px!important;
+  border:0!important;
+  padding:0 16px!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  cursor:pointer!important;
+}
+.motoryatFilterApply{
+  background:#0D1B2A!important;
+  color:#fff!important;
+}
+.motoryatFilterClear{
+  background:#eef2f4!important;
+  color:#53616b!important;
+}
+
+@media(max-width:1100px){
+  .motoryatFilterGrid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  .motoryatFilterSearch,
+  .motoryatFilterLocation{
+    grid-column:span 1!important;
+  }
+}
+
+@media(max-width:768px){
+  .motoryatLiveFilters{
+    display:none!important;
+  }
+}
