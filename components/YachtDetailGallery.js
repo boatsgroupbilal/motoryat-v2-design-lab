@@ -1,22 +1,12 @@
 'use client';
 
-import {useEffect,useRef,useState} from 'react';
+import {useRef,useState} from 'react';
 
 export default function YachtDetailGallery({images,title,totalCount}){
   const gallery=[...new Set((images||[]).filter(Boolean))];
   const [active,setActive]=useState(0);
   const [open,setOpen]=useState(false);
-  const stripRef=useRef(null);
   const touchStart=useRef(null);
-
-  useEffect(()=>{
-    const strip=stripRef.current;
-    const node=strip?.children?.[active];
-    if(strip&&node){
-      const left=node.offsetLeft-(strip.clientWidth-node.clientWidth)/2;
-      strip.scrollTo({left:Math.max(0,left),behavior:'smooth'});
-    }
-  },[active]);
 
   if(!gallery.length) return null;
 
@@ -38,6 +28,8 @@ export default function YachtDetailGallery({images,title,totalCount}){
     setActive(v=>delta<0?(v+1)%gallery.length:(v-1+gallery.length)%gallery.length);
   };
 
+  const preview=gallery.slice(0,3);
+
   return <>
     <section className="syGalleryRef" aria-label={title+' görsel galerisi'}>
       <div className="syGalleryRefHero" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -53,22 +45,18 @@ export default function YachtDetailGallery({images,title,totalCount}){
         <button className="syGalleryRefFullscreen" type="button" onClick={()=>setOpen(true)} aria-label="Tam ekran galeri">⛶</button>
       </div>
 
-      {gallery.length>1&&<>
-        <div className="syGalleryRefStrip" ref={stripRef}>
-          {gallery.map((src,i)=><button
-            key={src+i}
-            type="button"
-            className={i===active?'active':''}
-            onClick={()=>setActive(i)}
-            aria-label={(i+1)+'. fotoğrafı seç'}
-          >
-            <img src={src} alt={title+' küçük görsel '+(i+1)}/>
-          </button>)}
-        </div>
-        <div className="syGalleryRefProgress" aria-hidden="true">
-          <span style={{width:Math.max(7,100/gallery.length)+'%',left:(active*(100/gallery.length))+'%'}}></span>
-        </div>
-      </>}
+      {preview.length>1&&<div className="syGalleryRefPreviewRow" aria-label="Galeri önizlemeleri">
+        {preview.map((src,i)=><button
+          key={src+i}
+          type="button"
+          className={i===active?'active':''}
+          onClick={()=>setActive(i)}
+          aria-label={(i+1)+'. fotoğrafı seç'}
+        >
+          <img src={src} alt={title+' küçük görsel '+(i+1)}/>
+          {i===2&&gallery.length>3?<span>+{gallery.length-3}</span>:null}
+        </button>)}
+      </div>}
     </section>
 
     {open&&<div className="syGalleryLightbox" role="dialog" aria-modal="true" aria-label="İlan fotoğraf galerisi" onClick={()=>setOpen(false)} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -78,5 +66,5 @@ export default function YachtDetailGallery({images,title,totalCount}){
       {gallery.length>1&&<button className="syGalleryNext" type="button" onClick={(e)=>move(1,e)} aria-label="Sonraki">›</button>}
       <div className="syGalleryCounter">{active+1} / {gallery.length}</div>
     </div>}
-  </>
+  </>;
 }
