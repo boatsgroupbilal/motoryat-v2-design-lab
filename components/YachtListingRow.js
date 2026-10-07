@@ -11,12 +11,13 @@ export default function YachtListingRow({
 }){
   const charter=type==='charter';
   const tone=index%2===0?'toneGold':'toneTurquoise';
+  const accent=index%2===0?'#ffb21d':'#00c9b5';
 
   const brand=item?.sellerName || item?.brandName || item?.brand || seller || 'Motoryat.com';
   const photoCount=[28,24,32,37][index%4];
   const videoCount=[3,5,4,0][index%4];
 
-  return <article className={'sqYachtCard '+(charter?'isCharter ':'isSale ')+tone}>
+  return <article className={'sqYachtCard '+(charter?'isCharter ':'isSale ')+tone} style={{background:accent}}>
     <Link href={item.href} className="sqYachtMedia" aria-label={item.title}>
       <img src={item.image} alt={item.title}/>
       <span className="sqYachtFav" aria-hidden="true">♡</span>
@@ -41,7 +42,12 @@ export default function YachtListingRow({
       </div>
     </div>
 
-    <Link href={item.href} className="sqYachtStatus sqYachtUnifiedFooter" aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}>
+    <Link
+      href={item.href}
+      className="sqYachtStatus sqYachtUnifiedFooter"
+      style={{background:accent}}
+      aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}
+    >
       <span className="sqYachtUnifiedBrand">
         {brandLogo ? <img src={brandLogo} alt={brand}/> : <strong>{brand}</strong>}
       </span>
