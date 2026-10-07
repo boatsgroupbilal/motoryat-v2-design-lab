@@ -37,36 +37,69 @@ export default function Page(){
     <a href="/satilik">Sürat Teknesi</a>
     <a href="/satilik">Şişme Bot</a>
   </div></nav>
-  <section className="luxFilterWrap motoryatLiveFilters"><div className="syContainer">
-   <div className="motoryatFilterHead">
-    <div><small>ARAMA FİLTRELERİ</small><h2>Arama Filtreleri</h2></div>
-    <button type="button">Kapat ×</button>
-   </div>
-
-   <div className="motoryatFilterGrid">
-    <label><small>TEKNE TÜRÜ</small><select defaultValue=""><option value="">Tümü</option>{vesselTypes.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label><small>MARKA</small><select defaultValue=""><option value="">Tümü</option>{makers.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-
-    <label className="motoryatFilterSearch"><small>TEKNE, MARKA VEYA MODEL</small><input type="search" placeholder="Arama yapın"/></label>
-    <label className="motoryatFilterLocation"><small>KONUM</small><input type="search" placeholder="Şehir veya ülke"/></label>
-
-    <fieldset className="motoryatFilterRange"><legend>BOY (METRE)</legend><div><input inputMode="decimal" placeholder="En az"/><input inputMode="decimal" placeholder="En çok"/></div></fieldset>
-    <fieldset className="motoryatFilterRange"><legend>YIL</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
-    <fieldset className="motoryatFilterRange"><legend>FİYAT (EUR)</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
-
-    <label><small>DURUM</small><select defaultValue=""><option value="">Tümü</option>{statuses.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label><small>EN AZ KABİN</small><input inputMode="numeric" min="0" placeholder="Örn. 2"/></label>
-    <label><small>EN FAZLA MOTOR SAATİ</small><input inputMode="numeric" min="0" placeholder="Örn. 500"/></label>
-   </div>
-
-   <div className="motoryatFilterActions">
-    <button type="button" className="motoryatFilterApply">İLANLARI GÖSTER</button>
-    <button type="reset" className="motoryatFilterClear">Filtreleri Temizle</button>
-   </div>
-  </div></section>
   <section className="luxResults"><div className="syContainer">
-   <div className="luxResultsBar"><div><b>Satılık yatlar</b><span>Güncel satılık ilan seçkisi</span></div><select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select></div>
-   <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+   <div className="motoryatSaleResultsLayout">
+    <aside className="motoryatFilterSidebar" aria-label="Arama Filtreleri">
+     <h2>Arama Filtreleri</h2>
+
+     <details>
+      <summary>Tekne türü</summary>
+      <div className="motoryatFilterBody"><select defaultValue=""><option value="">Tümü</option>{vesselTypes.map(x=><option key={x} value={x}>{x}</option>)}</select></div>
+     </details>
+
+     <details>
+      <summary>Marka</summary>
+      <div className="motoryatFilterBody"><select defaultValue=""><option value="">Tümü</option>{makers.map(x=><option key={x} value={x}>{x}</option>)}</select></div>
+     </details>
+
+     <details>
+      <summary>Tekne / model ara</summary>
+      <div className="motoryatFilterBody"><input type="search" placeholder="Tekne, marka veya model"/></div>
+     </details>
+
+     <details>
+      <summary>Konum</summary>
+      <div className="motoryatFilterBody"><select defaultValue=""><option value="">Tüm konumlar</option>{locations.map(x=><option key={x} value={x}>{x}</option>)}</select></div>
+     </details>
+
+     <details>
+      <summary>Boy (metre)</summary>
+      <div className="motoryatFilterBody motoryatFilterPair"><input inputMode="decimal" placeholder="En az"/><input inputMode="decimal" placeholder="En çok"/></div>
+     </details>
+
+     <details>
+      <summary>Yıl</summary>
+      <div className="motoryatFilterBody motoryatFilterPair"><select defaultValue=""><option value="">En az</option>{[...years].reverse().map(x=><option key={'min-'+x}>{x}</option>)}</select><select defaultValue=""><option value="">En çok</option>{years.map(x=><option key={'max-'+x}>{x}</option>)}</select></div>
+     </details>
+
+     <details>
+      <summary>Fiyat (EUR)</summary>
+      <div className="motoryatFilterBody motoryatFilterPair"><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div>
+     </details>
+
+     <details>
+      <summary>Durum</summary>
+      <div className="motoryatFilterBody"><select defaultValue=""><option value="">Tümü</option>{statuses.map(x=><option key={x} value={x}>{x}</option>)}</select></div>
+     </details>
+
+     <details>
+      <summary>En az kabin</summary>
+      <div className="motoryatFilterBody"><select defaultValue=""><option value="">Farketmez</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+     </details>
+
+     <details>
+      <summary>En fazla motor saati</summary>
+      <div className="motoryatFilterBody"><input inputMode="numeric" placeholder="Örn. 500"/></div>
+     </details>
+
+     <button type="button" className="motoryatSidebarApply">İlanları Göster</button>
+    </aside>
+
+    <div className="motoryatSaleResultsMain">
+     <div className="luxResultsBar"><div><b>Satılık yatlar</b><span>Güncel satılık ilan seçkisi</span></div><select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select></div>
+     <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+    </div>
+   </div>
   </div></section>
  </main><Footer/></>
 }
