@@ -37,23 +37,31 @@ export default function Page(){
     <a href="/satilik">Sürat Teknesi</a>
     <a href="/satilik">Şişme Bot</a>
   </div></nav>
-  <section className="luxFilterWrap"><div className="syContainer">
-   <div className="luxFilters luxFiltersCompact">
-    <label className="luxFilterField"><small>TEKNE TİPİ</small><select defaultValue=""><option value="">Tüm tekneler</option>{vesselTypes.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label className="luxFilterField"><small>BOY</small><select defaultValue=""><option value="">Tüm boylar</option><option>0–5 m</option><option>5–10 m</option><option>10–15 m</option><option>15–20 m</option><option>20–30 m</option><option>30–40 m</option><option>40–50 m</option><option>50–70 m</option><option>70 m+</option></select></label>
-    <label className="luxFilterField"><small>FİYAT</small><select defaultValue=""><option value="">Tüm fiyatlar</option><option>Fiyatı açık ilanlar</option><option>Fiyat sorunuz / teklif</option><option>€0–250K</option><option>€250K–500K</option><option>€500K–1M</option><option>€1M–5M</option><option>€5M+</option><option>TL fiyatlı ilanlar</option></select></label>
-    <label className="luxFilterField"><small>YIL</small><select defaultValue=""><option value="">Tüm yıllar</option>{years.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label className="luxFilterField"><small>KONUM</small><select defaultValue=""><option value="">Tüm konumlar</option>{locations.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <details className="luxMoreFilter">
-      <summary><small>DAHA FAZLA</small><b>Diğer filtreler</b></summary>
-      <div className="luxMoreFilterPanel">
-        <label><span>Tersane / Marka</span><select defaultValue=""><option value="">Tümü</option>{makers.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-        <label><span>Durum</span><select defaultValue=""><option value="">Tümü</option>{statuses.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-        <label><span>Yakıt</span><select defaultValue=""><option value="">Tümü</option><option>Dizel</option><option>Benzin</option><option>Elektrik</option><option>Hibrit</option></select></label>
-        <label><span>Kabin</span><select defaultValue=""><option value="">Tümü</option><option>Kabinsiz</option><option>1 Kabin</option><option>2 Kabin</option><option>3 Kabin</option><option>4 Kabin</option><option>5+ Kabin</option></select></label>
-      </div>
-    </details>
-    <button className="luxSearchBtn">ARA</button>
+  <section className="luxFilterWrap motoryatLiveFilters"><div className="syContainer">
+   <div className="motoryatFilterHead">
+    <div><small>ARAMA FİLTRELERİ</small><h2>Arama Filtreleri</h2></div>
+    <button type="button">Kapat ×</button>
+   </div>
+
+   <div className="motoryatFilterGrid">
+    <label><small>TEKNE TÜRÜ</small><select defaultValue=""><option value="">Tümü</option>{vesselTypes.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
+    <label><small>MARKA</small><select defaultValue=""><option value="">Tümü</option>{makers.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
+
+    <label className="motoryatFilterSearch"><small>TEKNE, MARKA VEYA MODEL</small><input type="search" placeholder="Arama yapın"/></label>
+    <label className="motoryatFilterLocation"><small>KONUM</small><input type="search" placeholder="Şehir veya ülke"/></label>
+
+    <fieldset className="motoryatFilterRange"><legend>BOY (METRE)</legend><div><input inputMode="decimal" placeholder="En az"/><input inputMode="decimal" placeholder="En çok"/></div></fieldset>
+    <fieldset className="motoryatFilterRange"><legend>YIL</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
+    <fieldset className="motoryatFilterRange"><legend>FİYAT (EUR)</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
+
+    <label><small>DURUM</small><select defaultValue=""><option value="">Tümü</option>{statuses.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
+    <label><small>EN AZ KABİN</small><input inputMode="numeric" min="0" placeholder="Örn. 2"/></label>
+    <label><small>EN FAZLA MOTOR SAATİ</small><input inputMode="numeric" min="0" placeholder="Örn. 500"/></label>
+   </div>
+
+   <div className="motoryatFilterActions">
+    <button type="button" className="motoryatFilterApply">İLANLARI GÖSTER</button>
+    <button type="reset" className="motoryatFilterClear">Filtreleri Temizle</button>
    </div>
   </div></section>
   <section className="luxResults"><div className="syContainer">
