@@ -130,6 +130,21 @@ export const dataManifest={
   brands_loaded:recoveredBrands.length
 };
 
+export const demoListing={
+  slug:'demo-ilan',
+  title:'Bavaria S 36 HT Diesel',
+  meta:'11,66 m · 2018 · Marina Punat, Hırvatistan',
+  price:'€ 159.000',
+  image:'/sale-yener-35.webp',
+  href:'/tekne/demo-ilan',
+  kind:'SATILIK',
+  type:'sale',
+  seller:'Motoryat Demo Partner',
+  sellerSlug:'magazalar',
+  year:'2018',
+  demo:true
+};
+
 export const saleListings=normalizedListings.filter(x=>x.type==='sale').length?normalizedListings.filter(x=>x.type==='sale'):fallbackSaleListings;
 export const charterListings=normalizedListings.filter(x=>x.type==='charter').length?normalizedListings.filter(x=>x.type==='charter'):fallbackCharterListings;
 export const products=recoveredProducts.length?recoveredProducts.map(productToCard):[];
