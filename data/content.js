@@ -72,11 +72,19 @@ function listingToCard(x){
   const type=x.type||x.status||'sale';
   const isCharter=type==='charter';
   const length=x.length!=null?`${x.length} m`:null;
+  const numericPrice=isCharter&&x.weekly_rate_minor!=null
+    ? money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR')
+    : ((x.amount_minor??x.price_minor)!=null
+      ? money(x.amount_minor??x.price_minor,x.currency||x.price_currency)
+      : null);
+  const textPrice=x.price_text && !/^fiyat(?:ı)?\s*sor(?:unuz)?$/i.test(String(x.price_text).trim())
+    ? x.price_text
+    : null;
   return {
     ...x,
     type,
     meta:[length,x.year||null,x.location||null].filter(Boolean).join(' · ') || (isCharter?'Kiralık':'Satılık'),
-    price:x.price_text || (isCharter&&x.weekly_rate_minor?money(x.weekly_rate_minor,x.currency||x.price_currency||'EUR'):money(x.amount_minor??x.price_minor,x.currency||x.price_currency)),
+    price:numericPrice || textPrice || 'Fiyat Sorunuz',
     image:x.image_local||generatedImageMap[x.slug]||exactListingImages[x.slug]||(isCharter?'/charter.webp':'/yacht.webp'),
     href:'/tekne/'+x.slug,
     kind:isCharter?'KİRALIK':'SATILIK',
