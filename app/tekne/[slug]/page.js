@@ -34,7 +34,12 @@ export default async function Page({params}){
   const all=[...saleListings,...charterListings];
   const item=all.find(x=>x.slug===slug)||saleListings[1];
   const isCharter=item.kind==='KİRALIK';
-  const info=detailMeta[item.slug]||{seller:item.seller||item.store_name||'Motoryat Partner',sellerSlug:item.sellerSlug||item.store_slug||'magazalar',year:item.year||'—'};
+  const fallbackInfo=detailMeta[item.slug]||{};
+  const info={
+    seller:item.seller||item.store_name||fallbackInfo.seller||'Motoryat Partner',
+    sellerSlug:item.sellerSlug||item.store_slug||fallbackInfo.sellerSlug||'magazalar',
+    year:item.year||fallbackInfo.year||'—'
+  };
   const metaParts=(item.meta||'').split('·').map(x=>x.trim()).filter(Boolean);
   const length=metaParts[0]||'—';
   const status=isCharter?(metaParts[1]||'Charter'):(metaParts[1]||'Satılık');
@@ -179,34 +184,26 @@ export default async function Page({params}){
       </section>
 
       <aside className="syRefSidebar">
-        <div className="syRefSellerCard">
-          <div className="syRefSellerTop premiumDetailSellerTop">
+        <div className="syRefSellerCard syRefSellerCardSimple">
+          <div className="syRefSellerTop syRefSellerSimpleTop">
             <span>{isCharter?'KİRALIK':'SATILIK'}</span>
-            <div className="premiumDetailSellerName">
-              <small>YETKİLİ SATICI</small>
+            <div className="syRefSellerSimpleName">
               <b>{info.seller}</b>
+              <small>{location}</small>
             </div>
-            <i aria-label="Doğrulanmış firma">✓</i>
-          </div>
-
-          <div className="syRefSellerActions">
-            <a href="#">☎</a>
-            <a className="more" href={sellerHref}>DAHA FAZLA BİLGİ</a>
-            <a href="#">✉</a>
           </div>
 
           <div className="syRefPriceBlock">
-            <small>{isCharter?'CHARTER FİYATI':'LİSTELENMİŞ FİYAT'}</small>
-            <strong>{item.price}</strong>
-            <p>MEVCUT KONUM: <b>{location}</b></p>
+            <small>{isCharter?'CHARTER FİYATI':'FİYAT'}</small>
+            <strong>{item.price||'Fiyat Sorunuz'}</strong>
           </div>
 
-          <a className="syRefSellerBrochure" href="#">BROŞÜRÜ İNDİRİN <b>PDF</b></a>
+          <div className="syRefSellerActions">
+            <a href="#" aria-label="Telefon">☎</a>
+            <a className="more" href={sellerHref}>FİRMA / MAĞAZA</a>
+            <a href="#" aria-label="E-posta">✉</a>
+          </div>
         </div>
-
-        <a className="syRefAd" href="https://laromanacharter.com/" target="_blank" rel="noopener noreferrer" aria-label="La Romana Charters">
-          <img src="/ads/la-romana-charters-300x300.gif" alt="La Romana Charters"/>
-        </a>
       </aside>
     </div>
 
@@ -245,7 +242,7 @@ export default async function Page({params}){
                 <div className="syRefShowcaseSeller">
                   <strong>{isCharter?'KİRALIK':'SATILIK'}</strong>
                   <span>{xMeta.seller}</span>
-                  <small>YETKİLİ SATICI</small>
+                  
                 </div>
               </div>
 
