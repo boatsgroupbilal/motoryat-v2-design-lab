@@ -2,6 +2,7 @@ import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
 import MobileListingFilters from '../../components/MobileListingFilters';
+import SaleFilterSidebar from '../../components/SaleFilterSidebar';
 import {saleListings,demoListing} from '../../data/content';
 
 const uniq=(values)=>[...new Set(values.filter(v=>v!==undefined&&v!==null&&String(v).trim()!=='').map(v=>String(v).trim()))];
@@ -37,36 +38,24 @@ export default function Page(){
     <a href="/satilik">Sürat Teknesi</a>
     <a href="/satilik">Şişme Bot</a>
   </div></nav>
-  <section className="luxFilterWrap motoryatLiveFilters"><div className="syContainer">
-   <div className="motoryatFilterHead">
-    <div><small>ARAMA FİLTRELERİ</small><h2>Arama Filtreleri</h2></div>
-   </div>
-
-   <div className="motoryatFilterGrid">
-    <label><small>TEKNE TÜRÜ</small><select defaultValue=""><option value="">Tümü</option>{vesselTypes.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label><small>MARKA</small><select defaultValue=""><option value="">Tümü</option>{makers.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-
-    <label className="motoryatFilterSearch"><small>TEKNE, MARKA VEYA MODEL</small><input type="search" placeholder="Arama yapın"/></label>
-    <label className="motoryatFilterLocation"><small>KONUM</small><input type="search" placeholder="Şehir veya ülke"/></label>
-
-    <fieldset className="motoryatFilterRange"><legend>BOY (METRE)</legend><div><input inputMode="decimal" placeholder="En az"/><input inputMode="decimal" placeholder="En çok"/></div></fieldset>
-    <fieldset className="motoryatFilterRange"><legend>YIL</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
-    <fieldset className="motoryatFilterRange"><legend>FİYAT (EUR)</legend><div><input inputMode="numeric" placeholder="En az"/><input inputMode="numeric" placeholder="En çok"/></div></fieldset>
-
-    <label><small>DURUM</small><select defaultValue=""><option value="">Tümü</option>{statuses.map(x=><option key={x} value={x}>{x}</option>)}</select></label>
-    <label><small>EN AZ KABİN</small><input inputMode="numeric" min="0" placeholder="Örn. 2"/></label>
-    <label><small>EN FAZLA MOTOR SAATİ</small><input inputMode="numeric" min="0" placeholder="Örn. 500"/></label>
-   </div>
-
-   <div className="motoryatFilterActions">
-    <button type="button" className="motoryatFilterApply">İLANLARI GÖSTER</button>
-    <button type="reset" className="motoryatFilterClear">Filtreleri Temizle</button>
-   </div>
-  </div></section>
-
   <section className="luxResults"><div className="syContainer">
-   <div className="luxResultsBar"><div><b>Satılık yatlar</b><span>Güncel satılık ilan seçkisi</span></div><select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select></div>
-   <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+   <div className="saleListingLayout">
+    <SaleFilterSidebar
+      vesselTypes={vesselTypes}
+      makers={makers}
+      years={years}
+      locations={locations}
+      statuses={statuses}
+    />
+
+    <div className="saleListingMain">
+     <div className="luxResultsBar">
+      <div><b>Satılık · {listings.length} ilan</b></div>
+      <select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select>
+     </div>
+     <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+    </div>
+   </div>
   </div></section>
  </main><Footer/></>
 }
