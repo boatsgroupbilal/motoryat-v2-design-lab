@@ -13590,3 +13590,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     flex-direction:column!important;
   }
 }
+
+
+/* SATILIK GRID — 4 COLUMN FINAL LOCK */
+@media(min-width:1101px){
+  .saleListingMain .sqYachtGrid{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:14px!important;
+  }
+}
+@media(min-width:821px) and (max-width:1100px){
+  .saleListingMain .sqYachtGrid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:14px!important;
+  }
+}
+@media(max-width:820px){
+  .saleListingMain .sqYachtGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+}
