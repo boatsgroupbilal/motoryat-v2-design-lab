@@ -16,6 +16,8 @@ export default function YachtListingRow({
   const brand=item?.sellerName || item?.brandName || item?.brand || seller || 'Motoryat.com';
   const photoCount=[28,24,32,37][index%4];
   const videoCount=[3,5,4,0][index%4];
+  const priceText=String(item?.price || '').trim();
+  const askPrice=!priceText || /^fiyat(?:ı)?\s*sor(?:unuz)?$/i.test(priceText);
 
   return <article className={'sqYachtCard '+(charter?'isCharter ':'isSale ')+tone} style={{background:accent}}>
     <Link href={item.href} className="sqYachtMedia" aria-label={item.title}>
@@ -35,9 +37,9 @@ export default function YachtListingRow({
         <div><small>YIL</small><strong>{year}</strong></div>
       </div>
 
-      <div className="sqYachtPrice">
-        <small>{charter?'HAFTALIK FİYAT':'FİYATI'}</small>
-        <strong>{item.price}</strong>
+      <div className={'sqYachtPrice '+(askPrice?'isAskPrice':'hasRealPrice')}>
+        {!askPrice && <small>{charter?'HAFTALIK FİYAT':'FİYATI'}</small>}
+        <strong>{askPrice?'Fiyat Sorunuz':priceText}</strong>
       </div>
     </div>
 
