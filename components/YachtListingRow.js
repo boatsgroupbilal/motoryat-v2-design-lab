@@ -33,7 +33,6 @@ export default function YachtListingRow({
 
       <div className="sqYachtFacts">
         <div><small>YIL</small><strong>{year}</strong></div>
-        <div><small>YENİLEME</small><strong>{refit}</strong></div>
       </div>
 
       <div className="sqYachtPrice">
