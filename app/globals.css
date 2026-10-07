@@ -13354,3 +13354,51 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     gap:8px!important;
   }
 }
+
+
+/* MOTORYAT TOP FILTER — NAVY TINT */
+.motoryatLiveFilters{
+  background:#0f2235!important;
+  border-bottom:1px solid #19344d!important;
+}
+.motoryatLiveFilters>.syContainer{
+  padding-top:16px!important;
+  padding-bottom:16px!important;
+}
+.motoryatFilterHead small{
+  color:#C2A878!important;
+}
+.motoryatFilterHead h2{
+  color:#fff!important;
+}
+.motoryatFilterGrid label,
+.motoryatFilterRange{
+  border-color:#284159!important;
+  background:#132a40!important;
+}
+.motoryatFilterGrid small,
+.motoryatFilterRange legend{
+  color:#a9bac8!important;
+}
+.motoryatFilterGrid select,
+.motoryatFilterGrid input{
+  background:#132a40!important;
+  color:#fff!important;
+}
+.motoryatFilterGrid input::placeholder{
+  color:#7f94a6!important;
+}
+.motoryatFilterRange input{
+  border-color:#314d66!important;
+}
+.motoryatFilterActions{
+  margin-top:12px!important;
+}
+.motoryatFilterApply{
+  background:#C2A878!important;
+  color:#0D1B2A!important;
+}
+.motoryatFilterClear{
+  background:#1c354d!important;
+  color:#dce6ed!important;
+}
