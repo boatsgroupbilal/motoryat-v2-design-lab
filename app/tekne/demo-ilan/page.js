@@ -2,135 +2,194 @@ import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
 import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
-const photos=['/sale-yener-35.webp','/sale-euro-700.webp','/charter-luna-hero.webp'];
+const demoImages=[
+  '/sale-yener-35.webp',
+  '/sale-euro-700.webp',
+  '/sale-euro-760.webp',
+  '/sale-euro-850.webp',
+  '/charter-luna-hero.webp',
+  '/charter-luna-1.webp',
+  '/charter-luna-9.webp',
+  '/store-mengi.webp',
+  '/yacht.webp'
+];
 
+const generalRows=[
+  ['Tekne kimliği','DEMO-S68211'],
+  ['Marka','Bavaria'],
+  ['Model','S 36 HT Diesel'],
+  ['Tekne türü','Motorlu Yat'],
+  ['Durum','İkinci El · Yeni Gibi'],
+  ['Üretim yılı','2018'],
+  ['Konum','Marina Punat · Hırvatistan'],
+  ['Bayrak','Hırvatistan'],
+  ['Kişi','8'],
+  ['Kabin / yataklar','2 Kabin · 4 Yatak'],
+  ['Gövde malzemesi','Fiberglas'],
+  ['Gövde türü','Planing']
+];
 
-function SellerCard({className=''}) {
-  return <aside className={'refSellerCard '+className}>
-    <div className="refSellerTopline">
-      <span>YETKİLİ SATICI</span>
-      <b>✓ DOĞRULANMIŞ</b>
-    </div>
+const technicalRows=[
+  ['Motor','2 × Volvo Penta D3'],
+  ['Motor gücü','2 × 220 HP'],
+  ['Motor saati','420 saat'],
+  ['Yakıt','Dizel'],
+  ['Tahrik','Stern Drive'],
+  ['Seyir hızı','24 kn'],
+  ['Azami hız','30 kn'],
+  ['Yakıt deposu','520 L'],
+  ['Temiz su deposu','250 L'],
+  ['Jeneratör','Fischer Panda'],
+  ['Klima','Var'],
+  ['Elektrik','12V / 220V']
+];
 
-    <div className="refSellerIdentity">
-      <small>KURUMSAL MAĞAZA</small>
-      <h2>Motoryat Partner</h2>
-      <p>⌖ Marina Punat · Hırvatistan</p>
-    </div>
-
-    <div className="refSellerAgent">
-      <small>İLAN YETKİLİSİ</small>
-      <strong>Satış Ekibi</strong>
-      <span>+90 5XX XXX XX XX</span>
-    </div>
-
-    <div className="refSellerActions">
-      <a className="refCall" href="#">☎ TELEFONU GÖSTER</a>
-      <a className="refWhatsapp" href="#">◉ WHATSAPP İLE YAZ</a>
-    </div>
-
-    <a className="refSellerAll" href="/magazalar">Mağazanın Tüm İlanları <b>→</b></a>
-    <a className="refSellerProfile" href="/magazalar">Mağaza bilgilerini görüntüle <b>›</b></a>
-    <a className="refSellerBrochure" href="#">Broşürü İndir <b>PDF</b></a>
-  </aside>;
-}
+const equipmentItems=[
+  'Hardtop açılır tavan',
+  'GPS / Chartplotter',
+  'Radar',
+  'VHF',
+  'Otopilot',
+  'Baş pervane',
+  'Elektrikli ırgat',
+  'Teak kokpit',
+  'Kokpit buzdolabı',
+  'Ocak ve lavabo',
+  'Sıcak su sistemi',
+  'Kıyı elektriği',
+  'Akü şarj cihazı',
+  'Bluetooth ses sistemi',
+  'Güneşlenme minderleri',
+  'Duş ve tuvalet'
+];
 
 export default function DemoListingPage(){
-  return <><SiteHeader/><main className="syRefPage refListingDemo">
-    <div className="refListingShell">
-      <nav className="refListingBreadcrumb" aria-label="Breadcrumb">
-        <a href="/">Ana Sayfa</a><span>›</span><a href="/satilik">Satılık Tekneler</a><span>›</span><b>Bavaria</b>
-      </nav>
-
-      <header className="refListingHeading">
-        <div className="refListingTitleBlock">
-          <span className="refListingStatus">SATILIK · İKİNCİ EL</span>
-          <h1>Bavaria S 36 HT Diesel</h1>
-          <div className="refListingMeta">
-            <span>⌖ Marina Punat, Hırvatistan</span>
-            <span>⚓ Motorlu Yat</span>
-            <span>İlan No: S68211</span>
-          </div>
-        </div>
-
-        <div className="refListingPrice">
-          <del>€ 173.000</del>
-          <strong>€ 159.000</strong>
-          <small>KDV hariç · Pazarlığa açık</small>
-        </div>
-      </header>
-
-      <div className="refListingTopGrid">
-        <section className="refListingGallery">
-          <YachtDetailGallery
-            title="Bavaria S 36 HT Diesel"
-            images={[
-              photos[0],
-              photos[1],
-              photos[2],
-              '/sale-euro-760.webp',
-              '/sale-euro-850.webp'
-            ]}
-            totalCount={24}
-          />
-        </section>
-
-        <SellerCard className="refSellerDesktop"/>
+  return <><SiteHeader/><main className="syRefPage syDemoDetailPage">
+    <div className="syRefGalleryWrap">
+      <div className="syDemoNotice">
+        <b>DEMO İLAN</b>
+        <span>Bu sayfa tasarım ve düzen kontrolü içindir. Görseller, video ve içerikler demo amaçlıdır.</span>
       </div>
 
-      <section className="refQuickFacts" aria-label="Temel tekne bilgileri">
-        <div><span>◫</span><small>Yıl</small><b>2018</b></div>
-        <div><span>↔</span><small>Uzunluk</small><b>11,66 m</b></div>
-        <div><span>▣</span><small>Kabin</small><b>2 Kabin</b></div>
-        <div><span>⚙</span><small>Motor</small><b>2 × Volvo Penta D3</b></div>
-        <div><span>⛽</span><small>Yakıt Tipi</small><b>Dizel</b></div>
+      <YachtDetailGallery
+        title="Bavaria S 36 HT Diesel"
+        images={demoImages}
+        totalCount={30}
+      />
+
+      <section className="syDemoVideo" aria-label="İlan videosu">
+        <div className="syDemoSectionHead">
+          <small>VİDEO</small>
+          <h2>Tekne Walkaround Videosu</h2>
+        </div>
+        <div className="syDemoVideoFrame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/5pOWhNFSHc8"
+            title="Bavaria S36 HT Walkaround"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
       </section>
 
-      <section className="refListingDetails" id="genel-bakis">
-        <section className="refAboutSection">
-          <span className="refSectionEyebrow">İLAN AÇIKLAMASI</span>
-          <h2>İLAN HAKKINDA</h2>
-          <h3>Bavaria S 36 HT Diesel</h3>
-          <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ve güçlü performansı bir araya getiren bir motoryattır. İki kabinli yerleşimi, geniş kokpiti ve pratik yaşam alanlarıyla aile kullanımı ve uzun hafta sonu seyirleri için uygundur. Tekne Marina Punat, Hırvatistan’da görülebilir.</p>
-        </section>
-
-        <section className="refSpecsSection">
-          <span className="refSectionEyebrow">İLAN ÖZELLİKLERİ</span>
-          <h2>Teknik Özellikler</h2>
-          <div className="refSpecsGrid">
-            <dl>
-              <div><dt>Model Yılı</dt><dd>2018</dd></div>
-              <div><dt>Uzunluk</dt><dd>11,66 m</dd></div>
-              <div><dt>Genişlik</dt><dd>3,59 m</dd></div>
-              <div><dt>Su Çekimi</dt><dd>1,05 m</dd></div>
-              <div><dt>Marka</dt><dd>Bavaria</dd></div>
-              <div><dt>Model</dt><dd>S 36 HT Diesel</dd></div>
-              <div><dt>Tekne Tipi</dt><dd>Motorlu Yat</dd></div>
-              <div><dt>Durum</dt><dd>İkinci El · Yeni Gibi</dd></div>
-              <div><dt>İlan No</dt><dd>S68211</dd></div>
-            </dl>
-
-            <dl>
-              <div><dt>Yolcu Kapasitesi</dt><dd>8</dd></div>
-              <div><dt>Kabin</dt><dd>2</dd></div>
-              <div><dt>Motor</dt><dd>2 × Volvo Penta D3</dd></div>
-              <div><dt>Yakıt Tipi</dt><dd>Dizel</dd></div>
-              <div><dt>Yakıt Tankı</dt><dd>520 L</dd></div>
-              <div><dt>Su Tankı</dt><dd>250 L</dd></div>
-              <div><dt>Seyir Hızı</dt><dd>24 kn</dd></div>
-              <div><dt>Maksimum Hız</dt><dd>30 kn</dd></div>
-              <div><dt>Konum</dt><dd>Marina Punat · Hırvatistan</dd></div>
-            </dl>
-          </div>
-        </section>
-      </section>
-
-      <SellerCard className="refSellerMobile"/>
+      <div className="syRefTabs">
+        <nav aria-label="İlan bölümleri">
+          <a className="active" href="#genel-bakis">GENEL</a>
+          <a href="#teknik">TEKNİK</a>
+          <a href="#donanim">DONANIM</a>
+        </nav>
+        <div className="syRefTabsActions">
+          <a href="/satilik">SATILIK İLANLAR ⌕</a>
+        </div>
+      </div>
     </div>
 
-    <div className="refMobileSticky">
-      <a href="#">☎ ARA</a>
-      <a href="#">◉ WHATSAPP</a>
+    <div className="syRefContentWrap" id="genel-bakis">
+      <section className="syRefOverview">
+        <div className="syRefOverviewTop">
+          <div>
+            <span className="syRefEyebrow">SATILIK · DEMO İLAN</span>
+            <h1>Bavaria S 36 HT Diesel</h1>
+          </div>
+        </div>
+
+        <div className="syRefMetaLine">
+          <span>⌁ Motoryat Demo Partner</span>
+          <span>▣ 2018</span>
+          <span>↔ 11,66 m</span>
+          <span>♙ Motorlu Yat</span>
+        </div>
+
+        <div className="syRefCopy">
+          <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, geniş kokpiti, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ile performansı bir araya getiren bir motor yattır.</p>
+          <p>Bu demo ilan; Motoryat.com ilan detay sayfasında uzun açıklama, galeri, video, teknik bilgiler, donanım, fiyat ve satıcı bilgisinin birlikte nasıl görüneceğini göstermek için hazırlanmıştır. Gerçek ilanlarda yalnız mevcut ve doğrulanmış bilgiler gösterilecektir.</p>
+        </div>
+
+        <div className="realVisualFacts">
+          <div><small>BOY</small><b>11,66 m</b></div>
+          <div><small>GENİŞLİK</small><b>3,59 m</b></div>
+          <div><small>SU ÇEKİMİ</small><b>1,05 m</b></div>
+          <div><small>MOTOR</small><b>2 × 220 HP</b></div>
+          <div><small>KABİN</small><b>2</b></div>
+          <div><small>YIL</small><b>2018</b></div>
+        </div>
+
+        <section className="realDataSection">
+          <h2>Tekne Bilgileri</h2>
+          <dl className="realDataList">
+            {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+        </section>
+
+        <section className="realDataSection" id="teknik">
+          <h2>Teknik Bilgiler</h2>
+          <dl className="realDataList">
+            {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+        </section>
+
+        <section className="syDemoEquipment" id="donanim">
+          <h2>Donanım & Teçhizat</h2>
+          <div className="realEquipmentList">
+            {equipmentItems.map((x,i)=><span key={i}>✓ {x}</span>)}
+          </div>
+        </section>
+
+        <section className="syDemoMaintenance">
+          <h2>Bakım & Servis Geçmişi</h2>
+          <p>2025 sezonunda motor bakımları, impeller değişimleri, alt bakım ve zehirli boya uygulaması yapılmıştır. Aküler kontrol edilmiş, navigasyon ve elektrik sistemleri test edilmiştir. Bu metin yalnız demo içeriktir.</p>
+        </section>
+      </section>
+
+      <aside className="syRefSidebar">
+        <div className="syRefSellerCard syRefSellerCardSimple">
+          <div className="syRefSellerTop syRefSellerSimpleTop">
+            <span>SATILIK</span>
+            <div className="syRefSellerSimpleName">
+              <b>Motoryat Demo Partner</b>
+              <small>Marina Punat · Hırvatistan</small>
+            </div>
+          </div>
+
+          <div className="syRefPriceBlock">
+            <small>FİYAT</small>
+            <strong>€ 159.000</strong>
+          </div>
+
+          <div className="syRefSellerActions">
+            <a href="#" aria-label="Telefon">☎</a>
+            <a className="more" href="/magazalar">FİRMA / MAĞAZA</a>
+            <a href="#" aria-label="E-posta">✉</a>
+          </div>
+        </div>
+
+        <div className="syDemoSellerInfo">
+          <small>İLAN NO</small>
+          <b>DEMO-S68211</b>
+          <span>Demo sayfada tüm alanlar bilerek dolu tutulur. Gerçek ilanda boş alanlar gösterilmez.</span>
+        </div>
+      </aside>
     </div>
   </main><Footer/></>;
 }
