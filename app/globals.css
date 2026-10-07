@@ -12643,3 +12643,121 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:21px!important;
   }
 }
+
+
+/* MOTORYAT FULL DEMO DETAIL PAGE */
+.syDemoDetailPage .syDemoNotice{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 12px;
+  padding:10px 12px;
+  border:1px solid #e2e6e9;
+  background:#f7f8f9;
+  color:#46525c;
+  font-size:10px;
+}
+.syDemoDetailPage .syDemoNotice b{
+  color:#0D1B2A;
+  font-size:10px;
+  letter-spacing:.06em;
+}
+.syDemoVideo{
+  margin-top:18px;
+}
+.syDemoSectionHead small{
+  display:block;
+  color:#C2A878;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+.syDemoSectionHead h2{
+  margin:4px 0 10px;
+  color:#0D1B2A;
+  font-size:20px;
+}
+.syDemoVideoFrame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#0D1B2A;
+}
+.syDemoVideoFrame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.syDemoEquipment,
+.syDemoMaintenance{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid #e2e6e9;
+}
+.syDemoEquipment h2,
+.syDemoMaintenance h2{
+  margin:0 0 12px;
+  color:#0D1B2A;
+  font-size:18px;
+}
+.realEquipmentList{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px 12px;
+}
+.realEquipmentList span{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  padding:7px 9px;
+  background:#f7f8f9;
+  border:1px solid #e7eaed;
+  color:#394650;
+  font-size:10px;
+}
+.syDemoMaintenance p{
+  margin:0;
+  color:#46525c;
+  font-size:12px;
+  line-height:1.65;
+}
+.syDemoSellerInfo{
+  display:grid;
+  gap:5px;
+  padding:14px;
+  border:1px solid #e2e6e9;
+  background:#f8f9fa;
+}
+.syDemoSellerInfo small{
+  color:#7d8992;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.syDemoSellerInfo b{
+  color:#0D1B2A;
+  font-size:13px;
+}
+.syDemoSellerInfo span{
+  color:#5f6b74;
+  font-size:9px;
+  line-height:1.5;
+}
+
+@media(max-width:820px){
+  .syDemoDetailPage .syDemoNotice{
+    margin:10px;
+  }
+  .syDemoVideo{
+    padding:0 10px;
+  }
+  .syDemoSectionHead h2{
+    font-size:17px;
+  }
+  .realEquipmentList{
+    grid-template-columns:1fr;
+  }
+}
