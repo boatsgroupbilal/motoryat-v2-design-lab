@@ -41,11 +41,11 @@ export default function YachtListingRow({
       </div>
     </div>
 
-    <Link href={item.href} className="sqYachtFooter" aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}>
-      <span className="sqYachtFooterBrand">
+    <Link href={item.href} className="sqYachtStatus sqYachtUnifiedFooter" aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}>
+      <span className="sqYachtUnifiedBrand">
         {brandLogo ? <img src={brandLogo} alt={brand}/> : <strong>{brand}</strong>}
       </span>
-      <span className="sqYachtFooterType">{charter?'KİRALIK':'SATILIK'}</span>
+      <span>{charter?'KİRALIK':'SATILIK'}</span>
     </Link>
   </article>
 }
