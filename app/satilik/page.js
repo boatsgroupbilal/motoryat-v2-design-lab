@@ -50,10 +50,24 @@ export default function Page(){
 
     <div className="saleListingMain">
      <div className="luxResultsBar">
-      <div><b>Satılık · {listings.length} ilan</b></div>
+      <div><b>Satılık Yatlar</b></div>
       <select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select>
      </div>
      <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+
+     <nav className="salePagination" aria-label="Satılık ilan sayfaları">
+      <div className="salePaginationPages">
+       <button className="active" type="button">1</button>
+       <button type="button">2</button>
+       <button type="button">3</button>
+       <button type="button">4</button>
+       <button type="button">5</button>
+       <span>…</span>
+       <button type="button">56</button>
+       <button type="button">57</button>
+      </div>
+      <strong>500 ilan var</strong>
+     </nav>
     </div>
    </div>
   </div></section>
