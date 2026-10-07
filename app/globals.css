@@ -12278,3 +12278,57 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     font-size:8px!important;
   }
 }
+
+
+/* MOTORYAT YACHT GRID — CHECKERBOARD ACCENT LOCK */
+/* 4 columns: G T G T / T G T G */
+@media(min-width:1101px){
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+1),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+3),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+6),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n){
+    --card-accent:var(--card-gold)!important;
+    --card-inner-accent:var(--card-turquoise)!important;
+    background:var(--card-gold)!important;
+  }
+
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+2),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+4),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+5),
+  .sqYachtGrid>.sqYachtCard:nth-child(8n+7){
+    --card-accent:var(--card-turquoise)!important;
+    --card-inner-accent:var(--card-gold)!important;
+    background:var(--card-turquoise)!important;
+  }
+}
+
+/* 3 columns: odd/even naturally forms a checkerboard */
+@media(min-width:821px) and (max-width:1100px){
+  .sqYachtGrid>.sqYachtCard:nth-child(odd){
+    --card-accent:var(--card-gold)!important;
+    --card-inner-accent:var(--card-turquoise)!important;
+    background:var(--card-gold)!important;
+  }
+  .sqYachtGrid>.sqYachtCard:nth-child(even){
+    --card-accent:var(--card-turquoise)!important;
+    --card-inner-accent:var(--card-gold)!important;
+    background:var(--card-turquoise)!important;
+  }
+}
+
+/* 2 columns: G T / T G */
+@media(max-width:820px){
+  .sqYachtGrid>.sqYachtCard:nth-child(4n+1),
+  .sqYachtGrid>.sqYachtCard:nth-child(4n){
+    --card-accent:var(--card-gold)!important;
+    --card-inner-accent:var(--card-turquoise)!important;
+    background:var(--card-gold)!important;
+  }
+
+  .sqYachtGrid>.sqYachtCard:nth-child(4n+2),
+  .sqYachtGrid>.sqYachtCard:nth-child(4n+3){
+    --card-accent:var(--card-turquoise)!important;
+    --card-inner-accent:var(--card-gold)!important;
+    background:var(--card-turquoise)!important;
+  }
+}
