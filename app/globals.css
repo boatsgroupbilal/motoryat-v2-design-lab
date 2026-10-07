@@ -13539,3 +13539,54 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     gap:8px!important;
   }
 }
+
+
+/* MOTORYAT SALE PAGINATION */
+.salePagination{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  margin-top:24px!important;
+  padding:18px 0 0!important;
+  border-top:1px solid #e3e7ea!important;
+}
+.salePaginationPages{
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  flex-wrap:wrap!important;
+}
+.salePaginationPages button{
+  min-width:34px!important;
+  height:34px!important;
+  padding:0 9px!important;
+  border:1px solid #dce2e6!important;
+  border-radius:5px!important;
+  background:#fff!important;
+  color:#0D1B2A!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  cursor:pointer!important;
+}
+.salePaginationPages button.active{
+  background:#0D1B2A!important;
+  border-color:#0D1B2A!important;
+  color:#fff!important;
+}
+.salePaginationPages span{
+  color:#8a959d!important;
+  font-size:12px!important;
+}
+.salePagination>strong{
+  color:#0D1B2A!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+}
+@media(max-width:520px){
+  .salePagination{
+    align-items:flex-start!important;
+    flex-direction:column!important;
+  }
+}
