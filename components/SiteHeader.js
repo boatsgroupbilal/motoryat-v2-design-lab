@@ -3,31 +3,31 @@ import Link from 'next/link';
 import {useState} from 'react';
 
 const sale=[
- ['Superyacht','/satilik?tip=superyacht'],
- ['Motoryat','/satilik?tip=motoryat'],
- ['Yelkenli','/satilik?tip=yelkenli'],
- ['Katamaran','/satilik?tip=katamaran'],
- ['Gulet','/satilik?tip=gulet'],
- ['Tekne','/satilik?tip=tekne']
+ ['Süperyat','/satilik/superyacht'],
+ ['Motoryat','/satilik/motoryat'],
+ ['Yelkenli','/satilik/yelkenli'],
+ ['Katamaran','/satilik/katamaran'],
+ ['Gulet','/satilik/gulet'],
+ ['Tekne','/satilik/tekne']
 ];
 
 const charter=[
- ['Superyacht','/kiralik?tip=superyacht'],
- ['Motoryat','/kiralik?tip=motoryat'],
- ['Yelkenli','/kiralik?tip=yelkenli'],
- ['Katamaran','/kiralik?tip=katamaran'],
- ['Gulet','/kiralik?tip=gulet'],
- ['Tekne','/kiralik?tip=tekne']
+ ['Süperyat','/kiralik/superyacht'],
+ ['Motoryat','/kiralik/motoryat'],
+ ['Yelkenli','/kiralik/yelkenli'],
+ ['Katamaran','/kiralik/katamaran'],
+ ['Gulet','/kiralik/gulet'],
+ ['Trawler','/kiralik/trawler']
 ];
 
 const equipment=[
- ['Motor & Mekanik','/urunler?kategori=motor-mekanik'],
- ['Elektrik & Elektronik','/urunler?kategori=elektrik-elektronik'],
- ['Güverte & Donanım','/urunler?kategori=guverte-donanim'],
- ['Seyir & Haberleşme','/urunler?kategori=seyir-haberlesme'],
- ['Güvenlik','/urunler?kategori=guvenlik'],
- ['Bakım & Temizlik','/urunler?kategori=bakim-temizlik'],
- ['Su Sporları','/urunler?kategori=su-sporlari']
+ ['Motor & Mekanik','/urunler/motor-mekanik'],
+ ['Elektrik','/urunler/elektrik'],
+ ['Güverte','/urunler/guverte'],
+ ['Elektronik & Navigasyon','/urunler/elektronik-navigasyon'],
+ ['Güvenlik','/urunler/guvenlik'],
+ ['Boya & Bakım','/urunler/boya-bakim'],
+ ['Su Sporları','/urunler/su-sporlari']
 ];
 
 const news=[
