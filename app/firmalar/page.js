@@ -11,7 +11,7 @@ const companyItems=(companies||[]).map((x)=>({
   location:x.location||x.country||'Türkiye',
   image:'/store-directory.webp',
   logo:'/motoryat-logo.svg',
-  href:'/firmalar'
+  href:'/firma/'+x.slug
 }));
 
 export default function Page(){
