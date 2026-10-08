@@ -63,7 +63,10 @@ export default function Page(){
           <button>Ara</button>
         </div>
         <div className="equipmentQuickCats">
-          {quickCategories.map(([icon,label],i)=><button className={i===0?'active':''} key={label}><b>{icon}</b>{label}</button>)}
+          {quickCategories.map(([icon,label],i)=>{
+  const href=i===0?'/urunler':label==='Elektronik'?'/urunler/elektronik-navigasyon':label==='Güverte Donanımı'?'/urunler/guverte':label==='Güvenlik'?'/urunler/guvenlik':'/urunler/boya-bakim';
+  return <a className={i===0?'active':''} href={href} key={label}><b>{icon}</b>{label}</a>;
+})}
         </div>
       </section>
 
@@ -71,7 +74,7 @@ export default function Page(){
         <aside className="equipmentSidebar">
           <div className="equipmentSideGroup equipmentCategoryGroup">
             <div className="equipmentCategoryHead"><span>☰</span><b>TÜM KATEGORİLER</b></div>
-            <a className="active equipmentCategoryRow" href="#">
+            <a className="active equipmentCategoryRow" href="/urunler">
               <span className="equipmentCategoryIcon">▦</span>
               <span className="equipmentCategoryName">Tüm Ürünler</span>
               <b>{items.length}</b>
