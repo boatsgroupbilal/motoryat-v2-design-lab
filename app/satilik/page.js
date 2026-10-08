@@ -12,15 +12,22 @@ function prettyStatus(value){
  return map[value]||value;
 }
 
-export default function Page(){
- const listings=[demoListing,...saleListings.filter(x=>x.slug!==demoListing.slug)];
- const vesselTypes=uniq(listings.map(x=>x.vessel_type||x.boat_type||x.category)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,24);
- const years=uniq(listings.map(x=>x.year)).filter(x=>/^\d{4}$/.test(x)).sort((a,b)=>Number(b)-Number(a)).slice(0,20);
- const locations=uniq(listings.map(x=>x.location)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,24);
- const makers=uniq(listings.map(x=>x.store_name||x.seller||x.brand_name||x.brand||x.manufacturer)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,30);
+export default async function Page({searchParams}){
+ const params=await searchParams;
+ const allListings=[demoListing,...saleListings.filter(x=>x.slug!==demoListing.slug)];
+ const page=Math.max(1,Number(params?.sayfa)||1);
+ const perPage=24;
+ const totalPages=Math.max(1,Math.ceil(allListings.length/perPage));
+ const safePage=Math.min(page,totalPages);
+ const listings=allListings.slice((safePage-1)*perPage,safePage*perPage);
+
+ const vesselTypes=uniq(allListings.map(x=>x.vessel_type||x.boat_type||x.category)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,24);
+ const years=uniq(allListings.map(x=>x.year)).filter(x=>/^\d{4}$/.test(x)).sort((a,b)=>Number(b)-Number(a)).slice(0,20);
+ const locations=uniq(allListings.map(x=>x.location)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,24);
+ const makers=uniq(allListings.map(x=>x.store_name||x.seller||x.brand_name||x.brand||x.manufacturer)).sort((a,b)=>a.localeCompare(b,'tr')).slice(0,30);
  const statuses=uniq([
-   ...listings.map(x=>x.condition),
-   ...listings.map(x=>x.presentation_type),
+   ...allListings.map(x=>x.condition),
+   ...allListings.map(x=>x.presentation_type),
    'Yeni','İkinci El','Sipariş Üzerine','Proje'
  ].map(prettyStatus)).sort((a,b)=>a.localeCompare(b,'tr'));
 
@@ -54,24 +61,18 @@ export default function Page(){
 
     <div className="saleListingMain">
      <div className="luxResultsBar">
-      <div><b>Satılık Yatlar</b></div>
+      <div><b>Satılık Yatlar</b><span>{allListings.length} ilan</span></div>
       <select defaultValue="new"><option value="new">En yeni</option><option>Boy: büyükten küçüğe</option><option>Fiyat: yüksekten düşüğe</option></select>
      </div>
-     <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={i}/>)}</div>
+     <div className="sqYachtGrid">{listings.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={x.seller} year={x.year||'—'} refit="—" index={(safePage-1)*perPage+i}/>)}</div>
 
-     <nav className="salePagination" aria-label="Satılık ilan sayfaları">
+     {totalPages>1&&<nav className="salePagination" aria-label="Satılık ilan sayfaları">
       <div className="salePaginationPages">
-       <button className="active" type="button">1</button>
-       <button type="button">2</button>
-       <button type="button">3</button>
-       <button type="button">4</button>
-       <button type="button">5</button>
-       <span>…</span>
-       <button type="button">56</button>
-       <button type="button">57</button>
+       {Array.from({length:Math.min(totalPages,7)},(_,i)=>i+1).map(n=><a className={n===safePage?'active':''} href={'/satilik?sayfa='+n} key={n}>{n}</a>)}
+       {totalPages>7&&<><span>…</span><a className={totalPages===safePage?'active':''} href={'/satilik?sayfa='+totalPages}>{totalPages}</a></>}
       </div>
-      <strong>500 ilan var</strong>
-     </nav>
+      <strong>{allListings.length} ilan var</strong>
+     </nav>}
     </div>
    </div>
   </div></section>
