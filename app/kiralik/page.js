@@ -11,10 +11,16 @@ export default function Page(){
  const listings=[...charterListings,...charterListings];
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="charter"/>
-  <section className="luxPageTop luxCharterTop"><div className="syContainer">
-   <div className="luxCrumb">Motoryat / Kiralık</div>
-   <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>200+</strong><span>charter</span></div></div>
-  </div></section>
+  <section className="luxPageTop luxCharterTop categoryHeroStd">
+   <img className="categoryHeroStdImage" src="/charter-luna-hero.webp" alt="Kiralık yatlar"/>
+   <div className="categoryHeroStdShade"></div>
+   <div className="syContainer categoryHeroStdInner">
+    <div className="categoryHeroStdContent">
+     <div className="luxCrumb">Motoryat / Kiralık</div>
+     <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>200+</strong><span>charter</span></div></div>
+    </div>
+   </div>
+  </section>
 
   <section className="luxFilterWrap"><div className="syContainer">
    <div className="luxFilters">
