@@ -95,7 +95,7 @@ export default function SiteHeader(){
          <Mega label="Haberler" href="/haberler" items={news}/>
          <li><Link href="/ilan-ver">İlan Ver</Link></li>
        </ul></nav>
-       <button className="dpSearch" type="button">Ara...</button>
+       <Link className="dpSearch" href="/arama">Ara...</Link>
      </div></header>
    </div>
 
