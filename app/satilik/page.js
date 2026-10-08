@@ -35,12 +35,12 @@ export default function Page(){
   </section>
   <nav className="luxCategoryChips" aria-label="Satılık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/satilik">Tümü</a>
-    <a href="/satilik">Motoryat</a>
-    <a href="/satilik">Yelkenli</a>
-    <a href="/satilik">Katamaran</a>
-    <a href="/satilik">Gulet</a>
-    <a href="/satilik">Sürat Teknesi</a>
-    <a href="/satilik">Şişme Bot</a>
+    <a href="/satilik/motoryat">Motoryat</a>
+    <a href="/satilik/yelkenli">Yelkenli</a>
+    <a href="/satilik/katamaran">Katamaran</a>
+    <a href="/satilik/gulet">Gulet</a>
+    <a href="/satilik/surat-teknesi">Sürat Teknesi</a>
+    <a href="/satilik/sisme-bot">Şişme Bot</a>
   </div></nav>
   <section className="luxResults"><div className="syContainer">
    <div className="saleListingLayout">
