@@ -17,7 +17,11 @@ const companyItems=(companies||[]).map((x)=>({
 export default function Page(){
  const items=companyItems.length?companyItems:fallbackItems;
  return <><SiteHeader/><main>
-  <section className="directoryHero"><div className="container directoryHeroInner"><span>FİRMA REHBERİ</span><h1>Denizcilik firmalarını bulun.</h1><p>Üretici, tersane, broker, servis, refit, charter ve ekipman firmalarını tek rehberde keşfedin.</p><div className="directorySearch"><input placeholder="Firma adı, şehir veya hizmet ara"/><button className="navyBtn">Ara</button></div></div></section>
+  <section className="directoryHero categoryHeroStd">
+   <img className="categoryHeroStdImage" src="/store-directory.webp" alt="Denizcilik firmaları"/>
+   <div className="categoryHeroStdShade"></div>
+   <div className="container directoryHeroInner categoryHeroStdInner"><div className="categoryHeroStdContent"><span>FİRMA REHBERİ</span><h1>Denizcilik firmalarını bulun.</h1><p>Üretici, tersane, broker, servis, refit, charter ve ekipman firmalarını tek rehberde keşfedin.</p><div className="directorySearch"><input placeholder="Firma adı, şehir veya hizmet ara"/><button className="navyBtn">Ara</button></div></div></div>
+  </section>
   <div className="container directoryTools"><div className="simpleTabs"><button className="active">Tümü</button><button>Üretici</button><button>Tersane</button><button>Broker</button><button>Servis</button><button>Charter</button></div><select><option>Tüm Türkiye</option><option>İstanbul</option><option>Muğla</option><option>İzmir</option></select></div>
   <section className="section directorySection"><div className="container"><div className="sectionHead"><div><span>FİRMALAR</span><h2>Denizcilik profesyonelleri</h2><p>Kurumsal profil, iletişim ve hizmet alanları.</p></div></div><div className="storeGrid directory">{items.map((x,i)=><StoreCard key={x.id||x.slug||i} item={x}/>)}</div></div></section>
 </main><Footer/></>
