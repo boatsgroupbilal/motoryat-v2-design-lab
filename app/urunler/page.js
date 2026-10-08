@@ -76,7 +76,26 @@ export default function Page(){
               <span className="equipmentCategoryName">Tüm Ürünler</span>
               <b>{items.length}</b>
             </a>
-            {categoryMenu.map(([icon,label,count])=><a className="equipmentCategoryRow" href="#" key={label}>
+            {categoryMenu.map(([icon,label,count])=><a className="equipmentCategoryRow" href={'/urunler/'+({
+              'Motor & Mekanik':'motor-mekanik',
+              'Motor Yağları':'motor-mekanik',
+              'Pervaneler':'motor-mekanik',
+              'Elektrik':'elektrik',
+              'Elektronik & Navigasyon':'elektronik-navigasyon',
+              'Güverte':'guverte',
+              'Çapa & Bağlama':'capa-baglama',
+              'Pompa & Tesisat':'pompa-tesisat',
+              'Güvenlik':'guvenlik',
+              'Boya & Bakım':'boya-bakim',
+              'Yelken & Donanım':'yelken-donanimi',
+              'Halat & Rigging':'halat-rigging',
+              'Kabin & Konfor':'kabin-konfor',
+              'Mutfak & Soğutma':'mutfak-sogutma',
+              'Su Sporları':'su-sporlari',
+              'Bot & Tender':'bot-tender',
+              'Balıkçılık':'balikcilik',
+              'Yedek Parça':'yedek-parca'
+            }[label]||'')} key={label}>
               <span className="equipmentCategoryIcon" aria-hidden="true">{icon}</span>
               <span className="equipmentCategoryName">{label}</span>
               <b>{count}</b>
