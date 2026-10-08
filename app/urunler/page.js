@@ -1,41 +1,39 @@
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
-import {products,productCategories} from '../../data/content';
+import {products} from '../../data/content';
 import {EquipmentProductCard} from '../../components/Card';
 
 const quickCategories=[
-  ['▦','Tüm Ürünler'],
-  ['▣','Elektronik'],
-  ['⚓','Güverte Donanımı'],
-  ['◇','Güvenlik'],
-  ['⌁','Bakım']
+  ['▦','Tüm Ürünler','/urunler'],
+  ['▣','Elektronik','/urunler/elektronik-navigasyon'],
+  ['⚓','Güverte Donanımı','/urunler/guverte'],
+  ['◇','Güvenlik','/urunler/guvenlik'],
+  ['⌁','Bakım','/urunler/boya-bakim']
 ];
 
-const brands=['Admiral','Raymarine','Garmin','Lewmar','Volvo Penta'];
-
 const categoryMenu=[
-  ['⚙','Motor & Mekanik',482],
-  ['🛢','Motor Yağları',346],
-  ['◉','Pervaneler',395],
-  ['⚡','Elektrik',865],
-  ['⌖','Elektronik & Navigasyon',824],
-  ['⚓','Güverte',991],
-  ['⛓','Çapa & Bağlama',1186],
-  ['💧','Pompa & Tesisat',1333],
-  ['🛟','Güvenlik',1502],
-  ['🖌','Boya & Bakım',1870],
-  ['⛵','Yelken & Donanım',1845],
-  ['🪢','Halat & Rigging',2011],
-  ['▤','Kabin & Konfor',2183],
-  ['❄','Mutfak & Soğutma',2358],
-  ['🏄','Su Sporları',2521],
-  ['🚤','Bot & Tender',2698],
-  ['🎣','Balıkçılık',2886],
-  ['🔩','Yedek Parça',3038]
+  ['⚙','Motor & Mekanik','motor-mekanik'],
+  ['⚡','Elektrik','elektrik'],
+  ['⌖','Elektronik & Navigasyon','elektronik-navigasyon'],
+  ['⚓','Güverte','guverte'],
+  ['⛓','Çapa & Bağlama','capa-baglama'],
+  ['💧','Pompa & Tesisat','pompa-tesisat'],
+  ['🛟','Güvenlik','guvenlik'],
+  ['🖌','Boya & Bakım','boya-bakim'],
+  ['⛵','Yelken & Donanım','yelken-donanimi'],
+  ['🪢','Halat & Rigging','halat-rigging'],
+  ['▤','Kabin & Konfor','kabin-konfor'],
+  ['❄','Mutfak & Soğutma','mutfak-sogutma'],
+  ['🏄','Su Sporları','su-sporlari'],
+  ['🚤','Bot & Tender','bot-tender'],
+  ['🎣','Balıkçılık','balikcilik'],
+  ['🔩','Yedek Parça','yedek-parca']
 ];
 
 export default function Page(){
-  const items=[...products,...products];
+  const items=products;
+  const brands=[...new Set(items.map(x=>x.brand).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr'));
+  const countFor=(slug)=>items.filter(x=>x.category_slug===slug).length;
 
   return <><SiteHeader/><main className="equipmentMarketplace">
     <div className="container equipmentShell">
@@ -57,16 +55,13 @@ export default function Page(){
       </section>
 
       <section className="equipmentDiscovery">
-        <div className="equipmentSearch">
+        <form className="equipmentSearch" action="/arama">
           <span>⌕</span>
-          <input placeholder="Ürün, marka veya kategori ara..."/>
+          <input name="q" placeholder="Ürün, marka veya kategori ara..."/>
           <button>Ara</button>
-        </div>
+        </form>
         <div className="equipmentQuickCats">
-          {quickCategories.map(([icon,label],i)=>{
-  const href=i===0?'/urunler':label==='Elektronik'?'/urunler/elektronik-navigasyon':label==='Güverte Donanımı'?'/urunler/guverte':label==='Güvenlik'?'/urunler/guvenlik':'/urunler/boya-bakim';
-  return <a className={i===0?'active':''} href={href} key={label}><b>{icon}</b>{label}</a>;
-})}
+          {quickCategories.map(([icon,label,href],i)=><a className={i===0?'active':''} href={href} key={label}><b>{icon}</b>{label}</a>)}
         </div>
       </section>
 
@@ -79,35 +74,15 @@ export default function Page(){
               <span className="equipmentCategoryName">Tüm Ürünler</span>
               <b>{items.length}</b>
             </a>
-            {categoryMenu.map(([icon,label,count])=><a className="equipmentCategoryRow" href={'/urunler/'+({
-              'Motor & Mekanik':'motor-mekanik',
-              'Motor Yağları':'motor-mekanik',
-              'Pervaneler':'motor-mekanik',
-              'Elektrik':'elektrik',
-              'Elektronik & Navigasyon':'elektronik-navigasyon',
-              'Güverte':'guverte',
-              'Çapa & Bağlama':'capa-baglama',
-              'Pompa & Tesisat':'pompa-tesisat',
-              'Güvenlik':'guvenlik',
-              'Boya & Bakım':'boya-bakim',
-              'Yelken & Donanım':'yelken-donanimi',
-              'Halat & Rigging':'halat-rigging',
-              'Kabin & Konfor':'kabin-konfor',
-              'Mutfak & Soğutma':'mutfak-sogutma',
-              'Su Sporları':'su-sporlari',
-              'Bot & Tender':'bot-tender',
-              'Balıkçılık':'balikcilik',
-              'Yedek Parça':'yedek-parca'
-            }[label]||'')} key={label}>
+            {categoryMenu.map(([icon,label,slug])=><a className="equipmentCategoryRow" href={'/urunler/'+slug} key={label}>
               <span className="equipmentCategoryIcon" aria-hidden="true">{icon}</span>
               <span className="equipmentCategoryName">{label}</span>
-              <b>{count}</b>
+              <b>{countFor(slug)}</b>
             </a>)}
           </div>
           <div className="equipmentSideGroup equipmentBrands">
             <div className="equipmentSideTitle">MARKA</div>
-            {brands.map((x,i)=><label key={x}><input type="checkbox"/><span>{x}</span><b>{124-(i*18)}</b></label>)}
-            <button>Daha fazla marka⌄</button>
+            {brands.map((x)=><label key={x}><input type="checkbox"/><span>{x}</span><b>{items.filter(p=>p.brand===x).length}</b></label>)}
           </div>
         </aside>
 
@@ -122,7 +97,7 @@ export default function Page(){
           </div>
 
           <div className="equipmentProductGrid">
-            {items.map((x,i)=><EquipmentProductCard item={x} key={x.slug+'-'+i}/>)}
+            {items.map((x)=><EquipmentProductCard item={x} key={x.slug}/>)}
           </div>
         </div>
       </section>
