@@ -6,9 +6,10 @@ import {getStoreProfile} from '../../../data/storeProfiles';
 import StoreMiniNav from '../../../components/StoreMiniNav';
 
 function matchesStore(item,store){
-  const hay=(item.title+' '+item.meta+' '+item.slug).toLowerCase();
-  const key=store.name.toLowerCase().split(' ')[0];
-  return hay.includes(key);
+  if((item.store_slug||item.sellerSlug)===store.slug) return true;
+  const hay=(String(item.title||'')+' '+String(item.meta||'')+' '+String(item.slug||'')).toLocaleLowerCase('tr-TR');
+  const key=String(store.name||'').toLocaleLowerCase('tr-TR').split(' ')[0];
+  return key?hay.includes(key):false;
 }
 
 export default async function Page({params}){
@@ -18,7 +19,7 @@ export default async function Page({params}){
 
   const saleItems=saleListings.filter(x=>matchesStore(x,store));
   const charterItems=charterListings.filter(x=>matchesStore(x,store));
-  const productItems=products.filter(x=>x.brand && store.name.toLowerCase().includes(x.brand.toLowerCase()));
+  const productItems=products.filter(x=>x.store_slug===store.slug || (x.brand && store.name.toLocaleLowerCase('tr-TR').includes(x.brand.toLocaleLowerCase('tr-TR'))));
 
   const hasSale=saleItems.length>0;
   const hasCharter=charterItems.length>0;
