@@ -26,9 +26,13 @@ export default function Page(){
 
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="sale"/>
-  <section className="luxPageTop luxSaleTitleOnly"><div className="syContainer">
-   <div className="luxTitleRow luxTitleRowOnly"><div><h1>Satılık Yatlar</h1></div></div>
-  </div></section>
+  <section className="luxPageTop luxSaleTitleOnly categoryHeroStd">
+   <img className="categoryHeroStdImage" src="/sale-euro-850.webp" alt="Satılık yatlar"/>
+   <div className="categoryHeroStdShade"></div>
+   <div className="syContainer categoryHeroStdInner">
+    <div className="luxTitleRow luxTitleRowOnly categoryHeroStdContent"><div><h1>Satılık Yatlar</h1></div></div>
+   </div>
+  </section>
   <nav className="luxCategoryChips" aria-label="Satılık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/satilik">Tümü</a>
     <a href="/satilik">Motoryat</a>
