@@ -4,11 +4,14 @@ import {YachtCard} from '../../components/Card';
 import MobileListingFilters from '../../components/MobileListingFilters';
 import {charterListings} from '../../data/content';
 
-const sellers=['Lady Luna Charter','Sunreef Yachts Charter','Lady Luna Charter','Lady Luna Charter'];
-const years=['2022','2024','2022','2022'];
+export default async function Page({searchParams}){
+ const params=await searchParams;
+ const page=Math.max(1,Number(params?.sayfa)||1);
+ const perPage=24;
+ const totalPages=Math.max(1,Math.ceil(charterListings.length/perPage));
+ const safePage=Math.min(page,totalPages);
+ const listings=charterListings.slice((safePage-1)*perPage,safePage*perPage);
 
-export default function Page(){
- const listings=[...charterListings,...charterListings];
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="charter"/>
   <section className="luxPageTop luxCharterTop categoryHeroStd">
@@ -17,7 +20,7 @@ export default function Page(){
    <div className="syContainer categoryHeroStdInner">
     <div className="categoryHeroStdContent">
      <div className="luxCrumb">Motoryat / Kiralık</div>
-     <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>200+</strong><span>charter</span></div></div>
+     <div className="luxTitleRow"><div><span>FOR CHARTER</span><h1>Kiralık Yatlar</h1><p>Türkiye ve Akdeniz'in öne çıkan charter yatlarını keşfedin.</p></div><div className="luxCount"><strong>{charterListings.length}</strong><span>charter</span></div></div>
     </div>
    </div>
   </section>
@@ -44,11 +47,13 @@ export default function Page(){
   </div></section>
 
   <section className="luxResults"><div className="syContainer">
-   <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>Charter seçkisi</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
+   <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>{charterListings.length} charter</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
    <div className="sqYachtGrid">
-    {listings.map((x,i)=><YachtCard key={x.slug+'-'+i} item={x} type="charter" seller={sellers[i%sellers.length]} year={years[i%years.length]} refit={String(2021+(i%4))} index={i}/>)}
+    {listings.map((x,i)=><YachtCard key={x.slug} item={x} type="charter" seller={x.seller||x.store_name||''} year={x.year||'—'} refit="—" index={(safePage-1)*perPage+i}/>)}
    </div>
-   <div className="syPager luxPager"><button>‹</button><button className="active">1</button><button>2</button><button>3</button><button>›</button></div>
+   {totalPages>1&&<nav className="salePagination" aria-label="Kiralık ilan sayfaları"><div className="salePaginationPages">
+    {Array.from({length:totalPages},(_,i)=>i+1).map(n=><a className={n===safePage?'active':''} href={'/kiralik?sayfa='+n} key={n}>{n}</a>)}
+   </div><strong>{charterListings.length} ilan var</strong></nav>}
   </div></section>
  </main><Footer/></>
 }
