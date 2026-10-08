@@ -39,10 +39,10 @@ export default function Page(){
 
   return <><SiteHeader/><main className="equipmentMarketplace">
     <div className="container equipmentShell">
-      <section className="equipmentHero">
-        <img className="equipmentHeroImage" src="/hero-home.webp" alt="Tekne ve yat malzemeleri"/>
-        <div className="equipmentHeroShade"></div>
-        <div className="equipmentHeroInner">
+      <section className="equipmentHero categoryHeroStd">
+        <img className="equipmentHeroImage categoryHeroStdImage" src="/product-boom.webp" alt="Tekne ve yat malzemeleri"/>
+        <div className="equipmentHeroShade categoryHeroStdShade"></div>
+        <div className="equipmentHeroInner categoryHeroStdInner">
           <div className="equipmentHeroCopy">
             <span>ORİJİNAL ÜRÜNLER · GÜVENİLİR MARKALAR</span>
             <h1>Tekne &amp; Yat Malzemeleri</h1>
