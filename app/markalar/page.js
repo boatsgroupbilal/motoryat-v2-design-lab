@@ -21,7 +21,7 @@ export default async function Page({ searchParams }) {
   const letters = [...new Set(brands.map((brand) => brand.name.charAt(0).toLocaleUpperCase('tr-TR')))];
 
   return <><SiteHeader/><main className={styles.page}>
-    <section className={styles.hero}><img className={styles.heroImage} src="/yacht.webp" alt="" aria-hidden="true"/><div className={styles.heroShade}/><div className={styles.container}><div className={styles.heroInner}><div className={styles.heroCopy}>
+    <section className={styles.hero+' categoryHeroStd'}><img className={styles.heroImage+' categoryHeroStdImage'} src="/sale-yener-35.webp" alt="" aria-hidden="true"/><div className={styles.heroShade+' categoryHeroStdShade'}/><div className={styles.container+' categoryHeroStdInner'}><div className={styles.heroInner}><div className={styles.heroCopy}>
       <nav className={styles.breadcrumb} aria-label="Breadcrumb"><a href="/">Ana Sayfa</a><span>/</span><span>Markalar</span></nav>
       <span className={styles.eyebrow}>MARKALAR &amp; MODELLER</span><h1>Tekne ve yat markalarını keşfedin.</h1><p>Marka profillerinden modellere, ilgili ilanlara ve kurumsal içeriklere hızlıca ulaşın.</p>
       <form className={styles.search} action="/markalar" method="get"><label className={styles.srOnly} htmlFor="brand-search">Marka ara</label><input id="brand-search" name="q" defaultValue={query} placeholder="Marka ara" autoComplete="off"/><button type="submit">Ara</button></form>
