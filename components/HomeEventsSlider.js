@@ -1,15 +1,9 @@
 'use client';
 
 import {useRef,useState} from 'react';
+import {realEvents,eventCard} from '../data/events';
 
-const events=[
-  {day:'08',month:'EKİM',title:'Monaco Yat Fuarı',year:'2026',image:'/hero-home.webp'},
-  {day:'28',month:'EKİM',title:'Fort Lauderdale Uluslararası Tekne Fuarı',year:'2026',image:'/store-directory.webp'},
-  {day:'13',month:'KASIM',title:'Sydney Tekne Fuarı',year:'2026',image:'/charter-sunreef.webp'},
-  {day:'17',month:'OCAK',title:'Boot Düsseldorf',year:'2027',image:'/sale-euro-850.webp'},
-  {day:'09',month:'EYLÜL',title:'Cannes Yachting Festival',year:'2027',image:'/charter-luna-hero.webp'},
-  {day:'24',month:'EKİM',title:'Bosphorus Boat Show',year:'2027',image:'/store-mengi.webp'}
-];
+const events=realEvents.map(eventCard);
 
 export default function HomeEventsSlider(){
   const railRef=useRef(null);
@@ -72,13 +66,13 @@ export default function HomeEventsSlider(){
         {events.map((item,i)=><a
           className="homeWideEventCard"
           href="/haberler/etkinlikler-fuarlar"
-          key={item.title+'-'+i}
+          key={item.name+'-'+i}
           onClick={stopClick}
           draggable="false"
         >
           <div className="homeWideEventDate"><b>{item.day}</b><small>{item.month}</small></div>
-          <div className="homeWideEventImage"><img src={item.image} alt={item.title+' '+item.year} draggable="false"/></div>
-          <div className="homeWideEventBody"><h3>{item.title}</h3><p>{item.year}</p><span>Etkinliği görüntüle <b>›</b></span></div>
+          <div className="homeWideEventImage"><img src={item.image} alt={item.name+' '+item.year} draggable="false"/></div>
+          <div className="homeWideEventBody"><h3>{item.name}</h3><p>{item.year} · {item.province}</p><span>Etkinliği görüntüle <b>›</b></span></div>
         </a>)}
       </div>
 
