@@ -22,6 +22,15 @@ export default function Page(){
    </div>
   </section>
 
+  <nav className="luxCategoryChips" aria-label="Kiralık tekne kategorileri"><div className="syContainer">
+    <a className="active" href="/kiralik">Tümü</a>
+    <a href="/kiralik/motoryat">Motoryat</a>
+    <a href="/kiralik/gulet">Gulet</a>
+    <a href="/kiralik/katamaran">Katamaran</a>
+    <a href="/kiralik/yelkenli">Yelkenli</a>
+    <a href="/kiralik/trawler">Trawler</a>
+  </div></nav>
+
   <section className="luxFilterWrap"><div className="syContainer">
    <div className="luxFilters">
     <button><small>DESTİNASYON</small><b>Akdeniz</b></button>
