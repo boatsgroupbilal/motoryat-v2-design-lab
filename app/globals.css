@@ -13889,3 +13889,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .syRefBottom .syRefShowcaseInfo b,
 .syRefBottom .syRefShowcaseInfo strong,
 .relatedProductCards .productBody b{color:#e2c387!important}
+
+/* Homepage mobile responsive repairs and restored promotions, scoped to home only */
+.homePage .homePromoSection{padding:18px 0;background:#f5f7f9}
+.homePage .homePromoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.homePage .homePromoCard,.homePage .homePromoWide{display:flex;align-items:center;gap:22px;min-width:0;overflow:hidden;background:#17324b;color:#fff;border-radius:8px;text-decoration:none}
+.homePage .homePromoCard{min-height:180px;padding:16px}
+.homePage .homePromoCard img{width:34%;height:150px;object-fit:cover;flex-shrink:0;border-radius:4px}
+.homePage .homePromoInfo{min-width:0}
+.homePage .homePromoSection small{font-size:11px;letter-spacing:.08em;color:#e2c387;font-weight:700}
+.homePage .homePromoSection h2{font-size:clamp(17px,1.7vw,24px);line-height:1.2;margin:9px 0;color:#fff}
+.homePage .homePromoSection span{font-size:13px;font-weight:700;color:#e2c387}
+.homePage .homePromoWide{padding:16px 24px;min-height:150px}
+.homePage .homePromoWide img{width:180px;height:120px;object-fit:cover;border-radius:4px}
+.homePage .homePromoWide p{font-size:13px;color:#dce6ee;margin:5px 0}
+@media(max-width:820px){
+ .homePage{width:100%;max-width:100%;overflow-x:clip}
+ .homePage .dpWrap{width:100%;max-width:100%;padding-left:16px!important;padding-right:16px!important}
+ .homePage .dpHero{height:clamp(280px,70vw,440px);min-height:280px}
+ .homePage .dpHero .dpWrap{height:100%;padding-bottom:32px}
+ .homePage .dpHeroPhoto{object-fit:cover;object-position:center}
+ .homePage .dpHero h1{font-size:clamp(25px,5.6vw,42px)}
+ .homePage .dpSection{padding-top:28px;padding-bottom:28px}
+ .homePage .dpHead{gap:12px;align-items:center}
+ .homePage .dpHead h2{font-size:clamp(19px,4.8vw,26px)}
+ .homePage .homePromoGrid{grid-template-columns:1fr;gap:12px}
+ .homePage .homePromoCard{min-height:145px;padding:12px;gap:16px}
+ .homePage .homePromoCard img{width:38%;height:121px}
+ .homePage .homePromoWide{min-height:136px;gap:14px;padding:12px}
+ .homePage .homePromoWide img{width:38%;height:114px;flex-shrink:0}
+ .homePage .homePromoSection h2{font-size:17px}
+ .homePage .dpDir{display:grid;grid-template-columns:1fr;gap:12px}
+ .homePage .sqYachtGrid.homeYachtGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .homePage .homeYachtGrid .sqYachtCard{min-width:0!important}
+ .homePage .homeWideEventsShell{max-width:100%;min-width:0}
+ .homePage .homeWideEventsRail{min-width:0}
+}
+@media(max-width:420px){
+ .homePage .homePromoCard img{width:35%}
+ .homePage .homePromoSection small{font-size:10px}
+ .homePage .homePromoSection h2{font-size:15px}
+ .homePage .homePromoSection span{font-size:12px}
+ .homePage .homePromoWide p{font-size:11px}
+}
