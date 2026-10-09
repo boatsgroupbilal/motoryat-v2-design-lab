@@ -13873,3 +13873,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     min-width:72px;
   }
 }
+
+/* Premium navy panels for upcoming events and related-item cards only. */
+.homePage .homeWideEventCard .homeWideEventBody,
+.syRefBottom .syRefShowcaseCard .syRefShowcaseInfo,
+.relatedProductCards .productCard .productBody{background:#17324b!important;color:#fff!important}
+.homePage .homeWideEventCard .homeWideEventBody h3,
+.syRefBottom .syRefShowcaseInfo h3,
+.relatedProductCards .productBody h3{color:#fff!important}
+.homePage .homeWideEventCard .homeWideEventBody p,
+.syRefBottom .syRefShowcaseInfo p,
+.syRefBottom .syRefShowcaseInfo small,
+.relatedProductCards .productBody small{color:#cbd9e4!important}
+.homePage .homeWideEventCard .homeWideEventBody span{color:#fff!important;border-color:rgba(255,255,255,.6)!important}
+.syRefBottom .syRefShowcaseInfo b,
+.syRefBottom .syRefShowcaseInfo strong,
+.relatedProductCards .productBody b{color:#e2c387!important}
