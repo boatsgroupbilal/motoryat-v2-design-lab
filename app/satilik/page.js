@@ -35,13 +35,34 @@ export default async function Page({searchParams}){
 
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="sale"/>
-  <section className="luxPageTop luxSaleTitleOnly categoryHeroStd">
-   <img className="categoryHeroStdImage" src="/sale-euro-850.webp" alt="Satılık yatlar"/>
+  <section className="luxPageTop luxSaleTitleOnly categoryHeroStd gmSaleBanner" aria-label="Satılık tekneler bannerı">
+   <img className="categoryHeroStdImage" src="/sale-euro-850.webp" alt="Denizde seyreden motoryat"/>
    <div className="categoryHeroStdShade"></div>
    <div className="syContainer categoryHeroStdInner">
-    <div className="luxTitleRow luxTitleRowOnly categoryHeroStdContent"><div><h1>Satılık Yatlar</h1></div></div>
+    <div className="luxTitleRow luxTitleRowOnly categoryHeroStdContent">
+     <div className="gmSaleBannerCopy">
+      <span className="gmSaleEyebrow">MOTORYAT.COM</span>
+      <h1>SATILIK <span>TEKNELER</span></h1>
+      <p>LA MATTINA GM 29 <i>·</i> LA SERA GM 38 <i>·</i> LA NOTTE GM 40</p>
+      <a className="gmSaleBannerCTA" href="#satilik-ilanlar">İlanları İncele <span aria-hidden="true">↗</span></a>
+     </div>
+    </div>
    </div>
   </section>
+  <style>{`
+   .gmSaleBanner{position:relative;isolation:isolate;overflow:hidden;min-height:280px}
+   .gmSaleBanner .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.93) 0%,rgba(4,21,38,.81) 36%,rgba(4,21,38,.06) 100%)}
+   .gmSaleBanner .categoryHeroStdInner{position:relative;z-index:1;display:flex;align-items:center;min-height:280px}
+   .gmSaleBanner .gmSaleBannerCopy{padding:26px 0;max-width:770px;color:#fff}
+   .gmSaleEyebrow{display:block;color:#e7bf79;font-size:12px;font-weight:700;letter-spacing:.23em}
+   .gmSaleBanner h1{margin:9px 0;font-family:Georgia,serif;font-size:clamp(30px,4.1vw,58px);font-weight:700;line-height:1.06;letter-spacing:.02em;color:#fff}
+   .gmSaleBanner h1 span{color:#d6b16d}
+   .gmSaleBanner p{font-size:clamp(11px,1.3vw,16px);font-weight:600;letter-spacing:.055em;color:#f1f3f5}
+   .gmSaleBanner p i{font-style:normal;color:#d6b16d;padding:0 5px}
+   .gmSaleBannerCTA{display:inline-flex;gap:18px;align-items:center;margin-top:20px;padding:10px 23px;border-radius:30px;background:#d6b16d;color:#0d1b2a;font-weight:700;font-size:14px;text-decoration:none}
+   .gmSaleBannerCTA:hover{background:#edd094}
+   @media(max-width:640px){.gmSaleBanner,.gmSaleBanner .categoryHeroStdInner{min-height:225px}.gmSaleBanner .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.92),rgba(4,21,38,.55))}.gmSaleBanner h1{font-size:clamp(26px,8vw,38px)}.gmSaleBanner p{line-height:1.8;font-size:11px}.gmSaleBannerCTA{margin-top:13px}}
+  `}</style>
   <nav className="luxCategoryChips" aria-label="Satılık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/satilik">Tümü</a>
     <a href="/satilik/motoryat">Motoryat</a>
@@ -51,7 +72,7 @@ export default async function Page({searchParams}){
     <a href="/satilik/surat-teknesi">Sürat Teknesi</a>
     <a href="/satilik/sisme-bot">Şişme Bot</a>
   </div></nav>
-  <section className="luxResults"><div className="syContainer">
+  <section id="satilik-ilanlar" className="luxResults"><div className="syContainer">
    <div className="saleListingLayout">
     <SaleFilterSidebar
       vesselTypes={vesselTypes}
