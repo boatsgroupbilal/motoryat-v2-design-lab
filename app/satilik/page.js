@@ -35,33 +35,34 @@ export default async function Page({searchParams}){
 
  return <><SiteHeader/><main className="luxListingPage">
   <MobileListingFilters type="sale"/>
-  <section className="luxPageTop luxSaleTitleOnly categoryHeroStd gmSaleBanner" aria-label="Satılık tekneler bannerı">
-   <img className="categoryHeroStdImage" src="/sale-euro-850.webp" alt="Denizde seyreden motoryat"/>
+  <section className="luxPageTop luxSaleTitleOnly categoryHeroStd gmSaleBanner gmSaleVideo" aria-label="Satılık tekneler video bannerı">
+   <video className="categoryHeroStdImage" autoPlay muted loop playsInline preload="metadata" poster="/sale-euro-850.webp" aria-label="Denizde motoryat video tanıtımı">
+    <source src="https://motoryat.com/videos/home/lady-luna-home.mp4" type="video/mp4"/>
+   </video>
    <div className="categoryHeroStdShade"></div>
    <div className="syContainer categoryHeroStdInner">
     <div className="luxTitleRow luxTitleRowOnly categoryHeroStdContent">
      <div className="gmSaleBannerCopy">
-      <span className="gmSaleEyebrow">MOTORYAT.COM</span>
       <h1>SATILIK <span>TEKNELER</span></h1>
-      <p>LA MATTINA GM 29 <i>·</i> LA SERA GM 38 <i>·</i> LA NOTTE GM 40</p>
+      <p>Türkiye ve dünyadan satılık motoryat, yelkenli, katamaran ve daha fazlası</p>
       <a className="gmSaleBannerCTA" href="#satilik-ilanlar">İlanları İncele <span aria-hidden="true">↗</span></a>
      </div>
     </div>
    </div>
   </section>
   <style>{`
-   .gmSaleBanner{position:relative;isolation:isolate;overflow:hidden;min-height:280px}
-   .gmSaleBanner .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.93) 0%,rgba(4,21,38,.81) 36%,rgba(4,21,38,.06) 100%)}
-   .gmSaleBanner .categoryHeroStdInner{position:relative;z-index:1;display:flex;align-items:center;min-height:280px}
-   .gmSaleBanner .gmSaleBannerCopy{padding:26px 0;max-width:770px;color:#fff}
-   .gmSaleEyebrow{display:block;color:#e7bf79;font-size:12px;font-weight:700;letter-spacing:.23em}
-   .gmSaleBanner h1{margin:9px 0;font-family:Georgia,serif;font-size:clamp(30px,4.1vw,58px);font-weight:700;line-height:1.06;letter-spacing:.02em;color:#fff}
-   .gmSaleBanner h1 span{color:#d6b16d}
-   .gmSaleBanner p{font-size:clamp(11px,1.3vw,16px);font-weight:600;letter-spacing:.055em;color:#f1f3f5}
-   .gmSaleBanner p i{font-style:normal;color:#d6b16d;padding:0 5px}
-   .gmSaleBannerCTA{display:inline-flex;gap:18px;align-items:center;margin-top:20px;padding:10px 23px;border-radius:30px;background:#d6b16d;color:#0d1b2a;font-weight:700;font-size:14px;text-decoration:none}
-   .gmSaleBannerCTA:hover{background:#edd094}
-   @media(max-width:640px){.gmSaleBanner,.gmSaleBanner .categoryHeroStdInner{min-height:225px}.gmSaleBanner .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.92),rgba(4,21,38,.55))}.gmSaleBanner h1{font-size:clamp(26px,8vw,38px)}.gmSaleBanner p{line-height:1.8;font-size:11px}.gmSaleBannerCTA{margin-top:13px}}
+   .gmSaleVideo{position:relative;isolation:isolate;overflow:hidden;min-height:320px}
+   .gmSaleVideo video.categoryHeroStdImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+   .gmSaleVideo .categoryHeroStdShade{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(4,21,38,.90),rgba(4,21,38,.67) 40%,rgba(4,21,38,.12) 100%)}
+   .gmSaleVideo .categoryHeroStdInner{position:relative;z-index:1;display:flex;align-items:center;min-height:320px}
+   .gmSaleVideo .gmSaleBannerCopy{padding:30px 0;max-width:660px;color:#fff}
+   .gmSaleVideo h1{margin:0 0 10px;font-family:Georgia,serif;font-size:clamp(32px,4.8vw,66px);line-height:1.03;color:#fff}
+   .gmSaleVideo h1 span{color:#d6b16d}
+   .gmSaleVideo p{font-size:clamp(13px,1.4vw,19px);line-height:1.4;color:#fff;max-width:560px}
+   .gmSaleVideo .gmSaleBannerCTA{display:inline-flex;gap:17px;align-items:center;margin-top:22px;padding:12px 25px;border-radius:30px;background:#d6b16d;color:#0d1b2a;font-weight:700;font-size:14px;text-decoration:none}
+   .gmSaleVideo .gmSaleBannerCTA:hover{background:#edd094}
+   @media(max-width:640px){.gmSaleVideo,.gmSaleVideo .categoryHeroStdInner{min-height:245px}.gmSaleVideo .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.9),rgba(4,21,38,.4))}.gmSaleVideo .gmSaleBannerCopy{padding:18px 0}.gmSaleVideo h1{font-size:clamp(27px,8vw,39px)}.gmSaleVideo p{font-size:12px}.gmSaleVideo .gmSaleBannerCTA{margin-top:14px;padding:10px 19px}}
+   @media(prefers-reduced-motion:reduce){.gmSaleVideo video.categoryHeroStdImage{display:none}.gmSaleVideo{background:#0d1b2a url('/sale-euro-850.webp') center / cover no-repeat}}
   `}</style>
   <nav className="luxCategoryChips" aria-label="Satılık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/satilik">Tümü</a>
