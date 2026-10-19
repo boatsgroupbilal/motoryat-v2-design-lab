@@ -55,7 +55,7 @@ export default async function Page({params}){
     .filter(x=>x.slug!==item.slug)
     .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
     .filter(x=>x.image && x.slug)
-    .slice(0,3);
+    .slice(0,4);
   const listHref=isCharter?'/kiralik':'/satilik';
   const relatedAds=isCharter
     ? ['/ads/motoryat-house-ad-300-png.webp']
