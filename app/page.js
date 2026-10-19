@@ -23,7 +23,7 @@ export default function Home(){return <><SiteHeader/><main className="homePage">
   <div className="dpHead"><div className="homeSectionHeading"><small>YATÇILIK HİZMETLERİ</small><h2>Profesyonel Hizmetler</h2></div><a href="/hizmetler">Tümünü Gör →</a></div>
   <div className="homeDiscoveryGrid">{[
    {title:'Teknik Servis',desc:'Motor, elektrik ve elektronik',image:'/store-admiral.webp'},
-   {title:'Bakım & Refit',desc:'Bakım, boya ve yenileme',image:'/media/stores/rmk-yachts-cover.webp'},
+   {title:'Bakım & Refit',desc:'Bakım, boya ve yenileme',image:'/store-rmk.webp'},
    {title:'Broker & Satış',desc:'Satış ve danışmanlık',image:'/sale-yener-35.webp'},
    {title:'Charter Hizmetleri',desc:'Kiralama ve operasyon',image:'/charter-luna-hero.webp'}
   ].map(item=><a href="/hizmetler" className="homeDiscoveryCard" key={item.title}>
