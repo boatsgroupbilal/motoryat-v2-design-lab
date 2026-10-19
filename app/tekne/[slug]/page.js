@@ -1,3 +1,4 @@
+import YeniViraBanner from '../../../components/YeniViraBanner';
 import {notFound} from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
@@ -210,12 +211,15 @@ export default async function Page({params}){
       </aside>
     </div>
 
-    {related.length>0 ? <section className="v2RelatedThree" aria-label="İlgili ilanlar">
-      <div className="v2RelatedThreeHeader"><h2>İlgili {isCharter?'Kiralık':'Satılık'} Yatlar</h2><a href={listHref}>Tüm İlanlar →</a></div>
-      <div className="v2RelatedThreeGrid">{related.map(x=><a className="v2RelatedThreeCard" href={'/tekne/'+x.slug} key={x.slug}>
-        <div className="v2RelatedThreeImage"><img src={x.image} alt={x.title||'Yat ilanı'} loading="lazy"/></div>
-        <div className="v2RelatedThreeInfo"><span>{isCharter?'KİRALIK':'SATILIK'}</span><h3>{x.title}</h3><p>{[x.length?x.length+' m':null,x.location].filter(Boolean).join(' · ')}</p><strong>{x.price||'Fiyat Sorunuz'}</strong></div>
-      </a>)}</div>
+    <YeniViraBanner/>
+    {related.length>0 ? <section className="v2RelatedBanner" aria-label="İlgili ilanlar">
+      <div className="v2RelatedBannerFrame">
+        <div className="v2RelatedBannerHead"><h2>İlgili {isCharter?'Kiralık':'Satılık'} İlanlar</h2><a href={listHref}>Tümünü Gör →</a></div>
+        <div className="v2RelatedBannerGrid">{related.map(x=><a className="v2RelatedBannerCard" href={'/tekne/'+x.slug} key={x.slug}>
+          <div className="v2RelatedBannerImage"><img src={x.image} alt={x.title||'Yat ilanı'} loading="lazy"/></div>
+          <div className="v2RelatedBannerInfo"><small>{isCharter?'KİRALIK':'SATILIK'}</small><h3>{x.title}</h3><p>{[x.length?x.length+' m':null,x.location].filter(Boolean).join(' · ')}</p><strong>{x.price||'Fiyat Sorunuz'}</strong></div>
+        </a>)}</div>
+      </div>
     </section> : null}
   </main><Footer/></>
 }
