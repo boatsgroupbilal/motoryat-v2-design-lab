@@ -1,3 +1,4 @@
+import CharterFilterSidebar from '../../components/CharterFilterSidebar';
 import YachtCategoryTiles from '../../components/YachtCategoryTiles';
 import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
@@ -40,19 +41,7 @@ export default async function Page({searchParams}){
     <a href="/kiralik/trawler">Trawler</a>
   </div></nav>
 
-  <section className="luxFilterWrap"><div className="syContainer">
-   <div className="luxFilters">
-    <button><small>DESTİNASYON</small><b>Akdeniz</b></button>
-    <button><small>TARİH</small><b>Tarih seçin</b></button>
-    <button><small>MİSAFİR</small><b>2+</b></button>
-    <button><small>YAT TÜRÜ</small><b>Tümü</b></button>
-    <button><small>BOY</small><b>Tümü</b></button>
-    <button><small>FİYAT</small><b>Tümü</b></button>
-    <button className="luxSearchBtn">ARA</button>
-   </div>
-  </div></section>
-
-  <section className="luxResults"><div className="syContainer">
+  <section className="luxResults"><div className="syContainer"><div className="charterResultsLayout"><CharterFilterSidebar types={[...new Set(pageSource.map(x=>x.vessel_type||x.boat_type||x.category).filter(Boolean))]} destinations={[...new Set(pageSource.map(x=>x.location).filter(Boolean))]} years={[...new Set(pageSource.map(x=>x.year).filter(Boolean))].sort((a,b)=>Number(b)-Number(a))}/><div className="charterResultsMain">
    <div className="luxResultsBar"><div><b>Kiralık yatlar</b><span>{filteredListings.length} charter</span></div><select defaultValue="featured"><option value="featured">Öne çıkanlar</option><option>Boy: büyükten küçüğe</option><option>Haftalık fiyat</option></select></div>
    <div className="sqYachtGrid">
     {listings.map((x,i)=><YachtCard key={x.slug} item={x} type="charter" seller={x.seller||x.store_name||''} year={x.year||'—'} refit="—" index={(safePage-1)*perPage+i}/>)}
@@ -60,6 +49,6 @@ export default async function Page({searchParams}){
    {totalPages>1&&<nav className="salePagination" aria-label="Kiralık ilan sayfaları"><div className="salePaginationPages">
     {Array.from({length:totalPages},(_,i)=>i+1).map(n=><a className={n===safePage?'active':''} href={'/kiralik?'+queryString(params)+'sayfa='+n} key={n}>{n}</a>)}
    </div><strong>{filteredListings.length} ilan var</strong></nav>}
-  </div></section>
+  </div></div></div></section>
  </main><Footer/></>
 }
