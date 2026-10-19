@@ -1,3 +1,4 @@
+import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {products} from '../../data/content';
@@ -30,8 +31,8 @@ const categoryMenu=[
   ['🔩','Yedek Parça','yedek-parca']
 ];
 
-export default function Page(){
-  const items=products;
+export default async function Page(){
+  const items=await choosePageData('products',products);
   const brands=[...new Set(items.map(x=>x.brand).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr'));
   const countFor=(slug)=>items.filter(x=>x.category_slug===slug).length;
 
