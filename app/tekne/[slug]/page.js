@@ -130,41 +130,36 @@ export default async function Page({params}){
       <YachtDetailGallery images={images} title={item.title}/>
       {detailVideo ? <div style={{maxWidth:'1280px',margin:'18px auto 0',padding:'0 24px'}}><video controls playsInline preload="metadata" style={{display:'block',width:'100%',maxHeight:'680px',objectFit:'cover',background:'#0D1B2A'}}><source src={detailVideo} type="video/mp4"/></video></div> : null}
 
-      <div className="syRefTabs">
-        <nav aria-label="İlan bölümleri">
-          <a className="active" href="#genel-bakis">İLAN DETAYLARI</a>
-        </nav>
-        <div className="syRefTabsActions">
-          <button type="button" aria-label="Paylaş">↗</button>
-          <a href={listHref}>{isCharter?'KİRALAMA ARAMA':'SATIŞ ARAMA'}⌕</a>
-        </div>
-      </div>
     </div>
 
     <div className="syRefContentWrap" id="genel-bakis">
-      <section className="syRefOverview">
+      <section className="syRefOverview v2ListingEditorial">
         <div className="syRefOverviewTop">
           <div>
             <span className="syRefEyebrow">{isCharter?'KİRALIK':'SATILIK'}</span>
             <h1>{item.title}</h1>
           </div>
-          <button type="button" className="syRefInfoDot" aria-label="İlan bilgisi">i</button>
+
         </div>
 
         <div className="syRefMetaLine">
           <span>⌁ {info.seller}</span>
-          <span>▣ {info.year}</span>
+          {info.year!=='—'&&<span>▣ {info.year}</span>}
           <span>↔ {length}</span>
           <span>♙ {isCharter?'Charter':'Satılık'}</span>
         </div>
 
-        {description ? <div className="syRefCopy">
-          <p>{description}</p>
-        </div> : null}
+        {description ? <section className="v2ListingDescription">
+          <h2>İlan Hakkında</h2>
+          <div className="syRefCopy"><p>{description}</p></div>
+        </section> : null}
 
-        {visualFacts.length ? <div className="realVisualFacts">
-          {visualFacts.map(([label,value])=><div key={label}><small>{label}</small><b>{value}</b></div>)}
-        </div> : null}
+        {visualFacts.length ? <section className="v2ListingHighlights">
+          <h2>Teknik Özellikler</h2>
+          <div className="realVisualFacts">
+            {visualFacts.map(([label,value])=><div key={label}><small>{label}</small><b>{value}</b></div>)}
+          </div>
+        </section> : null}
 
         {generalRows.length ? <details className="realDetailAccordion v2TechAccordion">
           <summary><span>Genel Tekne Bilgileri</span><b>Daha Fazla Gör</b></summary>
@@ -215,9 +210,7 @@ export default async function Page({params}){
           </div>
 
           <div className="syRefSellerActions">
-            <a href="#" aria-label="Telefon">☎</a>
-            <a className="more" href={sellerHref}>FİRMA / MAĞAZA</a>
-            <a href="#" aria-label="E-posta">✉</a>
+            <a className="more" href={sellerHref}>SATICI / MAĞAZA BİLGİLERİ</a>
           </div>
         </div>
       </aside>
