@@ -18,14 +18,10 @@ export default async function Page({params}){
  return <StoreSiteShell store={store}>
   <section className={styles.premiumIntro}>
    <div className={styles.introCopy}>
-    <small className={styles.premiumEyebrow}>ÖZEL YAT & DENİZCİLİK VİTRİNİ</small>
+    
     <h2>{store.name}</h2>
     <p>{intro}</p>
-    <div className={styles.premiumLinks}>
-     {sale.length>0&&<a className={styles.primaryLink} href={base+'/satilik'}>Satılık yatları incele <span>↗</span></a>}
-     {charter.length>0&&<a className={styles.primaryLink} href={base+'/kiralik'}>Kiralık yatları incele <span>↗</span></a>}
-     <a className={styles.secondaryLink} href={base+'/iletisim'}>İletişim <span>→</span></a>
-    </div>
+
    </div>
 
   </section>
