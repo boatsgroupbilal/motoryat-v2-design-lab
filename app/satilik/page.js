@@ -1,3 +1,4 @@
+import YachtCategoryTiles from '../../components/YachtCategoryTiles';
 import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
@@ -65,6 +66,7 @@ export default async function Page({searchParams}){
    @media(max-width:640px){.gmSaleVideo,.gmSaleVideo .categoryHeroStdInner{min-height:245px}.gmSaleVideo .categoryHeroStdShade{background:linear-gradient(90deg,rgba(4,21,38,.9),rgba(4,21,38,.4))}.gmSaleVideo .gmSaleBannerCopy{padding:18px 0}.gmSaleVideo h1{font-size:clamp(27px,8vw,39px)}.gmSaleVideo p{font-size:12px}.gmSaleVideo .gmSaleBannerCTA{margin-top:14px;padding:10px 19px}}
    @media(prefers-reduced-motion:reduce){.gmSaleVideo video.categoryHeroStdImage{display:none}.gmSaleVideo{background:#0d1b2a url('/sale-euro-850.webp') center / cover no-repeat}}
   `}</style>
+  <YachtCategoryTiles type="sale" listings={sourceListings}/>
   <nav className="luxCategoryChips" aria-label="Satılık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/satilik">Tümü</a>
     <a href="/satilik/motoryat">Motoryat</a>
