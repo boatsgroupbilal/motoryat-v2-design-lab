@@ -14573,3 +14573,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:820px){
  .yeniviraBannerImageLink{background-position:58% center!important}
 }
+
+/* Listing-only advertisement: self-contained rendering when SVG images are unavailable. */
+.syRefPage .v2ListingAd{display:block!important;clear:both!important;width:100%!important;max-width:1120px!important;margin:20px auto 30px!important;padding:0 24px!important;visibility:visible!important;opacity:1!important}
+.syRefPage .v2ListingAdLink{display:flex!important;position:relative!important;width:100%!important;min-height:240px!important;align-items:center!important;overflow:hidden!important;background:#071b2e url('/hero-home.webp') center/cover no-repeat!important;text-decoration:none!important;border-radius:5px!important;visibility:visible!important;opacity:1!important}
+.syRefPage .v2ListingAdLink:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,14,28,.97),rgba(2,14,28,.82) 52%,rgba(2,14,28,.25))}
+.syRefPage .v2ListingAdLink .yeniviraBannerText{position:relative;z-index:1;display:block!important;padding:24px 32px!important;max-width:700px!important;width:100%!important;color:white!important}
+.syRefPage .v2ListingAdLink h2{color:white!important;font-size:clamp(26px,4vw,50px)!important;line-height:1.1!important}
+@media(max-width:820px){.syRefPage .v2ListingAd{padding:0 16px!important;margin:14px auto 22px!important}.syRefPage .v2ListingAdLink{min-height:280px!important}.syRefPage .v2ListingAdLink .yeniviraBannerText{padding:22px!important}}
