@@ -1,54 +1,29 @@
-import SiteHeader from '../../../../components/SiteHeader';
-import Footer from '../../../../components/Footer';
-import StoreMiniNav from '../../../../components/StoreMiniNav';
-import {YachtCard,ProductCard} from '../../../../components/Card';
+import {notFound} from 'next/navigation';
 import {stores,saleListings,charterListings,products} from '../../../../data/content';
-import {getStoreProfile} from '../../../../data/storeProfiles';
+import StoreSiteShell,{styles} from '../StoreSiteShell';
 
-function matchesStore(item,store){
-  const hay=((item.title||item.name||'')+' '+(item.meta||'')+' '+(item.slug||'')+' '+(item.brand||'')).toLowerCase();
-  const words=store.name.toLowerCase().split(' ').filter(x=>x.length>2);
-  return words.some(w=>hay.includes(w));
-}
-
-const labels={
-  satilik:['SATILIK','Satılık İlanlar'],
-  kiralik:['KİRALIK','Kiralık İlanlar'],
-  modeller:['MODELLER','Modeller'],
-  projeler:['PROJELER','Projeler'],
-  urunler:['ÜRÜNLER','Ürünler'],
-  hizmetler:['HİZMETLER','Hizmetler'],
-  videolar:['VİDEOLAR','Videolar'],
-  haberler:['HABERLER','Haberler'],
-  iletisim:['İLETİŞİM','İletişim']
-};
-
+const allowed=['satilik','kiralik','urunler','iletisim'];
 export default async function Page({params}){
-  const {slug,section}=await params;
-  const store=stores.find(x=>x.slug===slug)||stores[0];
-  const profile=getStoreProfile(store);
-  const saleItems=saleListings.filter(x=>matchesStore(x,store));
-  const charterItems=charterListings.filter(x=>matchesStore(x,store));
-  const productItems=products.filter(x=>matchesStore(x,store));
-  const [eyebrow,title]=labels[section]||['MAĞAZA',store.name];
-
-  let body=null;
-  if(section==='satilik') body=<div className="sqYachtGrid">{saleItems.length?saleItems.map((x,i)=><YachtCard key={x.slug} item={x} type="sale" seller={store.name} brandLogo={store.logo} year={String(2026-(i%3))} refit="—" index={i}/>):<div className="storeMiniEmpty">Bu mağazada şu anda yayınlanan satılık ilan bulunmuyor.</div>}</div>;
-  else if(section==='kiralik') body=<div className="sqYachtGrid">{charterItems.length?charterItems.map((x,i)=><YachtCard key={x.slug} item={x} type="charter" seller={store.name} brandLogo={store.logo} year={String(2024-(i%2))} refit="—" index={i}/>):<div className="storeMiniEmpty">Bu mağazada şu anda yayınlanan kiralık ilan bulunmuyor.</div>}</div>;
-  else if(section==='urunler') body=<div className="productGrid">{productItems.length?productItems.map(x=><ProductCard key={x.slug} item={x}/>):<div className="storeMiniEmpty">Bu mağazada şu anda yayınlanan ürün bulunmuyor.</div>}</div>;
-  else if(section==='hizmetler') body=<div className="storeMiniServiceGrid">{profile.services.map(x=><article key={x}><small>HİZMET</small><h3>{x}</h3><p>{store.name} tarafından sunulan kurumsal hizmet.</p></article>)}</div>;
-  else if(section==='iletisim') body=<div className="storeMiniContactPage"><div><small>MAĞAZA</small><h2>{store.name}</h2><p>{store.location}</p></div><div className="storeMiniContactCards"><a href="#">Telefon</a><a href="#">WhatsApp</a><a href="#">E-posta</a></div></div>;
-  else body=<div className="storeMiniEmpty">{title} içerikleri mağaza tarafından eklendiğinde burada yayınlanacak.</div>;
-
-  return <><SiteHeader/><main className="storeMiniSite storeMiniSectionPage">
-    <section className="storeMiniSectionHero">
-      <img src={store.image} alt={store.name}/><div></div>
-      <div className="container"><span>{eyebrow}</span><h1>{store.name}</h1><p>{title}</p></div>
-    </section>
-    <StoreMiniNav store={store} active={section}/>
-    <section className="storeMiniSectionContent"><div className="container">
-      <div className="storeMiniSectionHead"><span>{eyebrow}</span><h2>{title}</h2></div>
-      {body}
-    </div></section>
-  </main><Footer/></>
+ const {slug,section}=await params;
+ const store=stores.find(x=>x.slug===slug);
+ if(!store||!allowed.includes(section))notFound();
+ const own=x=>x.store_slug===slug||x.sellerSlug===slug;
+ const source=section==='satilik'?saleListings:section==='kiralik'?charterListings:section==='urunler'?products:[];
+ const items=source.filter(own);
+ const title={satilik:'Satılık Tekneler',kiralik:'Kiralık Tekneler',urunler:'Ürünler',iletisim:'İletişim'}[section];
+ return <StoreSiteShell store={store} active={section}>
+  <h2>{title}</h2>
+  {section==='iletisim'?<section className={styles.panel}>
+   <h2>{store.name}</h2>
+   {store.location?<p>Konum: {store.location}</p>:null}
+   {store.phone?<p>Telefon: <a href={'tel:'+store.phone}>{store.phone}</a></p>:null}
+   {store.email?<p>E-posta: <a href={'mailto:'+store.email}>{store.email}</a></p>:null}
+   {!store.phone&&!store.email&&<p>Bu mağaza için iletişim bilgileri henüz eklenmemiştir.</p>}
+  </section>:items.length?<div className={styles.cards}>
+   {items.map((x,i)=><a className={styles.card} key={x.slug||i} href={x.href||'/magaza/'+slug}>
+     {x.image?<img src={x.image} alt={x.title||x.name} loading="lazy"/>:null}
+     <div className={styles.cardBody}><h3>{x.title||x.name}</h3>{x.price?<p>{x.price}</p>:null}</div>
+   </a>)}
+  </div>:<p className={styles.empty}>Bu mağazada bu kategoride henüz içerik bulunmuyor.</p>}
+ </StoreSiteShell>;
 }
