@@ -1,23 +1,23 @@
-export default function Footer(){return <footer className="dpFooter">
-  <div className="dpWrap dpFooterInner">
-    <div className="dpFooterBrand">
-      <img src="/motoryat-logo-real.png" alt="Motoryat.com"/>
-      <p>Denizcilikte keşfet, bağlan ve ticaret yap.</p>
-    </div>
+import Link from 'next/link';
 
-    <div className="dpFooterLinks">
-      <div><h3>Faydalı Bağlantılar</h3><a href="/">Ana Sayfa</a><a href="/satilik">Satılık</a><a href="/kiralik">Kiralık</a><a href="/urunler">Tekne & Yat Malzemeleri</a></div>
-      <div><h3>Kurumsal</h3><a href="/firmalar">Firmalar</a><a href="/magazalar">Mağazalar</a><a href="/marinalar">Marinalar</a><a href="/haberler">Haberler</a></div>
-    </div>
-
-    <div className="dpFooterNewsletter">
-      <h3>Bültenimize abone olun</h3>
-      <div><input type="email" placeholder="E-posta adresiniz"/><button type="button">Gönder</button></div>
-    </div>
-
-    <div className="dpFooterBottom">
-      <div className="dpFooterSocial"><span>Bizi takip edin</span><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="LinkedIn">in</a></div>
-      <small>© Motoryat.com 2026 · Tüm hakları saklıdır.</small>
-    </div>
+const groups=[
+ {title:'YAT SATIN AL',links:[['Satılık Yatlar','/satilik'],['Markalar','/markalar'],['Haritada Ara','/haritada-ara'],['Favoriler','/favoriler']]},
+ {title:'YAT KİRALA',links:[['Kiralık Yatlar','/kiralik'],['Destinasyonlar','/destinasyonlar'],['Marinalar','/marinalar'],['Yatçılık Hizmetleri','/hizmetler']]},
+ {title:'PROFESYONELLER',links:[['Firmalar','/firmalar'],['Mağazalar','/magazalar'],['Markalar','/markalar'],['Tekne & Yat Malzemeleri','/urunler'],['Reklam & PR','/reklam']]},
+ {title:'MOTORYAT',links:[['Tekne Tipleri','/tekne-tipleri'],['Haber & Rehber','/haberler'],['Videolar','/videolar'],['Hakkımızda','/hakkimizda'],['İletişim','/iletisim']]}
+];
+export default function Footer(){return <footer className="dpFooter v2MainFooter">
+ <div className="dpWrap v2FooterInner">
+  <div className="v2FooterBrand">
+   <Link href="/" aria-label="Motoryat.com ana sayfa"><img src="/motoryat-logo-v31760.svg" alt="MOTORYAT.COM"/></Link>
+   <p>Denizcilikte keşfet, bağlan ve ticaret yap.</p>
   </div>
+  <div className="v2FooterColumns">
+   {groups.map(group=><div className="v2FooterGroup" key={group.title}>
+    <h3>{group.title}</h3>
+    <nav aria-label={group.title}>{group.links.map(([label,href])=><Link key={href+label} href={href}>{label}</Link>)}</nav>
+   </div>)}
+  </div>
+  <div className="v2FooterBottom"><small>© Motoryat.com 2026 · Tüm hakları saklıdır.</small></div>
+ </div>
 </footer>}
