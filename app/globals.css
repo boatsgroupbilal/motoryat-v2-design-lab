@@ -14602,3 +14602,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .v2ListingFormResult dt{font-size:11px;color:#687789}
 .v2ListingFormResult dd{margin:5px 0;font-size:13px;font-weight:600}
 @media(max-width:820px){.v2ListingForm{padding:14px}.v2ListingTwo,.v2ListingFormResult dl{grid-template-columns:1fr}.v2ListingEquipment>div{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+
+/* Vira V2 listing detail sizing — 2026-10-20 */
+.syRefPage .v2ListingAd{max-width:1120px!important;padding:0!important;margin:20px auto 26px!important}
+.syRefPage .v2ListingAdLink{height:180px!important;min-height:180px!important;max-height:180px!important}
+.syRefPage .v2ListingAdLink .yeniviraBannerText{padding:12px 26px!important}
+.syRefPage .v2ListingAdLink h2{font-size:clamp(22px,3vw,34px)!important;margin:5px 0!important;line-height:1.05!important}
+.syRefPage .v2ListingAdLink .yeniviraBannerEyebrow{font-size:10px!important}
+.syRefPage .v2ListingAdLink p{font-size:12px!important;line-height:1.2!important;margin:4px 0!important}
+@media(max-width:1100px){.syRefPage .v2ListingAdLink{height:160px!important;min-height:160px!important;max-height:160px!important}}
+@media(max-width:820px){.syRefPage .v2ListingAd{padding:0 16px!important}.syRefPage .v2ListingAdLink{height:150px!important;min-height:150px!important;max-height:150px!important}.syRefPage .v2ListingAdLink .yeniviraBannerText{padding:8px 13px!important}.syRefPage .v2ListingAdLink h2{font-size:clamp(18px,5vw,25px)!important}.syRefPage .v2ListingAdLink p{font-size:10px!important}}
