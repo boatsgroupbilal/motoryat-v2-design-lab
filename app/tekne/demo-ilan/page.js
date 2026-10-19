@@ -106,36 +106,31 @@ export default function DemoListingPage(){
 
         <div className="syRefMetaLine">
           <span>⌁ Motoryat Demo Partner</span>
-          <span>▣ 2018</span>
-          <span>↔ 11,66 m</span>
           <span>♙ Motorlu Yat</span>
         </div>
 
         <div className="syRefCopy">
           <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, geniş kokpiti, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ile performansı bir araya getiren bir motor yattır.</p>
-          <p>Bu demo ilan; Motoryat.com ilan detay sayfasında uzun açıklama, galeri, video, teknik bilgiler, donanım, fiyat ve satıcı bilgisinin birlikte nasıl görüneceğini göstermek için hazırlanmıştır. Gerçek ilanlarda yalnız mevcut ve doğrulanmış bilgiler gösterilecektir.</p>
         </div>
 
         <div className="realVisualFacts">
           <div><small>BOY</small><b>11,66 m</b></div>
           <div><small>GENİŞLİK</small><b>3,59 m</b></div>
           <div><small>SU ÇEKİMİ</small><b>1,05 m</b></div>
-          <div><small>MOTOR</small><b>2 × 220 HP</b></div>
           <div><small>KABİN</small><b>2</b></div>
-          <div><small>YIL</small><b>2018</b></div>
         </div>
 
         <section className="realDataSection">
           <h2>Tekne Bilgileri</h2>
           <dl className="realDataList">
-            {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            {generalRows.filter(([label])=>!['Tekne kimliği','Tekne türü'].includes(label)).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
           </dl>
         </section>
 
         <section className="realDataSection" id="teknik">
           <h2>Teknik Bilgiler</h2>
           <dl className="realDataList">
-            {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            {technicalRows.filter(([label])=>label!=='Motor gücü').map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
           </dl>
         </section>
 
@@ -148,7 +143,7 @@ export default function DemoListingPage(){
 
         <section className="syDemoMaintenance">
           <h2>Bakım & Servis Geçmişi</h2>
-          <p>2025 sezonunda motor bakımları, impeller değişimleri, alt bakım ve zehirli boya uygulaması yapılmıştır. Aküler kontrol edilmiş, navigasyon ve elektrik sistemleri test edilmiştir. Bu metin yalnız demo içeriktir.</p>
+          <p>2025 sezonunda motor bakımları, impeller değişimleri, alt bakım ve zehirli boya uygulaması yapılmıştır. Aküler kontrol edilmiş, navigasyon ve elektrik sistemleri test edilmiştir.</p>
         </section>
       </section>
 
@@ -168,9 +163,7 @@ export default function DemoListingPage(){
           </div>
 
           <div className="syRefSellerActions">
-            <a href="#" aria-label="Telefon">☎</a>
             <a className="more" href="/magazalar">FİRMA / MAĞAZA</a>
-            <a href="#" aria-label="E-posta">✉</a>
           </div>
         </div>
 
