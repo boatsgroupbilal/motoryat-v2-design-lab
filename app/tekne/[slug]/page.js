@@ -53,7 +53,7 @@ export default async function Page({params}){
   const related=(isCharter?charterListings:saleListings)
     .filter(x=>x.slug!==item.slug)
     .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
-    .slice(0,2);
+    .slice(0,4);
   const listHref=isCharter?'/kiralik':'/satilik';
   const relatedAds=isCharter
     ? ['/ads/motoryat-house-ad-300-png.webp']
@@ -195,23 +195,16 @@ export default async function Page({params}){
       </section>
 
       <aside className="syRefSidebar">
-        <div className="syRefSellerCard syRefSellerCardSimple">
-          <div className="syRefSellerTop syRefSellerSimpleTop">
-            <span>{isCharter?'KİRALIK':'SATILIK'}</span>
-            <div className="syRefSellerSimpleName">
-              <b>{info.seller}</b>
-              <small>{location}</small>
-            </div>
+        <div className="syRefSellerCard syRefSellerCardSimple v2SellerClean">
+          <div className="v2SellerIdentity">
+            <div><b>{info.seller}</b><small>{location}</small></div>
+            <span>{isCharter?'Kiralık':'Satılık'}</span>
           </div>
-
-          <div className="syRefPriceBlock">
-            <small>{isCharter?'CHARTER FİYATI':'FİYAT'}</small>
+          <div className="v2SellerPrice">
+            <small>{isCharter?'Kiralama fiyatı':'Satış fiyatı'}</small>
             <strong>{item.price||'Fiyat Sorunuz'}</strong>
           </div>
-
-          <div className="syRefSellerActions">
-            <a className="more" href={sellerHref}>SATICI / MAĞAZA BİLGİLERİ</a>
-          </div>
+          <a className="v2SellerShopLink" href={sellerHref}>Mağazayı Görüntüle <span>→</span></a>
         </div>
       </aside>
     </div>
@@ -221,58 +214,25 @@ export default async function Page({params}){
       <div className="syRefBottomLeft">
         <div className="syRefSectionHead syRefRelatedHead">
           <div>
-            <small>SİZİN İÇİN SEÇTİKLERİMİZ</small>
+            <small></small>
             <h2>Benzer İlanlar</h2>
           </div>
-          <a href={listHref}>Tüm İlanları Gör ›</a>
+          <a href={listHref}>Tüm İlanlar →</a>
         </div>
 
-        <div className="syRefShowcaseList">
-          {related.map((x,i)=>{
-            const xMeta=detailMeta[x.slug]||{seller:'Motoryat Partner',year:'—'};
-            const xGallery=[...new Set([x.image,...(x.gallery||[])].filter(Boolean))];
-            const photoCount=xGallery.length;
-            const smallOne=xGallery[1]||null;
-            const xParts=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
-            const xLength=xParts[0]||'—';
-            return <a className={"syRefShowcaseCard "+(isCharter?'charter':'sale')} href={'/tekne/'+x.slug} key={x.slug}>
-              <div className="syRefShowcaseMain">
-                <img src={x.image} alt={x.title}/>
-                <div className="syRefShowcaseMedia">
-                  <span>▣ {photoCount}</span>
-                  <span>▶ 0</span>
-                </div>
-              </div>
-
-              <div className="syRefShowcaseSmall">
-                {smallOne
-                  ? <img src={smallOne} alt={x.title+' görünüm 2'}/>
-                  : <div className="syRefShowcaseEmpty"><span>EK FOTOĞRAF YOK</span></div>}
-                <div className="syRefShowcaseSeller">
-                  <strong>{isCharter?'KİRALIK':'SATILIK'}</strong>
-                  <span>{xMeta.seller}</span>
-                  
-                </div>
-              </div>
-
-              <div className="syRefShowcaseInfo">
+        <div className="v2RelatedGrid">
+          {related.filter(x=>x.image).map(x=>{
+            const xMeta=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
+            const xSeller=x.seller||x.store_name||x.sellerName||detailMeta[x.slug]?.seller||'';
+            return <a className="v2RelatedCard" href={'/tekne/'+x.slug} key={x.slug}>
+              <img src={x.image} alt={x.title} loading="lazy"/>
+              <div className="v2RelatedContent">
                 <h3>{x.title}</h3>
-                <p>UZUNLUK: {xLength}</p>
-                <div className="syRefShowcaseFacts">
-                  <div><small>YIL</small><b>{xMeta.year}</b></div>
-                  <div><small>{isCharter?'TÜR':'DURUM'}</small><b>{isCharter?'KİRALIK':'SATILIK'}</b></div>
-                </div>
-                <div className="syRefShowcasePrice">
-                  <small>{isCharter?'HAFTALIK FİYAT':'FİYATI'}</small>
-                  <strong>{x.price}</strong>
-                </div>
+                {xMeta[0]&&<p>{xMeta[0]}</p>}
+                <strong>{x.price||'Fiyat Sorunuz'}</strong>
+                {xSeller&&<small>{xSeller}</small>}
               </div>
-
-              <div className="syRefShowcaseBand">
-                <span>›</span>
-                <b>{isCharter?'KİRALAMA LİSTESİ':'SATIŞ İLANI'}</b>
-              </div>
-            </a>
+            </a>;
           })}
         </div>
       </div>
