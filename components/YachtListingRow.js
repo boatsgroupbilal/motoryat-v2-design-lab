@@ -39,7 +39,7 @@ export default function YachtListingRow({
       </div>}
 
       <div className={'sqYachtPrice '+(askPrice?'isAskPrice':'hasRealPrice')}>
-        {!askPrice && <small>{charter?'HAFTALIK FİYAT':'FİYATI'}</small>}
+        {!askPrice && <small>{charter ? (/\/Gün/i.test(priceText)?'GÜNLÜK FİYAT':/\/Hafta/i.test(priceText)?'HAFTALIK FİYAT':'KİRALAMA FİYATI') : 'FİYAT'}</small>}
         <strong>{askPrice?'Fiyat Sorunuz':priceText}</strong>
       </div>
     </div>
