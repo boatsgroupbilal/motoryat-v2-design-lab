@@ -1,3 +1,4 @@
+import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
@@ -7,7 +8,8 @@ import {filterCharterListings,queryString} from '../../data/listing-filters';
 
 export default async function Page({searchParams}){
  const params=await searchParams;
- const filteredListings=filterCharterListings(charterListings,params);
+ const pageSource=await choosePageData('charter',charterListings);
+ const filteredListings=filterCharterListings(pageSource,params);
  const page=Math.max(1,Number(params?.sayfa)||1);
  const perPage=24;
  const totalPages=Math.max(1,Math.ceil(filteredListings.length/perPage));
