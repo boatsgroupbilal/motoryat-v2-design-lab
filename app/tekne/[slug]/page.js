@@ -1,4 +1,3 @@
-import YeniViraBanner from '../../../components/YeniViraBanner';
 import {notFound} from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
@@ -54,7 +53,8 @@ export default async function Page({params}){
   const related=(isCharter?charterListings:saleListings)
     .filter(x=>x.slug!==item.slug)
     .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
-    .slice(0,4);
+    .filter(x=>x.image && x.slug)
+    .slice(0,3);
   const listHref=isCharter?'/kiralik':'/satilik';
   const relatedAds=isCharter
     ? ['/ads/motoryat-house-ad-300-png.webp']
@@ -210,6 +210,12 @@ export default async function Page({params}){
       </aside>
     </div>
 
-    <YeniViraBanner/>
+    {related.length>0 ? <section className="v2RelatedThree" aria-label="İlgili ilanlar">
+      <div className="v2RelatedThreeHeader"><h2>İlgili {isCharter?'Kiralık':'Satılık'} Yatlar</h2><a href={listHref}>Tüm İlanlar →</a></div>
+      <div className="v2RelatedThreeGrid">{related.map(x=><a className="v2RelatedThreeCard" href={'/tekne/'+x.slug} key={x.slug}>
+        <div className="v2RelatedThreeImage"><img src={x.image} alt={x.title||'Yat ilanı'} loading="lazy"/></div>
+        <div className="v2RelatedThreeInfo"><span>{isCharter?'KİRALIK':'SATILIK'}</span><h3>{x.title}</h3><p>{[x.length?x.length+' m':null,x.location].filter(Boolean).join(' · ')}</p><strong>{x.price||'Fiyat Sorunuz'}</strong></div>
+      </a>)}</div>
+    </section> : null}
   </main><Footer/></>
 }
