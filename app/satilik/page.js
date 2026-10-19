@@ -1,3 +1,4 @@
+import YeniViraBanner from '../../components/YeniViraBanner';
 import YachtCategoryTiles from '../../components/YachtCategoryTiles';
 import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
@@ -103,5 +104,6 @@ export default async function Page({searchParams}){
     </div>
    </div>
   </div></section>
+ <YeniViraBanner/>
  </main><Footer/></>
 }
