@@ -14554,3 +14554,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .syRefPage .v2RelatedContent p,.syRefPage .v2RelatedContent small{font-size:10px!important}
  .syRefPage .v2RelatedContent strong{font-size:12px!important}
 }
+
+/* Yeni Vira training advertisement: fluid, clickable, readable at any zoom level. */
+.yeniviraBannerWrap{width:100%;max-width:1120px;margin:24px auto;padding:0 24px;box-sizing:border-box}
+.yeniviraBanner{position:relative;display:flex;align-items:center;overflow:hidden;width:100%;min-height:270px;border-radius:3px;text-decoration:none;color:#fff!important;background:#071b2e url('/hero-home.webp') center 48%/cover no-repeat}
+.yeniviraBanner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,18,33,.98) 0%,rgba(4,25,42,.93) 35%,rgba(4,25,42,.5) 70%,rgba(4,25,42,.12) 100%)}
+.yeniviraBannerText{position:relative;z-index:1;max-width:650px;width:78%;padding:26px 38px}
+.yeniviraBannerEyebrow{display:block;color:#d5ac65;font-size:11px;font-weight:800;letter-spacing:.13em}
+.yeniviraBannerText h2{font-family:Georgia,serif;font-size:clamp(29px,4.5vw,58px);font-weight:600;line-height:1.05;color:#fff!important;margin:16px 0 10px}
+.yeniviraBannerText p{color:#fff!important;font-size:14px;font-weight:600;line-height:1.45;margin:0 0 18px}
+.yeniviraBannerText strong{color:#d5ac65;font-size:13px;letter-spacing:.04em}
+.yeniviraBannerText strong span{margin-left:8px;font-size:21px}
+@media(max-width:820px){.yeniviraBannerWrap{padding:0 16px;margin:15px auto}.yeniviraBanner{min-height:350px;align-items:flex-start;background-position:63% center}.yeniviraBanner:before{background:linear-gradient(180deg,rgba(3,18,33,.97) 0%,rgba(3,18,33,.82) 44%,rgba(3,18,33,.2) 100%)}.yeniviraBannerText{padding:25px 22px;width:100%;max-width:520px}.yeniviraBannerText h2{font-size:clamp(31px,8vw,46px)}.yeniviraBannerText p{font-size:12px;max-width:330px}.yeniviraBannerEyebrow{font-size:9px}}
