@@ -1,3 +1,4 @@
+import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {YachtCard} from '../../components/Card';
@@ -15,7 +16,7 @@ function prettyStatus(value){
 
 export default async function Page({searchParams}){
  const params=await searchParams;
- const sourceListings=[demoListing,...saleListings.filter(x=>x.slug!==demoListing.slug)];
+ const sourceListings=await choosePageData('sale',[demoListing,...saleListings.filter(x=>x.slug!==demoListing.slug)]);
  const allListings=filterSaleListings(sourceListings,params);
  const page=Math.max(1,Number(params?.sayfa)||1);
  const perPage=24;
