@@ -11,12 +11,12 @@ export default function Home(){return <><SiteHeader/><main className="homePage">
    {id:'kiralik',title:'Öne Çıkan Kiralık Yatlar',href:'/kiralik',list:charterListings,type:'charter'}
   ].map(group=><section className="dpSection dpListingsSection" id={group.id} key={group.id}><div className="dpWrap">
    <div className="dpHead"><h2>{group.title}</h2><a href={group.href}>Tüm ilanlar →</a></div>
-   <div className="sqYachtGrid homeYachtGrid">{group.list.slice(0,4).map((x,i)=><YachtCard key={x.slug||i} item={x} type={group.type} seller={x.seller||x.store_name||''} year={x.year||''} index={i}/>)}</div>
+   <div className="sqYachtGrid homeYachtGrid homeEightGrid">{group.list.slice(0,16).map((x,i)=><YachtCard key={x.slug||i} item={x} type={group.type} seller={x.seller||x.store_name||''} year={x.year||''} index={i}/>)}</div>
   </div></section>)}
 
  <section id="pazaryeri" className="dpSection homeMarketplaceSection"><div className="dpWrap">
   <div className="dpHead"><h2>Malzeme Pazaryeri Ürünleri</h2><a href="/urunler">Tüm ürünler →</a></div>
-  {products.some(x=>x.image)?<div className="productGrid homeMarketProductGrid">{products.filter(x=>x.image).slice(0,4).map((x,i)=><ProductCard key={x.slug||i} item={x}/>)}</div>:<p>Henüz yayınlanmış ürün bulunmuyor.</p>}
+  {products.some(x=>x.image)?<div className="productGrid homeMarketProductGrid homeEightGrid">{products.filter(x=>x.image).slice(0,16).map((x,i)=><ProductCard key={x.slug||i} item={x}/>)}</div>:<p>Henüz yayınlanmış ürün bulunmuyor.</p>}
  </div></section>
 
  <section id="rehber" className="dpSection"><div className="dpWrap"><div className="dpHead"><h2>Sektör rehberi</h2></div><div className="dpDir"><a className="dpCard" href="/firmalar"><h3>Tersaneler ve inşa firmaları</h3><p className="dpM">Firma profilleri, tamamlanan projeler ve iletişim bilgileri.</p></a><a className="dpCard" href="/firmalar"><h3>Brokerlar ve acenteler</h3><p className="dpM">Satış ve kiralama danışmanlarını ülkeye göre bulun.</p></a></div></div></section>
