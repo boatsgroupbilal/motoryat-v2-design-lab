@@ -4,7 +4,7 @@ export default function YachtListingRow({
   item,
   type='sale',
   seller='',
-  year='2026',
+  year='',
   refit='—',
   index=0,
   brandLogo=''
@@ -13,9 +13,10 @@ export default function YachtListingRow({
   const tone=index%2===0?'toneGold':'toneTurquoise';
   const accent=index%2===0?'#ffb21d':'#00c9b5';
 
-  const brand=item?.sellerName || item?.brandName || item?.brand || seller || 'Motoryat.com';
-  const photoCount=[28,24,32,37][index%4];
-  const videoCount=[3,5,4,0][index%4];
+  const brand=item?.sellerName || item?.store_name || item?.seller || seller || item?.brandName || item?.brand || '';
+  const photoCount=Array.isArray(item?.gallery) ? new Set([item.image,...item.gallery].filter(Boolean)).size : (item?.photo_count ?? item?.photoCount ?? null);
+  const videoCount=item?.video_count ?? item?.videoCount ?? (Array.isArray(item?.videos) ? item.videos.length : null);
+  const displayYear=item?.year || (year!=='—' ? year : '');
   const priceText=String(item?.price || '').trim();
   const askPrice=!priceText || /^fiyat(?:ı)?\s*sor(?:unuz)?$/i.test(priceText);
 
@@ -23,19 +24,19 @@ export default function YachtListingRow({
     <Link href={item.href} className="sqYachtMedia" aria-label={item.title}>
       <img src={item.image} alt={item.title}/>
       <span className="sqYachtFav" aria-hidden="true">♡</span>
-      <span className="sqYachtMediaStats" aria-hidden="true">
-        <i>▣ {photoCount}</i>
-        <i>▷ {videoCount}</i>
-      </span>
+      {(photoCount>0 || videoCount>0) && <span className="sqYachtMediaStats" aria-hidden="true">
+        {photoCount>0 && <i>▣ {photoCount}</i>}
+        {videoCount>0 && <i>▷ {videoCount}</i>}
+      </span>}
     </Link>
 
     <div className="sqYachtInfo">
       <Link href={item.href} className="sqYachtTitle"><h2>{item.title}</h2></Link>
       <p className="sqYachtMeta">{item.meta}</p>
 
-      <div className="sqYachtFacts">
-        <div><small>YIL</small><strong>{year}</strong></div>
-      </div>
+      {displayYear && <div className="sqYachtFacts">
+        <div><small>YIL</small><strong>{displayYear}</strong></div>
+      </div>}
 
       <div className={'sqYachtPrice '+(askPrice?'isAskPrice':'hasRealPrice')}>
         {!askPrice && <small>{charter?'HAFTALIK FİYAT':'FİYATI'}</small>}
@@ -50,7 +51,7 @@ export default function YachtListingRow({
       aria-label={(charter?'Kiralık: ':'Satılık: ')+item.title}
     >
       <span className="sqYachtUnifiedBrand">
-        {brandLogo ? <img src={brandLogo} alt={brand}/> : <strong>{brand}</strong>}
+        {brandLogo ? <img src={brandLogo} alt={brand}/> : (brand ? <strong>{brand}</strong> : null)}
       </span>
       <span>{charter?'KİRALIK':'SATILIK'}</span>
     </Link>
