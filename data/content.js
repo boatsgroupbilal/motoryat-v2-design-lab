@@ -214,7 +214,6 @@ const ownedStoreMedia={
   },
   'su-marine':{
     cover:OWNED_MEDIA_ORIGIN+'/media/stores-official-seed/su-marine-cover.webp',
-    logo:'/motoryat-logo.svg'
   },
   'mengi-yay':{
     cover:OWNED_MEDIA_ORIGIN+'/stores/mengi-yay/ancora.jpg',
@@ -288,8 +287,8 @@ function storeToCard(x){
     ...x,
     category:'Denizcilik',
     location:x.location||x.country||'Türkiye',
-    image:owned.cover||storeImages[x.slug]||related?.image||'/store-directory.webp',
-    logo:owned.logo||'/motoryat-logo.svg',
+    image:owned.cover||storeImages[x.slug]||related?.image||null,
+    logo:owned.logo||(x.logo&&x.logo!=='/motoryat-logo.svg'?x.logo:null),
     href:'/magaza/'+x.slug
   };
 }
