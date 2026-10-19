@@ -1,4 +1,3 @@
-import YeniViraBanner from '../../components/YeniViraBanner';
 import CharterFilterSidebar from '../../components/CharterFilterSidebar';
 import YachtCategoryTiles from '../../components/YachtCategoryTiles';
 import {choosePageData} from '../../lib/v2-page-data';
@@ -51,6 +50,5 @@ export default async function Page({searchParams}){
     {Array.from({length:totalPages},(_,i)=>i+1).map(n=><a className={n===safePage?'active':''} href={'/kiralik?'+queryString(params)+'sayfa='+n} key={n}>{n}</a>)}
    </div><strong>{filteredListings.length} ilan var</strong></nav>}
   </div></div></div></section>
- <YeniViraBanner/>
  </main><Footer/></>
 }
