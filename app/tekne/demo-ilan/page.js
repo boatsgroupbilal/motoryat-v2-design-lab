@@ -163,23 +163,10 @@ export default function DemoListingPage(){
       </section>
 
       <aside className="syRefSidebar">
-        <div className="syRefSellerCard syRefSellerCardSimple">
-          <div className="syRefSellerTop syRefSellerSimpleTop">
-            <span>SATILIK</span>
-            <div className="syRefSellerSimpleName">
-              <b>Motoryat Demo Partner</b>
-              <small>Marina Punat · Hırvatistan</small>
-            </div>
-          </div>
-
-          <div className="syRefPriceBlock">
-            <small>FİYAT</small>
-            <strong>€ 159.000</strong>
-          </div>
-
-          <div className="syRefSellerActions">
-            <a className="more" href="/magazalar">FİRMA / MAĞAZA</a>
-          </div>
+        <div className="syRefSellerCard syRefSellerCardSimple v2SellerClean">
+          <div className="v2SellerIdentity"><div><b>Motoryat Demo Partner</b><small>Marina Punat · Hırvatistan</small></div><span>Satılık</span></div>
+          <div className="v2SellerPrice"><small>Satış fiyatı</small><strong>€ 159.000</strong></div>
+          <a className="v2SellerShopLink" href="/magazalar">Mağazayı Görüntüle <span>→</span></a>
         </div>
 
         <div className="syDemoSellerInfo">
