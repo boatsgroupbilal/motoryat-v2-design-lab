@@ -14653,3 +14653,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .syRefPage .v2RelatedBannerInfo strong{font-size:13px;color:#0d1b2a}
 @media(max-width:820px){.syRefPage .v2RelatedBanner{padding:0 16px}.syRefPage .v2RelatedBannerFrame{padding:10px}.syRefPage .v2RelatedBannerGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.syRefPage .v2RelatedBannerImage{height:96px}.syRefPage .v2RelatedBannerInfo{padding:8px}.syRefPage .v2RelatedBannerInfo h3{font-size:12px}.syRefPage .v2RelatedBannerInfo p{font-size:10px}.syRefPage .v2RelatedBannerInfo strong{font-size:11px}}
 @media(max-width:520px){.syRefPage .v2RelatedBannerHead h2{font-size:19px}}
+
+/* Four related yachts: desktop 4 across; tablet and mobile 2 by 2. */
+@media(min-width:821px){.syRefPage .v2RelatedBannerGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.syRefPage .v2RelatedBannerImage{height:140px}}
+@media(max-width:820px){.syRefPage .v2RelatedBannerGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
