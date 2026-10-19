@@ -14222,3 +14222,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   grid-template-columns:repeat(2,minmax(0,1fr))!important
  }
 }
+
+/* Match the V2 footer to the approved black header without changing layout. */
+.dpFooter{background:#000!important;}
