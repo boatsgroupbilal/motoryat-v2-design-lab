@@ -9,38 +9,44 @@ export default async function Page({params}){
  if(!store)notFound();
  const profile=getStoreProfile(store);
  const overview=profile.overview?.includes('Motoryat üzerindeki kurumsal vitriniyle')?null:profile.overview;
- const saleYachts=saleListings.filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image);
- const charterYachts=charterListings.filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image);
- const yachts=[...saleYachts,...charterYachts].slice(0,2);
- const portfolioHref='/magaza/'+slug+(saleYachts.length?'/satilik':'/kiralik');
- const services=Array.isArray(profile.services)?profile.services.filter(x=>x&&x!=='Denizcilik'):[],
-       offices=Array.isArray(profile.offices)?profile.offices.filter(Boolean):[];
+ const services=Array.isArray(profile.services)?profile.services.filter(x=>x&&x!=='Denizcilik'):[];
+ const yachts=[...saleListings,...charterListings].filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image).slice(0,4);
+ const contact=[
+  store.website||profile.website?{label:'Web Sitesi',value:store.website||profile.website,href:/^https?:\/\//.test(store.website||profile.website)?store.website||profile.website:'https://'+(store.website||profile.website)}:null,
+  store.email||profile.email?{label:'E-posta',value:store.email||profile.email,href:'mailto:'+(store.email||profile.email)}:null,
+  store.phone||profile.phone?{label:'Telefon',value:store.phone||profile.phone,href:'tel:'+(store.phone||profile.phone)}:null
+ ].filter(Boolean);
  return <StoreSiteShell store={store} active="hakkimizda">
-  <section className={styles.aboutIntro}>
-   <div className={styles.aboutCopy}>
-    <small className={styles.premiumEyebrow}>KURUMSAL PROFİL</small>
-    <h2>{store.name} Hakkında</h2>
-    <p>{overview||store.name+' hakkında kurumsal bilgiler ve güncel yat portföyü.'}</p>
-    {services.length>0&&<div className={styles.aboutServices}>
-     <h3>Faaliyet Alanları</h3>
-     <div>{services.map(s=><span key={s}>{s}</span>)}</div>
-    </div>}
-   </div>
-   <aside className={styles.aboutSide}>
-    <span className={styles.premiumEyebrow}>FİRMA BİLGİLERİ</span>
-    <h3>{store.name}</h3>
-    {store.location&&<div><small>Konum</small><strong>{store.location}</strong></div>}
-    {offices.length>0&&<div><small>Ofis / Çalışma bölgesi</small><strong>{offices.join(' · ')}</strong></div>}
-    <a href={'/magaza/'+slug+'/iletisim'}>İletişim bilgileri <span>↗</span></a>
-   </aside>
+  <nav className={styles.scrollNav} aria-label="Firma profili bölümleri">
+   <a href="#hakkinda">Hakkında</a>
+   {services.length>0&&<a href="#hizmetler">Hizmetler</a>}
+   {yachts.length>0&&<a href="#galeri">Galeri</a>}
+   <a href="#iletisim">İletişim</a>
+  </nav>
+  <section className={styles.scrollSection} id="hakkinda">
+   <small className={styles.premiumEyebrow}>KURUMSAL PROFİL</small>
+   <h2>Hakkında</h2>
+   <p>{overview||store.name+' kurumsal profili ve güncel yat portföyü.'}</p>
   </section>
-  {yachts.length>0&&<section className={styles.aboutCollection}>
-   <div className={styles.featuredHead}><div><small className={styles.premiumEyebrow}>PORTFÖYDEN</small><h2>Yatları Keşfedin</h2></div><a href={portfolioHref}>Portföy →</a></div>
-   <div className={styles.aboutImages}>{yachts.map(x=><a href={x.href} key={x.slug}><img src={x.image} alt={x.title} loading="lazy"/><span>{x.title}</span></a>)}</div>
+  {services.length>0&&<section className={styles.scrollSection} id="hizmetler">
+   <small className={styles.premiumEyebrow}>FAALİYET ALANLARI</small>
+   <h2>Hizmetler</h2>
+   <div className={styles.scrollServiceGrid}>{services.map(s=><div key={s}>{s}</div>)}</div>
   </section>}
-  <section className={styles.aboutContact}>
-   <div><small className={styles.premiumEyebrow}>BİRLİKTE ÇALIŞALIM</small><h2>{store.name} ile bağlantı kurun</h2></div>
-   <a href={'/magaza/'+slug+'/iletisim'}>İletişime geçin ↗</a>
+  {yachts.length>0&&<section className={styles.scrollSection} id="galeri">
+   <small className={styles.premiumEyebrow}>PORTFÖY</small>
+   <h2>Galeri</h2>
+   <div className={styles.scrollGallery}>{yachts.map(x=><a href={x.href} key={x.slug}><img loading="lazy" src={x.image} alt={x.title}/><span>{x.title}</span></a>)}</div>
+  </section>}
+  <section className={styles.scrollSection} id="iletisim">
+   <small className={styles.premiumEyebrow}>İLETİŞİM</small>
+   <h2>İletişim ve Konum</h2>
+   <div className={styles.scrollContacts}>
+    {contact.map(x=><a href={x.href} key={x.label} target={x.label==='Web Sitesi'?'_blank':undefined} rel={x.label==='Web Sitesi'?'noopener noreferrer':undefined}><small>{x.label}</small><strong>{x.value}</strong><span>↗</span></a>)}
+    {store.location&&<div><small>Konum</small><strong>{store.location}</strong></div>}
+   </div>
+   {contact.length===0&&<p>Doğrudan iletişim bilgisi henüz paylaşılmamış.</p>}
+   <a className={styles.scrollContactMore} href={'/magaza/'+slug+'/iletisim'}>İletişim sayfası →</a>
   </section>
  </StoreSiteShell>;
 }
