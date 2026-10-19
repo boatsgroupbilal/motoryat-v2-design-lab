@@ -27,14 +27,7 @@ export default async function Page({params}){
      <a className={styles.secondaryLink} href={base+'/iletisim'}>İletişim <span>→</span></a>
     </div>
    </div>
-   <aside className={styles.introAside}>
-    <span className={styles.asideOverline}>KURUMSAL BİLGİLER</span>
-    {store.location&&<div><small>Konum</small><strong>{store.location}</strong></div>}
-    {sale.length>0&&<div><small>Satılık portföy</small><strong>{sale.length} ilan</strong></div>}
-    {charter.length>0&&<div><small>Kiralık portföy</small><strong>{charter.length} ilan</strong></div>}
-    {stock.length>0&&<div><small>Ürünler</small><strong>{stock.length} ürün</strong></div>}
-    <a href={base+'/hakkimizda'}>Firmayı tanıyın <span>→</span></a>
-   </aside>
+
   </section>
   {featured.length>0&&<section className={styles.featuredSection}>
    <div className={styles.featuredHead}>
