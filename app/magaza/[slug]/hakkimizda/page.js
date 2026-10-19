@@ -1,50 +1,20 @@
-import SiteHeader from '../../../../components/SiteHeader';
-import Footer from '../../../../components/Footer';
+import {notFound} from 'next/navigation';
 import {stores} from '../../../../data/content';
 import {getStoreProfile} from '../../../../data/storeProfiles';
-import StoreMiniNav from '../../../../components/StoreMiniNav';
+import StoreSiteShell,{styles} from '../StoreSiteShell';
 
 export default async function Page({params}){
-  const {slug}=await params;
-  const store=stores.find(x=>x.slug===slug)||stores[0];
-  const profile=getStoreProfile(store);
-
-  return <><SiteHeader/><main className="storeProfilePage">\n    <StoreMiniNav store={store} active="hakkimizda"/>
-    <section className="storeProfileCard">
-      <div className="storeProfileTop">
-        <span className="storeProfileBadge">SATILIK</span>
-        <div className="storeProfileBrand storeProfileBrandText">
-          <small>KURUMSAL PROFİL</small>
-          <strong>{store.name}</strong>
-          <span>{store.category} · {store.location}</span>
-        </div>
-        <div className="storeProfileContactBar">
-          <a href="#iletisim" className="storeProfileCircle" aria-label="Telefon">☎</a>
-          <div className="storeProfileMore">DAHA FAZLA BİLGİ</div>
-          <a href="#iletisim" className="storeProfileCircle" aria-label="E-posta">✉</a>
-        </div>
-      </div>
-
-      <div className="storeProfileBody">
-        <section>
-          <h2><span>◉</span> GENEL BAKIŞ</h2>
-          <p>{profile.overview}</p>
-        </section>
-
-        <section>
-          <h2><span>▲</span> HİZMETLER</h2>
-          <p>{profile.services.join(', ')}</p>
-        </section>
-
-        <section>
-          <h2><span>⌂</span> OFİSLER</h2>
-          <p>{profile.offices.join(', ')}</p>
-        </section>
-      </div>
-
-      <div className="storeProfileFooter" id="iletisim">
-        <a href={'/magaza/'+store.slug}>PROFİLİ GÖRÜNTÜLE <span>›</span></a>
-      </div>
-    </section>
-  </main><Footer/></>
+ const {slug}=await params;
+ const store=stores.find(x=>x.slug===slug);
+ if(!store)notFound();
+ const profile=getStoreProfile(store);
+ return <StoreSiteShell store={store} active="hakkimizda">
+  <section className={styles.panel}>
+   <h2>Hakkımızda</h2>
+   {profile.overview?<p>{profile.overview}</p>:<p>Bu mağaza için henüz kurumsal açıklama eklenmemiştir.</p>}
+   {Array.isArray(profile.services)&&profile.services.length>0&&<><h2 style={{marginTop:24}}>Faaliyet Alanları</h2><p>{profile.services.join(' · ')}</p></>}
+   {Array.isArray(profile.offices)&&profile.offices.length>0&&<><h2 style={{marginTop:24}}>Ofisler ve Konumlar</h2><p>{profile.offices.join(' · ')}</p></>}
+   <div className={styles.links}><a href={'/magaza/'+slug+'/iletisim'}>İletişim →</a></div>
+  </section>
+ </StoreSiteShell>;
 }
