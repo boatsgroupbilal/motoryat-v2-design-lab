@@ -1,3 +1,4 @@
+import YachtCategoryTiles from '../../components/YachtCategoryTiles';
 import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
@@ -29,6 +30,7 @@ export default async function Page({searchParams}){
    </div>
   </section>
 
+  <YachtCategoryTiles type="charter" listings={pageSource}/>
   <nav className="luxCategoryChips" aria-label="Kiralık tekne kategorileri"><div className="syContainer">
     <a className="active" href="/kiralik">Tümü</a>
     <a href="/kiralik/motoryat">Motoryat</a>
