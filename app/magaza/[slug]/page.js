@@ -2,21 +2,53 @@ import {notFound} from 'next/navigation';
 import {stores,saleListings,charterListings,products} from '../../../data/content';
 import {getStoreProfile} from '../../../data/storeProfiles';
 import StoreSiteShell,{styles} from './StoreSiteShell';
+
 export default async function Page({params}){
- const {slug}=await params;const store=stores.find(x=>x.slug===slug);if(!store)notFound();
+ const {slug}=await params;
+ const store=stores.find(x=>x.slug===slug);
+ if(!store)notFound();
  const profile=getStoreProfile(store);
- const matching=(x)=>x.store_slug===slug||x.sellerSlug===slug;
- const sale=saleListings.filter(matching),charter=charterListings.filter(matching),stock=products.filter(matching);
+ const belongs=x=>x.store_slug===slug||x.sellerSlug===slug;
+ const sale=saleListings.filter(belongs),charter=charterListings.filter(belongs),stock=products.filter(belongs);
+ const featured=[...sale,...charter].filter(x=>x.image).slice(0,4);
+ const intro=profile.overview&&!profile.overview.includes('Motoryat üzerindeki kurumsal vitriniyle')
+  ? profile.overview
+  : store.name+' koleksiyonunu, güncel ilanlarını ve kurumsal bilgilerini keşfedin.';
+ const base='/magaza/'+slug;
  return <StoreSiteShell store={store}>
-  <section className={styles.panel}><h2>{store.name}</h2><p>{profile.overview||'Kurumsal mağaza profili.'}</p>
-   <div className={styles.facts}>
-    {sale.length>0&&<div><small>Satılık</small><strong>{sale.length} ilan</strong></div>}
-    {charter.length>0&&<div><small>Kiralık</small><strong>{charter.length} ilan</strong></div>}
-    {stock.length>0&&<div><small>Ürünler</small><strong>{stock.length} ürün</strong></div>}
-    {store.location&&<div><small>Konum</small><strong>{store.location}</strong></div>}
+  <section className={styles.premiumIntro}>
+   <div className={styles.introCopy}>
+    <small className={styles.premiumEyebrow}>ÖZEL YAT & DENİZCİLİK VİTRİNİ</small>
+    <h2>{store.name}</h2>
+    <p>{intro}</p>
+    <div className={styles.premiumLinks}>
+     {sale.length>0&&<a className={styles.primaryLink} href={base+'/satilik'}>Satılık yatları incele <span>↗</span></a>}
+     {charter.length>0&&<a className={styles.primaryLink} href={base+'/kiralik'}>Kiralık yatları incele <span>↗</span></a>}
+     <a className={styles.secondaryLink} href={base+'/iletisim'}>İletişim <span>→</span></a>
+    </div>
    </div>
-   <div className={styles.links}><a href={'/magaza/'+slug+'/hakkimizda'}>Hakkımızda →</a><a href={'/magaza/'+slug+'/iletisim'}>İletişim →</a></div>
+   <aside className={styles.introAside}>
+    <span className={styles.asideOverline}>KURUMSAL BİLGİLER</span>
+    {store.location&&<div><small>Konum</small><strong>{store.location}</strong></div>}
+    {sale.length>0&&<div><small>Satılık portföy</small><strong>{sale.length} ilan</strong></div>}
+    {charter.length>0&&<div><small>Kiralık portföy</small><strong>{charter.length} ilan</strong></div>}
+    {stock.length>0&&<div><small>Ürünler</small><strong>{stock.length} ürün</strong></div>}
+    <a href={base+'/hakkimizda'}>Firmayı tanıyın <span>→</span></a>
+   </aside>
   </section>
-  {sale.length>0&&<section style={{marginTop:24}}><h2>Satılık İlanlar</h2><div className={styles.cards}>{sale.slice(0,4).map(x=><a className={styles.card} href={x.href} key={x.slug}>{x.image&&<img src={x.image} alt={x.title}/>}<div className={styles.cardBody}><h3>{x.title}</h3><p>{x.price}</p></div></a>)}</div></section>}
+  {featured.length>0&&<section className={styles.featuredSection}>
+   <div className={styles.featuredHead}>
+    <div><small className={styles.premiumEyebrow}>SEÇİLİ PORTFÖY</small><h2>Yat Koleksiyonu</h2></div>
+    <a href={sale.length?base+'/satilik':base+'/kiralik'}>Tüm ilanlar <span>→</span></a>
+   </div>
+   <div className={styles.premiumCards}>{featured.map(x=><a className={styles.premiumCard} href={x.href} key={x.slug}>
+    <div className={styles.premiumMedia}><img src={x.image} alt={x.title} loading="lazy"/><span>{x.type==='charter'||x.kind==='KİRALIK'?'KİRALIK':'SATILIK'}</span></div>
+    <div className={styles.premiumCardBody}><h3>{x.title}</h3>{x.meta&&<p>{x.meta}</p>}<div><strong>{x.price||'Fiyat Sorunuz'}</strong><span>↗</span></div></div>
+   </a>)}</div>
+  </section>}
+  <section className={styles.premiumFooterCta}>
+   <div><small className={styles.premiumEyebrow}>DOĞRUDAN BAĞLANTI</small><h2>{store.name} ile iletişime geçin</h2><p>Firma bilgileri ve iletişim seçenekleri için kurumsal sayfayı ziyaret edin.</p></div>
+   <a href={base+'/iletisim'}>İletişim bilgileri <span>↗</span></a>
+  </section>
  </StoreSiteShell>;
 }
