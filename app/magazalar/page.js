@@ -1,9 +1,10 @@
+import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {stores} from '../../data/content';
 
-export default function Page(){
- const items=stores;
+export default async function Page(){
+ const items=await choosePageData('stores',stores);
  return <><SiteHeader/><main className="storeDirectoryPage">
   <section className="storeDirectoryHero categoryHeroStd">
    <img className="categoryHeroStdImage" src="/store-mengi.webp" alt="Motoryat mağazaları"/>
