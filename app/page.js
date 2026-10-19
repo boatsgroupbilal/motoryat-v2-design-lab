@@ -1,4 +1,3 @@
-import YeniViraBanner from '../components/YeniViraBanner';
 import SiteHeader from '../components/SiteHeader';
 import Footer from '../components/Footer';
 import {saleListings,charterListings,products} from '../data/content';
@@ -44,5 +43,4 @@ export default function Home(){return <><SiteHeader/><main className="homePage">
    <div className="homeDiscoveryBody"><h3>{item.title}</h3><p>{item.desc}</p></div>
   </div>)}</div>
  </div></section>
- <YeniViraBanner/>
  </main><Footer/></>}
