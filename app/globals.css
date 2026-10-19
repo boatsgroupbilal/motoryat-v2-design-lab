@@ -14456,3 +14456,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .homePage .homeDiscoveryBody h3{font-size:13px!important}
  .homePage .homeDiscoveryBody p{font-size:10px!important}
 }
+
+/* Homepage zoom resilience: intrinsic tracks and content-driven card heights. */
+.homePage .dpWrap{box-sizing:border-box!important;min-width:0!important}
+.homePage .homeEightGrid.sqYachtGrid,
+.homePage .homeEightGrid.homeMarketProductGrid,
+.homePage .homeDiscoveryGrid{min-width:0!important;max-width:100%!important;grid-auto-flow:row!important}
+.homePage .homeEightGrid>*,
+.homePage .homeDiscoveryGrid>*{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+.homePage .homeEightGrid .sqYachtCard{min-width:0!important;max-width:100%!important;overflow:hidden!important}
+.homePage .homeEightGrid .sqYachtTitle,.homePage .homeEightGrid .sqYachtMeta,
+.homePage .homeEightGrid .sqYachtPrice,.homePage .homeEightGrid .sqYachtUnifiedFooter,
+.homePage .homeEightGrid .productBody{min-width:0!important;max-width:100%!important}
+.homePage .homeEightGrid .sqYachtTitle h2,.homePage .homeEightGrid .productBody h3{
+ overflow:hidden!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;
+ -webkit-line-clamp:2!important;overflow-wrap:anywhere!important
+}
+.homePage .homeEightGrid .sqYachtUnifiedFooter{gap:3px!important;overflow:hidden!important}
+.homePage .homeEightGrid .sqYachtUnifiedBrand{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+.homePage .homeEightGrid .sqYachtUnifiedBrand strong{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;display:block!important}
+@media(min-width:1500px){
+ .homePage .homeEightGrid.sqYachtGrid,.homePage .homeEightGrid.homeMarketProductGrid{grid-template-columns:repeat(8,minmax(0,1fr))!important}
+}
+@media(min-width:1101px) and (max-width:1499px){
+ .homePage .homeEightGrid.sqYachtGrid,.homePage .homeEightGrid.homeMarketProductGrid{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+}
+@media(min-width:821px) and (max-width:1100px){
+ .homePage .homeEightGrid.sqYachtGrid,.homePage .homeEightGrid.homeMarketProductGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(min-width:541px) and (max-width:820px){
+ .homePage .homeEightGrid.sqYachtGrid,.homePage .homeEightGrid.homeMarketProductGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:540px){
+ .homePage .homeEightGrid.sqYachtGrid,.homePage .homeEightGrid.homeMarketProductGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
