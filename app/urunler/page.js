@@ -1,4 +1,3 @@
-import YeniViraBanner from '../../components/YeniViraBanner';
 import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
@@ -104,6 +103,5 @@ export default async function Page(){
         </div>
       </section>
     </div>
-  <YeniViraBanner/>
  </main><Footer/></>
 }
