@@ -122,3 +122,7 @@
 .standardAbout .standardAboutLocation{border-top:1px solid #edf0f2;padding-top:16px;margin-top:4px}
 .standardAboutContact{display:inline-flex;gap:24px;align-items:center;justify-content:space-between;background:#0d1b2a;color:#fff!important;padding:12px 17px;font-weight:700;font-size:13px;text-decoration:none}
 @media(max-width:820px){.standardAbout{padding:20px}.standardAbout h2{font-size:27px}}
+
+/* Full-width introduction after removing redundant corporate facts sidebar. */
+.premiumIntro{grid-template-columns:minmax(0,1fr)!important}
+.introCopy{width:100%;max-width:100%}
