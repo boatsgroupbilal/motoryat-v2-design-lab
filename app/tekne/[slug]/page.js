@@ -77,25 +77,35 @@ export default async function Page({params}){
     row('Gövde türü',pick(item,'hull_type'))
   ].filter(Boolean);
 
-  const technicalRows=[
+  const performanceRows=[
     row('Motor',pick(item,'engine','engine_model','motor')),
     row('Motor gücü',pick(item,'engine_power','motor_power','power')),
     row('Motor saati',pick(item,'engine_hours','motor_hours')),
     row('Yakıt',pick(item,'fuel','fuel_type')),
     row('Tahrik',pick(item,'drive','drive_type','propulsion')),
     row('Seyir hızı',pick(item,'cruising_speed','cruise_speed')),
-    row('Azami hız',pick(item,'max_speed','maximum_speed')),
-    row('Seyir hızında tüketim',pick(item,'cruise_consumption','cruising_consumption')),
-    row('Azami hızda tüketim',pick(item,'max_consumption','maximum_consumption')),
-    row('Yakıt deposu',pick(item,'fuel_tank','fuel_capacity')),
-    row('Temiz su deposu',pick(item,'water_tank','fresh_water_capacity')),
-    row('Pis su tankı',pick(item,'waste_tank','black_water_capacity')),
+    row('Maksimum hız',pick(item,'max_speed','maximum_speed')),
+    row('Seyir tüketimi',pick(item,'cruise_consumption','cruising_consumption')),
+    row('Azami hızda tüketim',pick(item,'max_consumption','maximum_consumption'))
+  ].filter(Boolean);
+  const tankRows=[
+    row('Yolcu kapasitesi',pick(item,'guest_capacity','guests','capacity')),
+    row('Yakıt tankı',pick(item,'fuel_tank','fuel_capacity')),
+    row('Su tankı',pick(item,'water_tank','fresh_water_capacity')),
+    row('Pis su tankı',pick(item,'waste_tank','black_water_capacity'))
+  ].filter(Boolean);
+  const comfortRows=[
     row('Duş',pick(item,'showers','shower_count')),
     row('Tuvalet sayısı',pick(item,'toilets','wc_count')),
     row('Isıtıcı',pick(item,'heating','heater')),
     row('Jeneratör',pick(item,'generator')),
     row('Klima',pick(item,'air_conditioning','aircon'))
   ].filter(Boolean);
+  const technicalGroups=[
+    ['Motor ve Performans',performanceRows],
+    ['Tanklar ve Kapasite',tankRows],
+    ['Konfor ve Sistemler',comfortRows]
+  ].filter(([,rows])=>rows.length);
 
   const visualFacts=[
     row('BOY',pick(item,'length') ? textValue(pick(item,'length'),' m') : length),
@@ -165,14 +175,14 @@ export default async function Page({params}){
           </div>
         </details> : null}
 
-        {technicalRows.length ? <details className="realDetailAccordion v2TechAccordion">
-          <summary><span>Motor, Performans ve Teknik Özellikler</span><b>Daha Fazla Gör</b></summary>
+        {technicalGroups.map(([title,rows])=><details className="realDetailAccordion v2TechAccordion" key={title}>
+          <summary><span>{title}</span><b>Daha Fazla Gör</b></summary>
           <div className="realDetailAccordionBody">
             <dl className="realDataList">
-              {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+              {rows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
             </dl>
           </div>
-        </details> : null}
+        </details>)}
 
         {equipmentItems.length ? <details className="realDetailAccordion">
           <summary><span>Donanım & Teçhizat</span><b>Daha Fazla Gör</b></summary>
