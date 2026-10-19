@@ -127,8 +127,7 @@ export default function DemoListingPage(){
           </dl>
         </section>
 
-        <section className="realDataSection" id="teknik">
-          <h2>Teknik Bilgiler</h2>
+        <section className="realDataSection" id="teknik" aria-label="Ayrıntılı motor ve performans bilgileri">
           <dl className="realDataList">
             {technicalRows.filter(([label])=>label!=='Motor gücü').map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
           </dl>
