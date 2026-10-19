@@ -14516,3 +14516,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .homePage .sqYachtGrid.homeYachtGrid.homeEightGrid,
  .homePage .productGrid.homeMarketProductGrid.homeEightGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
+
+/* Listing details: restrained seller panel and related cards; gallery unchanged. */
+.syRefPage .v2SellerClean{background:#fff!important;border:1px solid #e0e5e9!important;border-radius:8px!important;padding:19px!important;box-shadow:none!important;color:#0d1b2a!important;display:block!important;height:auto!important;min-height:0!important}
+.syRefPage .v2SellerIdentity{display:flex;justify-content:space-between;align-items:start;gap:12px;padding-bottom:16px!important}
+.syRefPage .v2SellerIdentity>div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.syRefPage .v2SellerIdentity b{font-size:17px!important;color:#0d1b2a!important;line-height:1.3;overflow-wrap:anywhere}
+.syRefPage .v2SellerIdentity small{font-size:12px!important;color:#687585!important}
+.syRefPage .v2SellerIdentity>span{font-size:10px!important;text-transform:uppercase;color:#7a632f;border:1px solid #eadfc4;padding:5px 7px;border-radius:3px}
+.syRefPage .v2SellerPrice{display:flex!important;flex-direction:column!important;gap:6px!important;padding:15px 0!important;border-top:1px solid #e8edf0!important;background:transparent!important}
+.syRefPage .v2SellerPrice small{color:#607080!important;text-transform:none!important;letter-spacing:0!important;font-size:12px!important}
+.syRefPage .v2SellerPrice strong{color:#0d1b2a!important;font-size:22px!important;line-height:1.25!important;overflow-wrap:anywhere}
+.syRefPage .v2SellerShopLink{display:flex!important;align-items:center!important;justify-content:space-between!important;background:#0d1b2a!important;color:#fff!important;padding:12px 14px!important;border-radius:4px!important;text-decoration:none!important;font-size:13px!important;font-weight:700!important}
+.syRefPage .v2RelatedGrid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;width:100%!important}
+.syRefPage .v2RelatedCard{display:block!important;min-width:0!important;background:#fff!important;border:1px solid #e2e6ea!important;color:#0d1b2a!important;text-decoration:none!important;border-radius:5px!important;overflow:hidden!important}
+.syRefPage .v2RelatedCard>img{display:block!important;width:100%!important;aspect-ratio:1!important;height:auto!important;object-fit:cover!important}
+.syRefPage .v2RelatedContent{padding:11px!important;display:flex!important;flex-direction:column!important;gap:7px!important}
+.syRefPage .v2RelatedContent h3{font-size:13px!important;line-height:1.35!important;margin:0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.syRefPage .v2RelatedContent p{font-size:11px!important;color:#6d7986!important;margin:0!important}
+.syRefPage .v2RelatedContent strong{font-size:13px!important;overflow-wrap:anywhere}
+.syRefPage .v2RelatedContent small{font-size:11px!important;color:#64717d!important}
+@media(min-width:821px) and (max-width:1100px){.syRefPage .v2RelatedGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:820px){.syRefPage .v2RelatedGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.syRefPage .v2SellerClean{padding:15px!important}.syRefPage .v2SellerPrice strong{font-size:19px!important}}
