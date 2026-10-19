@@ -1,6 +1,6 @@
 @import './size-lock.css';
 :root{
- --bg:#f6f8f9;--panel:#fff;--ink:var(--hero);--mute:#5b6b7a;--line:#d9e1e7;--sea:#0f6e7a;--brass:#a8844a;--hero:var(--hero);
+ --bg:#f6f8f9;--panel:#fff;--ink:var(--hero);--mute:#5b6b7a;--line:#d9e1e7;--sea:#0f6e7a;--brass:#a8844a;--hero:#0D1B2A;
  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
