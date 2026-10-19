@@ -19,6 +19,28 @@ export default function Home(){return <><SiteHeader/><main className="homePage">
   {products.some(x=>x.image)?<div className="productGrid homeMarketProductGrid homeEightGrid">{products.filter(x=>x.image).slice(0,16).map((x,i)=><ProductCard key={x.slug||i} item={x}/>)}</div>:<p>Henüz yayınlanmış ürün bulunmuyor.</p>}
  </div></section>
 
- <section id="hizmetler" className="dpSection homeDiscovery"><div className="dpWrap"><div className="dpHead"><div className="homeSectionHeading"><small>YATÇILIK HİZMETLERİ</small><h2>Profesyonel Hizmetler</h2></div><a href="/hizmetler">Tümünü Gör →</a></div><div className="homeDiscoveryGrid">{[['Teknik Servis','Motor, elektrik ve elektronik'],['Bakım & Refit','Bakım, boya ve yenileme'],['Broker & Satış','Satış ve danışmanlık'],['Charter Hizmetleri','Kiralama ve operasyon']].map(([title,desc])=><a href="/hizmetler" className="homeDiscoveryCard" key={title}><h3>{title}</h3><p>{desc}</p><span>Keşfet →</span></a>)}</div></div></section>
- <section id="destinasyonlar" className="dpSection homeDiscovery"><div className="dpWrap"><div className="dpHead"><div className="homeSectionHeading"><small>DENİZCİLİK ROTALARI</small><h2>Destinasyonlar</h2></div></div><div className="homeDiscoveryGrid">{[['Bodrum','Ege kıyıları'],['Göcek','Koylar ve adalar'],['Marmaris','Güney Ege'],['Antalya','Akdeniz kıyıları']].map(([title,desc])=><div className="homeDiscoveryCard" key={title}><h3>{title}</h3><p>{desc}</p></div>)}</div></div></section>
+ <section id="hizmetler" className="dpSection homeDiscovery"><div className="dpWrap">
+  <div className="dpHead"><div className="homeSectionHeading"><small>YATÇILIK HİZMETLERİ</small><h2>Profesyonel Hizmetler</h2></div><a href="/hizmetler">Tümünü Gör →</a></div>
+  <div className="homeDiscoveryGrid">{[
+   {title:'Teknik Servis',desc:'Motor, elektrik ve elektronik',image:'/store-admiral.webp'},
+   {title:'Bakım & Refit',desc:'Bakım, boya ve yenileme',image:'/media/stores/rmk-yachts-cover.webp'},
+   {title:'Broker & Satış',desc:'Satış ve danışmanlık',image:'/sale-yener-35.webp'},
+   {title:'Charter Hizmetleri',desc:'Kiralama ve operasyon',image:'/charter-luna-hero.webp'}
+  ].map(item=><a href="/hizmetler" className="homeDiscoveryCard" key={item.title}>
+   <div className="homeDiscoveryMedia"><img src={item.image} alt={item.title+' için temsili denizcilik görseli'} loading="lazy"/></div>
+   <div className="homeDiscoveryBody"><h3>{item.title}</h3><p>{item.desc}</p><span>Keşfet →</span></div>
+  </a>)}</div>
+ </div></section>
+ <section id="destinasyonlar" className="dpSection homeDiscovery"><div className="dpWrap">
+  <div className="dpHead"><div className="homeSectionHeading"><small>DENİZCİLİK ROTALARI</small><h2>Destinasyonlar</h2></div></div>
+  <div className="homeDiscoveryGrid">{[
+   {title:'Bodrum',desc:'Ege kıyıları',image:'/charter-luna-1.webp'},
+   {title:'Göcek',desc:'Koylar ve adalar',image:'/charter-sunreef.webp'},
+   {title:'Marmaris',desc:'Güney Ege',image:'/charter-luna-9.webp'},
+   {title:'Antalya',desc:'Akdeniz kıyıları',image:'/hero-home.webp'}
+  ].map(item=><div className="homeDiscoveryCard" key={item.title}>
+   <div className="homeDiscoveryMedia"><img src={item.image} alt={item.title+' rotası için temsili yat görseli'} loading="lazy"/></div>
+   <div className="homeDiscoveryBody"><h3>{item.title}</h3><p>{item.desc}</p></div>
+  </div>)}</div>
+ </div></section>
  </main><Footer/></>}
