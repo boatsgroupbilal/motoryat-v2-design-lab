@@ -109,41 +109,57 @@ export default function DemoListingPage(){
           <span>♙ Motorlu Yat</span>
         </div>
 
-        <div className="syRefCopy">
-          <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı, geniş kokpiti, hardtop tasarımı ve çift Volvo Penta dizel motoruyla konforlu seyir ile performansı bir araya getiren bir motor yattır.</p>
-        </div>
-
-        <div className="realVisualFacts">
-          <div><small>BOY</small><b>11,66 m</b></div>
-          <div><small>GENİŞLİK</small><b>3,59 m</b></div>
-          <div><small>SU ÇEKİMİ</small><b>1,05 m</b></div>
-          <div><small>KABİN</small><b>2</b></div>
-        </div>
-
-        <section className="realDataSection">
-          <h2>Tekne Bilgileri</h2>
-          <dl className="realDataList">
-            {generalRows.filter(([label])=>!['Tekne kimliği','Tekne türü'].includes(label)).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-          </dl>
-        </section>
-
-        <section className="realDataSection" id="teknik" aria-label="Ayrıntılı motor ve performans bilgileri">
-          <dl className="realDataList">
-            {technicalRows.filter(([label])=>label!=='Motor gücü').map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-          </dl>
-        </section>
-
-        <section className="syDemoEquipment" id="donanim">
-          <h2>Donanım & Teçhizat</h2>
-          <div className="realEquipmentList">
-            {equipmentItems.map((x,i)=><span key={i}>✓ {x}</span>)}
+        <section className="v2ListingDescription">
+          <h2>İlan Hakkında</h2>
+          <div className="syRefCopy">
+            <p><b>Bavaria S 36 HT Diesel</b>, sportif gövde yapısı ve açılır hardtop tasarımıyla seyir ve kokpit yaşamını bir araya getiren bir motor yattır. Geniş kokpiti, çift Volvo Penta dizel motoru ve iki kabinli yerleşimiyle konfor ve performansı birlikte sunar.</p>
           </div>
         </section>
 
-        <section className="syDemoMaintenance">
-          <h2>Bakım & Servis Geçmişi</h2>
-          <p>2025 sezonunda motor bakımları, impeller değişimleri, alt bakım ve zehirli boya uygulaması yapılmıştır. Aküler kontrol edilmiş, navigasyon ve elektrik sistemleri test edilmiştir.</p>
+        <section className="v2ListingHighlights">
+          <h2>Öne Çıkan Özellikler</h2>
+          <div className="realVisualFacts">
+            <div><small>BOY</small><b>11,66 m</b></div>
+            <div><small>GENİŞLİK</small><b>3,59 m</b></div>
+            <div><small>SU ÇEKİMİ</small><b>1,05 m</b></div>
+            <div><small>KABİN</small><b>2</b></div>
+          </div>
         </section>
+
+        <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Genel Tekne Bilgileri</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody"><dl className="realDataList">
+            {generalRows.filter(([label])=>!['Tekne kimliği','Tekne türü','Kabin / yataklar'].includes(label)).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl></div>
+        </details>
+
+        <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Motor ve Performans</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody"><dl className="realDataList">
+            {technicalRows.filter(([label])=>['Motor','Motor gücü','Motor saati','Yakıt','Tahrik','Seyir hızı','Azami hız'].includes(label)).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl></div>
+        </details>
+
+        <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Tanklar ve Sistemler</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody"><dl className="realDataList">
+            {technicalRows.filter(([label])=>['Yakıt deposu','Temiz su deposu','Jeneratör','Klima','Elektrik'].includes(label)).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl></div>
+        </details>
+
+        <details className="realDetailAccordion v2TechAccordion" id="donanim">
+          <summary><span>Donanım ve Teçhizat</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody"><div className="realEquipmentList">
+            {equipmentItems.map((x,i)=><span key={i}>✓ {x}</span>)}
+          </div></div>
+        </details>
+
+        <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Bakım ve Servis Geçmişi</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody">
+            <p>2025 sezonunda motor bakımları ve impeller değişimleri gerçekleştirilmiş; alt bakım ve zehirli boya uygulaması yapılmıştır. Aküler kontrol edilmiş, navigasyon ve elektrik sistemleri test edilmiştir.</p>
+          </div>
+        </details>
       </section>
 
       <aside className="syRefSidebar">
