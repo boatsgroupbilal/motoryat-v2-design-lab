@@ -9,7 +9,10 @@ export default async function Page({params}){
  if(!store)notFound();
  const profile=getStoreProfile(store);
  const overview=profile.overview?.includes('Motoryat üzerindeki kurumsal vitriniyle')?null:profile.overview;
- const yachts=[...saleListings,...charterListings].filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image).slice(0,2);
+ const saleYachts=saleListings.filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image);
+ const charterYachts=charterListings.filter(x=>(x.store_slug===slug||x.sellerSlug===slug)&&x.image);
+ const yachts=[...saleYachts,...charterYachts].slice(0,2);
+ const portfolioHref='/magaza/'+slug+(saleYachts.length?'/satilik':'/kiralik');
  const services=Array.isArray(profile.services)?profile.services.filter(x=>x&&x!=='Denizcilik'):[],
        offices=Array.isArray(profile.offices)?profile.offices.filter(Boolean):[];
  return <StoreSiteShell store={store} active="hakkimizda">
@@ -32,7 +35,7 @@ export default async function Page({params}){
    </aside>
   </section>
   {yachts.length>0&&<section className={styles.aboutCollection}>
-   <div className={styles.featuredHead}><div><small className={styles.premiumEyebrow}>PORTFÖYDEN</small><h2>Yatları Keşfedin</h2></div><a href={'/magaza/'+slug+'/satilik'}>Portföy →</a></div>
+   <div className={styles.featuredHead}><div><small className={styles.premiumEyebrow}>PORTFÖYDEN</small><h2>Yatları Keşfedin</h2></div><a href={portfolioHref}>Portföy →</a></div>
    <div className={styles.aboutImages}>{yachts.map(x=><a href={x.href} key={x.slug}><img src={x.image} alt={x.title} loading="lazy"/><span>{x.title}</span></a>)}</div>
   </section>}
   <section className={styles.aboutContact}>
