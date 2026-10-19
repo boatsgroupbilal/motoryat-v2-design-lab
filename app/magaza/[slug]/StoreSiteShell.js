@@ -4,6 +4,8 @@ import {saleListings,charterListings,products} from '../../../data/content';
 import styles from './store-site.module.css';
 export default function StoreSiteShell({store,active='',children}){
  const base='/magaza/'+store.slug;
+ const heroVideo=store.hero_video_url||store.cover_video_url||store.video_url||store.heroVideo||null;
+ const heroPoster=store.cover_image||store.image||null;
  const own=x=>x.store_slug===store.slug||x.sellerSlug===store.slug;
  const tabs=[['Ana Sayfa','']];
  if(saleListings.some(own))tabs.push(['Satılık','satilik']);
@@ -12,7 +14,7 @@ export default function StoreSiteShell({store,active='',children}){
  tabs.push(['Hakkımızda','hakkimizda'],['İletişim','iletisim']);
  return <><SiteHeader/><main className={styles.site}>
   <section className={styles.hero}>
-   {store.image?<img src={store.image} alt=""/>:null}
+   {heroVideo?<video className={styles.heroMedia} autoPlay muted loop playsInline preload="metadata" poster={heroPoster||undefined} aria-label={store.name+' tanıtım videosu'}><source src={heroVideo} type="video/mp4"/></video>:heroPoster?<img className={styles.heroMedia} src={heroPoster} alt=""/>:null}
    <div className={styles.heroShade}/>
    <div className={styles.wrap+' '+styles.heroInner}>
     {store.logo?<img className={styles.logo} src={store.logo} alt=""/>:null}
