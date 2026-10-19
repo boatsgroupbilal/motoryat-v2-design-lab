@@ -1,3 +1,4 @@
+import {choosePageData} from '../../lib/v2-page-data';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import {StoreCard} from '../../components/Card';
@@ -14,8 +15,8 @@ const companyItems=(companies||[]).map((x)=>({
   href:'/firma/'+x.slug
 }));
 
-export default function Page(){
- const items=companyItems.length?companyItems:fallbackItems;
+export default async function Page(){
+ const items=await choosePageData('companies',companyItems.length?companyItems:fallbackItems);
  return <><SiteHeader/><main>
   <section className="directoryHero categoryHeroStd">
    <img className="categoryHeroStdImage" src="/store-directory.webp" alt="Denizcilik firmaları"/>
