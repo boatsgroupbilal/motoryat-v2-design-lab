@@ -14400,3 +14400,36 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .homePage .homeDiscoveryCard{padding:12px;min-height:100px}
  .homePage .homeDiscoveryCard h3{font-size:14px}
 }
+
+/* Mobile PDF audit: avoid fixed fractional card rows creating empty navy space. */
+.homePage .sqYachtGrid.homeYachtGrid.homeEightGrid>.sqYachtCard{
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr)!important;
+ grid-template-rows:auto auto auto!important;
+ aspect-ratio:auto!important;
+ min-height:0!important;
+ height:auto!important;
+ align-self:start!important;
+}
+.homePage .sqYachtGrid.homeYachtGrid.homeEightGrid>.sqYachtCard>.sqYachtMedia{
+ grid-row:1!important;
+ aspect-ratio:1/1!important;
+ height:auto!important;
+ min-height:0!important;
+}
+.homePage .sqYachtGrid.homeYachtGrid.homeEightGrid>.sqYachtCard>.sqYachtInfo{
+ grid-row:2!important;
+ min-height:0!important;
+ height:auto!important;
+ padding:9px!important;
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:flex-start!important;
+}
+.homePage .sqYachtGrid.homeYachtGrid.homeEightGrid>.sqYachtCard>.sqYachtStatus{
+ grid-row:3!important;
+ height:auto!important;
+ min-height:27px!important;
+}
+.homePage .homeEightGrid .sqYachtInfo .sqYachtPrice{margin-top:9px!important}
+.homePage .homeEightGrid .sqYachtPrice strong{overflow-wrap:anywhere!important;word-break:normal!important}
