@@ -36,7 +36,7 @@ export default function YachtCategoryTiles({type='charter',listings=[]}){
       return <Link href={base+'?tip='+encodeURIComponent(value)} className="v2CategoryTile" key={label}>
         <img src={image} alt="" loading="lazy"/>
         <span className="v2CategoryTileShade"/>
-        <span className="v2CategoryTileText"><strong>{label}</strong><small>{matches.length} ilan</small></span>
+        <span className="v2CategoryTileText"><strong>{label}</strong><small>{matches.length ? `${matches.length} ilan` : 'İlanları keşfet'}</small></span>
       </Link>;
     })}
    </div>
