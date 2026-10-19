@@ -209,37 +209,5 @@ export default async function Page({params}){
       </aside>
     </div>
 
-    <section className="syRefBottom">
-      <div className="syRefBottomGrid">
-      <div className="syRefBottomLeft">
-        <div className="syRefSectionHead syRefRelatedHead">
-          <div>
-            <small></small>
-            <h2>Benzer İlanlar</h2>
-          </div>
-          <a href={listHref}>Tüm İlanlar →</a>
-        </div>
-
-        <div className="v2RelatedGrid">
-          {related.filter(x=>x.image).map(x=>{
-            const xMeta=(x.meta||'').split('·').map(v=>v.trim()).filter(Boolean);
-            const xSeller=x.seller||x.store_name||x.sellerName||detailMeta[x.slug]?.seller||'';
-            return <a className="v2RelatedCard" href={'/tekne/'+x.slug} key={x.slug}>
-              <img src={x.image} alt={x.title} loading="lazy"/>
-              <div className="v2RelatedContent">
-                <h3>{x.title}</h3>
-                {xMeta[0]&&<p>{xMeta[0]}</p>}
-                <strong>{x.price||'Fiyat Sorunuz'}</strong>
-                {xSeller&&<small>{xSeller}</small>}
-              </div>
-            </a>;
-          })}
-        </div>
-      </div>
-      <aside className="syRefBottomAds" aria-label="İlan reklamları">
-        {relatedAds.slice(0,related.length>3?2:1).map((src,i)=><a className="syRefBottomAd" href="/magazalar" key={src+i}><img src={src} alt="Motoryat reklam"/></a>)}
-      </aside>
-      </div>
-    </section>
   </main><Footer/></>
 }
