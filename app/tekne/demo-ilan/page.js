@@ -1,3 +1,4 @@
+import YeniViraBanner from '../../../components/YeniViraBanner';
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
 import YachtDetailGallery from '../../../components/YachtDetailGallery';
@@ -176,5 +177,6 @@ export default function DemoListingPage(){
         </div>
       </aside>
     </div>
+    <YeniViraBanner/>
   </main><Footer/></>;
 }
