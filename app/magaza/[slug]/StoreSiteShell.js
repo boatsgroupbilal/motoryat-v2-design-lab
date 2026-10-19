@@ -1,9 +1,15 @@
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
+import {saleListings,charterListings,products} from '../../../data/content';
 import styles from './store-site.module.css';
-const tabs=[['Ana Sayfa',''],['Satılık','satilik'],['Kiralık','kiralik'],['Modeller','modeller'],['Projeler','projeler'],['Ürünler','urunler'],['Hizmetler','hizmetler'],['Hakkımızda','hakkimizda'],['Videolar','videolar'],['Haberler','haberler'],['İletişim','iletisim']];
 export default function StoreSiteShell({store,active='',children}){
  const base='/magaza/'+store.slug;
+ const own=x=>x.store_slug===store.slug||x.sellerSlug===store.slug;
+ const tabs=[['Ana Sayfa','']];
+ if(saleListings.some(own))tabs.push(['Satılık','satilik']);
+ if(charterListings.some(own))tabs.push(['Kiralık','kiralik']);
+ if(products.some(own))tabs.push(['Ürünler','urunler']);
+ tabs.push(['Hakkımızda','hakkimizda'],['İletişim','iletisim']);
  return <><SiteHeader/><main className={styles.site}>
   <section className={styles.hero}>
    {store.image?<img src={store.image} alt=""/>:null}
@@ -17,6 +23,6 @@ export default function StoreSiteShell({store,active='',children}){
    {tabs.map(([label,section])=><a key={section} className={active===section?styles.active:''} href={base+(section?'/'+section:'')}>{label}</a>)}
   </div></nav>
   <div className={styles.wrap+' '+styles.content}>{children}</div>
- </main><Footer/></>
+ </main><Footer/></>;
 }
 export {styles};
