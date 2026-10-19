@@ -1,4 +1,12 @@
 export const storeProfiles = {
+  'bilgin-yachts': {
+    overview: 'Bilgin Yachts, İstanbul merkezli 50 metreden 120 metreye kadar süperyat projeleri geliştiren lüks yat üreticisidir.',
+    services: ['Süperyat inşası','Yeni inşa projeleri','Yat mühendisliği','Özel yat yapımı','Proje yönetimi'],
+    offices: ['İstanbul, Türkiye'],
+    phone: '',
+    email: '',
+    website: ''
+  },
   'admiral-marine-equipment': {
     overview: 'Denizcilik ekipmanları ve tekne donanımları alanında ürün ve çözüm sunan kurumsal mağaza.',
     services: ['Tekne ekipmanları','Güverte donanımları','Rigging ve yelken sistemleri'],
