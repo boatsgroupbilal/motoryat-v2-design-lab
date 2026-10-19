@@ -2,7 +2,8 @@ const text=(v)=>String(v??'').trim();
 const norm=(v)=>text(v).toLocaleLowerCase('tr-TR');
 
 function numberValue(v){
-  const n=Number(v);
+  if(v===undefined||v===null||String(v).trim()==='') return null;
+  const n=Number(String(v).trim().replace(',','.'));
   return Number.isFinite(n)?n:null;
 }
 
