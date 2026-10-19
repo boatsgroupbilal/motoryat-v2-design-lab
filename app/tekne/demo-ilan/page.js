@@ -93,16 +93,6 @@ export default function DemoListingPage(){
         </div>
       </section>
 
-      <div className="syRefTabs">
-        <nav aria-label="İlan bölümleri">
-          <a className="active" href="#genel-bakis">GENEL</a>
-          <a href="#teknik">TEKNİK</a>
-          <a href="#donanim">DONANIM</a>
-        </nav>
-        <div className="syRefTabsActions">
-          <a href="/satilik">SATILIK İLANLAR ⌕</a>
-        </div>
-      </div>
     </div>
 
     <div className="syRefContentWrap" id="genel-bakis">
