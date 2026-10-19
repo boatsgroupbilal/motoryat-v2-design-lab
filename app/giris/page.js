@@ -1,3 +1,3 @@
 import SiteHeader from '../../components/SiteHeader';
-
-export default function Page(){return <><SiteHeader/><main className="loginShell"><section className="loginCard"><img src="/motoryat-logo.svg" alt="Motoryat"/><h1>Hesabınıza giriş yapın</h1><p>İlanlarınızı, mağazanızı ve mesajlarınızı yönetin.</p><div className="formField"><label>E-posta</label><input type="email" placeholder="email@ornek.com"/></div><div className="formField"><label>Şifre</label><input type="password" placeholder="••••••••"/></div><a className="formSubmit" href="/satici/magazam" style={{display:'grid',placeItems:'center'}}>Giriş Yap</a><div className="loginLinks"><a href="/magaza-ac">Mağaza Aç</a><a href="/ilan-ver">İlan Ver</a></div></section></main></>}
+import V2LoginForm from '../../components/V2LoginForm';
+export default function Page(){return <><SiteHeader/><main className="loginShell"><V2LoginForm/></main></>}
