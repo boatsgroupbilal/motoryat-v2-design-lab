@@ -16,7 +16,7 @@ function Section({id,label,openId,setOpenId,children}){
       <span>{label}</span>
       <b aria-hidden="true">{open?'−':'+'}</b>
     </button>
-    {open?<div className="saleFilterSectionBody" id={'sale-filter-'+id}>{children}</div>:null}
+    <div className="saleFilterSectionBody" id={'sale-filter-'+id} style={{display:open?'block':'none'}}>{children}</div>
   </div>;
 }
 
