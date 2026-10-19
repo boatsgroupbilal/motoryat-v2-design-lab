@@ -1,3 +1,4 @@
+import {notFound} from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
 import {saleListings,charterListings} from '../../../data/content';
@@ -32,7 +33,8 @@ function row(label,value){
 export default async function Page({params}){
   const {slug}=await params;
   const all=[...saleListings,...charterListings];
-  const item=all.find(x=>x.slug===slug)||saleListings[1];
+  const item=all.find(x=>x.slug===slug);
+  if(!item) notFound();
   const isCharter=item.kind==='KİRALIK';
   const fallbackInfo=detailMeta[item.slug]||{};
   const info={
@@ -154,19 +156,23 @@ export default async function Page({params}){
           {visualFacts.map(([label,value])=><div key={label}><small>{label}</small><b>{value}</b></div>)}
         </div> : null}
 
-        {generalRows.length ? <section className="realDataSection">
-          <h2>Tekne Bilgileri</h2>
-          <dl className="realDataList">
-            {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-          </dl>
-        </section> : null}
+        {generalRows.length ? <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Genel Tekne Bilgileri</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody">
+            <dl className="realDataList">
+              {generalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            </dl>
+          </div>
+        </details> : null}
 
-        {technicalRows.length ? <section className="realDataSection">
-          <h2>Teknik Bilgiler</h2>
-          <dl className="realDataList">
-            {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-          </dl>
-        </section> : null}
+        {technicalRows.length ? <details className="realDetailAccordion v2TechAccordion">
+          <summary><span>Motor, Performans ve Teknik Özellikler</span><b>Daha Fazla Gör</b></summary>
+          <div className="realDetailAccordionBody">
+            <dl className="realDataList">
+              {technicalRows.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            </dl>
+          </div>
+        </details> : null}
 
         {equipmentItems.length ? <details className="realDetailAccordion">
           <summary><span>Donanım & Teçhizat</span><b>Daha Fazla Gör</b></summary>
