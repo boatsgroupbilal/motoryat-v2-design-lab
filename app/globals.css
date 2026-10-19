@@ -14613,3 +14613,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .syRefPage .v2ListingAdLink p{font-size:12px!important;line-height:1.2!important;margin:4px 0!important}
 @media(max-width:1100px){.syRefPage .v2ListingAdLink{height:160px!important;min-height:160px!important;max-height:160px!important}}
 @media(max-width:820px){.syRefPage .v2ListingAd{padding:0 16px!important}.syRefPage .v2ListingAdLink{height:150px!important;min-height:150px!important;max-height:150px!important}.syRefPage .v2ListingAdLink .yeniviraBannerText{padding:8px 13px!important}.syRefPage .v2ListingAdLink h2{font-size:clamp(18px,5vw,25px)!important}.syRefPage .v2ListingAdLink p{font-size:10px!important}}
+
+/* Hide yacht category discovery image tiles on both sale and charter catalogs; retain heroes and listing images. */
+.luxListingPage .v2CategorySection{display:none!important}
