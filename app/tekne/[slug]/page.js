@@ -1,3 +1,4 @@
+import YeniViraBanner from '../../../components/YeniViraBanner';
 import {notFound} from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import Footer from '../../../components/Footer';
@@ -209,5 +210,6 @@ export default async function Page({params}){
       </aside>
     </div>
 
+    <YeniViraBanner/>
   </main><Footer/></>
 }
