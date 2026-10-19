@@ -9,7 +9,7 @@ const groups=[
 export default function Footer(){return <footer className="dpFooter v2MainFooter">
  <div className="dpWrap v2FooterInner">
   <div className="v2FooterBrand">
-   <Link href="/" aria-label="Motoryat.com ana sayfa"><img src="/motoryat-logo-v31760.svg" alt="MOTORYAT.COM"/></Link>
+   <Link href="/" aria-label="Motoryat.com ana sayfa"><img src="/motoryat-logo-real.png" alt="MOTORYAT.COM"/></Link>
    <p>Denizcilikte keşfet, bağlan ve ticaret yap.</p>
   </div>
   <div className="v2FooterColumns">
