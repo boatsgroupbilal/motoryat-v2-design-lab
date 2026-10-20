@@ -14776,3 +14776,61 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .boatTypesPage .btCardCopy span{padding-top:12px}
 @media(max-width:1100px){.boatTypesPage .btGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:820px){.boatTypesPage{padding-top:16px}.boatTypesPage .btHero{padding:30px 22px;border-radius:9px}.boatTypesPage .btSection{padding-top:34px}.boatTypesPage .btSectionHead h2{font-size:28px}.boatTypesPage .btGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.boatTypesPage .btCardCopy{padding:11px;min-height:205px}.boatTypesPage .btCardCopy h3{font-size:18px}.boatTypesPage .btCardImage{aspect-ratio:1.65/1}}
+
+
+/* Destination and maritime map reference layouts */
+.v2DestPage,.v2MapPage{background:#f4f7f9;color:#0d1b2a;padding-bottom:55px}
+.v2DestContainer{max-width:1280px;width:100%;padding:0 24px;margin:0 auto}
+.v2DestHero{background:#fff;padding:58px 0}
+.v2DestHero small,.v2DestHeading small,.v2DestWorld>small,.v2MapHead small{color:#aa8548;font-size:11px;font-weight:800;letter-spacing:.12em}
+.v2DestHero h1{font:700 clamp(37px,5vw,62px)/1.05 Newsreader,Georgia,serif;margin:15px 0}
+.v2DestHero h1 em{font-style:normal;color:#c2a878}
+.v2DestHero p{max-width:760px;font-size:15px;line-height:1.6;margin-bottom:20px}
+.v2DestActions{display:flex;gap:10px;flex-wrap:wrap}
+.v2DestActions a{padding:12px 18px;background:#c2a878;color:#0d1b2a;font-weight:800;border-radius:5px;font-size:13px}
+.v2DestActions a+a{background:#0d1b2a;color:#fff}
+.v2DestMapStage,.v2DestList,.v2DestWorld{padding-top:42px}
+.v2DestHeading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.v2DestHeading h2,.v2DestWorld h2{font:700 clamp(25px,3vw,35px) Newsreader,Georgia,serif;margin:6px 0}
+.v2DestHeading p{font-size:13px;color:#637483}
+.v2DestHeading>a{color:#a8844a;font-weight:700;font-size:12px}
+.v2DestMapFrame{height:440px;width:100%;border:1px solid #d3dee6;border-radius:8px;background:#e1e9ed}
+.v2DestCards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.v2DestCard{overflow:hidden;border:1px solid #dae2e7;background:#fff;border-radius:8px}
+.v2DestCard>img{width:100%;aspect-ratio:1.8/1;object-fit:cover}
+.v2DestCard>div{padding:18px}
+.v2DestCard small{color:#a8844a;font-weight:800;font-size:11px}
+.v2DestCard h3{font:700 30px Newsreader,Georgia,serif;margin:6px 0}
+.v2DestCard p{font-size:13px;color:#60717f;line-height:1.65;min-height:85px}
+.v2DestCard a{border-top:1px solid #e3e8ed;display:block;padding-top:14px;font-size:12px;color:#a8844a;font-weight:800}
+.v2DestWorld>div{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.v2DestWorld span{background:#fff;border:1px solid #dce4e8;border-radius:5px;padding:13px 17px;font-size:13px}
+.v2MapNav{display:flex;flex-wrap:wrap;gap:10px;padding:17px 0}
+.v2MapNav a{padding:9px 11px;font-size:12px;font-weight:800}
+.v2MapHead{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #dde5e9;padding:24px;gap:15px}
+.v2MapHead h1{font:700 34px Newsreader,Georgia,serif;margin:6px 0}
+.v2MapHead p{font-size:13px;color:#60717f}
+.v2MapHead a{font-size:12px;font-weight:800}
+.v2MapSearch{display:flex;align-items:center;gap:18px;padding:18px 0}
+.v2MapSearch label{font-size:13px;font-weight:800}
+.v2MapSearch input{flex:1;height:46px;border:1px solid #d3dde5;border-radius:5px;padding:0 15px;min-width:0}
+.v2MapFilters{display:flex;flex-wrap:wrap;gap:7px;background:#fff;border:1px solid #dde5e9;padding:13px;margin-bottom:17px}
+.v2MapFilters button{border:1px solid #d6e0e6;background:#fff;color:#0d1b2a;padding:11px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.v2MapFilters button[aria-pressed=true]{background:#0d1b2a;color:#fff}
+.v2MapWorkspace{display:grid;grid-template-columns:290px minmax(0,1fr);border:1px solid #dbe3e7;min-height:540px;background:#fff}
+.v2MapResults{padding:18px;overflow-y:auto;max-height:540px}
+.v2MapResults h2{font:700 24px Newsreader,Georgia,serif}
+.v2MapResults>p{font-size:12px;color:#667684;margin:7px 0 14px}
+.v2MapResults button{display:flex;flex-direction:column;gap:5px;width:100%;background:#fff;border:1px solid #dce5eb;text-align:left;margin:0 0 9px;padding:14px;cursor:pointer;color:#0d1b2a}
+.v2MapResults button.selected{border-color:#a8844a;background:#f9f6ee}
+.v2MapResults button span{font-size:12px;color:#677785}
+.v2MapResults button small{font-size:10px;color:#a8844a;font-weight:800}
+.v2MapView{min-height:540px;position:relative;background:#e2e9ed}
+.v2MapView iframe{border:0;width:100%;height:540px}
+.v2MapTools{position:absolute;right:15px;top:15px;z-index:2;display:flex;gap:5px;flex-wrap:wrap;justify-content:end}
+.v2MapTools button{font-size:11px;font-weight:800;border:1px solid #dce3e8;background:#fff;padding:9px;cursor:pointer;border-radius:4px}
+.v2MapSelected{position:absolute;bottom:15px;left:15px;background:#fff;padding:12px;z-index:2;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;border-radius:4px;box-shadow:0 2px 12px #0002}
+.v2MapSelected a{color:#a8844a;font-weight:800}
+.v2MapDisclosure{font-size:12px;color:#687886;padding:13px 0}
+@media(max-width:820px){.v2DestContainer{padding:0 16px}.v2DestHero{padding:36px 0}.v2DestCards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.v2DestCard>div{padding:12px}.v2DestCard h3{font-size:24px}.v2DestCard p{min-height:0}.v2MapWorkspace{grid-template-columns:1fr}.v2MapResults{max-height:220px}.v2MapView,.v2MapView iframe{height:430px;min-height:430px}}
+@media(max-width:520px){.v2DestCards{grid-template-columns:1fr}.v2DestMapFrame{height:320px}.v2DestHeading{align-items:start;flex-direction:column}.v2MapHead{align-items:start;flex-direction:column}.v2MapSearch{align-items:stretch;flex-direction:column;gap:7px}.v2MapView,.v2MapView iframe{height:390px;min-height:390px}}
