@@ -53,7 +53,7 @@ export default async function Page({params}){
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
   const yachtMeters=(v)=>{
     const raw=v?.length ?? (v?.meta||'').split('·')[0];
-    const match=String(raw??'').replace(',','.').match(/\\d+(?:\\.\\d+)?/);
+    const match=String(raw??'').replace(',','.').match(/[0-9]+(?:[.][0-9]+)?/);
     return match?Number(match[0]):null;
   };
   const targetMeters=yachtMeters(item);
