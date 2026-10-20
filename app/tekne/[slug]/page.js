@@ -1,7 +1,6 @@
 import YeniViraBanner from '../../../components/YeniViraBanner';
 import {notFound} from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
-import Footer from '../../../components/Footer';
 import {saleListings,charterListings} from '../../../data/content';
 import YachtDetailGallery from '../../../components/YachtDetailGallery';
 
@@ -135,6 +134,7 @@ export default async function Page({params}){
   const maintenance=pick(item,'maintenance','maintenance_history','service_history','refit_notes');
 
   return <><SiteHeader/><main className="syRefPage">
+    <nav className="v2DetailBackTop" aria-label="İlan listesine dönüş"><a href={isCharter?'/kiralik':'/satilik'}>← {isCharter?'Kiralık':'Satılık'} İlanlara Dön</a></nav>
     <div className="syRefGalleryWrap">
       <YachtDetailGallery images={images} title={item.title}/>
       {detailVideo ? <div style={{maxWidth:'1280px',margin:'18px auto 0',padding:'0 24px'}}><video controls playsInline preload="metadata" style={{display:'block',width:'100%',maxHeight:'680px',objectFit:'cover',background:'#0D1B2A'}}><source src={detailVideo} type="video/mp4"/></video></div> : null}
@@ -228,5 +228,6 @@ export default async function Page({params}){
         </a>)}</div>
       </div>
     </section> : null}
-  </main><Footer/></>
+    <div className="v2DetailBottomNav"><a href={listHref}>← {isCharter?'Kiralık':'Satılık'} İlanlara Dön</a><small>© Motoryat.com 2026 · Tüm hakları saklıdır.</small></div>
+  </main></>
 }
