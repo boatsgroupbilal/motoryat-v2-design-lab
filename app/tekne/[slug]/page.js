@@ -51,11 +51,18 @@ export default async function Page({params}){
   const detailVideo=item.slug==='grande-mare-gm-42-fly-la-notte-gm-40'?'/listings/grande-mare/gm42/walkthrough.mp4':null;
   const fallbackGallery=isLadyLuna ? ['/charter-luna-hero.webp','/charter-luna-1.webp','/charter-luna-9.webp'] : [item.image];
   const images=[...new Set([item.image,...(item.gallery||[]),...fallbackGallery].filter(Boolean))];
+  const yachtMeters=(v)=>{
+    const raw=v?.length ?? (v?.meta||'').split('·')[0];
+    const match=String(raw??'').replace(',','.').match(/\\d+(?:\\.\\d+)?/);
+    return match?Number(match[0]):null;
+  };
+  const targetMeters=yachtMeters(item);
   const related=(isCharter?charterListings:saleListings)
-    .filter(x=>x.slug!==item.slug)
-    .sort((a,b)=>(b.gallery?.length||0)-(a.gallery?.length||0))
-    .filter(x=>x.image && x.slug)
-    .slice(0,4);
+    .filter(x=>x.slug!==item.slug && x.slug && x.image)
+    .map(x=>({listing:x, distance:targetMeters!==null && yachtMeters(x)!==null?Math.abs(targetMeters-yachtMeters(x)):9999}))
+    .sort((a,b)=>a.distance-b.distance)
+    .slice(0,4)
+    .map(x=>x.listing);
   const listHref=isCharter?'/kiralik':'/satilik';
   const relatedAds=isCharter
     ? ['/ads/motoryat-house-ad-300-png.webp']
