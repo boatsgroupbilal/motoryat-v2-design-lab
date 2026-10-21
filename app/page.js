@@ -4,7 +4,7 @@ import {saleListings,charterListings,products} from '../data/content';
 import {YachtCard,ProductCard} from '../components/Card';
 
 export default function Home(){return <><SiteHeader/><main className="homePage">
- <section className="dpHero"><video className="dpHeroPhoto" autoPlay muted loop playsInline preload="metadata" poster="https://motoryat.com/media/lady-luna/hero-poster.webp" aria-label="Lady Luna 32M Motor Yacht"><source src="https://motoryat.com/videos/home/lady-luna-home.mp4" type="video/mp4"/></video><div className="dpHeroShade"></div><div className="dpWrap"><small>LADY LUNA · 32M MOTOR YACHT</small><h1>Denizcilikte keşfet, bağlan ve ticaret yap.</h1><a className="dpBtn" href="/kiralik">Kiralık yatları keşfet</a></div><div className="dpMobileHeroQuote"><b>“</b><p>Denizcilikte keşfet, bağlan ve ticaret yap.</p><span>MOTORYAT.COM</span></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
+ <section className="dpHero"><video className="dpHeroPhoto" autoPlay muted loop playsInline preload="metadata" poster="https://motoryat.com/media/lady-luna/hero-poster.webp" aria-label="Lady Luna 32M Motor Yacht"><source src="https://motoryat.com/videos/home/lady-luna-home.mp4" type="video/mp4"/></video><div className="dpHeroShade"></div><div className="dpWrap"><h1>Denizcilikte keşfet, bağlan ve ticaret yap.</h1><a className="dpBtn" href="/kiralik">Kiralık yatları keşfet</a></div><div className="dpMobileHeroQuote"><p>LADY LUNA · 32M MOTOR YACHT</p></div><div className="dpDots" aria-hidden="true"><i className="on"></i><i></i><i></i><i></i></div></section>
 
  {[
    {id:'satilik',title:'Satılık Yatlar',eyebrow:'SATILIK YATLAR',href:'/satilik',list:saleListings,type:'sale'},
