@@ -228,6 +228,6 @@ export default async function Page({params}){
         </a>)}</div>
       </div>
     </section> : null}
-    <div className="v2DetailBottomNav"><a href={listHref}>← {isCharter?'Kiralık':'Satılık'} İlanlara Dön</a><small>© Motoryat.com 2026 · Tüm hakları saklıdır.</small></div>
+    <div className="v2DetailBottomNav"><a href={listHref}>← {isCharter?'Kiralık':'Satılık'} İlanlara Dön</a></div>
   </main></>
 }
