@@ -178,5 +178,5 @@ export default function DemoListingPage(){
       </aside>
     </div>
     <YeniViraBanner/>
-  </main><Footer/></>;
+  </main></>;
 }
